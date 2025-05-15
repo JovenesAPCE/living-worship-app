@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "212920800593",
+    "firebase_url": "https://jamt-efcb2-default-rtdb.firebaseio.com",
+    "project_id": "jamt-efcb2",
+    "storage_bucket": "jamt-efcb2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212920800593:android:02eb4a46fa0c2c8201ef70",
+        "android_client_info": {
+          "package_name": "pe.com.ja.mt.jamt"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCViF8_UE6uwAq7repjVwIDx_8me2s4tXc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

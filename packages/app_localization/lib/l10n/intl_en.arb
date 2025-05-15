@@ -1,0 +1,46 @@
+{
+  "loginAuthFailure": "Authentication failed",
+  "@loginAuthFailure": {
+    "description": "Message shown when authentication fails"
+  },
+  "loginBirthYearHint": "Year of birth (e.g. 2001)",
+  "@loginBirthYearHint": {
+    "description": "Helper text for entering the birth year"
+  },
+  "loginBirthYearInvalid": "Invalid year",
+  "@loginBirthYearInvalid": {
+    "description": "Error message when the entered year is invalid"
+  },
+  "loginCloseButton": "Close",
+  "@loginCloseButton": {
+    "description": "Text for the button to close the dialog or screen"
+  },
+  "loginLoginButton": "Sign in",
+  "@loginLoginButton": {
+    "description": "Text for the main button to log in"
+  },
+  "loginDniHint": "Enter your DNI document",
+  "@loginDniHint": {
+    "description": "Helper text for the DNI field"
+  },
+  "loginMyData": "My Data",
+  "@loginMyData": {
+    "description": "Section title where the user sees their data"
+  },
+  "loginSignInTitle": "SIGN IN",
+  "@loginSignInTitle": {
+    "description": "Large highlighted login button text"
+  },
+  "loginInvalidUser": "Invalid user",
+  "@loginInvalidUser": {
+    "description": "Error message shown when the user is invalid"
+  },
+  "loginValidatingMessage": "Validando tus datos...",
+  "@loginValidatingMessage": {
+    "description": "Mensaje mostrado mientras se validan los datos del usuario"
+  },
+  "loginCantSignInLink": "I can''t sign in!",
+  "@loginCantSignInLink": {
+    "description": "Link text for help when the user can't sign in"
+  }
+}

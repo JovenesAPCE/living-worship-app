@@ -1,0 +1,9 @@
+arb-dir: lib/l10n
+template-arb-file: intl_es.arb
+output-localization-file: app_localizations.dart
+
+synthetic-package: false
+output-dir: lib
+
+nullable-getter: false
+use-escaping: true #"escapingExample": "In math, '{1, 2, 3}' denotes a set."

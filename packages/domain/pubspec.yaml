@@ -1,0 +1,10 @@
+name: domain
+description: Dart package which manages the domain.
+publish_to: none
+
+environment:
+  sdk: ^3.7.2
+
+dependencies:
+  entities:
+    path: ../entities

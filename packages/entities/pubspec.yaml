@@ -1,0 +1,7 @@
+name: entities
+description: Dart package which manages the entities.
+publish_to: none
+
+environment:
+  sdk: ^3.7.2
+

@@ -1,0 +1,46 @@
+{
+  "loginAuthFailure": "Error de autenticación",
+  "@loginAuthFailure": {
+    "description": "Mensaje mostrado cuando falla la autenticación"
+  },
+  "loginBirthYearHint": "Año de nacimiento (Ej: 2001)",
+  "@loginBirthYearHint": {
+    "description": "Texto de ayuda para ingresar el año de nacimiento"
+  },
+  "loginBirthYearInvalid": "Año inválido",
+  "@loginBirthYearInvalid": {
+    "description": "Mensaje de error cuando el año ingresado no es válido"
+  },
+  "loginCloseButton": "Cerrar",
+  "@loginCloseButton": {
+    "description": "Texto del botón para cerrar el diálogo o pantalla"
+  },
+  "loginLoginButton": "Iniciar sesión",
+  "@loginLoginButton": {
+    "description": "Texto del botón principal para iniciar sesión"
+  },
+  "loginDniHint": "Ingresa tu documento DNI",
+  "@loginDniHint": {
+    "description": "Texto de ayuda para el campo de DNI"
+  },
+  "loginMyData": "Mis datos",
+  "@loginMyData": {
+    "description": "Título de la sección donde el usuario ve sus datos"
+  },
+  "loginSignInTitle": "INGRESAR",
+  "@loginSignInTitle": {
+    "description": "Texto grande destacado del botón de inicio de sesión"
+  },
+  "loginInvalidUser": "Usuario inválido",
+  "@loginInvalidUser": {
+    "description": "Mensaje de error mostrado cuando el usuario es inválido"
+  },
+  "loginValidatingMessage": "Validando tus datos...",
+  "@loginValidatingMessage": {
+    "description": "Mensaje mostrado mientras se validan los datos del usuario"
+  },
+  "loginCantSignInLink": "¡No consigo ingresar!",
+  "@loginCantSignInLink": {
+    "description": "Texto de enlace para ayuda cuando el usuario no puede iniciar sesión"
+  }
+}

@@ -1,0 +1,15 @@
+name: app_localization
+description: Dart package which manages the language.
+publish_to: none
+
+environment:
+  sdk: ^3.7.2
+flutter:
+  generate: true
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: any
