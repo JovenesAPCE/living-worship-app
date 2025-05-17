@@ -80,7 +80,7 @@ class _UserScreenState extends State<UserScreen> {
                             ),
                           ),
                           const SizedBox(height: 54),
-                          const Text("Custionario CALEB",
+                          const Text("Cuestionario CALEB",
                               style: TextStyle(
                                   fontSize: 16,
                                   color: Colors.grey
@@ -103,7 +103,7 @@ class _UserScreenState extends State<UserScreen> {
                                   child: Row(
                                     children: [
                                       Expanded(
-                                          child: Text("Sí, deseo ser un predicador Caleb",
+                                          child: Text("Sí, deseo ser un predicador CALEB",
                                             style: TextStyle(
                                               fontFamily: AppFont.font,
                                               fontSize: 18,
@@ -241,7 +241,7 @@ class _UserScreenState extends State<UserScreen> {
                           const Text("Página 2/2",
                               style: TextStyle(fontSize: 16, color: Colors.grey)),
                           const SizedBox(height: 20),
-                          const Text("Confirma tu decisión como predicador Caleb",
+                          const Text("Confirma tu decisión como predicador CALEB",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 26,
@@ -333,7 +333,7 @@ class _UserScreenState extends State<UserScreen> {
                             const Padding(
                               padding: EdgeInsets.only(top: 12, bottom: 32),
                               child: Text(
-                                "Sabemos que quizás no es el momento, pero nos encantaría seguir compartiéndote noticias e inspiración sobre la misión Caleb. Por favor, déjanos tu correo y número de celular.",
+                                "Sabemos que quizás no es el momento, pero nos encantaría seguir compartiéndote noticias e inspiración sobre la misión CALEB. Por favor, déjanos tu correo y número de celular.",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   fontSize: 14,
