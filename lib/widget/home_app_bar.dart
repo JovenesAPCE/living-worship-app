@@ -20,6 +20,18 @@ class HomeAppBar extends StatelessWidget {
       automaticallyImplyLeading: false,
       title: Row(
         children: [
+          if (Navigator.of(context).canPop())
+            IconButton(
+                onPressed: (){
+                  Navigator.pop(context);
+                },
+                icon: Icon(
+                  AppIcon.left_open_big,
+                  color: Colors.white,
+                  size: 26,
+                )),
+          if (Navigator.of(context).canPop())
+          const SizedBox(width: 8),
           Image.asset(AppImages.mainLogoBlue, height: 40),
           const Spacer(),
           if(destination != Destination.profile)

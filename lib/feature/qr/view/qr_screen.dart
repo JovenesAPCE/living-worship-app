@@ -161,11 +161,16 @@ class _ScanQrScreenState extends State<ScanQrScreen> {
                     ),
                     child: Row(
                       children: [
-                        InkWell(
-                          onTap: () => Navigator.pop(context),
-                          child: const Icon(Icons.arrow_back, color: Colors.white),
-                        ),
-                        const SizedBox(width: 24),
+                        IconButton(
+                            onPressed: (){
+                              Navigator.pop(context);
+                            },
+                            icon: Icon(
+                              AppIcon.left_open_big,
+                              color: Colors.white,
+                              size: 26,
+                            )),
+                        const SizedBox(width: 8),
                         Text(
                           "Escanea tu asistencia",
                           style: const TextStyle(

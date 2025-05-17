@@ -13,7 +13,7 @@ final class ActivitiesState extends Equatable{
         details: [
           CardDetailActivity(
             body: "Conoce al presidente de la APCE y su labor en la misión.",
-            image: AppImages.activityImage1,
+            image: AppImages.activityImage3,
           ),
           CardDetailActivity(
             body: "Descubre quién es el departamental de jóvenes de la APCE y su rol en el liderazgo juvenil.",
@@ -21,7 +21,7 @@ final class ActivitiesState extends Equatable{
           ),
           CardDetailActivity(
             body: "Conoce a la coordinadora general y su responsabilidad en la organización del evento.",
-            image: AppImages.activityImage1,
+            image: AppImages.activityImage4,
           ),
         ],
       ),

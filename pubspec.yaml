@@ -112,6 +112,8 @@ flutter:
     - assets/images/activity_card_a4.jpg
     - assets/images/activity_card_a5.jpg
     - assets/images/activity_image_2.webp
+    - assets/images/activity_image_3.webp
+    - assets/images/activity_image_4.webp
     - assets/images/guest_card_1.webp
     - assets/images/logo_worship.png
     - assets/images/logo_mrnt.webp
@@ -158,6 +160,9 @@ flutter:
     - family: Home
       fonts:
         - asset: assets/fonts/icon_home/Home.ttf
+    - family: Home2
+      fonts:
+        - asset: assets/fonts/icon_home/Home2.ttf
     - family: FjallaOne
       fonts:
         - asset: assets/fonts/FjallaOne-Regular.ttf

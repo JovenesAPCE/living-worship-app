@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:jamt/constants/app_icon.dart';
+import 'package:jamt/constants/constants.dart';
 
 enum Destination {
 
   tabHome(AppIcon.home, 'Inicio'),
   sessions(Icons.bookmark, 'Semiplenarias'),
-  profile(Icons.person, 'Mis datos'),
+  profile(AppIcon.hand, 'Predicador Caleb'),
   qrScan(AppIcon.qrcode, 'Escanear'),
   qrCheckIn(AppIcon.qrcode, 'Escanear'),
   qrCheckOut(AppIcon.qrcode, 'Escanear'),
