@@ -32,7 +32,7 @@ class LoginPage extends StatelessWidget {
             right: 0,
             child: Center(
               child: SizedBox(
-                width: 200,
+                width:  MediaQuery.of(context).size.height * 0.23, // 50% del ancho de pantalla,
                 child: Image.asset(
                   AppImages.logoWorship,
                   fit: BoxFit.cover,

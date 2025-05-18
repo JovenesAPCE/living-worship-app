@@ -26,9 +26,7 @@ class TabHomeScreen extends StatefulWidget {
 
 class _HomeState extends State<TabHomeScreen> {
   late final List<GlobalKey<NavigatorState>> _navigatorKeys;
-  final List<TabDestination> _tabHistory = [];
-  int _backPressCounter = 0;
-  Timer? _backPressTimer;
+
 
   @override
   void initState() {
@@ -51,94 +49,38 @@ class _HomeState extends State<TabHomeScreen> {
     return BlocListener<TabHomeBloc, TabHomeState>(
       listener: (context, state) {
 
-        if(state is DestinationSelected){
-          if(state.destination == TabDestination.sessions){
-            print("state");
-            context.read<SemiPlenaryBloc>().add(LoadSemiPlenary());
-          }
-
-        }
       },
-      child: PopScope(
-        canPop: false,
-        onPopInvokedWithResult: (didPop, result) async {
-          if (didPop) return;
+      child:  Scaffold(
+        drawer: const HomeDrawer(),
+        body: Stack(
+          children: [
+            _HomeIndexStack(navigatorKeys: _navigatorKeys,),
+            Positioned(
+              left: 16,
+              right: 16,
+              bottom: 32,
+              child: _HomeNavigationBar(
+                navigatorKeys: _navigatorKeys,
+                onTabSelected: (TabDestination destination) {
+                  final bloc = context.read<TabHomeBloc>();
+                  var destinations = bloc.state.destinations;
 
-          final bloc = context.read<TabHomeBloc>();
-          final index = bloc.state.destinations.indexOf(bloc.state.destination);
-          final navigator = _navigatorKeys[index].currentState;
+                  var currentIndex = destinations.indexOf(destination);
 
-          if (navigator != null && await navigator.maybePop()) {
-            return;
-          }
-
-          if (_tabHistory.isNotEmpty) {
-            final previousIndex = _tabHistory.removeLast();
-            bloc.add(DestinationSelected(previousIndex));
-            return;
-          }
-
-          // Si NO estás en Guía, retrocede a Home antes de salir
-          if (bloc.state.destination != TabDestination.home) {
-            bloc.add(DestinationSelected(TabDestination.home));
-            return;
-          }
-
-          _backPressCounter++;
-          if (_backPressCounter == 1) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Presiona otra vez para salir')),
-            );
-            _backPressTimer = Timer(const Duration(seconds: 2), () {
-              _backPressCounter = 0;
-            });
-          } else {
-            _backPressTimer?.cancel();
-            _backPressCounter = 0;
-            Future.delayed(const Duration(milliseconds: 100), () {
-              SystemNavigator.pop();
-            });
-          }
-        },
-        child: Scaffold(
-          drawer: const HomeDrawer(),
-          body: Stack(
-            children: [
-              _HomeIndexStack(navigatorKeys: _navigatorKeys),
-              Positioned(
-                left: 16,
-                right: 16,
-                bottom: 32,
-                child: _HomeNavigationBar(
-                  navigatorKeys: _navigatorKeys,
-                  onTabSelected: (TabDestination destination) {
-                    final bloc = context.read<TabHomeBloc>();
-                    var destinations = bloc.state.destinations;
-
-                    var currentIndex = destinations.indexOf(destination);
-
-                    if (destination == TabDestination.menu) {
-                      final scaffoldContext =
-                          _navigatorKeys[currentIndex].currentContext;
-                      if (scaffoldContext != null) {
-                        Scaffold.of(scaffoldContext).openDrawer();
-                      }
-                      return;
+                  if (destination == TabDestination.menu) {
+                    final scaffoldContext =
+                        _navigatorKeys[currentIndex].currentContext;
+                    if (scaffoldContext != null) {
+                      Scaffold.of(scaffoldContext).openDrawer();
                     }
-                    // Elimina si ya existe antes en la pila
-                    _tabHistory.remove(destination);
+                    return;
+                  }
 
-                    // Agrega el actual a la pila si no es duplicado del último
-                    if (_tabHistory.isEmpty || _tabHistory.last != destination) {
-                      _tabHistory.add(destination);
-                    }
-
-                    bloc.add(DestinationSelected(destination));
-                  },
-                ),
+                  bloc.add(DestinationSelected(destination));
+                },
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -151,30 +93,45 @@ class _HomeAppBar extends StatelessWidget {
     final destination = context.select(
       (TabHomeBloc bloc) => bloc.state.destination,
     );
-    return HomeAppBar(color: destination.color1);
+    return HomeAppBar(
+        isPop: destination != TabDestination.home,
+        color: destination.color1);
   }
 }
 
-class _HomeIndexStack extends StatelessWidget {
+class _HomeIndexStack extends StatefulWidget {
   const _HomeIndexStack({super.key, required this.navigatorKeys});
 
   final List<GlobalKey<NavigatorState>> navigatorKeys;
+  @override
+  State<_HomeIndexStack> createState() => _HomeIndexStackState();
+}
+
+class _HomeIndexStackState extends State<_HomeIndexStack> {
+  int backPressCounter = 0;
+  Timer? _backPressTimer;
+
+  @override
+  void dispose() {
+    _backPressTimer?.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final selectDestination = context.select(
-      (TabHomeBloc bloc) => bloc.state.destination,
+          (TabHomeBloc bloc) => bloc.state.destination,
     );
     final destinations = context.select(
-      (TabHomeBloc bloc) => bloc.state.destinations,
+          (TabHomeBloc bloc) => bloc.state.destinations,
     );
 
     return Stack(
       children: [
-       Column(
+        Column(
           children: [
             Expanded(
-              flex: 1,
+                flex: 1,
                 child: Container(
                   color: selectDestination.color1,
                 )
@@ -192,22 +149,57 @@ class _HomeIndexStack extends StatelessWidget {
           children: List.generate(
             destinations.length,
                 (index) => Navigator(
-              key: navigatorKeys[index],
+              key: widget.navigatorKeys[index],
               onGenerateRoute: (_) {
                 return MaterialPageRoute(
                   builder:
                       (_) => Stack(
-                        children: [
-                          CustomScrollView(
-                            slivers: [
-                              _HomeAppBar(),
-                              SliverToBoxAdapter(
-                                child: _getScreenForDestination(destinations[index]),
-                              ),
-                            ],
-                          )
+                    children: [
+                      CustomScrollView(
+                        slivers: [
+                          _HomeAppBar(),
+                          SliverToBoxAdapter(
+                            child: PopScope(
+                              canPop: false,
+                              onPopInvokedWithResult: (didPop, result) {
+                                //Navigator.pop(context);
+                                if (didPop) return;
+                                print("onPopInvokedWithResult");
+                                final bloc = context.read<TabHomeBloc>();
+
+                                // Si NO estás en Guía, retrocede a Home antes de salir
+                                if (bloc.state.destination != TabDestination.home) {
+                                  if(context.mounted){
+                                    context.read<TabHomeBloc>().add(DestinationSelected(TabDestination.home));
+                                  }
+                                  return;
+                                }
+
+                                backPressCounter++;
+                                if (backPressCounter == 1) {
+                                  if(context.mounted){
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(content: Text('Presiona otra vez para salir')),
+                                    );
+                                  }
+                                  _backPressTimer = Timer(const Duration(seconds: 2), () {
+                                    backPressCounter = 0;
+                                  });
+                                } else {
+                                  _backPressTimer?.cancel();
+                                  backPressCounter = 0;
+                                  Future.delayed(const Duration(milliseconds: 100), () {
+                                    SystemNavigator.pop();
+                                  });
+                                }
+                              },
+                              child: _getScreenForDestination(destinations[index]),
+                            ),
+                          ),
                         ],
-                      ),
+                      )
+                    ],
+                  ),
                 );
               },
             ),
@@ -244,6 +236,7 @@ class _HomeIndexStack extends StatelessWidget {
     }
   }
 }
+
 
 class _HomeNavigationBar extends StatelessWidget {
   const _HomeNavigationBar({

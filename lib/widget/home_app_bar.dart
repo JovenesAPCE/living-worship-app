@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jamt/constants/constants.dart';
 import 'package:jamt/navigation/navigation.dart';
 
 class HomeAppBar extends StatelessWidget {
-  const HomeAppBar({super.key, this.color});
+  const HomeAppBar({super.key, this.color, required this.isPop});
   final Color? color;
+  final bool isPop;
   @override
   Widget build(BuildContext context) {
     final destination = context.select(
@@ -20,17 +22,19 @@ class HomeAppBar extends StatelessWidget {
       automaticallyImplyLeading: false,
       title: Row(
         children: [
-          if (Navigator.of(context).canPop())
+         // if (Navigator.of(context).canPop())
+          if(isPop)
             IconButton(
                 onPressed: (){
-                  Navigator.pop(context);
+                  Navigator.maybePop(context);
+                  //SystemNavigator.pop();
                 },
                 icon: Icon(
                   AppIcon.left_open_big,
                   color: Colors.white,
                   size: 26,
                 )),
-          if (Navigator.of(context).canPop())
+          if(isPop)
           const SizedBox(width: 8),
           Image.asset(AppImages.mainLogoBlue, height: 40),
           const Spacer(),

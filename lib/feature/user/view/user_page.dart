@@ -25,6 +25,7 @@ class UserPage extends StatelessWidget {
             headerSliverBuilder: (context, innerBoxIsScrolled) => [
               HomeAppBar(
                 color: AppColor.orangeMain,
+                isPop: true,
               ),
             ],
             body: UserScreen(),
