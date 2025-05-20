@@ -24,6 +24,7 @@ class NavigationBloc
     on<AuthenticationSubscriptionRequested>(_onSubscriptionRequested);
     on<AuthenticationLogoutPressed>(_onLogoutPressed);
     on<NavigationPressed>(_onNavigationPressed);
+    on<NavigateToFromNotification>(_onNavigateToFromNotification);
   }
 
   final GetAuthStatusUseCase _getAuthStatus;
@@ -70,6 +71,22 @@ class NavigationBloc
         }
       },
       onError: addError,
+    );
+  }
+  void _onNavigateToFromNotification(
+      NavigateToFromNotification event,
+      Emitter<NavigationState> emit,
+      )async{
+
+    print("_onNavigateToFromNotification");
+
+    await Future.delayed(Duration(seconds: 1));
+    emit(
+        state.copyWith(
+            destination: event.destination,
+            initial: false,
+            forceUpdate: DateTime.timestamp().millisecond
+        )
     );
   }
 

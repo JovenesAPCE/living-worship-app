@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Jamt</string>
+	<string>Living Worship</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -54,5 +54,24 @@
     <array>
       <string>https</string>
     </array>
+    <key>FirebaseAppDelegateProxyEnabled</key>
+    <false/>
+
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>remote-notification</string>
+    </array>
+
+    <key>NSAppTransportSecurity</key>
+    <dict>
+      <key>NSAllowsArbitraryLoads</key>
+      <true/>
+    </dict>
+
+    <key>NSUserTrackingUsageDescription</key>
+    <string>Esta app usa notificaciones para mantenerte informado.</string>
+
+    <key>UNUserNotificationCenter</key>
+    <string>YES</string>
 </dict>
 </plist>
