@@ -1,3 +1,3 @@
 enum UserPageState {
-    pageDecision, pageTwo, pageTwoVariant
+    pageDecision, pageTwo, pageTwoVariant, pageSuccess
 }

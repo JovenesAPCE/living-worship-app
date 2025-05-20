@@ -1,3 +1,4 @@
+import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jamt/constants/app_color.dart';
@@ -18,19 +19,18 @@ class UserPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) => UserBloc(),
-        child: Scaffold(
-          drawer: const HomeDrawer(),
-          body: NestedScrollView(
-            headerSliverBuilder: (context, innerBoxIsScrolled) => [
-              HomeAppBar(
-                color: AppColor.orangeMain,
-                isPop: true,
-              ),
-            ],
-            body: UserScreen(),
+        create: (context) => UserBloc(
+            saveUserDecisionUseCase: SaveUserDecisionUseCase(
+                context.read<UserRepository>()
+            ),
+          getPathWhatsAppGroupUseCase: GetPathWhatsAppGroupUseCase(
+              context.read<UserRepository>()
           ),
-        )
+          getUserDecisionUseCase: GetUserDecisionUseCase(
+              context.read<UserRepository>()
+          )
+        )..add(RequestAddUser()),
+        child: UserScreen()
     );
   }
 }

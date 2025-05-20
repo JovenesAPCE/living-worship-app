@@ -11,3 +11,6 @@ export 'semi-plenary/get_qr_status_use_case.dart';
 export 'semi-plenary/register_semi_plenary_check_in.dart';
 export 'semi-plenary/get_qr_state_semi_plenary_use_case.dart';
 export 'semi-plenary/register_semi_plenary_check_outh.dart';
+export 'user-decision/save_user_decision_usecase.dart';
+export 'user-decision/get_path_whats_app_group_usecase.dart';
+export 'user-decision/get_user_decision_usecase.dart';

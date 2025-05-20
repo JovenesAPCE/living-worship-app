@@ -19,6 +19,9 @@ class UserTable {
   @HiveField(4)
   bool? pendingUpdate;
 
+  @HiveField(5)
+  bool? yesIPreacher;
+
   // Convertir modelo -> entidad
   User toEntity() => User(document: document, name: name, session: session);
 

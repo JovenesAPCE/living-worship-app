@@ -164,7 +164,7 @@ class _HomeIndexStackState extends State<_HomeIndexStack> {
                               onPopInvokedWithResult: (didPop, result) {
                                 //Navigator.pop(context);
                                 if (didPop) return;
-                                print("onPopInvokedWithResult");
+
                                 final bloc = context.read<TabHomeBloc>();
 
                                 // Si NO estás en Guía, retrocede a Home antes de salir
