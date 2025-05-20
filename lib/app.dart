@@ -26,6 +26,7 @@ class App extends StatelessWidget {
           dispose: (repository) => repository.dispose(),
         ),
         RepositoryProvider<UserRepository>(create: (_) => UserRepositoryImpl()),
+        RepositoryProvider<NotificationRepository>(create: (_) => NotificationRepositoryImpl()),
         RepositoryProvider<SemiPlenaryRepository>(
             create: (_) => SemiPlenaryRepositoryImpl(),
             dispose: (repository) {

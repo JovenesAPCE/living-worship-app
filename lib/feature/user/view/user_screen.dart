@@ -2,12 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jamt/extensions/extensions.dart';
 import 'package:jamt/feature/user/user.dart';
 import 'package:jamt/constants/constants.dart';
-import 'package:jamt/widget/home_app_bar.dart';
-import 'package:jamt/widget/home_drawer.dart';
-import 'package:jamt/widget/timed_status_message.dart';
 import 'package:jamt/widget/widget.dart';
 import 'package:lottie/lottie.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -229,18 +225,6 @@ class _UserScreenState extends State<UserScreen> {
                                           ),
                                         ),
                                         _buildInputTile(
-                                            Icons.email,
-                                            'Correo electrónico',
-                                            onChanged: (value) {
-                                              context.read<UserBloc>().add(
-                                                OnEmailChanged(value),
-                                              );
-                                            },
-                                            showError: state.emailError,
-                                            errorText: state.emailErrorText//'Este campo es obligatorio',
-                                        ),
-                                        const SizedBox(height: 24),
-                                        _buildInputTile(
                                           Icons.phone_android,
                                           'Celular',
                                           isPhone: true,
@@ -252,6 +236,20 @@ class _UserScreenState extends State<UserScreen> {
                                           showError: state.phoneError,
                                           errorText: state.phoneErrorText,//'Este campo es obligatorio'
                                         ),
+                                        const SizedBox(height: 24),
+                                        _buildInputTile(
+                                            Icons.email,
+                                            'Correo electrónico',
+                                            onChanged: (value) {
+                                              context.read<UserBloc>().add(
+                                                OnEmailChanged(value),
+                                              );
+                                            },
+                                            showError: state.emailError,
+                                            errorText: state.emailErrorText//'Este campo es obligatorio',
+                                        ),
+
+
                                         const SizedBox(height: 54),
                                         Row(
                                           mainAxisAlignment: MainAxisAlignment.center,
@@ -335,18 +333,6 @@ class _UserScreenState extends State<UserScreen> {
                                           ),
                                         ),
                                         _buildInputTile(
-                                            Icons.email,
-                                            'Correo electrónico',
-                                            onChanged: (value) {
-                                              context.read<UserBloc>().add(
-                                                OnEmailChanged(value),
-                                              );
-                                            },
-                                            showError: state.emailError,
-                                            errorText: state.emailErrorText//'Este campo es obligatorio',
-                                        ),
-                                        const SizedBox(height: 24),
-                                        _buildInputTile(
                                             Icons.phone_android,
                                             'Celular',
                                             isPhone: true,
@@ -357,6 +343,18 @@ class _UserScreenState extends State<UserScreen> {
                                             },
                                             showError: state.phoneError,
                                             errorText: state.phoneErrorText//'Este campo es obligatorio',
+                                        ),
+                                        const SizedBox(height: 24),
+                                        _buildInputTile(
+                                            Icons.email,
+                                            'Correo electrónico',
+                                            onChanged: (value) {
+                                              context.read<UserBloc>().add(
+                                                OnEmailChanged(value),
+                                              );
+                                            },
+                                            showError: state.emailError,
+                                            errorText: state.emailErrorText//'Este campo es obligatorio',
                                         ),
                                         const SizedBox(height: 54),
                                         Row(
@@ -759,4 +757,7 @@ class _UserScreenState extends State<UserScreen> {
 
     }
   }
+
+
+
 }

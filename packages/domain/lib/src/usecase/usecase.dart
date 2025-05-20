@@ -14,3 +14,5 @@ export 'semi-plenary/register_semi_plenary_check_outh.dart';
 export 'user-decision/save_user_decision_usecase.dart';
 export 'user-decision/get_path_whats_app_group_usecase.dart';
 export 'user-decision/get_user_decision_usecase.dart';
+export 'notification/get_notification_usecase.dart';
+export 'notification/update_notification_usecase.dart';
