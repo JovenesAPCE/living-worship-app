@@ -31,7 +31,7 @@ class UserState extends Equatable {
     this.phone = "",
     this.phoneError = false,
     this.phoneErrorText  = "",
-    this.pageState = UserPageState.pageDecision,
+    this.pageState = UserPageState.pageGetReady,
     this.decisions = const [
       UserDecision(
         id: 1,

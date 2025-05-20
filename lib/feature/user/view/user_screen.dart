@@ -9,6 +9,7 @@ import 'package:jamt/widget/home_app_bar.dart';
 import 'package:jamt/widget/home_drawer.dart';
 import 'package:jamt/widget/timed_status_message.dart';
 import 'package:jamt/widget/widget.dart';
+import 'package:lottie/lottie.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class UserScreen extends StatefulWidget {
@@ -481,10 +482,128 @@ class _UserScreenState extends State<UserScreen> {
                                           ),
                                         ],
                                       ),
+                                    ),
+                                  if (state.pageState == UserPageState.pageGetReady)
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          // 🔄 Lottie animada (tipo loading o esperando)
+                                          SizedBox(
+                                            height: 180,
+                                            child: Lottie.asset(AppLottie.userLoading, width: 400),
+                                          ),
+
+                                          const SizedBox(height: 0),
+
+                                          const Text(
+                                            "¡Prepárate!",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              fontSize: 26,
+                                              fontWeight: FontWeight.bold,
+                                              fontFamily: AppFont.fontTwo,
+                                            ),
+                                          ),
+
+                                          const SizedBox(height: 16),
+
+                                          const Text(
+                                            "Estás a punto de unirte a algo grande.\n"
+                                                "Solo un poco más...\n\n"
+                                                "Lo mejor está por comenzar... y tú serás parte de ello. ¡Atento!\n\n"
+                                                "Falta poco para que formes parte de algo increíble. Espera un poco...",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              fontSize: 14,
+                                              fontStyle: FontStyle.italic,
+                                              color: AppColor.textGrey,
+                                              height: 1.5,
+                                            ),
+                                          ),
+
+                                          const SizedBox(height: 48),
+
+                                          // Botón opcional desactivado o de solo vista
+                                          SizedBox(
+                                            width: double.infinity,
+                                            child: ElevatedButton.icon(
+                                              onPressed: null, // Desactivado por ahora
+                                              icon: const Icon(Icons.lock_clock, color: Colors.white),
+                                              label: const Text(
+                                                "Registro no disponible aún",
+                                                style: TextStyle(fontSize: 14, color: Colors.white),
+                                              ),
+                                              style: ElevatedButton.styleFrom(
+                                                backgroundColor: Colors.grey,
+                                                padding: const EdgeInsets.symmetric(vertical: 16),
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius: BorderRadius.circular(12),
+                                                ),
+                                                elevation: 0,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     )
                                 ],
                               ),
                             ),
+                            if(state.pageState == UserPageState.pageOffLine)
+                              Center(
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      const Icon(
+                                        Icons.wifi_off,
+                                        size: 100,
+                                        color: Colors.grey,
+                                      ),
+                                      const SizedBox(height: 24),
+                                      const Text(
+                                        "Sin conexión a internet",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontSize: 22,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 12),
+                                      const Text(
+                                        "Por favor, revisa tu conexión y vuelve a intentarlo.",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(fontSize: 14, color: Colors.black54),
+                                      ),
+                                      const SizedBox(height: 36),
+
+                                      // ✅ Botón de refrescar
+                                      ElevatedButton.icon(
+                                        onPressed: (){
+
+                                        },
+                                        icon: const Icon(Icons.refresh, color: Colors.white),
+                                        label: const Text(
+                                          "Reintentar",
+                                          style: TextStyle(fontSize: 14, color: Colors.white),
+                                        ),
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: const Color(0xFFD63F1C), // Color Caleb
+                                          padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(12),
+                                          ),
+                                          elevation: 4,
+                                          shadowColor: const Color(0xFFD63F1C).withOpacity(0.6),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
                             if(state.userMessage.show)
                               Positioned(
                                   top: 64,

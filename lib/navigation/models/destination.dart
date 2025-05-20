@@ -6,7 +6,7 @@ enum Destination {
 
   tabHome(AppIcon.home, 'Inicio'),
   sessions(Icons.bookmark, 'Semiplenarias'),
-  profile(AppIcon.hand, 'Predicador Caleb'),
+  profile(AppIcon.hand, 'Misionero Caleb'),
   qrScan(AppIcon.qrcode, 'Escanear'),
   qrCheckIn(AppIcon.qrcode, 'Escanear'),
   qrCheckOut(AppIcon.qrcode, 'Escanear'),

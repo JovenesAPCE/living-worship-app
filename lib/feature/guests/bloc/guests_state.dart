@@ -11,15 +11,16 @@ class GuestsState extends Equatable {
         title: 'Semiplenarias',
         guests: [
           GuestCard(name: "Pr. Alan Cosavalente", schedule: "", image: AppImages.guests11),
+          GuestCard(name: "Pr. Anthony Centeno", schedule: "", image: AppImages.guests4),
           GuestCard(name: "Pr. Francesco Marquina", schedule: "", image: AppImages.guests12),
           GuestCard(name: "Pr. Edison Choque", schedule: "", image: AppImages.guests10),
           GuestCard(name: "Psic. Damaris Quinteros", schedule: "", image: AppImages.guests3),
-          GuestCard(name: "Pr. Anthony Centeno", schedule: "", image: AppImages.guests4),
+          GuestCard(name: "Psic. Mayumi Arellano", schedule: "", image: AppImages.guests13),
 
           GuestCard(name: "Lc. Carolyn Azo", schedule: "", image: AppImages.guests5),
           GuestCard(name: "Pr. Raúl Sotelo", schedule: "", image: AppImages.guests2),
           GuestCard(name: "Pr. Rolando Quinteros", schedule: "", image: AppImages.guests1),
-          GuestCard(name: "Psic. Mayumi Arellano", schedule: "", image: AppImages.guests13),
+
           GuestCard(name: "Lic. Jaime Vilcapoma", schedule: "", image: AppImages.guests6),
         ]
       ),

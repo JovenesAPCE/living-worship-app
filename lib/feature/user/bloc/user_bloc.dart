@@ -57,43 +57,61 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
      emit(state.copyWith(
        progress: false,
+       pageState: UserPageState.pageOffLine,
        userMessage: UserMessage.error(errorMessage),
      ));
+
+
+
    }, (success) async {
-     emit(state.copyWith(
-       progress: false,
-       whatsAppGroup: success,
-     ));
+
+     if(success.isEmpty){
+       emit(state.copyWith(
+         progress: false,
+         pageState: UserPageState.pageGetReady,
+         whatsAppGroup: success,
+       ));
+     }else {
+       emit(state.copyWith(
+         progress: true,
+         pageState: UserPageState.pageDecision,
+         whatsAppGroup: success,
+       ));
+
+       var result2 = await _getUserDecisionUseCase.call();
+       await result2.fold((error) async {
+         String errorMessage;
+
+         if (error is UserNotExistRegisterUserDecision) {
+           errorMessage = "El usuario no existe. Verifica tu sesión.";
+         } else if (error is SessionNotExistRegisterUserDecision) {
+           errorMessage = "La sesión del usuario no existe.";
+         } else if (error is SessionNotFoundRegisterUserDecision) {
+           errorMessage = "Sesión no encontrada. Intenta ingresar de nuevo.";
+         } else if (error is NoInternetRegisterUserDecision) {
+           errorMessage = "Sin conexión a internet. Por favor verifica tu red.";
+         } else if (error is UnknownRegisterUserDecision) {
+           errorMessage = "Ocurrió un error inesperado. Intenta más tarde.";
+         } else {
+           errorMessage = "Error desconocido.";
+         }
+
+         emit(state.copyWith(
+           progress: false,
+           pageState: UserPageState.pageOffLine,
+           userMessage: UserMessage.error(errorMessage),
+         ));
+       }, (success) async {
+         emit(state.copyWith(
+           progress: false,
+           pageState: success? UserPageState.pageSuccess: UserPageState.pageDecision,
+         ));
+       });
+
+     }
+
    });
 
-    var result2 = await _getUserDecisionUseCase.call();
-    await result2.fold((error) async {
-      String errorMessage;
-
-      if (error is UserNotExistRegisterUserDecision) {
-        errorMessage = "El usuario no existe. Verifica tu sesión.";
-      } else if (error is SessionNotExistRegisterUserDecision) {
-        errorMessage = "La sesión del usuario no existe.";
-      } else if (error is SessionNotFoundRegisterUserDecision) {
-        errorMessage = "Sesión no encontrada. Intenta ingresar de nuevo.";
-      } else if (error is NoInternetRegisterUserDecision) {
-        errorMessage = "Sin conexión a internet. Por favor verifica tu red.";
-      } else if (error is UnknownRegisterUserDecision) {
-        errorMessage = "Ocurrió un error inesperado. Intenta más tarde.";
-      } else {
-        errorMessage = "Error desconocido.";
-      }
-
-      emit(state.copyWith(
-        progress: false,
-        userMessage: UserMessage.error(errorMessage),
-      ));
-    }, (success) async {
-      emit(state.copyWith(
-        progress: false,
-        pageState: success? UserPageState.pageSuccess: UserPageState.pageDecision,
-      ));
-    });
 
   }
 
@@ -119,13 +137,13 @@ class UserBloc extends Bloc<UserEvent, UserState> {
             emailErrorText: "Este campo es obligatorio"
         ));
       }
-      if(state.email.isEmpty){
+      /*if(state.email.isEmpty){
         emit(state.copyWith(
           phoneError: true,
           emailErrorText: "Este campo es obligatorio",
         ));
-      }
-      if(state.phone.isNotEmpty && state.email.isNotEmpty){
+      }*/
+      if(state.phone.isNotEmpty){
         emit(state.copyWith(
             progress: true
         ));
@@ -187,13 +205,13 @@ class UserBloc extends Bloc<UserEvent, UserState> {
             emailErrorText: "Este campo es obligatorio"
         ));
       }
-      if(state.email.isEmpty){
+      /*if(state.email.isEmpty){
         emit(state.copyWith(
           phoneError: true,
           emailErrorText: "Este campo es obligatorio",
         ));
-      }
-      if(state.phone.isNotEmpty && state.email.isNotEmpty){
+      }*/
+      if(state.phone.isNotEmpty){
         emit(state.copyWith(
             progress: true
         ));
@@ -339,6 +357,14 @@ class UserBloc extends Bloc<UserEvent, UserState> {
           close: true
       ));
     }else if(state.pageState == UserPageState.pageSuccess){
+      emit(state.copyWith(
+          close: true
+      ));
+    }else if(state.pageState == UserPageState.pageOffLine){
+      emit(state.copyWith(
+          close: true
+      ));
+    }else if(state.pageState == UserPageState.pageGetReady){
       emit(state.copyWith(
           close: true
       ));

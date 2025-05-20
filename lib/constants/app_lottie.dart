@@ -7,5 +7,6 @@ class AppLottie {
   static const String checkErrorLock = '${_base}lock.json';
   static const String checkOut = '${_base}check_out.json';
   static const String qrScan = '${_base}qr_scan.json';
+  static const String userLoading = '${_base}loading.json';
 
 }
