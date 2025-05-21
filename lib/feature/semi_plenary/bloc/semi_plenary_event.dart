@@ -56,3 +56,18 @@ final class SessionRegister extends SemiPlenaryEvent {
   @override
   List<Object> get props => [refreshId];
 }
+
+
+final class OnCheckInPressed extends SemiPlenaryEvent {
+  final SessionGroup groupSelected;
+  const OnCheckInPressed(this.groupSelected);
+  @override
+  List<Object> get props => [groupSelected];
+}
+
+final class OnCheckOutPressed extends SemiPlenaryEvent {
+  final SessionGroup groupSelected;
+  const OnCheckOutPressed(this.groupSelected);
+  @override
+  List<Object> get props => [groupSelected];
+}

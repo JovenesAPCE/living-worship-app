@@ -1,5 +1,6 @@
 
 enum QrStatus {
+  none,
   hidden,
   scanning,
   checkIn,

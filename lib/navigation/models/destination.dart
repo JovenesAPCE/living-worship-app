@@ -3,7 +3,7 @@ import 'package:jamt/constants/app_icon.dart';
 import 'package:jamt/constants/constants.dart';
 
 enum Destination {
-
+  none(AppIcon.home, 'nada'),
   tabHome(AppIcon.home, 'Inicio'),
   sessions(Icons.bookmark, 'Semiplenarias'),
   profile(AppIcon.hand, 'Misionero Caleb'),

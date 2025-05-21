@@ -11,21 +11,35 @@ class WorkshopSelectCard extends StatelessWidget {
   final bool checkIn;
   final bool checkOut;
   final VoidCallback onClosePressed;
+  final VoidCallback onCheckInPressed;
+  final VoidCallback onCheckOutPressed;
 
 
-   const WorkshopSelectCard({super.key, required this.title, required this.value, required this.register, required this.checkIn, required this.checkOut ,required this.onClosePressed});
+   const WorkshopSelectCard({super.key, required this.title, required this.value, required this.register, required this.checkIn, required this.checkOut ,
+     required this.onClosePressed , required this.onCheckInPressed, required this.onCheckOutPressed});
 
   @override
   Widget build(BuildContext context) {
 
-   var lottieCheckIn = checkIn ?SizedBox(
-     width: 48,
-     child: LottiePlayer(assetPath: AppLottie.checkInCheck3, speed: 0.9, repeat: true),
+   var lottieCheckIn = checkIn ? GestureDetector(
+     onTap: (){
+       onCheckInPressed.call();
+     },
+     child: SizedBox(
+       width: 48,
+       child: LottiePlayer(assetPath: AppLottie.checkInCheck3, speed: 0.9, repeat: true),
+     ),
    ): LottiePause(lottiePath: AppLottie.checkInCheck3, progress: 0.8, width: 48,);
 
-   var lottieCheckOut = checkOut ?SizedBox(
-     width: 48,
-     child: LottiePlayer(assetPath: AppLottie.checkInCheck3, speed: 0.9, repeat: true),
+   var lottieCheckOut = checkOut ? GestureDetector(
+     onTap: (){
+       print("onCheckOutPressed");
+       onCheckOutPressed.call();
+     },
+     child: SizedBox(
+       width: 48,
+       child: LottiePlayer(assetPath: AppLottie.checkInCheck3, speed: 0.9, repeat: true),
+     ),
    ): LottiePause(lottiePath: AppLottie.checkInCheck3, progress: 0.8, width: 48,);
 
     return  Container(
@@ -56,6 +70,7 @@ class WorkshopSelectCard extends StatelessWidget {
             children: [
               if(register)
                 lottieCheckIn,
+              const SizedBox(width: 2),
               if(register)
                 lottieCheckOut,
 

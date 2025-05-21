@@ -122,6 +122,16 @@ class SessionScreen extends StatelessWidget {
                                                     groupSelected: group
                                                 ));
                                               },
+                                              onCheckInPressed: (){
+                                                context.read<SemiPlenaryBloc>().add(OnCheckInPressed(
+                                                    group
+                                                ));
+                                              },
+                                              onCheckOutPressed: (){
+                                                context.read<SemiPlenaryBloc>().add(OnCheckOutPressed(
+                                                    group
+                                                ));
+                                              },
                                             ),
                                           const SizedBox(height: 32),
                                         ],

@@ -12,4 +12,6 @@ abstract class SemiPlenaryRepository {
   Future<List<RegisterSemiPlenary>> getRegisterSemiPlenaries();
   Future<void> updateSemiPlenaries();
   Future<Either<RegisterSemiPlenaryFailure,void>> registerSemiPlenary(List<SemiPlenary> semiPlenaries);
+  Future<void> showCheckIn(String semiPlenary);
+  Future<void> showCheckOut(String semiPlenary);
 }

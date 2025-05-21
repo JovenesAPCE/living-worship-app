@@ -14,13 +14,17 @@ class SemiPlenaryBloc extends Bloc<SemiPlenaryEvent, SemiPlenaryState> {
     required UpdateSemiPlenariesUseCase updateSemiPlenariesUseCase,
     required RegisterSemiPlenariesUseCase registerSemiPlenariesUseCase,
     required GetRegisterSemiPlenariesUseCase getRegisterSemiPlenariesUseCase,
-    required GetUserUseCase getUserUseCase
+    required GetUserUseCase getUserUseCase,
+    required ShowCheckInUseCase showCheckInUseCase,
+    required ShowCheckOutUseCase showCheckOutUseCase
   }) :
         _getSemiPlenariesUseCase = getSemiPlenariesUseCase,
         _updateSemiPlenariesUseCase = updateSemiPlenariesUseCase,
         _registerSemiPlenariesUseCase = registerSemiPlenariesUseCase,
         _getRegisterSemiPlenariesUseCase = getRegisterSemiPlenariesUseCase,
         _getUserUseCase = getUserUseCase,
+        _showCheckInUseCase = showCheckInUseCase,
+        _showCheckOutUseCase = showCheckOutUseCase,
         super(SemiPlenaryState()) {
     on<LoadSemiPlenary>(_onSemiPlenarySubscriptionRequested);
     on<TabSelected>(_onTabSelected);
@@ -28,6 +32,8 @@ class SemiPlenaryBloc extends Bloc<SemiPlenaryEvent, SemiPlenaryState> {
     on<SessionSave>(_onOneSessionSave);
     on<SessionClose>(_onOneSessionClose);
     on<SessionRegister>(_onSessionRegister);
+    on<OnCheckInPressed>(_onCheckInPressed);
+    on<OnCheckOutPressed>(_onCheckOutPressed);
 
   }
 
@@ -36,6 +42,27 @@ class SemiPlenaryBloc extends Bloc<SemiPlenaryEvent, SemiPlenaryState> {
   final RegisterSemiPlenariesUseCase _registerSemiPlenariesUseCase;
   final GetRegisterSemiPlenariesUseCase _getRegisterSemiPlenariesUseCase;
   final GetUserUseCase _getUserUseCase;
+  final ShowCheckInUseCase _showCheckInUseCase;
+  final ShowCheckOutUseCase _showCheckOutUseCase;
+  void _onCheckOutPressed(OnCheckOutPressed event, Emitter<SemiPlenaryState> emit) async {
+    print("_onCheckOutPressed");
+    if(event.groupSelected.selected != null){
+      print("_showCheckOutUseCase");
+      await _showCheckOutUseCase.call(SemiPlenary(
+        id: event.groupSelected.selected?.id??""
+      ));
+    }
+
+  }
+
+  void _onCheckInPressed(OnCheckInPressed event, Emitter<SemiPlenaryState> emit) async {
+    if(event.groupSelected.selected != null){
+      await _showCheckInUseCase.call(SemiPlenary(
+          id: event.groupSelected.selected?.id??""
+      ));
+    }
+  }
+
   void _onSemiPlenarySubscriptionRequested(LoadSemiPlenary event,  Emitter<SemiPlenaryState> emit) async{
     bool offline = false;
     emit(state.copyWith(

@@ -25,6 +25,12 @@ class SemiPlenaryTabs extends StatelessWidget {
           ),
           getUserUseCase: GetUserUseCase(
               context.read<UserRepository>()
+          ),
+          showCheckInUseCase: ShowCheckInUseCase(
+              context.read<SemiPlenaryRepository>()
+          ),
+          showCheckOutUseCase: ShowCheckOutUseCase(
+              context.read<SemiPlenaryRepository>()
           )
         ),
         child: BlocListener<TabHomeBloc, TabHomeState>(

@@ -506,6 +506,59 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
   @override
   Future<Either<RegisterSemiPlenaryFailure, void>> registerSemiPlenaryCheckOut(QRData qRData)  => registerSemiPlenaryCheck(qRData, false);
 
+  @override
+  Future<void> showCheckIn(String semiPlenary) async{
+    final user = HiveService.userBox.values.cast<UserTable?>().firstOrNull;
+    var plenaryData = HiveService.semiPlenaryBox.get(semiPlenary);
+    var register = HiveService.registerSemiPlenaryTableBox.get("$semiPlenary}_${user?.document}");
+    _qrCheckInShared = QRCheckInRepositoryImpl(
+        semiPlenaryId:  semiPlenary,
+        color: plenaryData?.color,
+        group:  plenaryData?.group ,
+        issue: plenaryData?.issue,
+        title:  plenaryData?.title,
+        time: plenaryData?.time,
+        timestamp: register?.checkInTimestamp,
+        qrState: QrState(
+            status: QrStatus.checkIn,
+            data: QRData(
+              semiPlenary: semiPlenary,
+              document: user?.document
+            )),
+        hasRegister: false
+    );
+    _controller.add(QrStatus.none);
+    _controller.add(QrStatus.checkIn);
+
+  }
+
+  @override
+  Future<void> showCheckOut(String semiPlenary) async {
+    final user = HiveService.userBox.values.cast<UserTable?>().firstOrNull;
+    var plenaryData = HiveService.semiPlenaryBox.get(semiPlenary);
+    var register = HiveService.registerSemiPlenaryTableBox.get("$semiPlenary}_${user?.document}");
+    _qrCheckInShared = QRCheckInRepositoryImpl(
+        semiPlenaryId:  semiPlenary,
+        color: plenaryData?.color,
+        group:  plenaryData?.group ,
+        issue: plenaryData?.issue,
+        title:  plenaryData?.title,
+        time: plenaryData?.time,
+        timestamp: register?.checkInTimestamp,
+        qrState: QrState(
+            status: QrStatus.checkIn,
+            data: QRData(
+                semiPlenary: semiPlenary,
+                document: user?.document
+            )),
+        hasRegister: true
+    );
+    print("showCheckOut");
+    _controller.add(QrStatus.none);
+    _controller.add(QrStatus.checkOut);
+
+  }
+
 
 
 }

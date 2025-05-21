@@ -49,6 +49,9 @@ class NavigationBloc
               return emit(state.copyWith(destination: Destination.qrCheckOut));
             case QrStatus.hidden:
               return emit(state.copyWith(destination: Destination.tabHome));
+            case QrStatus.none:
+              emit(state.copyWith(destination: Destination.none));
+              break;
             }
         });
 

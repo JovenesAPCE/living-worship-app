@@ -186,6 +186,8 @@ class _AppViewState extends State<AppView> {
                   case Destination.logout:
                     context.read<NavigationBloc>().add(AuthenticationLogoutPressed());
                     break;
+                  case Destination.none:
+                    break;
                 }
               case AuthStatus.unauthenticated:
                 _navigator.pushAndRemoveUntil<void>(
