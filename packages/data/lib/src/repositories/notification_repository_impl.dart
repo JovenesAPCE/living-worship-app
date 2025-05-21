@@ -40,7 +40,7 @@ class NotificationRepositoryImpl extends NotificationRepository{
   @override
   Future<List<Notification>> notifications() async {
     var list = HiveService.notificationTableBox.values.map((e) => e.toEntity()).toList();
-    list.sort((a, b) => (a.row).compareTo(b.row));
+    list.sort((a, b) => (b.row).compareTo(a.row));
     return list;
   }
 
