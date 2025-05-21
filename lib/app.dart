@@ -81,30 +81,39 @@ class _AppViewState extends State<AppView> {
   @override
   void initState() {
     super.initState();
-    initializeNotifications();
-    _requestNotificationPermission();
-    _initFirebaseMessaging();
+     initFirebase();
   }
 
-  void _requestNotificationPermission() async {
-    if (Platform.isAndroid) {
+  void initFirebase() async {
+    await initializeNotifications();
+    await _requestNotificationPermission();
+    await _initFirebaseMessaging();
+  }
+
+  Future<void> _requestNotificationPermission() async {
+
       final messaging = FirebaseMessaging.instance;
       final settings = await messaging.requestPermission();
-      debugPrint('🔐 Android permission status: ${settings.authorizationStatus}');
-    }
+      debugPrint('🔐 Permiso de notificación: ${settings.authorizationStatus}');
+
   }
 
-  void _initFirebaseMessaging() async {
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      showLocalNotification(
-        title: message.notification?.title ?? 'Notificación',
-        body: message.notification?.body ?? '',
-        payload: '/bulletin'
-      );
-    });
+  Future<void> _initFirebaseMessaging() async {
 
-    _fcmToken = await FirebaseMessaging.instance.getToken();
-    debugPrint('🔑 Token: $_fcmToken');
+    try{
+      FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+        showLocalNotification(
+            title: message.notification?.title ?? 'Notificación',
+            body: message.notification?.body ?? '',
+            payload: '/bulletin'
+        );
+      });
+      _fcmToken = await FirebaseMessaging.instance.getToken();
+      debugPrint('🔑 Token: $_fcmToken');
+    }catch(e, stack){
+      FBUtils.tryRecordError(e, stack: stack);
+    }
+
   }
 
   @override
