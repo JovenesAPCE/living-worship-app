@@ -22,13 +22,17 @@ class UserTable {
   @HiveField(5)
   bool? yesIPreacher;
 
+  @HiveField(6)
+  String? gender;
+
   // Convertir modelo -> entidad
-  User toEntity() => User(document: document, name: name, session: session);
+  User toEntity() => User(document: document, name: name, session: session, gender: gender);
 
   // Convertir entidad -> modelo
   static UserTable fromEntity(User entity) => UserTable()
     ..document = entity.document
     ..name = entity.name
-    ..session = entity.session;
+    ..session = entity.session
+    ..gender = entity.gender;
 
 }

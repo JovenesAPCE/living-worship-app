@@ -13,12 +13,14 @@ class SemiPlenaryBloc extends Bloc<SemiPlenaryEvent, SemiPlenaryState> {
     required GetSemiPlenariesUseCase getSemiPlenariesUseCase,
     required UpdateSemiPlenariesUseCase updateSemiPlenariesUseCase,
     required RegisterSemiPlenariesUseCase registerSemiPlenariesUseCase,
-    required GetRegisterSemiPlenariesUseCase getRegisterSemiPlenariesUseCase
+    required GetRegisterSemiPlenariesUseCase getRegisterSemiPlenariesUseCase,
+    required GetUserUseCase getUserUseCase
   }) :
         _getSemiPlenariesUseCase = getSemiPlenariesUseCase,
         _updateSemiPlenariesUseCase = updateSemiPlenariesUseCase,
         _registerSemiPlenariesUseCase = registerSemiPlenariesUseCase,
         _getRegisterSemiPlenariesUseCase = getRegisterSemiPlenariesUseCase,
+        _getUserUseCase = getUserUseCase,
         super(SemiPlenaryState()) {
     on<LoadSemiPlenary>(_onSemiPlenarySubscriptionRequested);
     on<TabSelected>(_onTabSelected);
@@ -33,6 +35,7 @@ class SemiPlenaryBloc extends Bloc<SemiPlenaryEvent, SemiPlenaryState> {
   final UpdateSemiPlenariesUseCase _updateSemiPlenariesUseCase;
   final RegisterSemiPlenariesUseCase _registerSemiPlenariesUseCase;
   final GetRegisterSemiPlenariesUseCase _getRegisterSemiPlenariesUseCase;
+  final GetUserUseCase _getUserUseCase;
   void _onSemiPlenarySubscriptionRequested(LoadSemiPlenary event,  Emitter<SemiPlenaryState> emit) async{
     bool offline = false;
     emit(state.copyWith(
@@ -54,12 +57,20 @@ class SemiPlenaryBloc extends Bloc<SemiPlenaryEvent, SemiPlenaryState> {
     }
 
     List<RegisterSemiPlenary> registerSemiPlenaries = await _getRegisterSemiPlenariesUseCase.call();
+    User? user = await _getUserUseCase.call();
+    print("user ${user?.gender}");
+    List<SemiPlenary> semiPlenaries = await  _getSemiPlenariesUseCase.call();
+    print("semiPlenaries ${semiPlenaries}");
+    semiPlenaries.removeWhere((element) =>
+    element.gender != null &&
+        element.gender!.isNotEmpty &&
+        element.gender != user?.gender);
 
-    List<Session> sessions = (await  _getSemiPlenariesUseCase.call()).map((semiPlenary){
+    List<Session> sessions = semiPlenaries.map((semiPlenary){
       return Session(
         id: semiPlenary.id,
         group: semiPlenary.group??"",
-        title: semiPlenary.title??""
+        title: semiPlenary.title??"",
       );
     }).toList();
     print("sessions: ${sessions.length}");

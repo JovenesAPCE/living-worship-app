@@ -17,11 +17,14 @@ class GuestsState extends Equatable {
           GuestCard(name: "Psic. Damaris Quinteros", schedule: "", image: AppImages.guests3),
           GuestCard(name: "Psic. Mayumi Arellano", schedule: "", image: AppImages.guests13),
 
-          GuestCard(name: "Lc. Carolyn Azo", schedule: "", image: AppImages.guests5),
+          GuestCard(name: "Lic. Carolyn Azo", schedule: "", image: AppImages.guests5),
           GuestCard(name: "Pr. Raúl Sotelo", schedule: "", image: AppImages.guests2),
           GuestCard(name: "Pr. Rolando Quinteros", schedule: "", image: AppImages.guests1),
 
           GuestCard(name: "Lic. Jaime Vilcapoma", schedule: "", image: AppImages.guests6),
+          GuestCard(name: "Pedro Valença", schedule: "", image: AppImages.guests15),
+          GuestCard(name: "Joyce Carnassale", schedule: "", image: AppImages.guests17),
+          GuestCard(name: "MAS (Ministerio Adventista de Sordos)", schedule: "", image: AppImages.guests16),
         ]
       ),
       GuestTab(

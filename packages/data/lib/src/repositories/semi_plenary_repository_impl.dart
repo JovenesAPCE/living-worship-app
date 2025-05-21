@@ -102,6 +102,7 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
               ..time = json['time']
               ..capacity = json['capacity']
               ..available = json["available"]
+              ..gender = json["gender"]
         );
       }).toList();
     } else {
@@ -255,7 +256,7 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
           final issue =  plenary['issue'] ?? "";
           final title =  plenary['title'] ?? "";
           final time =  plenary['time'] ?? "";
-
+          final gender = plenary['gender'] ?? "";
 
           await HiveService.semiPlenaryBox.put(
               entry.key,
@@ -268,6 +269,7 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
                 ..time = time
                 ..capacity = capacity
                 ..available = available
+                ..gender = gender
           );
 
         }

@@ -54,6 +54,7 @@ class AuthenticationRepositoryImpl extends AuthenticationRepository {
             document: document,
             name: user['name'].toString(),
             session: sessionId,
+            gender: user['gender'].toString()
           )),
         );
 
