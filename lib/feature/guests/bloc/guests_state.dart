@@ -12,7 +12,7 @@ class GuestsState extends Equatable {
         guests: [
           GuestCard(name: "Pr. Alan Cosavalente", schedule: "", image: AppImages.guests11),
           GuestCard(name: "Pr. Anthony Centeno", schedule: "", image: AppImages.guests4),
-          GuestCard(name: "Pr. Francesco Marquina", schedule: "", image: AppImages.guests12),
+          //GuestCard(name: "Pr. Francesco Marquina", schedule: "", image: AppImages.guests12),
           GuestCard(name: "Pr. Edison Choque", schedule: "", image: AppImages.guests10),
           GuestCard(name: "Psic. Damaris Quinteros", schedule: "", image: AppImages.guests3),
           GuestCard(name: "Psic. Mayumi Arellano", schedule: "", image: AppImages.guests13),

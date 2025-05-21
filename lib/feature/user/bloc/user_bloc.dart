@@ -133,8 +133,8 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     if(!state.phoneError && !state.emailError){
       if(state.phone.isEmpty){
         emit(state.copyWith(
-            emailError: true,
-            emailErrorText: "Este campo es obligatorio"
+            phoneError: true,
+            phoneErrorText: "Este campo es obligatorio"
         ));
       }
       /*if(state.email.isEmpty){
