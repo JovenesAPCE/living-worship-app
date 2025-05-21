@@ -136,6 +136,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
             phoneError: true,
             phoneErrorText: "Este campo es obligatorio"
         ));
+        return;
       }
       /*if(state.email.isEmpty){
         emit(state.copyWith(
