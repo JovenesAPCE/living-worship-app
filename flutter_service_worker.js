@@ -4,6 +4,7 @@ const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
 const RESOURCES = {"favicon.ico": "0f0609327cbe17085e2c5f074688a73a",
+"firebase-messaging-sw.js": "88e93fccc2a2be27dc730004f895aea2",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
 "icons/Icon-192.png": "15f2eaba5c0189235ba9af2de84d8c91",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
@@ -114,10 +115,10 @@ const RESOURCES = {"favicon.ico": "0f0609327cbe17085e2c5f074688a73a",
 "canvaskit/chromium/canvaskit.wasm": "64a386c87532ae52ae041d18a32a3635",
 "canvaskit/chromium/canvaskit.js.symbols": "5a23598a2a8efd18ec3b60de5d28af8f",
 "images/logo.jpg": "95f196f91e6b822c4b6d1553845dc2f2",
-"flutter_bootstrap.js": "b5a5f464cd30c23dfed2733b6105076d",
+"flutter_bootstrap.js": "b9c3737f647bb4f4de1673405babda0f",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
-"index.html": "e1a3abc8539fb938ccbd793867d7b891",
-"/": "e1a3abc8539fb938ccbd793867d7b891",
+"index.html": "078acb1810a172bb5b7aab0686a3a374",
+"/": "078acb1810a172bb5b7aab0686a3a374",
 "flutter.js": "76f08d47ff9f5715220992f993002504"};
 // The application shell files that are downloaded before a service worker can
 // start.
