@@ -17,7 +17,6 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.setPWAThemeColor(AppColor.purpleDark2.toHex());
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Stack(

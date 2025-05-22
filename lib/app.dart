@@ -20,7 +20,6 @@ import 'package:jamt/feature/splash/splash.dart';
 import 'package:jamt/feature/tab_home/tab_home.dart';
 import 'package:jamt/feature/login/login.dart';
 import 'package:jamt/feature/user/user.dart';
-import 'package:jamt/utils/utils.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -120,7 +119,6 @@ class _AppViewState extends State<AppView> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: appTheme,
-      navigatorObservers: [routeObserver],
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       navigatorKey: _navigatorKey,

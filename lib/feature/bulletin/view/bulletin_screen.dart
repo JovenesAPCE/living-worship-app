@@ -19,7 +19,7 @@ class BulletinScreen extends StatelessWidget {
 
     },
     builder: (context, state) {
-      context.setPWAThemeColor(AppColor.blue2.toHex());
+
           return Container(
             color: AppColor.yellow,
             child: Column(

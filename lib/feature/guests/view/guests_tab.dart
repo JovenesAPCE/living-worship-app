@@ -9,7 +9,6 @@ class GuestsTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.setPWAThemeColor(AppColor.blueLight.toHex());
     return BlocProvider(
         create: (context) => GuestsBloc(),
         child:  GuestsScreen()

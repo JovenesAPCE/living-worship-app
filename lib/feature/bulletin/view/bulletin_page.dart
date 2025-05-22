@@ -26,7 +26,6 @@ class BulletinPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.setPWAThemeColor(AppColor.blue2.toHex());
     return BlocProvider(
         create: (context) => BulletinBloc(
             updateNotificationUseCase: UpdateNotificationUseCase(

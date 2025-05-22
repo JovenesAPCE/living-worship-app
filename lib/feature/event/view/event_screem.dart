@@ -10,7 +10,6 @@ class EventScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.setPWAThemeColor(AppColor.blueDark.toHex());
     return  Container(
       color: AppColor.purpleLight,
       child: Column(

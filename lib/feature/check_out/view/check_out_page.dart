@@ -18,7 +18,6 @@ class CheckOutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.setPWAThemeColor(Colors.black.toHex());
     return BlocProvider(
         create: (context) => CheckOutBloc(
           getQrStateSemiPlenaryUseCase: GetQrStateSemiPlenaryUseCase(

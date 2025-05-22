@@ -9,7 +9,6 @@ class GuideTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.setPWAThemeColor(AppColor.orangeMain.toHex());
     return BlocProvider(
         create: (context) => GuideBloc(),
         child:  GuideScreen()

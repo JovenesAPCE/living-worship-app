@@ -16,7 +16,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.setPWAThemeColor(AppColor.orangeMain.toHex());
     var arrayList = [
       AppImages.homeActivityOne,
       AppImages.homeActivityTwo,

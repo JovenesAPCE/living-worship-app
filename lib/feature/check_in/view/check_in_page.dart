@@ -19,7 +19,6 @@ class CheckInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.setPWAThemeColor(Colors.black.toHex());
     return BlocProvider(
         create: (context) => CheckInBloc(
           getQrStateSemiPlenaryUseCase: GetQrStateSemiPlenaryUseCase(

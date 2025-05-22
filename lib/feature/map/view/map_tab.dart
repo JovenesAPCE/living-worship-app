@@ -8,7 +8,6 @@ class MapTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.setPWAThemeColor(AppColor.blue2.toHex());
     return MapScreen();
   }
 }
