@@ -79,8 +79,8 @@ class GuideState extends Equatable{
       CardGuide(
         title: "Carrusel de actividades",
         body: "<p><p>1. Los participantes estarán divididos en grupos para realizar actividades en carrusel. Los grupos estarán divididos por colores, de acuerdo con la pulsera que recibirán.</p></p>"
-            "<p><p>2. Los participantes podrán participar de las <a href='#'>semi plenarias</a> y feria JA en los horarios designados.</p></p>"
-            "<p><b>Semi plenarias</b></p><p><a href='#'>Cada participante asistirá a dos semi plenarias que se realizarán en los lugares designados de la UPeU.</a> El ingreso a los lugares designados será hasta agotar aforo.</p></p>"
+            "<p><p>2. Los participantes podrán participar de las <a href='semiplenaria'>semi plenarias</a> y feria JA en los horarios designados.</p></p>"
+            "<p><b>Semi plenarias</b></p><p><a href='semiplenaria'>Cada participante asistirá a dos semi plenarias que se realizarán en los lugares designados de la UPeU.</a> El ingreso a los lugares designados será hasta agotar aforo.</p></p>"
             "<p><b>Feria JA</b></p>Este espacio comprenderá visitas a los stands, feria de misiones y proyectos. Allí habrá una variedad de actividades creadas para que el participante tenga una experiencia que lo marque. La feria estará disponible desde el Viernes a las 14:00 hs hasta las 17:30 hs. El sábado aperturará a las 18:00 hs y domingo desde las 7:30 hs.",
       ),
       CardGuide(

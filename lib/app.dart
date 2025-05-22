@@ -13,6 +13,7 @@ import 'package:jamt/feature/bulletin/view/bulletin_page.dart';
 import 'package:jamt/feature/check_in/check_in.dart';
 import 'package:jamt/feature/check_out/check_out.dart';
 import 'package:jamt/feature/qr/qr.dart';
+import 'package:jamt/feature/semi_plenary/view/semi_plenary_page.dart';
 import 'package:jamt/main.dart';
 import 'package:jamt/navigation/navigation.dart';
 import 'package:jamt/constants/constants.dart';
@@ -158,7 +159,7 @@ class _AppViewState extends State<AppView> {
                     break;
                   case Destination.sessions:
                     _navigator.push<void>(
-                        QRPage.route()
+                        SemiPlenaryPage.route()
                     );
                     break;
                   case Destination.qrCheckOut:

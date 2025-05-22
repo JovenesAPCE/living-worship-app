@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jamt/constants/constants.dart';
 import 'package:jamt/feature/guide/bloc/guide_bloc.dart';
+import 'package:jamt/navigation/bloc/navigation_bloc.dart';
+import 'package:jamt/navigation/models/destination.dart';
 import 'package:jamt/widget/widget.dart';
 
 class GuideScreen extends StatelessWidget {
@@ -148,7 +150,13 @@ class GuideScreen extends StatelessWidget {
                                                   height: 1.9,
                                                   fontFamily: AppFont.font,
                                                   fontWeight: FontWeight.w500
-                                              ),),
+                                              ),
+                                              onTapLink: (href){
+                                                  if(href == "semiplenaria"){
+                                                    context.read<NavigationBloc>().add(NavigationPressed(Destination.sessions));
+                                                  }
+                                              },
+                                            ),
                                           )
                                               : const SizedBox.shrink(),
                                         )

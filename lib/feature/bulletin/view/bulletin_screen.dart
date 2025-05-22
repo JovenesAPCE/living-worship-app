@@ -8,6 +8,7 @@ import 'package:jamt/extensions/extensions.dart';
 import 'package:jamt/feature/bulletin/bloc/bulletin_bloc.dart';
 import 'package:jamt/widget/progress_status.dart';
 import 'package:jamt/widget/rich_text_from_html_lite.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BulletinScreen extends StatelessWidget {
   const BulletinScreen({super.key});
@@ -190,8 +191,15 @@ class BulletinScreen extends StatelessWidget {
                                                       ),
                                                       minimumSize: const Size.fromHeight(48),
                                                     ),
-                                                    onPressed: () {
-                                                      // Acción de descargar
+                                                    onPressed: () async{
+
+                                                      final Uri url = Uri.parse(AppUrl.pdfPath); // ← reemplaza si haces deploy
+                                                      if (await canLaunchUrl(url)) {
+                                                        await launchUrl(url, mode: LaunchMode.externalApplication);
+                                                      } else {
+                                                        // Opcional: muestra error
+                                                        debugPrint('❌ No se pudo abrir el PDF');
+                                                      }
                                                     },
                                                     child: const Text(
                                                       'DESCARGAR PDF',

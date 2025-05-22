@@ -5,7 +5,9 @@ import 'package:jamt/constants/constants.dart';
 class RichTextFromHtmlLite extends StatelessWidget {
   final String html;
   final TextStyle? currentStyle;
-  const RichTextFromHtmlLite(this.html, {super.key, this.currentStyle});
+  final void Function(String href)? onTapLink;
+
+  const RichTextFromHtmlLite(this.html, {super.key, this.currentStyle, this.onTapLink,});
 
   @override
   Widget build(BuildContext context) {
@@ -65,13 +67,16 @@ class RichTextFromHtmlLite extends StatelessWidget {
           ),
         );
       } else {
+        final href = currentHref;
         spans.add(TextSpan(
           text: text,
           style: effectiveStyle,
-          recognizer: currentHref != null
+          recognizer: href != null
               ? (TapGestureRecognizer()
             ..onTap = () {
-              Navigator.pushNamed(context, '/${currentHref!}');
+              if (onTapLink != null) {
+                onTapLink!(href);
+              }
             })
               : null,
         ));

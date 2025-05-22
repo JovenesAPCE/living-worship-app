@@ -3,3 +3,4 @@ export 'app_color.dart';
 export 'app_font.dart';
 export 'app_icon.dart';
 export 'app_lottie.dart';
+export 'app_url.dart';
