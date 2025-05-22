@@ -1,8 +1,8 @@
 {
   "name": "Living Worship",
-  "short_name": "LW",
+  "short_name": "Living Worship",
   "start_url": "/living-worship-app/",
-  "display": "standalone",
+  "display": "fullscreen",
   "theme_color": "#0A45C1",
   "background_color": "#0A45C1",
   "icons": [
