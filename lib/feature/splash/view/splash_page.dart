@@ -12,28 +12,40 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Expanded(
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              AppColor.blue2, // ← Color superior
+              AppColor.purpleDark2, // ← Color inferior
+            ],
+          ),
+        ),
+        child: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
                 child: Center(
                   child: Image(
-                    image: AssetImage(AppImages.logoWorship), // ← tu imagen central
+                    image: AssetImage(AppImages.logoWorship),
                     width: 200,
                     height: 200,
                   ),
-                )
-            ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 24.0),
-              child: Image(
-                image: AssetImage(AppImages.mainLogoWhite), // ← logo inferior
-                width: 120,
+                ),
               ),
-            ),
-          ],
+              Padding(
+                padding: EdgeInsets.only(bottom: 24.0),
+                child: Image(
+                  image: AssetImage(AppImages.mainLogoWhite),
+                  width: 120,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

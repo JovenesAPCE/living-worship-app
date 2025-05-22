@@ -220,7 +220,3 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
-flutter_native_splash:
-  color: "#F5F5F5" # ← Color de fondo
-  image: assets/splash.png
-  android_gravity: center
