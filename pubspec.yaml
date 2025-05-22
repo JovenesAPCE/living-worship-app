@@ -148,9 +148,9 @@ flutter:
     - assets/images/maps/map_3_thumbnail.webp
     - assets/images/maps/map_3.webp
     - assets/images/schedule_card_1.webp
-    - assets/lottie/check.json
     - assets/lottie/check_2.json
     - assets/lottie/check_3.json
+    - assets/lottie/check.json
     - assets/lottie/info.json
     - assets/lottie/lock.json
     - assets/lottie/qr_scan.json
