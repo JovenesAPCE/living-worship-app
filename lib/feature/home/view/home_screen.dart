@@ -69,7 +69,7 @@ class HomeScreen extends StatelessWidget {
                 onTap: () {
                   context.read<TabHomeBloc>().add(DestinationSelected(TabDestination.sessions));
                 },
-                  sepia: false
+                  sepia: true
               ),
               _buildGridCard(
                 'Invitados',
@@ -156,7 +156,7 @@ class HomeScreen extends StatelessWidget {
             width: double.infinity,
             height: 300,
             decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.2),
+              color: Colors.black.withOpacity(0.15),
               borderRadius: BorderRadius.all(Radius.circular(12)),
             ),
             margin: EdgeInsets.symmetric(vertical: 12, horizontal: 16),
@@ -302,7 +302,7 @@ class HomeScreen extends StatelessWidget {
                   width: double.infinity,
                   height: 300,
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.2),
+                    color: Colors.black.withOpacity(0.15),
                     borderRadius: BorderRadius.all(Radius.circular(12)),
                   ),
                 ),
