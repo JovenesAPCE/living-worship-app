@@ -109719,16 +109719,16 @@ s=A.f5(0,A.az(n,n,B.k,n,new A.b4(n,n,n,n,n,new A.fs(B.bh,B.bg,B.ar,A.a([B.N,B.dj
 r=A.cX(12)
 q=t.p
 r=A.a([A.az(n,A.lY(r,new A.a9B(l,B.dW,n),B.b9),B.k,n,n,300,n,new A.a2(16,12,16,12),n,1/0)],q)
-r.push(A.az(n,n,B.k,n,new A.b4(A.aw(51,B.m.t()>>>16&255,B.m.t()>>>8&255,B.m.t()&255),n,n,A.ey(new A.an(12,12)),n,n,B.z),300,n,new A.a2(16,12,16,12),n,1/0))
+r.push(A.az(n,n,B.k,n,new A.b4(A.aw(38,B.m.t()>>>16&255,B.m.t()>>>8&255,B.m.t()&255),n,n,A.ey(new A.an(12,12)),n,n,B.z),300,n,new A.a2(16,12,16,12),n,1/0))
 p=A.ey(new A.an(12,12))
 r.push(A.f4(n,A.e8(A.a34(A.az(n,n,B.k,n,new A.b4(n,A.na(n,B.b3,new A.fI("assets/images_v1/logo_worship.png",n,n)),n,p,n,n,B.z),200,n,new A.a2(16,12,16,12),n,200),0.8),n,n),n,n,0,0,n,n))
 r.push(A.f4(0,new A.b0(new A.a2(16,12,16,12),o.V_(),n),n,n,0,0,0,n))
 r.push(A.f4(0,A.az(B.lu,A.bq(A.a([A.aW("Actividades",n,n,n,A.bS(n,n,B.j,n,n,n,n,n,"FjallaOne",n,n,34,n,n,B.af,n,n,!0,n,n,n,n,n,n,n,n),n,n,n),A.ch(n,4,n),A.aW("Misi\xf3n en Acci\xf3n, Semiplenarias, Adoraci\xf3n, Maranata Class",n,n,n,A.bS(n,n,B.j,n,n,n,n,n,n,n,n,13,n,n,B.eQ,n,n,!0,n,n,n,n,n,n,n,n),n,n,n),new A.b0(new A.a2(6,6,6,6),n,n)],q),B.a1,B.ef,B.u),B.k,n,n,n,n,new A.a2(16,12,16,12),new A.a2(16,16,16,16),n),n,n,0,0,0,n))
-return A.cv(B.Q,A.a([s,A.bq(A.a([A.eY(n,A.cv(B.Q,r,B.C,B.P,n),B.U,!1,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,new A.awV(a),n,n,n,n,n,n,!1,B.aB),o.UX(a,o.CZ("Semiplenarias",A.a(["assets/images_v1/home_workshops.webp","assets/images_v1/home_workshops_2.webp"],m),"Elige los tuyos",new A.awW(a),!1),o.CZ("Invitados",A.a(["assets/images_v1/guest_card_1.webp"],m),n,new A.awX(a),!0),o.CZ("Bolet\xedn",A.a(["assets/images_v1/home_bulletin.webp"],m),n,new A.awY(a),!0),!1),o.UX(a,o.JN("\xa1Escanea tu asistencia!",A.a(["assets/images_v1/home_qr.webp"],m),"Usa tu c\xe1mara para registrar tu ingreso y salida en cada semiplenaria.",new A.awZ(a)),o.JN("Objetivos Principales",A.a(["assets/images_v1/home_main_objectives.webp"],m),n,new A.ax_(a)),o.JN("Mapa",A.a(["assets/images_v1/home_stands.webp"],m),n,new A.ax0(a)),!0),new A.b0(new A.a2(70,70,70,70),n,n)],q),B.y,B.t,B.u)],q),B.C,B.P,n)},
+return A.cv(B.Q,A.a([s,A.bq(A.a([A.eY(n,A.cv(B.Q,r,B.C,B.P,n),B.U,!1,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,new A.awV(a),n,n,n,n,n,n,!1,B.aB),o.UX(a,o.CZ("Semiplenarias",A.a(["assets/images_v1/home_workshops.webp","assets/images_v1/home_workshops_2.webp"],m),"Elige los tuyos",new A.awW(a),!0),o.CZ("Invitados",A.a(["assets/images_v1/guest_card_1.webp"],m),n,new A.awX(a),!0),o.CZ("Bolet\xedn",A.a(["assets/images_v1/home_bulletin.webp"],m),n,new A.awY(a),!0),!1),o.UX(a,o.JN("\xa1Escanea tu asistencia!",A.a(["assets/images_v1/home_qr.webp"],m),"Usa tu c\xe1mara para registrar tu ingreso y salida en cada semiplenaria.",new A.awZ(a)),o.JN("Objetivos Principales",A.a(["assets/images_v1/home_main_objectives.webp"],m),n,new A.ax_(a)),o.JN("Mapa",A.a(["assets/images_v1/home_stands.webp"],m),n,new A.ax0(a)),!0),new A.b0(new A.a2(70,70,70,70),n,n)],q),B.y,B.t,B.u)],q),B.C,B.P,n)},
 UX(a,b,c,d,e){var s=(A.c8(a,null,t.l).w.a.a-45)*0.5,r=A.ch(b,350,s),q=t.p,p=A.bq(A.a([A.ch(c,170,s),B.eo,A.ch(d,170,s)],q),B.y,B.t,B.u)
 return new A.b0(B.S4,A.ds(e?A.a([p,B.d5,r],q):A.a([r,B.d5,p],q),B.a1,B.t,B.u),null)},
 CZ(a,b,c,d,e){var s=null,r=b.length===1||B.dW.bC()<0.7?B.b.gO(b):b[B.dW.tB(b.length)],q=A.cX(12),p=A.na(s,B.b3,new A.fI(r,s,s)),o=t.p,n=A.a([A.f5(0,this.V_())],o)
-if(e)n.push(A.az(s,s,B.k,s,new A.b4(A.aw(51,B.m.t()>>>16&255,B.m.t()>>>8&255,B.m.t()&255),s,s,A.ey(new A.an(12,12)),s,s,B.z),300,s,s,s,1/0))
+if(e)n.push(A.az(s,s,B.k,s,new A.b4(A.aw(38,B.m.t()>>>16&255,B.m.t()>>>8&255,B.m.t()&255),s,s,A.ey(new A.an(12,12)),s,s,B.z),300,s,s,s,1/0))
 o=A.a([A.aW(a,s,s,s,B.afw,s,s,s)],o)
 if(c!=null)o.push(A.aW(c,s,s,s,B.afs,s,s,s))
 o.push(B.a8K)
