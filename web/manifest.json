@@ -3,6 +3,8 @@
   "short_name": "LW",
   "start_url": "/living-worship-app/",
   "display": "standalone",
+  "theme_color": "#0A45C1",
+  "background_color": "#0A45C1",
   "icons": [
     {
       "src": "icons/Icon-192.png",
