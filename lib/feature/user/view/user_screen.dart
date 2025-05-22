@@ -509,9 +509,7 @@ class _UserScreenState extends State<UserScreen> {
 
                                           const Text(
                                             "Estás a punto de unirte a algo grande.\n"
-                                                "Solo un poco más...\n\n"
-                                                "Lo mejor está por comenzar... y tú serás parte de ello. ¡Atento!\n\n"
-                                                "Falta poco para que formes parte de algo increíble. Espera un poco...",
+                                                "Solo un poco más...\n\n",
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
                                               fontSize: 14,
