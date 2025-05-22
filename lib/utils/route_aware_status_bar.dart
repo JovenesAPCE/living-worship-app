@@ -31,7 +31,8 @@ mixin RouteAwareStatusBarSync<T extends StatefulWidget> on State<T> implements R
 
     final theme = Theme.of(context);
     final appBarColor = theme.appBarTheme.backgroundColor ?? theme.colorScheme.primary;
-    context.setPWAThemeColor(appBarColor.toHex());
+    print("appBarColor: $appBarColor");
+    //context.setPWAThemeColor(appBarColor.toHex());
   }
   @override
   void didPop() {
