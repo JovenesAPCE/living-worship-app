@@ -4,6 +4,7 @@ import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jamt/constants/app_color.dart';
+import 'package:jamt/extensions/extensions.dart';
 import 'package:jamt/feature/bulletin/bloc/bulletin_bloc.dart';
 import 'package:jamt/feature/bulletin/bulletin.dart';
 import 'package:jamt/feature/tab_home/tab_home.dart';
@@ -25,6 +26,7 @@ class BulletinPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.setPWAThemeColor(AppColor.blue2.toHex());
     return BlocProvider(
         create: (context) => BulletinBloc(
             updateNotificationUseCase: UpdateNotificationUseCase(

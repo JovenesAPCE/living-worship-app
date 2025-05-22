@@ -1,6 +1,7 @@
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:jamt/extensions/extensions.dart';
 import 'package:jamt/feature/check_in/check_in.dart';
 
 class CheckInPage extends StatelessWidget {
@@ -18,6 +19,7 @@ class CheckInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.setPWAThemeColor(Colors.black.toHex());
     return BlocProvider(
         create: (context) => CheckInBloc(
           getQrStateSemiPlenaryUseCase: GetQrStateSemiPlenaryUseCase(

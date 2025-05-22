@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:jamt/constants/constants.dart';
+import 'package:jamt/extensions/extensions.dart';
 import 'package:jamt/widget/widget.dart';
 
 class EventScreen extends StatelessWidget {
@@ -9,6 +10,7 @@ class EventScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.setPWAThemeColor(AppColor.blueDark.toHex());
     return  Container(
       color: AppColor.purpleLight,
       child: Column(

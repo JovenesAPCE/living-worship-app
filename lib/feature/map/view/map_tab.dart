@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:jamt/constants/app_color.dart';
+import 'package:jamt/extensions/extensions.dart';
 import 'package:jamt/feature/map/map.dart';
 
 class MapTab extends StatelessWidget {
@@ -6,6 +8,7 @@ class MapTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.setPWAThemeColor(AppColor.blue2.toHex());
     return MapScreen();
   }
 }

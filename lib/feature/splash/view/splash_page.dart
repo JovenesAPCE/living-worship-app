@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jamt/constants/constants.dart';
+import 'package:jamt/extensions/extensions.dart';
+import 'package:web/web.dart';
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
   static const String routeName = '/splash';
@@ -12,6 +14,7 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.setPWAThemeColor(AppColor.blue2.toHex());
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(

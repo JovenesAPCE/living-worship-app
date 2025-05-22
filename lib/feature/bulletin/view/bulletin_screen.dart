@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jamt/constants/constants.dart';
+import 'package:jamt/extensions/extensions.dart';
 import 'package:jamt/feature/bulletin/bloc/bulletin_bloc.dart';
 import 'package:jamt/widget/progress_status.dart';
 import 'package:jamt/widget/rich_text_from_html_lite.dart';
@@ -18,6 +19,7 @@ class BulletinScreen extends StatelessWidget {
 
     },
     builder: (context, state) {
+      context.setPWAThemeColor(AppColor.blue2.toHex());
           return Container(
             color: AppColor.yellow,
             child: Column(

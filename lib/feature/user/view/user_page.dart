@@ -2,8 +2,8 @@ import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jamt/constants/app_color.dart';
+import 'package:jamt/extensions/extensions.dart';
 import 'package:jamt/feature/user/user.dart';
-import 'package:jamt/widget/widget.dart';
 
 class UserPage extends StatelessWidget {
   const UserPage({super.key});
@@ -18,6 +18,7 @@ class UserPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.setPWAThemeColor(AppColor.blue2.toHex());
     return BlocProvider(
         create: (context) => UserBloc(
             saveUserDecisionUseCase: SaveUserDecisionUseCase(

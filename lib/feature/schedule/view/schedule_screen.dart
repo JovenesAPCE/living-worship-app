@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:jamt/constants/constants.dart';
+import 'package:jamt/extensions/extensions.dart';
 import 'package:jamt/widget/rich_text_from_html_lite.dart';
 
 class ScheduleScreen extends StatelessWidget {
@@ -9,6 +10,7 @@ class ScheduleScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.setPWAThemeColor(AppColor.blue2.toHex());
     return Column(
       children: [
         Stack(

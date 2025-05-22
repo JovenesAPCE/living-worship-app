@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jamt/constants/constants.dart';
+import 'package:jamt/extensions/extensions.dart';
 import 'package:jamt/feature/tab_home/bloc/tab_home_bloc.dart';
 import 'package:jamt/feature/tab_home/models/models.dart';
 import 'package:jamt/navigation/bloc/navigation_bloc.dart';
@@ -15,6 +16,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.setPWAThemeColor(AppColor.orangeMain.toHex());
     var arrayList = [
       AppImages.homeActivityOne,
       AppImages.homeActivityTwo,
