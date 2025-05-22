@@ -1,9 +1,8 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jamt/constants/constants.dart';
-import 'package:jamt/extensions/extensions.dart';
+import 'dart:math';
 import 'package:jamt/feature/tab_home/bloc/tab_home_bloc.dart';
 import 'package:jamt/feature/tab_home/models/models.dart';
 import 'package:jamt/navigation/bloc/navigation_bloc.dart';
@@ -65,24 +64,25 @@ class HomeScreen extends StatelessWidget {
               context,
               _buildGridCard(
                 'Semiplenarias',
-                AppImages.homeWorkshops,
+                [AppImages.homeWorkshops, AppImages.homeWorkshops2],
                 "Elige los tuyos",
                 onTap: () {
                   context.read<TabHomeBloc>().add(DestinationSelected(TabDestination.sessions));
                 },
-                  sepia: true
+                  sepia: false
               ),
               _buildGridCard(
                 'Invitados',
-                AppImages.homeGuests,
+                [ AppImages.homeGuests],
                 null,
+                sepia: true,
                 onTap: () {
                   context.read<TabHomeBloc>().add(DestinationSelected(TabDestination.guests));
                 },
               ),
               _buildGridCard(
                 'Boletín',
-                AppImages.homeBulletin,
+                [AppImages.homeBulletin],
                 null,
                 onTap: () {
                   context.read<TabHomeBloc>().add(DestinationSelected(TabDestination.bulletin));
@@ -95,7 +95,7 @@ class HomeScreen extends StatelessWidget {
               context,
               _buildGridCard(
                 '¡Escanea tu asistencia!',
-                AppImages.homeQR,
+                [AppImages.homeQR],
                 'Usa tu cámara para registrar tu ingreso y salida en cada semiplenaria.',
                 onTap: () {
                   context.read<NavigationBloc>().add(NavigationPressed(Destination.qrScan));
@@ -105,7 +105,7 @@ class HomeScreen extends StatelessWidget {
               ),
               _buildGridCard(
                 'Objetivos Principales',
-                AppImages.homeMainObjectives,
+                [AppImages.homeMainObjectives],
                 null,
                 onTap: () {
                   context.read<TabHomeBloc>().add(DestinationSelected(TabDestination.event));
@@ -113,7 +113,7 @@ class HomeScreen extends StatelessWidget {
               ),
               _buildGridCard(
                 'Mapa',
-                AppImages.homeStands,
+                [AppImages.homeStands],
                 null,
                 onTap: () {
                   context.read<TabHomeBloc>().add(DestinationSelected(TabDestination.map));
@@ -270,12 +270,19 @@ class HomeScreen extends StatelessWidget {
   }
 
   Widget _buildGridCard(
-    String title,
-    String imagePath,
-    String? subtitle, {
-    VoidCallback? onTap,
-    bool sepia = false
-  }) {
+      String title,
+      List<String> imagePaths,
+      String? subtitle, {
+        VoidCallback? onTap,
+        bool sepia = false,
+      }) {
+    final random = Random();
+
+    // Probabilidad del 70% de usar la primera imagen
+    final String selectedImage = (imagePaths.length == 1 || random.nextDouble() < 0.7)
+        ? imagePaths.first
+        : imagePaths[random.nextInt(imagePaths.length)];
+
     return GestureDetector(
       onTap: onTap,
       child: ClipRRect(
@@ -283,14 +290,14 @@ class HomeScreen extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(imagePath),
+              image: AssetImage(selectedImage),
               fit: BoxFit.cover,
             ),
           ),
           child: Stack(
             children: [
               Positioned.fill(child: _buildLinearGradient()),
-              if(sepia)
+              if (sepia)
                 Container(
                   width: double.infinity,
                   height: 300,
@@ -326,7 +333,7 @@ class HomeScreen extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                      Padding(padding: EdgeInsets.all(2))
+                      const Padding(padding: EdgeInsets.all(2)),
                     ],
                   ),
                 ),

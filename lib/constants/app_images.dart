@@ -18,9 +18,10 @@ class AppImages {
   static const String homeActivityTen   = '${_base}home_activity_10.webp';
   static const String homeActivityEleven = '${_base}home_activity_11.webp';
   static const String homeActivityTwelve = '${_base}home_activity_12.webp';
-  static const String homeGuests = '${_base}home_guests.webp';
+  static const String homeGuests = '${_base}guest_card_1.webp';
   static const String homeBulletin = '${_base}home_bulletin.webp';
   static const String homeWorkshops = '${_base}home_workshops.webp';
+  static const String homeWorkshops2 = '${_base}home_workshops_2.webp';
   static const String homeSessions = '${_base}home_sessions.jpg';
   static const String homeTourism = '${_base}home_tourism.jpg';
   static const String homeStands = '${_base}home_stands.webp';
@@ -38,6 +39,7 @@ class AppImages {
   static const String activityImage4= '${_base}activity_image_4.webp';
 
   static const String guestCard1 = '${_base}guest_card_1.webp';
+  static const String guestCard2 = '${_base}guest_card_2.webp';
   static const String guests1 = '${_base}guests_1.webp';
   static const String guests2 = '${_base}guests_2.webp';
   static const String guests3 = '${_base}guests_3.webp';
@@ -61,4 +63,7 @@ class AppImages {
 
   static const String map3Thumbnail = '${_base}maps/map_3_thumbnail.webp';
   static const String map3= '${_base}maps/map_3.webp';
+
+  static const String scheduleCard1 = '${_base}schedule_card_1.webp';
+
 }

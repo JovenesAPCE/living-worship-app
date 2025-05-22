@@ -107,6 +107,7 @@ flutter:
     - assets/images/home_guests.webp
     - assets/images/home_bulletin.webp
     - assets/images/home_workshops.webp
+    - assets/images/home_workshops_2.webp
     - assets/images/home_sessions.jpg
     - assets/images/home_tourism.jpg
     - assets/images/home_stands.webp
@@ -121,6 +122,7 @@ flutter:
     - assets/images/activity_image_3.webp
     - assets/images/activity_image_4.webp
     - assets/images/guest_card_1.webp
+    - assets/images/guest_card_2.webp
     - assets/images/logo_worship.png
     - assets/images/logo_mrnt.webp
     - assets/images/activity_image_1.webp
@@ -145,6 +147,7 @@ flutter:
     - assets/images/bulletin_1.webp
     - assets/images/maps/map_3_thumbnail.webp
     - assets/images/maps/map_3.webp
+    - assets/images/schedule_card_1.webp
     - assets/lottie/check.json
     - assets/lottie/check_2.json
     - assets/lottie/check_3.json

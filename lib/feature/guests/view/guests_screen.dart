@@ -47,7 +47,7 @@ class GuestsScreen extends StatelessWidget {
                             height: 280,
                             decoration: BoxDecoration(
                                 image: DecorationImage(
-                                  image:AssetImage(AppImages.guestCard1),
+                                  image:AssetImage(AppImages.guestCard2),
                                   fit: BoxFit.cover,
                                 ),
                                 borderRadius: BorderRadius.only(

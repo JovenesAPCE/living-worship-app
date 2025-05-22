@@ -44,7 +44,7 @@ class ScheduleScreen extends StatelessWidget {
                       height: 280,
                       decoration: BoxDecoration(
                           image: DecorationImage(
-                            image:AssetImage(AppImages.guestCard1),
+                            image:AssetImage(AppImages.scheduleCard1),
                             fit: BoxFit.cover,
                           ),
                           borderRadius: BorderRadius.only(
