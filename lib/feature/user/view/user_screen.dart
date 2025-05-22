@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jamt/feature/user/user.dart';
 import 'package:jamt/constants/constants.dart';
+import 'package:jamt/utils/utils.dart';
 import 'package:jamt/widget/widget.dart';
 import 'package:lottie/lottie.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -15,7 +16,7 @@ class UserScreen extends StatefulWidget {
   State<UserScreen> createState() => _UserScreenState();
 }
 
-class _UserScreenState extends State<UserScreen> {
+class _UserScreenState extends State<UserScreen> with RouteAwareStatusBarSync  {
   @override
   void initState() {
     super.initState();
@@ -755,6 +756,8 @@ class _UserScreenState extends State<UserScreen> {
 
     }
   }
+
+
 
 
 

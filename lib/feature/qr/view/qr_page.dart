@@ -1,8 +1,6 @@
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jamt/constants/app_color.dart';
-import 'package:jamt/extensions/extensions.dart';
 import 'package:jamt/feature/qr/bloc/qr_bloc.dart';
 import 'package:jamt/feature/qr/qr.dart';
 
@@ -18,7 +16,6 @@ class QRPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.setPWAThemeColor(AppColor.orangeMain.toHex());
     return BlocProvider(
         create: (context) => QrBloc(
           decryptSemiPlenaryQr: DecryptSemiPlenaryQr(

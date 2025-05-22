@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jamt/feature/qr/bloc/qr_bloc.dart';
+import 'package:jamt/utils/utils.dart';
 import 'package:jamt/widget/timed_status_message.dart';
 import 'package:lottie/lottie.dart';
 import 'package:qr_code_scanner_plus/qr_code_scanner_plus.dart';
@@ -14,7 +15,7 @@ class ScanQrScreen extends StatefulWidget {
   State<ScanQrScreen> createState() => _ScanQrScreenState();
 }
 
-class _ScanQrScreenState extends State<ScanQrScreen> {
+class _ScanQrScreenState extends State<ScanQrScreen> with RouteAwareStatusBarSync{
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
   QRViewController? controller;
   String scanResult = '';
