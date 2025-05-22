@@ -18,11 +18,19 @@ jobs:
         with:
           flutter-version: '3.29.3'  # Cambia según tu versión si lo deseas
 
+      # Limpieza previa del build (evita usar artefactos cacheados)
+      - name: Clean previous builds
+        run: flutter clean
+
       - name: Install dependencies
         run: flutter pub get
 
       - name: Build Flutter web
         run: flutter build web --release --base-href="/living-worship-app/"
+
+      #Evitar caché en GitHub Pages para archivos críticos
+      - name: Create .nojekyll file
+        run: echo > build/web/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
