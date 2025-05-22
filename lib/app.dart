@@ -6,6 +6,7 @@ import 'package:domain/domain.dart';
 import 'package:data/data.dart';
 import 'package:entities/entities.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -85,9 +86,13 @@ class _AppViewState extends State<AppView> {
   }
 
   void initFirebase() async {
+    debugPrint('initFirebase');
     await initializeNotifications();
+    debugPrint('initializeNotifications');
     await _requestNotificationPermission();
+    debugPrint('_requestNotificationPermission');
     await _initFirebaseMessaging();
+    debugPrint('_initFirebaseMessaging');
   }
 
   Future<void> _requestNotificationPermission() async {
@@ -215,6 +220,7 @@ class _AppViewState extends State<AppView> {
   }
 
   Future<void> initializeNotifications() async {
+    if (kIsWeb) return; // 🔒 Ignorar en Web
     // Android init
     const AndroidInitializationSettings androidSettings =
     AndroidInitializationSettings('ic_notification');
