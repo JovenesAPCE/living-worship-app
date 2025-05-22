@@ -109217,7 +109217,7 @@ A.akT.prototype={
 $2(a,b){},
 $S:632}
 A.akS.prototype={
-$2(a,b){var s,r=null,q=A.f4(0,A.az(r,r,B.k,r,new A.b4(r,r,r,r,r,new A.fs(B.bg,B.bf,B.ar,A.a([B.N,B.dj,B.b3],t.O),A.a([0,0.6,1],t.n),r),B.z),r,r,r,r,r)),p=A.ey(new A.an(12,12)),o=t.p,n=A.a([B.ait,B.hZ],o)
+$2(a,b){var s,r=null,q=A.f4(0,A.az(r,r,B.k,r,new A.b4(r,r,r,r,r,new A.fs(B.bg,B.bf,B.ar,A.a([B.N,B.dj,B.b3],t.O),A.a([0,0.6,1],t.n),r),B.z),r,r,r,r,r)),p=A.ey(new A.an(12,12)),o=t.p,n=A.a([B.aiu,B.hZ],o)
 B.b.Y(n,A.to(6,new A.akR(this.a,b,a),!0,t.l7))
 p=A.cv(B.Q,A.a([q,A.az(r,A.bq(n,B.a1,B.t,B.u),B.k,r,new A.b4(B.j,r,r,p,r,r,B.z),r,r,new A.a2(16,20,16,20),new A.a2(16,16,16,16),1/0)],o),B.C,B.P,r)
 n=A.ey(new A.an(12,12))
@@ -109306,14 +109306,14 @@ $S:640}
 A.an1.prototype={
 $2(a,b){var s,r=null,q=A.f4(0,A.az(r,r,B.k,r,new A.b4(r,r,r,r,r,new A.fs(B.bg,B.bf,B.ar,A.a([B.b3,B.N,B.eD],t.O),A.a([0,0.3,1],t.n),r),B.z),r,r,r,r,r)),p=A.ey(new A.an(12,12)),o=A.az(r,r,B.k,r,new A.b4(r,A.na(r,B.b2,new A.fH("assets/images/home_bulletin.webp",r,r)),r,new A.c6(new A.an(12,12),new A.an(12,12),B.w,B.w),r,r,B.z),300,r,r,r,r),n=A.ey(new A.an(12,12)),m=t.p
 n=A.cv(B.Q,A.a([o,A.f4(0,A.az(r,r,B.k,r,new A.b4(A.aw(51,B.m.t()>>>16&255,B.m.t()>>>8&255,B.m.t()&255),r,r,n,r,r,B.z),r,r,r,r,r))],m),B.C,B.P,r)
-o=A.a([B.aiv],m)
+o=A.a([B.aiw],m)
 s=b.c
 if(s.b)o.push(A.e8(new A.LF(s.c,s.a,new A.amY(a),r),r,r))
 o.push(B.bn)
 B.b.Y(o,J.ji(b.a,new A.amZ(),t.l7))
-o.push(B.ai2)
+o.push(B.ai3)
 o.push(B.bn)
-o.push(A.ds(A.a([A.ch(A.lY(A.cX(16),A.ni("assets/images/bulletin_1.webp",B.b2,r,r),B.b8),160,120),B.hY,A.ej(A.bq(A.a([A.eX(r,B.ain,B.W,!1,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,new A.an_(),r,r,r,r,r,r,!1,B.aA),B.ahU,B.eo,B.aie,B.cN,A.rN(!1,B.ahW,r,r,r,r,r,r,new A.an0(),r,A.k4(r,r,B.by,r,r,r,r,r,r,r,r,B.kK,r,r,new A.cP(A.cX(8),B.A),r,r,r,r))],m),B.a1,B.t,B.u),1,r)],m),B.a1,B.t,B.u))
+o.push(A.ds(A.a([A.ch(A.lY(A.cX(16),A.ni("assets/images/bulletin_1.webp",B.b2,r,r),B.b8),160,120),B.hY,A.ej(A.bq(A.a([A.eX(r,B.aio,B.W,!1,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,new A.an_(),r,r,r,r,r,r,!1,B.aA),B.ahV,B.eo,B.aif,B.cN,A.rN(!1,B.ahX,r,r,r,r,r,r,new A.an0(),r,A.k4(r,r,B.by,r,r,r,r,r,r,r,r,B.kK,r,r,new A.cP(A.cX(8),B.A),r,r,r,r))],m),B.a1,B.t,B.u),1,r)],m),B.a1,B.t,B.u))
 return A.az(r,A.bq(A.a([A.cv(B.Q,A.a([q,A.az(r,A.bq(A.a([n,A.az(r,A.bq(A.a([A.az(r,A.bq(o,B.a1,B.t,B.u),B.k,r,B.Mv,r,r,r,r,1/0)],m),B.a1,B.t,B.u),B.k,r,r,r,r,new A.a2(16,16,16,16),r,r)],m),B.a1,B.t,B.u),B.k,r,new A.b4(B.j,r,r,p,r,r,B.z),r,r,new A.a2(16,20,16,20),r,1/0)],m),B.C,B.P,r),new A.b0(new A.a2(0,0,0,200),r,r)],m),B.y,B.t,B.u),B.k,B.eD,r,r,r,r,r,r)},
 $S:641}
 A.amY.prototype={
@@ -109448,7 +109448,7 @@ p=A.aW(p,j,j,j,A.bS(j,j,B.m,j,j,j,j,j,i,j,j,32,j,j,B.af,j,j,!0,j,j,j,j,j,j,j,j),
 o=b.r
 if(o==null)o=""
 n=t.p
-n=A.az(j,A.cv(B.Q,A.a([s,A.e8(A.lh(B.a6,!0,j,A.lY(r,A.ch(A.cv(B.Q,A.a([A.az(j,A.bq(A.a([B.ac5,B.aix,B.eo,p,A.aW(o,j,j,j,A.bS(j,j,B.m,j,j,j,j,j,j,j,j,24,j,j,j,j,j,!0,j,j,j,j,j,j,j,j),j,j,j),B.eo,B.aip,B.bn,A.rN(!1,B.ai8,j,j,j,j,j,j,new A.aoo(a),j,A.k4(j,j,B.cY,j,j,j,j,j,j,j,j,B.kK,j,j,new A.cP(A.cX(12),B.A),j,j,j,j))],n),B.y,B.d1,B.u),B.k,h,j,j,j,j,B.mC,j),A.f3(j,A.a0e("assets/lottie/info.json",j,B.pE,120,j,120),j,j,0,0,16,j)],n),B.C,B.P,j),500,q.a.a*0.7),B.b8),B.k,B.G,0,j,j,j,j,j,B.dy),j,j)],n),B.C,B.P,j),B.k,j,j,j,j,j,j,j)
+n=A.az(j,A.cv(B.Q,A.a([s,A.e8(A.lh(B.a6,!0,j,A.lY(r,A.ch(A.cv(B.Q,A.a([A.az(j,A.bq(A.a([B.ac5,B.aiy,B.eo,p,A.aW(o,j,j,j,A.bS(j,j,B.m,j,j,j,j,j,j,j,j,24,j,j,j,j,j,!0,j,j,j,j,j,j,j,j),j,j,j),B.eo,B.aiq,B.bn,A.rN(!1,B.ai9,j,j,j,j,j,j,new A.aoo(a),j,A.k4(j,j,B.cY,j,j,j,j,j,j,j,j,B.kK,j,j,new A.cP(A.cX(12),B.A),j,j,j,j))],n),B.y,B.d1,B.u),B.k,h,j,j,j,j,B.mC,j),A.f3(j,A.a0e("assets/lottie/info.json",j,B.pE,120,j,120),j,j,0,0,16,j)],n),B.C,B.P,j),500,q.a.a*0.7),B.b8),B.k,B.G,0,j,j,j,j,j,B.dy),j,j)],n),B.C,B.P,j),B.k,j,j,j,j,j,j,j)
 h=n}else{h=A.f4(0,A.az(j,j,B.k,h,j,j,j,j,j,j))
 s=A.f4(0,A.az(j,j,B.k,A.aw(B.d.a8(25.5),B.m.t()>>>16&255,B.m.t()>>>8&255,B.m.t()&255),j,j,j,j,j,j))
 r=A.ch(new A.p7("assets/lottie/check_2.json",0.5,!0,!1,j),150,j)
@@ -109468,7 +109468,7 @@ m=A.aW(m,j,j,j,A.bS(j,j,B.j,j,j,j,j,j,j,j,j,24,j,j,j,j,j,!0,j,j,j,j,j,j,j,j),j,j
 l=b.w
 if(l==null)l=""
 k=t.p
-k=A.uh(j,j,A.cv(B.Q,A.a([h,s,new A.b0(B.mC,A.bq(A.a([B.op,r,B.ai5,B.en,q,B.en,p,B.bn,o,n,m,B.bn,A.aW(l,j,j,j,A.bS(j,j,B.V,j,j,j,j,j,j,j,j,16,j,j,j,j,j,!0,j,j,j,j,j,j,j,j),B.am,j,j),B.os,A.rN(!1,B.ahY,j,j,j,j,j,j,new A.aop(a),j,A.k4(j,j,B.mb,j,j,j,j,j,j,j,j,B.kK,j,j,new A.cP(A.cX(12),B.A),j,j,j,j)),B.en,A.a6H(B.ai7,new A.aoq(),j)],k),B.y,B.t,B.u),j)],k),B.C,B.P,j),j,j)
+k=A.uh(j,j,A.cv(B.Q,A.a([h,s,new A.b0(B.mC,A.bq(A.a([B.op,r,B.ai6,B.en,q,B.en,p,B.bn,o,n,m,B.bn,A.aW(l,j,j,j,A.bS(j,j,B.V,j,j,j,j,j,j,j,j,16,j,j,j,j,j,!0,j,j,j,j,j,j,j,j),B.am,j,j),B.os,A.rN(!1,B.ahZ,j,j,j,j,j,j,new A.aop(a),j,A.k4(j,j,B.mb,j,j,j,j,j,j,j,j,B.kK,j,j,new A.cP(A.cX(12),B.A),j,j,j,j)),B.en,A.a6H(B.ai8,new A.aoq(),j)],k),B.y,B.t,B.u),j)],k),B.C,B.P,j),j,j)
 h=k}return h},
 $S:653}
 A.aon.prototype={
@@ -109564,14 +109564,14 @@ s=A.aW(this.a.Pd(b.d),o,o,o,B.agQ,o,o,o)
 r=A.aW("Gracias por participar",o,o,o,A.bS(o,o,B.j,o,o,o,o,o,n,o,o,28,o,o,B.af,o,o,!0,o,o,o,o,o,o,o,o),B.am,o,o)
 q=b.f
 p=t.p
-return A.uh(o,o,A.cv(B.Q,A.a([m,l,new A.b0(B.mC,A.bq(A.a([B.op,k,B.ahV,B.en,j,B.en,s,B.bn,r,A.aW(q==null?"":q,o,o,o,B.aff,B.am,o,o),B.bn,B.ahX,B.os,A.rN(!1,B.ahZ,o,o,o,o,o,o,new A.aoy(a),o,A.k4(o,o,B.mb,o,o,o,o,o,o,o,o,B.kK,o,o,new A.cP(A.cX(12),B.A),o,o,o,o)),B.ac8],p),B.y,B.t,B.u),o)],p),B.C,B.P,o),o,o)},
+return A.uh(o,o,A.cv(B.Q,A.a([m,l,new A.b0(B.mC,A.bq(A.a([B.op,k,B.ahW,B.en,j,B.en,s,B.bn,r,A.aW(q==null?"":q,o,o,o,B.aff,B.am,o,o),B.bn,B.ahY,B.os,A.rN(!1,B.ai_,o,o,o,o,o,o,new A.aoy(a),o,A.k4(o,o,B.mb,o,o,o,o,o,o,o,o,B.kK,o,o,new A.cP(A.cX(12),B.A),o,o,o,o)),B.ac8],p),B.y,B.t,B.u),o)],p),B.C,B.P,o),o,o)},
 $S:658}
 A.aoy.prototype={
 $0(){A.hR(this.a,!1).fo()},
 $S:0}
 A.IW.prototype={
 H(a){var s=null,r=A.f4(0,A.az(s,s,B.k,s,new A.b4(s,s,s,s,s,new A.fs(B.bg,B.bf,B.ar,A.a([B.qI,B.b3,B.m0],t.O),A.a([0,0.3,1],t.n),s),B.z),s,s,s,s,s)),q=A.ey(new A.an(12,12)),p=t.p
-return A.az(s,A.bq(A.a([A.cv(B.Q,A.a([r,A.az(s,A.bq(A.a([A.cv(B.Q,A.a([A.az(s,s,B.k,s,new A.b4(s,A.na(s,B.b2,new A.fH("assets/images/guide_card_1.webp",s,s)),s,new A.c6(new A.an(12,12),new A.an(12,12),B.w,B.w),s,s,B.z),300,s,s,s,s),A.az(s,s,B.k,s,new A.b4(A.aw(51,B.m.t()>>>16&255,B.m.t()>>>8&255,B.m.t()&255),s,s,new A.c6(new A.an(12,12),new A.an(12,12),B.w,B.w),s,s,B.z),300,s,s,s,s)],p),B.C,B.P,s),A.az(s,A.bq(A.a([A.aW("El Evento",s,s,s,A.bS(s,s,B.by,s,s,s,s,s,"MuseoSans",s,s,16,s,s,B.af,s,s,!0,s,s,s,s,s,s,s,s),s,s,s),A.aW("Objetivos Principales",s,s,s,A.bS(s,s,s,s,s,s,s,s,"FjallaOne",s,s,24,s,s,s,s,s,!0,s,s,s,s,s,s,s,s),s,s,s),new A.b0(new A.a2(8,8,8,8),s,s),new A.pz("<b>Objetivo General:</b> Fomentar una experiencia de adoraci\xf3n aut\xe9ntica y fortalecer el liderazgo y la misi\xf3n de los j\xf3venes adventistas a trav\xe9s de capacitaciones, din\xe1micas y el compromiso con el evangelismo.<p></p><p></p><b>Objetivos Espec\xedficos:</b> <ul><li>Inspirar a los j\xf3venes a vivir una adoraci\xf3n que trascienda y se refleje en su estilo de vida.</li><li>Capacitar a los j\xf3venes en liderazgo y discipulado a trav\xe9s del  Maranata Class.</li><li>Lanzar oficialmente Misi\xf3n Caleb, impulsando la participaci\xf3n joven en el evangelismo y servicio a los dem\xe1s.</li><li>Fortalecer el sentido de comunidad y pertenencia entre los j\xf3venes adventistas.</li><li>Promover el estudio de la Biblia y la formaci\xf3n de l\xedderes de impacto misionero.</li></ul>",s,s),B.ai_,B.bn,new A.Qd(B.Tm,"Lugar de las programaciones:","Carpa Movil . UPeU - Sede Lima",s),B.bn,new A.Qd(B.Tg,"Lugar de campamento:","\xc1reas verdes de la UPeU, Sede Lima - cercano a la carpa m\xf3vil.",s),B.bn,new A.acK(B.Tk,"P\xfablico destinatario:",A.a(["J\xf3venes de las iglesias locales, directores de Maranata Class.","Distritales, regionales y coordinadores de j\xf3venes.","Ancianos y pastores distritales, relacionados al trabajo de j\xf3venes."],t.s),s),new A.b0(new A.a2(16,16,16,16),s,s),B.ai9,new A.b0(new A.a2(8,8,8,8),s,s),new A.pz("<p><p>El congreso se llevar\xe1 a cabo en la Universidad Peruana Uni\xf3n (UPEU), ubicada en el kil\xf3metro 19.5 de la Carretera Central. Esta sede ha sido elegida por varias razones clave:</p></p><p><p><b>\u2022 Amplias \xe1reas verdes:</b> Espacios abiertos que favorecen un ambiente de comuni\xf3n y actividades al aire libre.</p></p><p><p><b>\u2022 Infraestructura adecuada:</b> La UPEU cuenta con una carpa m\xf3vil que puede albergar a una gran cantidad de personas, garantizando comodidad para los asistentes.</p></p><p><p><b>\u2022 Seguridad:</b> La universidad es un espacio cerrado y controlado, lo que brinda tranquilidad a los participantes y organizadores.</p></p><p><p>\u2022 El clima a fines de mayo e inicios de junio  son favorables y sin temperaturas extremas. Poca probabilidad de llluvia.</p></p>",s,s)],p),B.a1,B.t,B.u),B.k,s,s,s,s,new A.a2(16,16,16,16),s,s)],p),B.a1,B.t,B.u),B.k,s,new A.b4(B.j,s,s,q,s,s,B.z),s,s,new A.a2(16,20,16,20),s,1/0)],p),B.C,B.P,s),new A.b0(new A.a2(0,0,0,200),s,s)],p),B.y,B.t,B.u),B.k,B.m0,s,s,s,s,s,s)}}
+return A.az(s,A.bq(A.a([A.cv(B.Q,A.a([r,A.az(s,A.bq(A.a([A.cv(B.Q,A.a([A.az(s,s,B.k,s,new A.b4(s,A.na(s,B.b2,new A.fH("assets/images/guide_card_1.webp",s,s)),s,new A.c6(new A.an(12,12),new A.an(12,12),B.w,B.w),s,s,B.z),300,s,s,s,s),A.az(s,s,B.k,s,new A.b4(A.aw(51,B.m.t()>>>16&255,B.m.t()>>>8&255,B.m.t()&255),s,s,new A.c6(new A.an(12,12),new A.an(12,12),B.w,B.w),s,s,B.z),300,s,s,s,s)],p),B.C,B.P,s),A.az(s,A.bq(A.a([A.aW("El Evento",s,s,s,A.bS(s,s,B.by,s,s,s,s,s,"MuseoSans",s,s,16,s,s,B.af,s,s,!0,s,s,s,s,s,s,s,s),s,s,s),A.aW("Objetivos Principales",s,s,s,A.bS(s,s,s,s,s,s,s,s,"FjallaOne",s,s,24,s,s,s,s,s,!0,s,s,s,s,s,s,s,s),s,s,s),new A.b0(new A.a2(8,8,8,8),s,s),new A.pz("<b>Objetivo General:</b> Fomentar una experiencia de adoraci\xf3n aut\xe9ntica y fortalecer el liderazgo y la misi\xf3n de los j\xf3venes adventistas a trav\xe9s de capacitaciones, din\xe1micas y el compromiso con el evangelismo.<p></p><p></p><b>Objetivos Espec\xedficos:</b> <ul><li>Inspirar a los j\xf3venes a vivir una adoraci\xf3n que trascienda y se refleje en su estilo de vida.</li><li>Capacitar a los j\xf3venes en liderazgo y discipulado a trav\xe9s del  Maranata Class.</li><li>Lanzar oficialmente Misi\xf3n Caleb, impulsando la participaci\xf3n joven en el evangelismo y servicio a los dem\xe1s.</li><li>Fortalecer el sentido de comunidad y pertenencia entre los j\xf3venes adventistas.</li><li>Promover el estudio de la Biblia y la formaci\xf3n de l\xedderes de impacto misionero.</li></ul>",s,s),B.ai0,B.bn,new A.Qd(B.Tm,"Lugar de las programaciones:","Carpa Movil . UPeU - Sede Lima",s),B.bn,new A.Qd(B.Tg,"Lugar de campamento:","\xc1reas verdes de la UPeU, Sede Lima - cercano a la carpa m\xf3vil.",s),B.bn,new A.acK(B.Tk,"P\xfablico destinatario:",A.a(["J\xf3venes de las iglesias locales, directores de Maranata Class.","Distritales, regionales y coordinadores de j\xf3venes.","Ancianos y pastores distritales, relacionados al trabajo de j\xf3venes."],t.s),s),new A.b0(new A.a2(16,16,16,16),s,s),B.aia,new A.b0(new A.a2(8,8,8,8),s,s),new A.pz("<p><p>El congreso se llevar\xe1 a cabo en la Universidad Peruana Uni\xf3n (UPEU), ubicada en el kil\xf3metro 19.5 de la Carretera Central. Esta sede ha sido elegida por varias razones clave:</p></p><p><p><b>\u2022 Amplias \xe1reas verdes:</b> Espacios abiertos que favorecen un ambiente de comuni\xf3n y actividades al aire libre.</p></p><p><p><b>\u2022 Infraestructura adecuada:</b> La UPEU cuenta con una carpa m\xf3vil que puede albergar a una gran cantidad de personas, garantizando comodidad para los asistentes.</p></p><p><p><b>\u2022 Seguridad:</b> La universidad es un espacio cerrado y controlado, lo que brinda tranquilidad a los participantes y organizadores.</p></p><p><p>\u2022 El clima a fines de mayo e inicios de junio  son favorables y sin temperaturas extremas. Poca probabilidad de llluvia.</p></p>",s,s)],p),B.a1,B.t,B.u),B.k,s,s,s,s,new A.a2(16,16,16,16),s,s)],p),B.a1,B.t,B.u),B.k,s,new A.b4(B.j,s,s,q,s,s,B.z),s,s,new A.a2(16,20,16,20),s,1/0)],p),B.C,B.P,s),new A.b0(new A.a2(0,0,0,200),s,s)],p),B.y,B.t,B.u),B.k,B.m0,s,s,s,s,s,s)}}
 A.Qd.prototype={
 H(a){var s=null,r=t.p
 return A.ds(A.a([A.ig(this.c,B.m,s,32),B.hY,A.ej(A.bq(A.a([A.aW(this.d,s,s,s,B.K7,s,s,s),B.eo,A.aW(this.e,s,s,s,B.K6,s,s,s)],r),B.a1,B.t,B.u),1,s)],r),B.a1,B.t,B.u)},
@@ -109583,7 +109583,7 @@ return A.ds(A.a([r,B.hY,A.ej(A.bq(p,B.a1,B.t,B.u),1,s)],q),B.a1,B.t,B.u)},
 gfD(a){return this.c}}
 A.aTX.prototype={
 $1(a){var s=null
-return new A.b0(B.RP,A.ds(A.a([B.ai1,A.ej(A.aW(a,s,s,s,B.K6,s,s,s),1,s)],t.p),B.a1,B.t,B.u),s)},
+return new A.b0(B.RP,A.ds(A.a([B.ai2,A.ej(A.aW(a,s,s,s,B.K6,s,s,s),1,s)],t.p),B.a1,B.t,B.u),s)},
 $S:659}
 A.t2.prototype={
 alp(a,b){var s=this.c
@@ -109605,7 +109605,7 @@ A.avS.prototype={
 $2(a,b){},
 $S:661}
 A.avR.prototype={
-$2(a,b){var s,r,q,p=null,o=A.f4(0,A.az(p,p,B.k,p,new A.b4(p,p,p,p,p,new A.fs(B.bg,B.bf,B.ar,A.a([B.by,B.N,B.eD],t.O),A.a([0,0.3,1],t.n),p),B.z),p,p,p,p,p)),n=A.ey(new A.an(12,12)),m=A.az(p,p,B.k,p,new A.b4(p,A.na(p,B.b2,new A.fH("assets/images/guest_card_1.webp",p,p)),p,new A.c6(new A.an(12,12),new A.an(12,12),B.w,B.w),p,p,B.z),280,p,p,p,p),l=A.az(p,B.aio,B.k,p,p,p,p,new A.a2(16,16,16,16),p,p),k=A.cX(12),j=A.H4(B.fU,1),i=t.l7
+$2(a,b){var s,r,q,p=null,o=A.f4(0,A.az(p,p,B.k,p,new A.b4(p,p,p,p,p,new A.fs(B.bg,B.bf,B.ar,A.a([B.by,B.N,B.eD],t.O),A.a([0,0.3,1],t.n),p),B.z),p,p,p,p,p)),n=A.ey(new A.an(12,12)),m=A.az(p,p,B.k,p,new A.b4(p,A.na(p,B.b2,new A.fH("assets/images/guest_card_1.webp",p,p)),p,new A.c6(new A.an(12,12),new A.an(12,12),B.w,B.w),p,p,B.z),280,p,p,p,p),l=A.az(p,B.aip,B.k,p,p,p,p,new A.a2(16,16,16,16),p,p),k=A.cX(12),j=A.H4(B.fU,1),i=t.l7
 k=A.az(p,A.ds(A.to(3,new A.avP(b,a),!0,i),B.y,B.t,B.u),B.k,p,new A.b4(p,p,j,k,p,p,B.z),p,p,B.eJ,p,p)
 j=b.a
 s=b.b
@@ -109880,7 +109880,7 @@ if(r==null)r=B.a4
 p.mB(A.bqa(null,r,!0,null,new A.aUU(q),q,null,s,B.Kh,!0,t.z))},
 $S:0}
 A.aUU.prototype={
-$1(a){return new A.A5(B.aih,B.ais,A.a([A.a6H(B.aiD,new A.aUT(this.a),null)],t.p),null)},
+$1(a){return new A.A5(B.aii,B.ait,A.a([A.a6H(B.aiD,new A.aUT(this.a),null)],t.p),null)},
 $S:680}
 A.aUT.prototype={
 $0(){return A.hR(this.a,!1).fo()},
@@ -110105,7 +110105,7 @@ $0(){J.c0(A.bj(this.a,!1,t.Cv),new A.LK())},
 $S:0}
 A.a54.prototype={
 H(a){var s=null,r=A.f4(0,A.az(s,s,B.k,s,new A.b4(s,s,s,s,s,new A.fs(B.bg,B.bf,B.ar,A.a([B.b3,B.dj,B.N],t.O),A.a([0,0.3,1],t.n),s),B.z),s,s,s,s,s)),q=A.ey(new A.an(12,12)),p=t.p
-return A.bq(A.a([A.cv(B.Q,A.a([r,A.az(s,A.bq(A.a([A.az(s,s,B.k,s,new A.b4(s,A.na(s,B.b2,new A.fH("assets/images/guest_card_1.webp",s,s)),s,new A.c6(new A.an(12,12),new A.an(12,12),B.w,B.w),s,s,B.z),280,s,s,s,s),A.az(s,B.aiz,B.k,s,s,s,s,new A.a2(16,16,16,0),s,s),A.az(s,new A.pz("<p><b>VIERNES - 30/05</b></p><p><b>\u2726 8:00</b> - Acreditaci\xf3n en el Campus UPeU.</p><p><b>\u2726 18:20</b> - Apertura de la Carpa M\xf3vil</p><p><b>\u2726 18:45</b> - Concentraci\xf3n en la Carpa principal</p><p>\u2013 Programa de Apertura</p><p><b>\u2726 19:20</b> - Presentaci\xf3n por regiones</p><p><b>\u2726 20:28</b> - Palabras de Apertura</p><p><b>\u2726 20:48</b> - Joven News</p><p><b>\u2726 21:00</b> - Mensaje</p><p><b>\u2726 22:10</b> - Regreso al \xe1rea de campamento</p><p><b>\u2726 00:00</b> - Descanso y silencio total</p><p></p><p><b>S\xc1BADO - 31/05</b></p><p><b>MA\xd1ANA</b></p><p><b>\u2726 7:20</b> - Concentraci\xf3n en la Carpa principal</p><p><b>\u2726 8:00</b> - Maranata Class</p><p><b>\u2726 8:45</b> - Semiplenarias y Expo Joven</p><p><b>\u2726 9:56</b> - Concentraci\xf3n en la Carpa principal</p><p><b>\u2726 10:30</b> - Desfile Maranata Class</p><p><b>\u2726 11:20</b> - Mensaje</p><p><b>\u2726 12:10</b> - Bautismo</p><p></p><p><b>TARDE</b></p><p><b>\u2726 12:30</b> - Tiempo de Almuerzo</p><p><b>\u2726 14:30</b> - Concentraci\xf3n en la Carpa principal</p><p><b>\u2726 15:00</b> - Maranata Faith</p><p><b>\u2726 15:15</b> - Lanzamiento Living Worship</p><p><b>\u2726 15:35</b> - Semiplenarias y Expo Joven</p><p><b>\u2726 16:45</b> - Concentraci\xf3n en la Carpa principal</p><p><b>\u2726 17:05</b> - Concierto</p><p><b>\u2726 17:45</b> - Lanzamiento Misi\xf3n Caleb 2025</p><p><b>\u2726 18:15</b> - Despedida de S\xe1bado</p><p><b>\u2726 18:25</b> - Tiempo de Cena</p><p></p><p><b>NOCHE</b></p><p><b>\u2726 19:30</b> - Concentraci\xf3n en la Carpa principal</p><p><b>\u2726 19:40</b> - Inicia ceremonia de investidura JA</p><p><b>\u2726 20:35</b> - Joven News</p><p><b>\u2726 20:50</b> - Mensaje</p><p><b>\u2726 21:40</b> - Anuncios y despedida</p><p><b>\u2726 23:00</b> - Regreso al \xe1rea de campamento</p><p><b>\u2726 00:00</b> - Descanso y silencio total</p><p></p><p><b>DOMINGO - 01/06</b></p><p><b>\u2726 7:20</b> - Concentraci\xf3n en la Carpa principal</p><p><b>\u2726 7:30</b> - Inicia programa de premiaci\xf3n y Clausura</p><p><b>\u2726 7:50</b> - Reconocimiento a espacios Maranata Class, Club de l\xedderes, etc.</p><p><b>\u2726 8:20</b> - Joven News</p><p><b>\u2726 8:30</b> - Mensaje</p><p><b>\u2726 9:15</b> - Palabras de Clausura</p><p><b>\u2726 9:30</b> - Gynkana Joven (losas deportivas)</p><p><b>\u2726 11:30</b> - Premiaci\xf3n y Despedida</p><b>\u2726 12:00</b> - Regreso a casa",A.bS(s,s,B.m,s,s,s,s,s,"MuseoSans",s,s,14,s,s,B.ag,s,2.2,!0,s,s,s,s,s,s,s,s),s),B.k,s,s,s,s,new A.a2(32,16,32,16),s,s)],p),B.a1,B.t,B.u),B.k,s,new A.b4(B.j,s,s,q,s,s,B.z),s,s,new A.a2(16,12,16,12),s,1/0)],p),B.C,B.P,s),new A.b0(new A.a2(0,0,0,200),s,s)],p),B.y,B.t,B.u)}}
+return A.bq(A.a([A.cv(B.Q,A.a([r,A.az(s,A.bq(A.a([A.az(s,s,B.k,s,new A.b4(s,A.na(s,B.b2,new A.fH("assets/images/guest_card_1.webp",s,s)),s,new A.c6(new A.an(12,12),new A.an(12,12),B.w,B.w),s,s,B.z),280,s,s,s,s),A.az(s,B.aiA,B.k,s,s,s,s,new A.a2(16,16,16,0),s,s),A.az(s,new A.pz("<p><b>VIERNES - 30/05</b></p><p><b>\u2726 8:00</b> - Acreditaci\xf3n en el Campus UPeU.</p><p><b>\u2726 18:20</b> - Apertura de la Carpa M\xf3vil</p><p><b>\u2726 18:45</b> - Concentraci\xf3n en la Carpa principal</p><p>\u2013 Programa de Apertura</p><p><b>\u2726 19:20</b> - Presentaci\xf3n por regiones</p><p><b>\u2726 20:28</b> - Palabras de Apertura</p><p><b>\u2726 20:48</b> - Joven News</p><p><b>\u2726 21:00</b> - Mensaje</p><p><b>\u2726 22:10</b> - Regreso al \xe1rea de campamento</p><p><b>\u2726 00:00</b> - Descanso y silencio total</p><p></p><p><b>S\xc1BADO - 31/05</b></p><p><b>MA\xd1ANA</b></p><p><b>\u2726 7:20</b> - Concentraci\xf3n en la Carpa principal</p><p><b>\u2726 8:00</b> - Maranata Class</p><p><b>\u2726 8:45</b> - Semiplenarias y Expo Joven</p><p><b>\u2726 9:56</b> - Concentraci\xf3n en la Carpa principal</p><p><b>\u2726 10:30</b> - Desfile Maranata Class</p><p><b>\u2726 11:20</b> - Mensaje</p><p><b>\u2726 12:10</b> - Bautismo</p><p></p><p><b>TARDE</b></p><p><b>\u2726 12:30</b> - Tiempo de Almuerzo</p><p><b>\u2726 14:30</b> - Concentraci\xf3n en la Carpa principal</p><p><b>\u2726 15:00</b> - Maranata Faith</p><p><b>\u2726 15:15</b> - Lanzamiento Living Worship</p><p><b>\u2726 15:35</b> - Semiplenarias y Expo Joven</p><p><b>\u2726 16:45</b> - Concentraci\xf3n en la Carpa principal</p><p><b>\u2726 17:05</b> - Concierto</p><p><b>\u2726 17:45</b> - Lanzamiento Misi\xf3n Caleb 2025</p><p><b>\u2726 18:15</b> - Despedida de S\xe1bado</p><p><b>\u2726 18:25</b> - Tiempo de Cena</p><p></p><p><b>NOCHE</b></p><p><b>\u2726 19:30</b> - Concentraci\xf3n en la Carpa principal</p><p><b>\u2726 19:40</b> - Inicia ceremonia de investidura JA</p><p><b>\u2726 20:35</b> - Joven News</p><p><b>\u2726 20:50</b> - Mensaje</p><p><b>\u2726 21:40</b> - Anuncios y despedida</p><p><b>\u2726 23:00</b> - Regreso al \xe1rea de campamento</p><p><b>\u2726 00:00</b> - Descanso y silencio total</p><p></p><p><b>DOMINGO - 01/06</b></p><p><b>\u2726 7:20</b> - Concentraci\xf3n en la Carpa principal</p><p><b>\u2726 7:30</b> - Inicia programa de premiaci\xf3n y Clausura</p><p><b>\u2726 7:50</b> - Reconocimiento a espacios Maranata Class, Club de l\xedderes, etc.</p><p><b>\u2726 8:20</b> - Joven News</p><p><b>\u2726 8:30</b> - Mensaje</p><p><b>\u2726 9:15</b> - Palabras de Clausura</p><p><b>\u2726 9:30</b> - Gynkana Joven (losas deportivas)</p><p><b>\u2726 11:30</b> - Premiaci\xf3n y Despedida</p><b>\u2726 12:00</b> - Regreso a casa",A.bS(s,s,B.m,s,s,s,s,s,"MuseoSans",s,s,14,s,s,B.ag,s,2.2,!0,s,s,s,s,s,s,s,s),s),B.k,s,s,s,s,new A.a2(32,16,32,16),s,s)],p),B.a1,B.t,B.u),B.k,s,new A.b4(B.j,s,s,q,s,s,B.z),s,s,new A.a2(16,12,16,12),s,1/0)],p),B.C,B.P,s),new A.b0(new A.a2(0,0,0,200),s,s)],p),B.y,B.t,B.u)}}
 A.um.prototype={
 E0(a,b){return this.ar0(a,b)},
 ar0(a,b){var s=0,r=A.y(t.H),q=this,p
@@ -110457,7 +110457,7 @@ $S:715}
 A.aKZ.prototype={
 $2(a,b){var s,r,q,p,o,n=null,m=A.f4(0,A.az(n,n,B.k,n,new A.b4(n,n,n,n,n,new A.fs(B.bg,B.bf,B.ar,A.a([B.by,B.b3,B.dj],t.O),A.a([0,0.3,1],t.n),n),B.z),n,n,n,n,n)),l=A.ey(new A.an(12,12)),k=t.p,j=A.a([],k),i=b.e
 if(i.c)j.push(new A.a6p(i.b,i.a,n))
-j=A.a([B.air,B.eo,B.ail,A.bq(j,B.eF,B.t,B.u)],k)
+j=A.a([B.ais,B.eo,B.aim,A.bq(j,B.eF,B.t,B.u)],k)
 i=b.f
 if(i.b)j.push(A.e8(new A.LF(i.c,i.a,new A.aKU(a),n),n,n))
 i=b.r
@@ -110466,7 +110466,7 @@ if(s){r=A.a([B.hZ],k)
 q=b.b
 B.b.Y(r,new A.aa(q,new A.aKV(a,b),A.Y(q).i("aa<1,i>")))
 p=!b.c
-if(p&&q.length!==0)r.push(A.IL(B.Tr,B.aij,new A.aKW(a),A.k4(n,n,B.by,n,n,n,n,n,n,n,n,B.Jw,n,n,new A.cP(A.cX(8),B.A),n,n,n,n)))
+if(p&&q.length!==0)r.push(A.IL(B.Tr,B.aik,new A.aKW(a),A.k4(n,n,B.by,n,n,n,n,n,n,n,n,B.Jw,n,n,new A.cP(A.cX(8),B.A),n,n,n,n)))
 if(p)r.push(B.bn)
 j.push(A.bq(r,B.y,B.t,B.u))}m=A.cv(B.Q,A.a([m,A.az(n,A.bq(j,B.a1,B.t,B.u),B.k,n,new A.b4(B.j,n,n,l,n,n,B.z),n,n,new A.a2(16,20,16,20),new A.a2(16,16,16,16),1/0)],k),B.C,B.P,n)
 l=A.ey(new A.an(12,12))
@@ -111044,7 +111044,7 @@ case 6:s=3
 break
 case 4:A.cf("Ocurri\xf3 un error. Intenta nuevamente.")
 p=q.c
-if(p.e!=null)p.aD(t.Pu).f.IZ(A.b4E(null,null,null,B.hy,B.or,B.C,null,B.aiq,null,B.mw,null,null,null,null,null,null,null,null,null))
+if(p.e!=null)p.aD(t.Pu).f.IZ(A.b4E(null,null,null,B.hy,B.or,B.C,null,B.air,null,B.mw,null,null,null,null,null,null,null,null,null))
 case 3:return A.w(null,r)}})
 return A.x($async$AD,r)}}
 A.aZA.prototype={
@@ -111086,14 +111086,14 @@ r=s.JO(B.rT,"Celular",a2.w,!0,new A.aZt(a1),a2.r)
 s=s.UZ(B.rP,e,a2.e,new A.aZu(a1),a2.d)
 q=A.cX(12)
 q=A.k4(g,g,B.fV,g,g,g,4,g,g,g,g,g,B.ha,A.aw(153,B.N.t()>>>16&255,B.N.t()>>>8&255,B.N.t()&255),new A.cP(q,B.A),g,g,g,g)
-a.push(A.bq(A.a([B.hZ,B.aii,B.op,B.ai6,B.a8F,r,B.bn,s,B.Jz,A.ds(A.a([A.rN(!1,A.ds(A.a([B.TI,B.d5,B.aid],b),B.y,B.t,B.u),g,g,g,g,g,g,new A.aZv(a1),g,q)],b),B.y,B.d1,B.u)],b),B.y,B.t,B.u))}if(a0===B.i6){s=A.ch(new A.p7("assets/lottie/check.json",1,!0,!1,g),180,g)
+a.push(A.bq(A.a([B.hZ,B.aij,B.op,B.ai7,B.a8F,r,B.bn,s,B.Jz,A.ds(A.a([A.rN(!1,A.ds(A.a([B.TI,B.d5,B.aie],b),B.y,B.t,B.u),g,g,g,g,g,g,new A.aZv(a1),g,q)],b),B.y,B.d1,B.u)],b),B.y,B.t,B.u))}if(a0===B.i6){s=A.ch(new A.p7("assets/lottie/check.json",1,!0,!1,g),180,g)
 r=A.cX(12)
-r=A.ch(A.IL(B.TB,B.aik,new A.aZw(a1),A.k4(g,g,B.dk,g,g,g,4,g,g,g,g,g,B.mA,A.aw(153,B.dk.t()>>>16&255,B.dk.t()>>>8&255,B.dk.t()&255),new A.cP(r,B.A),g,g,g,g)),g,1/0)
+r=A.ch(A.IL(B.TB,B.ail,new A.aZw(a1),A.k4(g,g,B.dk,g,g,g,4,g,g,g,g,g,B.mA,A.aw(153,B.dk.t()>>>16&255,B.dk.t()>>>8&255,B.dk.t()&255),new A.cP(r,B.A),g,g,g,g)),g,1/0)
 q=A.cX(12)
-a.push(new A.b0(B.iP,A.bq(A.a([s,B.bn,B.aiy,B.cN,B.aic,B.Jy,r,B.cN,A.ch(A.IL(B.TC,B.aiA,new A.aZx(a1),A.k4(g,g,B.iw,g,g,g,4,g,g,g,g,g,B.mA,A.aw(153,B.iw.t()>>>16&255,B.iw.t()>>>8&255,B.iw.t()&255),new A.cP(q,B.A),g,g,g,g)),g,1/0)],b),B.y,B.d1,B.u),g))}if(a0===B.l1)a.push(new A.b0(B.iP,A.bq(A.a([A.ch(A.a0e("assets/lottie/loading.json",g,g,g,g,400),180,g),B.ac4,B.ai3,B.cN,B.aiB,B.Jy,A.ch(A.IL(B.TE,B.ai0,g,A.k4(g,g,B.d3,g,g,g,0,g,g,g,g,g,B.mA,g,new A.cP(A.cX(12),B.A),g,g,g,g)),g,1/0)],b),B.y,B.d1,B.u),g))
+a.push(new A.b0(B.iP,A.bq(A.a([s,B.bn,B.aiz,B.cN,B.aid,B.Jy,r,B.cN,A.ch(A.IL(B.TC,B.aiB,new A.aZx(a1),A.k4(g,g,B.iw,g,g,g,4,g,g,g,g,g,B.mA,A.aw(153,B.iw.t()>>>16&255,B.iw.t()>>>8&255,B.iw.t()&255),new A.cP(q,B.A),g,g,g,g)),g,1/0)],b),B.y,B.d1,B.u),g))}if(a0===B.l1)a.push(new A.b0(B.iP,A.bq(A.a([A.ch(A.a0e("assets/lottie/loading.json",g,g,g,g,400),180,g),B.ac4,B.ai4,B.cN,B.ahU,B.Jy,A.ch(A.IL(B.TE,B.ai1,g,A.k4(g,g,B.d3,g,g,g,0,g,g,g,g,g,B.mA,g,new A.cP(A.cX(12),B.A),g,g,g,g)),g,1/0)],b),B.y,B.d1,B.u),g))
 d=A.a([d,A.az(g,A.bq(a,B.y,B.t,B.u),B.k,g,new A.b4(B.j,g,g,B.Ma,g,g,B.z),g,g,new A.a2(0,c.a.b*0.04,0,0),B.iP,1/0)],b)
 if(a0===B.l2){c=A.cX(12)
-d.push(A.e8(new A.b0(B.iP,A.bq(A.a([B.Tx,B.bn,B.aib,B.en,B.aiC,B.ac7,A.IL(B.Ts,B.aim,new A.aZy(),A.k4(g,g,B.dk,g,g,g,4,g,g,g,g,g,B.S6,A.aw(153,B.dk.t()>>>16&255,B.dk.t()>>>8&255,B.dk.t()&255),new A.cP(c,B.A),g,g,g,g))],b),B.y,B.d1,B.u),g),g,g))}c=a2.x
+d.push(A.e8(new A.b0(B.iP,A.bq(A.a([B.Tx,B.bn,B.aic,B.en,B.aiC,B.ac7,A.IL(B.Ts,B.ain,new A.aZy(),A.k4(g,g,B.dk,g,g,g,4,g,g,g,g,g,B.S6,A.aw(153,B.dk.t()>>>16&255,B.dk.t()>>>8&255,B.dk.t()&255),new A.cP(c,B.A),g,g,g,g))],b),B.y,B.d1,B.u),g),g,g))}c=a2.x
 if(c.c)d.push(A.f3(g,new A.Eg(c.b,c.a,B.r7,new A.aZo(a1),g),g,g,32,32,64,g))
 d=A.a([new A.L4(new A.aZp(),A.az(g,A.bq(A.a([A.cv(B.Q,d,B.C,B.P,g)],b),B.y,B.t,B.u),B.k,B.j,g,g,g,g,g,g),g)],b)
 if(a2.y)d.push(new A.Vj(g))
@@ -111400,7 +111400,7 @@ p=p===B.kj
 if(!p)r.push(new A.b0(new A.a2(24,24,24,24),s,q))
 if(p)r.push(new A.b0(new A.a2(12,12,12,12),q,q))
 r.push(A.aW(this.c,q,q,q,B.aex,B.am,q,q))
-if(p)r.push(new A.b0(new A.a2(0,12,0,0),A.IL(B.Tu,B.aig,new A.aFN(this),q),q))
+if(p)r.push(new A.b0(new A.a2(0,12,0,0),A.IL(B.Tu,B.aih,new A.aFN(this),q),q))
 return A.az(q,A.bq(r,B.y,B.t,B.bJ),B.k,q,q,q,q,q,new A.a2(32,0,32,0),q)}}
 A.aFN.prototype={
 $0(){this.a.e.$0()},
@@ -111442,7 +111442,7 @@ r.toString
 q=l.d?B.af:n
 p=r.aAj(l.b!=null?B.by:r.b,q)
 r=o.c
-if(l.c)r.push(new A.pU(A.ds(A.a([B.aiw,A.ej(A.aW(s,n,n,n,p.O2(1.6),n,n,n),1,n)],t.p),B.a1,B.t,B.u),B.nT,B.D,n))
+if(l.c)r.push(new A.pU(A.ds(A.a([B.aix,A.ej(A.aW(s,n,n,n,p.O2(1.6),n,n,n),1,n)],t.p),B.a1,B.t,B.u),B.nT,B.D,n))
 else{if(l.b!=null){q=A.aMg(n,n)
 q.br=new A.aHU(l,o.d)
 l=q}else l=n
@@ -111525,7 +111525,7 @@ $0(){this.a.w.$0()},
 $S:0}
 A.a9r.prototype={
 H(a){var s=null
-return A.ds(A.a([A.ej(A.bsb(s,new A.aOy(this),!0,s,s,s,s,s,s,t.N),1,s),B.hY,A.ch(A.rN(!1,B.aif,s,s,s,s,s,s,new A.aOz(this),s,A.k4(s,s,B.by,s,s,s,s,s,s,B.j,s,s,B.rb,s,new A.cP(A.cX(8),B.A),s,s,s,s)),48,s)],t.p),B.y,B.ee,B.u)}}
+return A.ds(A.a([A.ej(A.bsb(s,new A.aOy(this),!0,s,s,s,s,s,s,t.N),1,s),B.hY,A.ch(A.rN(!1,B.aig,s,s,s,s,s,s,new A.aOz(this),s,A.k4(s,s,B.by,s,s,s,s,s,s,B.j,s,s,B.rb,s,new A.cP(A.cX(8),B.A),s,s,s,s)),48,s)],t.p),B.y,B.ee,B.u)}}
 A.aOy.prototype={
 $1(a){var s=null,r=this.a,q=A.bS(s,s,B.aq,s,s,s,s,s,s,s,s,s,s,s,s,s,s,!0,s,s,s,s,s,s,s,s),p=A.cX(8)
 q=A.axY(s,new A.iN(4,A.cX(8),B.lG),s,B.RX,s,s,s,s,!0,new A.iN(4,p,B.Mh),s,s,s,s,r.w,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,q,r.c,!0,s,s,s,s,s,s,s,s,s,s,s,s,s)
@@ -130412,11 +130412,11 @@ B.ao8=new A.a38(0,"start")
 B.a8E=new A.a38(1,"end")
 B.RR=new A.a2(0,12,0,32)
 B.aeR=new A.z(!0,B.d3,null,null,null,null,14,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.ai4=new A.c4("Sabemos que quiz\xe1s no es el momento, pero nos encantar\xeda seguir comparti\xe9ndote noticias e inspiraci\xf3n sobre la misi\xf3n CALEB. Por favor, d\xe9janos tu correo y n\xfamero de celular.",null,B.aeR,B.am,null,null,null,null,null,null)
-B.a8F=new A.b0(B.RR,B.ai4,null)
+B.ai5=new A.c4("Sabemos que quiz\xe1s no es el momento, pero nos encantar\xeda seguir comparti\xe9ndote noticias e inspiraci\xf3n sobre la misi\xf3n CALEB. Por favor, d\xe9janos tu correo y n\xfamero de celular.",null,B.aeR,B.am,null,null,null,null,null,null)
+B.a8F=new A.b0(B.RR,B.ai5,null)
 B.aep=new A.z(!0,null,null,"FjallaOne",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.aia=new A.c4("MEN\xda",null,B.aep,null,null,null,null,null,null,null)
-B.a8G=new A.b0(B.h9,B.aia,null)
+B.aib=new A.c4("MEN\xda",null,B.aep,null,null,null,null,null,null,null)
+B.a8G=new A.b0(B.h9,B.aib,null)
 B.EG=new A.b0(B.h9,null,null)
 B.EH=new A.b0(B.ha,null,null)
 B.a8H=new A.b0(B.rc,null,null)
@@ -130781,8 +130781,8 @@ B.acd=new A.nN(3,"hide")
 B.aoc=new A.nN(4,"remove")
 B.JD=new A.nN(5,"timeout")
 B.ace=new A.DQ(null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.aiu=new A.c4("Presiona otra vez para salir",null,null,null,null,null,null,null,null,null)
-B.acf=new A.yR(B.aiu,null,null,null,null,null,null,null,null,null,null,null,null,B.r4,null,null,null,B.C,null)
+B.aiv=new A.c4("Presiona otra vez para salir",null,null,null,null,null,null,null,null,null)
+B.acf=new A.yR(B.aiv,null,null,null,null,null,null,null,null,null,null,null,null,B.r4,null,null,null,B.C,null)
 B.JE=new A.Ng(0,"permissive")
 B.acg=new A.Ng(1,"normal")
 B.ach=new A.Ng(2,"forced")
@@ -131167,67 +131167,67 @@ B.agv=new A.z(!0,B.a5,null,".AppleSystemUIFont",null,null,null,null,null,null,nu
 B.agR=new A.z(!0,B.m,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.l,null,null,null,"blackRedwoodCity labelMedium",null,null,null,null)
 B.adC=new A.z(!0,B.m,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.l,null,null,null,"blackRedwoodCity labelSmall",null,null,null,null)
 B.ahT=new A.fx(B.afr,B.aem,B.afs,B.ag3,B.adY,B.ae6,B.aeJ,B.afR,B.aeY,B.agA,B.ads,B.adN,B.agv,B.agR,B.adC)
-B.ae4=new A.z(!0,null,null,"FjallaOne",null,null,20,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.ahU=new A.c4("Versi\xf3n actualizada",null,B.ae4,null,null,null,null,null,null,null)
-B.K3=new A.z(!0,B.V,null,null,null,null,18,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.ahV=new A.c4("Salida registrada correctamente",null,B.K3,null,null,null,null,null,null,null)
-B.K9=new A.z(!0,B.j,null,"FjallaOne",null,null,18,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.ahW=new A.c4("DESCARGAR PDF",null,B.K9,null,null,null,null,null,null,null)
-B.adj=new A.z(!0,B.V,null,null,null,null,16,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.ahX=new A.c4("Te esperamos en la pr\xf3xima actividad.",null,B.adj,B.am,null,null,null,null,null,null)
-B.ahY=new A.c4("Salir, si ya se registro mi asistencia",null,B.dL,null,null,null,null,null,null,null)
-B.ahZ=new A.c4("Cerrar",null,B.dL,null,null,null,null,null,null,null)
-B.fm=new A.z(!0,null,null,"FjallaOne",null,null,24,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.ai_=new A.c4("Informaciones",null,B.fm,null,null,null,null,null,null,null)
-B.kU=new A.z(!0,B.j,null,null,null,null,14,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.ai0=new A.c4("Registro no disponible a\xfan",null,B.kU,null,null,null,null,null,null,null)
-B.ah_=new A.z(!0,B.m,null,null,null,null,20,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.ai1=new A.c4("\u2022 ",null,B.ah_,null,null,null,null,null,null,null)
-B.ai2=new A.c4("Gu\xeda Orientaciones 01",null,B.kT,null,null,null,null,null,null,null)
-B.oD=new A.z(!0,null,null,"FjallaOne",null,null,26,B.af,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.ai3=new A.c4("\xa1Prep\xe1rate!",null,B.oD,B.am,null,null,null,null,null,null)
-B.ai5=new A.c4("Registro exitoso",null,B.K3,null,null,null,null,null,null,null)
-B.ai6=new A.c4("Queremos mantenernos en contacto contigo",null,B.oD,B.am,null,null,null,null,null,null)
-B.adk=new A.z(!0,B.V,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.ai7=new A.c4("No cerrar hasta que se registre.",null,B.adk,B.am,null,null,null,null,null,null)
-B.ai8=new A.c4("Salir",null,B.dL,null,null,null,null,null,null,null)
-B.ai9=new A.c4("\xbfPor qu\xe9 la UPEU?",null,B.fm,null,null,null,null,null,null,null)
-B.aef=new A.z(!0,null,null,null,null,null,22,B.af,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.aib=new A.c4("Sin conexi\xf3n a internet",null,B.aef,B.am,null,null,null,null,null,null)
-B.K5=new A.z(!0,B.aq,null,null,null,null,14,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.aic=new A.c4("Tu informaci\xf3n ha sido guardada exitosamente. Pronto recibir\xe1s novedades sobre la misi\xf3n CALEB.",null,B.K5,B.am,null,null,null,null,null,null)
-B.aha=new A.z(!0,B.j,null,null,null,null,16,B.af,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.aid=new A.c4("Registrar",null,B.aha,null,null,null,null,null,null,null)
-B.agz=new A.z(!0,B.aq,null,null,null,null,12,null,null,null,null,null,1.5,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.aie=new A.c4("Informaciones\nimportantes",null,B.agz,null,null,null,null,null,null,null)
-B.aho=new A.z(!0,null,null,"FjallaOne",null,null,14,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.aif=new A.c4("   ELEGIR   ",null,B.aho,null,null,null,null,null,null,null)
-B.aig=new A.c4("Reintentar",null,null,null,null,null,null,null,null,null)
-B.aih=new A.c4("\xbfNecesitas ayuda?",null,null,null,null,null,null,null,null,null)
-B.K2=new A.z(!0,B.d3,null,null,null,null,16,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.aii=new A.c4("P\xe1gina 2/2",null,B.K2,null,null,null,null,null,null,null)
-B.aij=new A.c4("REGISTRAR",null,B.K9,null,null,null,null,null,null,null)
-B.aik=new A.c4("Volver al inicio",null,B.kU,null,null,null,null,null,null,null)
-B.ail=new A.c4("Seleccione las semiplenarias a las que desea asistir:",null,B.K5,null,null,null,null,null,null,null)
-B.aim=new A.c4("Reintentar",null,B.kU,null,null,null,null,null,null,null)
-B.afk=new A.z(!0,B.by,null,null,null,null,12,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.ain=new A.c4("PDF cliqueable",null,B.afk,null,null,null,null,null,null,null)
-B.aio=new A.c4("Informaci\xf3n de los invitados",null,B.fm,null,null,null,null,null,null,null)
-B.agB=new A.z(!0,B.a4,null,null,null,null,16,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.aip=new A.c4("Ya registraste tu asistencia.\nNo puedes volver a ingresar.",null,B.agB,B.am,null,null,null,null,null,null)
-B.aiq=new A.c4("No se pudo abrir el enlace de WhatsApp",null,null,null,null,null,null,null,null,null)
-B.air=new A.c4("SEMIPLENARIAS",null,B.fm,null,null,null,null,null,null,null)
-B.ais=new A.c4("Si no puedes ingresar, verifica tu DNI y a\xf1o de nacimiento. Si el problema persiste, comun\xedcate con soporte.",null,null,null,null,null,null,null,null,null)
-B.ait=new A.c4("ACTIVIDADES",null,B.fm,null,null,null,null,null,null,null)
-B.aiv=new A.c4("Informaci\xf3n Oficial",null,B.kT,null,null,null,null,null,null,null)
-B.aiw=new A.c4("\u2022 ",null,B.K2,null,null,null,null,null,null,null)
-B.ahb=new A.z(!0,B.a5,null,null,null,null,18,B.af,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.aix=new A.c4("Asistencia ya fue registrada",null,B.ahb,B.am,null,null,null,null,null,null)
-B.aiy=new A.c4("\xa1Gracias por registrarte!",null,B.oD,B.am,null,null,null,null,null,null)
-B.aiz=new A.c4("HORARIOS",null,B.fm,null,null,null,null,null,null,null)
-B.aiA=new A.c4("Unirme al grupo de WhatsApp",null,B.kU,null,null,null,null,null,null,null)
 B.agX=new A.z(!0,B.aq,null,null,null,null,14,null,B.j5,null,null,null,1.5,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.aiB=new A.c4("Est\xe1s a punto de unirte a algo grande.\nSolo un poco m\xe1s...\n\nLo mejor est\xe1 por comenzar... y t\xfa ser\xe1s parte de ello. \xa1Atento!\n\nFalta poco para que formes parte de algo incre\xedble. Espera un poco...",null,B.agX,B.am,null,null,null,null,null,null)
+B.ahU=new A.c4("Est\xe1s a punto de unirte a algo grande.\nSolo un poco m\xe1s...\n\n",null,B.agX,B.am,null,null,null,null,null,null)
+B.ae4=new A.z(!0,null,null,"FjallaOne",null,null,20,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.ahV=new A.c4("Versi\xf3n actualizada",null,B.ae4,null,null,null,null,null,null,null)
+B.K3=new A.z(!0,B.V,null,null,null,null,18,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.ahW=new A.c4("Salida registrada correctamente",null,B.K3,null,null,null,null,null,null,null)
+B.K9=new A.z(!0,B.j,null,"FjallaOne",null,null,18,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.ahX=new A.c4("DESCARGAR PDF",null,B.K9,null,null,null,null,null,null,null)
+B.adj=new A.z(!0,B.V,null,null,null,null,16,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.ahY=new A.c4("Te esperamos en la pr\xf3xima actividad.",null,B.adj,B.am,null,null,null,null,null,null)
+B.ahZ=new A.c4("Salir, si ya se registro mi asistencia",null,B.dL,null,null,null,null,null,null,null)
+B.ai_=new A.c4("Cerrar",null,B.dL,null,null,null,null,null,null,null)
+B.fm=new A.z(!0,null,null,"FjallaOne",null,null,24,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.ai0=new A.c4("Informaciones",null,B.fm,null,null,null,null,null,null,null)
+B.kU=new A.z(!0,B.j,null,null,null,null,14,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.ai1=new A.c4("Registro no disponible a\xfan",null,B.kU,null,null,null,null,null,null,null)
+B.ah_=new A.z(!0,B.m,null,null,null,null,20,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.ai2=new A.c4("\u2022 ",null,B.ah_,null,null,null,null,null,null,null)
+B.ai3=new A.c4("Gu\xeda Orientaciones 01",null,B.kT,null,null,null,null,null,null,null)
+B.oD=new A.z(!0,null,null,"FjallaOne",null,null,26,B.af,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.ai4=new A.c4("\xa1Prep\xe1rate!",null,B.oD,B.am,null,null,null,null,null,null)
+B.ai6=new A.c4("Registro exitoso",null,B.K3,null,null,null,null,null,null,null)
+B.ai7=new A.c4("Queremos mantenernos en contacto contigo",null,B.oD,B.am,null,null,null,null,null,null)
+B.adk=new A.z(!0,B.V,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.ai8=new A.c4("No cerrar hasta que se registre.",null,B.adk,B.am,null,null,null,null,null,null)
+B.ai9=new A.c4("Salir",null,B.dL,null,null,null,null,null,null,null)
+B.aia=new A.c4("\xbfPor qu\xe9 la UPEU?",null,B.fm,null,null,null,null,null,null,null)
+B.aef=new A.z(!0,null,null,null,null,null,22,B.af,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.aic=new A.c4("Sin conexi\xf3n a internet",null,B.aef,B.am,null,null,null,null,null,null)
+B.K5=new A.z(!0,B.aq,null,null,null,null,14,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.aid=new A.c4("Tu informaci\xf3n ha sido guardada exitosamente. Pronto recibir\xe1s novedades sobre la misi\xf3n CALEB.",null,B.K5,B.am,null,null,null,null,null,null)
+B.aha=new A.z(!0,B.j,null,null,null,null,16,B.af,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.aie=new A.c4("Registrar",null,B.aha,null,null,null,null,null,null,null)
+B.agz=new A.z(!0,B.aq,null,null,null,null,12,null,null,null,null,null,1.5,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.aif=new A.c4("Informaciones\nimportantes",null,B.agz,null,null,null,null,null,null,null)
+B.aho=new A.z(!0,null,null,"FjallaOne",null,null,14,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.aig=new A.c4("   ELEGIR   ",null,B.aho,null,null,null,null,null,null,null)
+B.aih=new A.c4("Reintentar",null,null,null,null,null,null,null,null,null)
+B.aii=new A.c4("\xbfNecesitas ayuda?",null,null,null,null,null,null,null,null,null)
+B.K2=new A.z(!0,B.d3,null,null,null,null,16,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.aij=new A.c4("P\xe1gina 2/2",null,B.K2,null,null,null,null,null,null,null)
+B.aik=new A.c4("REGISTRAR",null,B.K9,null,null,null,null,null,null,null)
+B.ail=new A.c4("Volver al inicio",null,B.kU,null,null,null,null,null,null,null)
+B.aim=new A.c4("Seleccione las semiplenarias a las que desea asistir:",null,B.K5,null,null,null,null,null,null,null)
+B.ain=new A.c4("Reintentar",null,B.kU,null,null,null,null,null,null,null)
+B.afk=new A.z(!0,B.by,null,null,null,null,12,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.aio=new A.c4("PDF cliqueable",null,B.afk,null,null,null,null,null,null,null)
+B.aip=new A.c4("Informaci\xf3n de los invitados",null,B.fm,null,null,null,null,null,null,null)
+B.agB=new A.z(!0,B.a4,null,null,null,null,16,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.aiq=new A.c4("Ya registraste tu asistencia.\nNo puedes volver a ingresar.",null,B.agB,B.am,null,null,null,null,null,null)
+B.air=new A.c4("No se pudo abrir el enlace de WhatsApp",null,null,null,null,null,null,null,null,null)
+B.ais=new A.c4("SEMIPLENARIAS",null,B.fm,null,null,null,null,null,null,null)
+B.ait=new A.c4("Si no puedes ingresar, verifica tu DNI y a\xf1o de nacimiento. Si el problema persiste, comun\xedcate con soporte.",null,null,null,null,null,null,null,null,null)
+B.aiu=new A.c4("ACTIVIDADES",null,B.fm,null,null,null,null,null,null,null)
+B.aiw=new A.c4("Informaci\xf3n Oficial",null,B.kT,null,null,null,null,null,null,null)
+B.aix=new A.c4("\u2022 ",null,B.K2,null,null,null,null,null,null,null)
+B.ahb=new A.z(!0,B.a5,null,null,null,null,18,B.af,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.aiy=new A.c4("Asistencia ya fue registrada",null,B.ahb,B.am,null,null,null,null,null,null)
+B.aiz=new A.c4("\xa1Gracias por registrarte!",null,B.oD,B.am,null,null,null,null,null,null)
+B.aiA=new A.c4("HORARIOS",null,B.fm,null,null,null,null,null,null,null)
+B.aiB=new A.c4("Unirme al grupo de WhatsApp",null,B.kU,null,null,null,null,null,null,null)
 B.afM=new A.z(!0,B.a4,null,null,null,null,14,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.aiC=new A.c4("Por favor, revisa tu conexi\xf3n y vuelve a intentarlo.",null,B.afM,B.am,null,null,null,null,null,null)
 B.aiD=new A.c4("Cerrar",null,null,null,null,null,null,null,null,null)

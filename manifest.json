@@ -1,7 +1,7 @@
 {
   "name": "Living Worship",
   "short_name": "LW",
-  "start_url": "/",
+  "start_url": "/living-worship-app/",
   "display": "standalone",
   "icons": [
     {
