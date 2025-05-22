@@ -1,5 +1,5 @@
 class AppImages {
-  static const String _base = 'assets/images/';
+  static const String _base = 'assets/images_v1/';
   static const String loginBackground = '${_base}login_background2.webp';
   static const String logoWorship = '${_base}logo_worship.png';
   static const String logoMRNT = '${_base}logo_mrnt.webp';
