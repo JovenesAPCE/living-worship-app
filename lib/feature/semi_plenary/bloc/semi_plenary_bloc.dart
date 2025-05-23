@@ -66,15 +66,23 @@ class SemiPlenaryBloc extends Bloc<SemiPlenaryEvent, SemiPlenaryState> {
   void _onSemiPlenarySubscriptionRequested(LoadSemiPlenary event,  Emitter<SemiPlenaryState> emit) async{
     bool offline = false;
     emit(state.copyWith(
-        progress: true,
+        tabProgress: true,
+        groupProgress: false,
         groupedSessions: const [],
         sessionProgress: SessionProgress.loading("¡Cargando semiplenaria!"),
         sessionMessage: SessionMessage.empty()
     ));
 
+    List<RegisterSemiPlenary> registerSemiPlenaries = await _getRegisterSemiPlenariesUseCase.call();
+    List<SessionGroup> groupedSessions = await _groupedSessions();
+
     emit(state.copyWith(
-        progress: false,
-       tabs: await _getGroupedSessionTabs()
+        groupedSessions: groupedSessions,
+        tabProgress: false,
+        groupProgress: true,
+        tabs: await _getGroupedSessionTabs(),
+        register: registerSemiPlenaries.isNotEmpty,
+        sessionProgress: groupedSessions.isEmpty ? null: const SessionProgress.empty(),
     ));
 
     try{
@@ -82,12 +90,26 @@ class SemiPlenaryBloc extends Bloc<SemiPlenaryEvent, SemiPlenaryState> {
     }catch(e){
       offline = true;
     }
+   registerSemiPlenaries = await _getRegisterSemiPlenariesUseCase.call();
+   groupedSessions = await _groupedSessions();
 
+    emit(
+        state.copyWith(
+            groupProgress: false,
+            groupedSessions: groupedSessions,
+            tabs: await _getGroupedSessionTabs(),
+            sessionProgress: offline && groupedSessions.isEmpty ? const SessionProgress.error("Sin conexión. Verifica tu internet.") : const SessionProgress.empty(),
+            tabProgress: false,
+            register: registerSemiPlenaries.isNotEmpty
+        ));
+  }
+
+  Future<List<SessionGroup>> _groupedSessions() async {
     List<RegisterSemiPlenary> registerSemiPlenaries = await _getRegisterSemiPlenariesUseCase.call();
     User? user = await _getUserUseCase.call();
-    print("user ${user?.gender}");
+
     List<SemiPlenary> semiPlenaries = await  _getSemiPlenariesUseCase.call();
-    print("semiPlenaries ${semiPlenaries}");
+
     semiPlenaries.removeWhere((element) =>
     element.gender != null &&
         element.gender!.isNotEmpty &&
@@ -100,7 +122,7 @@ class SemiPlenaryBloc extends Bloc<SemiPlenaryEvent, SemiPlenaryState> {
         title: semiPlenary.title??"",
       );
     }).toList();
-    print("sessions: ${sessions.length}");
+
     final Map<String, List<Session>> groupedMap = {};
 
     for (var session in sessions) {
@@ -113,11 +135,11 @@ class SemiPlenaryBloc extends Bloc<SemiPlenaryEvent, SemiPlenaryState> {
       if(index != -1){
         RegisterSemiPlenary register = registerSemiPlenaries[index];
         session = Session(
-          id: register.semiPlenary,
-          group: register.group,
-          title: register.title,
-          checkIn: register.checkIn,
-          checkOut: register.checkOut
+            id: register.semiPlenary,
+            group: register.group,
+            title: register.title,
+            checkIn: register.checkIn,
+            checkOut: register.checkOut
         );
       }
       var list = entry.value;
@@ -125,23 +147,14 @@ class SemiPlenaryBloc extends Bloc<SemiPlenaryEvent, SemiPlenaryState> {
 
       return SessionGroup(
           group: entry.key,
-         register: session != null,
-         selected: session,
-        sessions: list
+          register: session != null,
+          selected: session,
+          sessions: list
       );
     }).toList();
 
     groupedSessions.sort((a, b) => (a.group).compareTo((b.group)));
-
-
-    emit(
-        state.copyWith(
-            groupedSessions: groupedSessions,
-            tabs: await _getGroupedSessionTabs(),
-            sessionProgress: offline && groupedSessions.isEmpty ? const SessionProgress.error("Sin conexión. Verifica tu internet.") : const SessionProgress.empty(),
-            progress: false,
-            register: registerSemiPlenaries.isNotEmpty
-        ));
+    return groupedSessions;
   }
 
   void _onTabSelected(TabSelected event,  Emitter<SemiPlenaryState> emit) {

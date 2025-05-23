@@ -49,12 +49,25 @@ class SessionScreen extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Text(
-                                  "SEMIPLENARIAS",
-                                  style: TextStyle(
-                                      fontSize: 24,
-                                      fontFamily: AppFont.fontTwo),
-                                ),
+                                Row(
+                                 children: [
+                                   Expanded(child: Text(
+                                     "SEMIPLENARIAS",
+                                     style: TextStyle(
+                                         fontSize: 24,
+                                         fontFamily: AppFont.fontTwo),
+                                   )),
+                                   if(state.groupProgress)
+                                   SizedBox(
+                                     width: 24,
+                                     height: 24,
+                                     child: CircularProgressIndicator(
+                                       color: AppColor.yellowDark,
+                                       strokeWidth: 2, // También puedes reducir el grosor
+                                     ),
+                                   )
+                                 ],
+                               ),
                                 const SizedBox(height: 8),
                                 const Text(
                                   'Seleccione las semiplenarias a las que desea asistir:',
@@ -85,7 +98,7 @@ class SessionScreen extends StatelessWidget {
                                       },
                                     ),
                                   ),
-                                if(!state.progress)
+                                if(!state.tabProgress)
                                 Column(
                                   children: [
                                     const SizedBox(height: 32),
@@ -184,7 +197,7 @@ class SessionScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const SizedBox(height: 16),
-                            if(state.tabs.isNotEmpty && !state.progress)
+                            if(state.tabs.isNotEmpty && !state.tabProgress)
                             Container(
                               margin: const EdgeInsets.symmetric(horizontal: 16),
                               decoration: BoxDecoration(
@@ -234,7 +247,7 @@ class SessionScreen extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(height: 16),
-                            if(state.progress)
+                            if(state.tabProgress)
                               Center(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -255,7 +268,7 @@ class SessionScreen extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                            if(state.tabs.isNotEmpty && !state.progress)
+                            if(state.tabs.isNotEmpty && !state.tabProgress)
                             Container(
                               padding: EdgeInsets.symmetric(horizontal: 24),
                               child: Column(
@@ -282,7 +295,7 @@ class SessionScreen extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            if(state.tabs.isEmpty && !state.progress)
+                            if(state.tabs.isEmpty && !state.tabProgress)
                              Column(
                                children: [
                                  Center(

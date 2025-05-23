@@ -8,7 +8,8 @@ class SemiPlenaryState extends Equatable {
   final int selectedIndex;
   final SessionMessage sessionMessage;
   final SessionProgress sessionProgress;
-  final bool progress;
+  final bool tabProgress;
+  final bool groupProgress;
 
   const SemiPlenaryState({
     this.register = false,
@@ -17,7 +18,8 @@ class SemiPlenaryState extends Equatable {
     this.tabs = const [],
     this.sessionMessage = const SessionMessage.empty(),
     this.sessionProgress = const SessionProgress.empty(),
-    this.progress = false
+    this.tabProgress = false,
+    this.groupProgress = false
   });
 
   SemiPlenaryState copyWith({
@@ -27,9 +29,10 @@ class SemiPlenaryState extends Equatable {
     SessionSelected? saveTwoSession,
     bool? register,
     List<SessionGroup>? groupedSessions,
-    bool? progress,
+    bool? tabProgress,
     SessionMessage? sessionMessage,
-    SessionProgress? sessionProgress
+    SessionProgress? sessionProgress,
+    bool? groupProgress
   }){
     return SemiPlenaryState(
         tabs: tabs??this.tabs,
@@ -38,12 +41,13 @@ class SemiPlenaryState extends Equatable {
         selectedIndex: selectedIndex??this.selectedIndex,
         sessionMessage: sessionMessage??this.sessionMessage,
         sessionProgress:  sessionProgress??this.sessionProgress,
-        progress: progress??this.progress
+        tabProgress: tabProgress??this.tabProgress,
+        groupProgress: groupProgress??this.groupProgress
     );
   }
 
 
   @override
-  List<Object?> get props => [groupedSessions, tabs, register, selectedIndex, sessionMessage, sessionProgress, progress];
+  List<Object?> get props => [groupedSessions, tabs, register, selectedIndex, sessionMessage, sessionProgress, groupProgress, tabProgress];
 
 }
