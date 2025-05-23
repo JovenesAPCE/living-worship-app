@@ -213,10 +213,19 @@ class _ScanQrScreenState extends State<ScanQrScreen> {
                                 textAlign: TextAlign.center,
                                 style: TextStyle(color: Colors.white70),
                               ),
+                               if (kDebugMode)
+                              TextButton(onPressed: (){
+                                context.read<QrBloc>().add(CodeScanData('JAMT_2025|Sábado 8:40 HS - ALVA Y ALVA (ENTRADA)|Pry1butyQt+Zw1Zc1zMDp1w0zd9GFDoiPRTzw7xHJeRTcNn+KrC4FePEoxh7TgkU0P1Tx9bGSolR5lFlN2JH8AnrAUyLnKasRc334bsWmP6kYe9Ro2NbTBXhstna88KpkOX6GKKMIyGWzK1djV51i2uaYktbRtEwauXi8A+8sUA=|L0LLwdk6bdjOJCIqhtt60TD0gJ8FtOcPoCUFXdCRIfA='));
+                              }, child: Text("Simular Scan Qr CheckIn")),
+                              if (kDebugMode)
+                              TextButton(onPressed: (){
+                                context.read<QrBloc>().add(CodeScanData('JAMT_2025|Sábado 8:40 HS - ALVA Y ALVA (SALIDA)|Pry1butyQt+Zw1Zc1zMDp1w0zd9GFDoiPRTzw7xHJeRFf8HlL7XbG+2FrxN6CREMs/BJ0Le/M+hc/EYGOWwB8R/7EFeSmLuqRIHv+cqG+j2nZOQeu2FVSAWJqarX/qOkivKbYdvtLjuBraUmiVxonWv3AR91N9c2bOPk9gm6t0Y=|FR-KPDGPU-FEfnBcXO7WZn5i06I2-lmL8wvzaJojDko='));
+                              }, child: Text("Simular Scan Qr CheckOut")),
                             ],
                           ),
                         )
                     ),
+
                   if(state.qrMessage.show)
                     Positioned(
                         bottom: 32,

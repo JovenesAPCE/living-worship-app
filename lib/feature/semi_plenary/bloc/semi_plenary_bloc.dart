@@ -109,7 +109,9 @@ class SemiPlenaryBloc extends Bloc<SemiPlenaryEvent, SemiPlenaryState> {
     User? user = await _getUserUseCase.call();
 
     List<SemiPlenary> semiPlenaries = await  _getSemiPlenariesUseCase.call();
-
+    print("document: ${user?.document}");
+    print("name: ${user?.name}");
+    print("gender: ${user?.gender}");
     semiPlenaries.removeWhere((element) =>
     element.gender != null &&
         element.gender!.isNotEmpty &&

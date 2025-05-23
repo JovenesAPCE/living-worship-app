@@ -401,9 +401,9 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
 
     try{
 
-      final checkInTime = await getDateUTCGlobal();
-      final startTime = DateTime.parse(startTimeStr).toUtc();
-      final endTime = DateTime.parse(endTimeStr).toUtc();
+      final checkInTime = (await getDateUTCGlobal()).toLocal();
+      final startTime = DateTime.parse(startTimeStr);
+      final endTime = DateTime.parse(endTimeStr);
 
       if (checkInTime.isBefore(startTime) || checkInTime.isAfter(endTime)) {
         await FBUtils.tryLog('Check-in not allowed at this time.');
@@ -425,7 +425,7 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
               "${qRData.semiPlenary}_${user.document}",
               register
                 ..checkIn = true
-                ..checkInTimestamp = startTime.toLocal()
+                ..checkInTimestamp = startTime
           );
         }
       }else{
@@ -486,7 +486,11 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
 
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
-        return DateTime.parse(data['dateTime']);
+        String raw = data['dateTime']; // ej: "2025-05-23T03:36:35.3049888"
+
+      // Asegura que termine con "Z" para que Dart lo trate como UTC
+        if (!raw.endsWith('Z')) raw += 'Z';
+        return DateTime.parse(raw);
       } else {
         print('Error de la API: ${response.statusCode}');
       }
@@ -510,7 +514,8 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
   Future<void> showCheckIn(String semiPlenary) async{
     final user = HiveService.userBox.values.cast<UserTable?>().firstOrNull;
     var plenaryData = HiveService.semiPlenaryBox.get(semiPlenary);
-    var register = HiveService.registerSemiPlenaryTableBox.get("$semiPlenary}_${user?.document}");
+    var register = HiveService.registerSemiPlenaryTableBox.get("${semiPlenary}_${user?.document}");
+
     _qrCheckInShared = QRCheckInRepositoryImpl(
         semiPlenaryId:  semiPlenary,
         color: plenaryData?.color,
@@ -527,6 +532,7 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
             )),
         hasRegister: false
     );
+
     _controller.add(QrStatus.none);
     _controller.add(QrStatus.checkIn);
 
@@ -536,7 +542,9 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
   Future<void> showCheckOut(String semiPlenary) async {
     final user = HiveService.userBox.values.cast<UserTable?>().firstOrNull;
     var plenaryData = HiveService.semiPlenaryBox.get(semiPlenary);
-    var register = HiveService.registerSemiPlenaryTableBox.get("$semiPlenary}_${user?.document}");
+
+    var register = HiveService.registerSemiPlenaryTableBox.get("${semiPlenary}_${user?.document}");
+
     _qrCheckInShared = QRCheckInRepositoryImpl(
         semiPlenaryId:  semiPlenary,
         color: plenaryData?.color,
@@ -553,7 +561,7 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
             )),
         hasRegister: true
     );
-    print("showCheckOut");
+
     _controller.add(QrStatus.none);
     _controller.add(QrStatus.checkOut);
 

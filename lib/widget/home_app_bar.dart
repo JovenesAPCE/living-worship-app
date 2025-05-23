@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jamt/constants/constants.dart';
+import 'package:jamt/feature/tab_home/tab_home.dart';
 import 'package:jamt/navigation/navigation.dart';
 
 class HomeAppBar extends StatelessWidget {
@@ -25,8 +26,13 @@ class HomeAppBar extends StatelessWidget {
          // if (Navigator.of(context).canPop())
           if(isPop)
             IconButton(
-                onPressed: (){
-                  Navigator.maybePop(context);
+                onPressed: () async{
+                  final didPop = await Navigator.maybePop(context);
+                  if (!didPop) {
+                    if(context.mounted){
+                      context.read<TabHomeBloc>().add(DestinationSelected(TabDestination.home));
+                    }
+                  }
                   //SystemNavigator.pop();
                 },
                 icon: Icon(
