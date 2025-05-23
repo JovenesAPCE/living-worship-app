@@ -53,7 +53,7 @@ class SemiPlenaryPage extends StatelessWidget {
           slivers: [
             HomeAppBar(
                 isPop: true,
-                color: AppColor.blue2),
+                color: AppColor.blueLight),
             SliverToBoxAdapter(
               child: SessionScreen()),
           ],

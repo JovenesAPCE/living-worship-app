@@ -13,6 +13,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:jamt/feature/bulletin/view/bulletin_page.dart';
 import 'package:jamt/feature/check_in/check_in.dart';
 import 'package:jamt/feature/check_out/check_out.dart';
+import 'package:jamt/feature/guests/view/guests_page.dart';
 import 'package:jamt/feature/qr/qr.dart';
 import 'package:jamt/feature/semi_plenary/view/semi_plenary_page.dart';
 import 'package:jamt/main.dart';
@@ -180,7 +181,9 @@ class _AppViewState extends State<AppView> {
                     );
                     break;
                   case Destination.guests:
-                  // Acción o retorno para invitados
+                    _navigator.push<void>(
+                        GuestsPage.route()
+                    );
                     break;
                   case Destination.bulletins:
                     _navigator.pushAndRemoveUntil<void>(

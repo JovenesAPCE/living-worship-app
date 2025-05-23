@@ -152,7 +152,7 @@ class GuideScreen extends StatelessWidget {
                                                   fontWeight: FontWeight.w500
                                               ),
                                               onTapLink: (href){
-                                                  if(href == "semiplenaria"){
+                                                  if(href == "semi-plenary"){
                                                     context.read<NavigationBloc>().add(NavigationPressed(Destination.sessions));
                                                   }
                                               },

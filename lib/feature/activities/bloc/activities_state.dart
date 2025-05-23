@@ -39,7 +39,7 @@ final class ActivitiesState extends Equatable{
         title: "Semiplenarias",
           details: [
             CardDetailActivity(
-                body: "Espacios de capacitación diseñados para desarrollar habilidades en liderazgo, evangelismo y discipulado. Cada participante podrá <a href='workshop'>asistir a dos semiplenarias</a> durante el periodo asignado a esta actividad. <a href='workshop'>Haz clic aquí para elegir tus dos semiplenarias de capacitación.</a>"
+                body: "Espacios de capacitación diseñados para desarrollar habilidades en liderazgo, evangelismo y discipulado. Cada participante podrá <a href='semi-plenary'>asistir a dos semiplenarias</a> durante el periodo asignado a esta actividad. <a href='semi-plenary'>Haz clic aquí para elegir tus dos semiplenarias de capacitación.</a>"
             )
           ]
 
@@ -57,7 +57,7 @@ final class ActivitiesState extends Equatable{
         title: "Adoración y Testimonio",
           details: [
             CardDetailActivity(
-                body: "Experiencias de jóvenes comprometidos con la misión y la adoración. <a href='workshop'>Haz clic aquí para ver la información de los invitados.</a>"
+                body: "Experiencias de jóvenes comprometidos con la misión y la adoración. <a href='guests'>Haz clic aquí para ver la información de los invitados.</a>"
             )
           ]
 

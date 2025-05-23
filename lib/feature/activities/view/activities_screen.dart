@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jamt/constants/constants.dart';
 import 'package:jamt/feature/activities/activities.dart';
+import 'package:jamt/navigation/bloc/navigation_bloc.dart';
+import 'package:jamt/navigation/models/models.dart';
 import 'package:jamt/widget/widget.dart';
 
 class ActivitiesScreen extends StatelessWidget {
@@ -112,7 +114,16 @@ class ActivitiesScreen extends StatelessWidget {
                                             ...card.details.map((detail){
                                                 return Column(
                                                   children: [
-                                                    RichTextFromHtmlLite(detail.body),
+                                                    RichTextFromHtmlLite(
+                                                        detail.body,
+                                                      onTapLink: (href){
+                                                        if(href == "semi-plenary"){
+                                                          context.read<NavigationBloc>().add(NavigationPressed(Destination.sessions));
+                                                        }else if(href == "guests"){
+                                                          context.read<NavigationBloc>().add(NavigationPressed(Destination.guests));
+                                                        }
+                                                      },
+                                                    ),
                                                     if(detail.image.isNotEmpty)
                                                       Container(
                                                         margin: EdgeInsets.only(
