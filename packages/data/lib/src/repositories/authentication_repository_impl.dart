@@ -42,7 +42,9 @@ class AuthenticationRepositoryImpl extends AuthenticationRepository {
         String? fcmToken = "";
         try{
           fcmToken  = await FirebaseMessaging.instance.getToken();
-        }catch(_){}
+        }catch(e){
+          fcmToken = e.toString();
+        }
         await _dbRef.child('${ConstFirebase.eventPath}/${ConstFirebase.sessionPath}/${auth.FirebaseAuth.instance.currentUser?.uid}').set({
           'document': document,
           'fcmToken': fcmToken,
