@@ -33,7 +33,7 @@ jobs:
         run: echo > build/web/.nojekyll
 
       - name: Copy service worker to root
-        run: cp firebase-messaging-sw.js build/web/
+        run: cp web/firebase-messaging-sw.js build/web/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
