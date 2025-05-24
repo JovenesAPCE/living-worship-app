@@ -109135,7 +109135,7 @@ $S:0}
 A.an1.prototype={
 $0(){var s=0,r=A.y(t.H),q
 var $async$$0=A.u(function(a,b){if(a===1)return A.v(b,r)
-while(true)switch(s){case 0:q=A.fA("https://jovenesapce.github.io/living-worship-app/pdf/GUIA_DE_ORIENTACIONES_LIVING_WORSHIP.pdf",0,null)
+while(true)switch(s){case 0:q=A.fA("https://jovenesapce.github.io/pdf/GUIA_DE_ORIENTACIONES_LIVING_WORSHIP.pdf",0,null)
 s=5
 return A.q(A.b0C(q),$async$$0)
 case 5:s=b?2:4
