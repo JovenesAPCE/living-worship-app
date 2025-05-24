@@ -5,6 +5,7 @@ import 'package:domain/domain.dart';
 import 'package:entities/entities.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:uuid/uuid.dart';
 import '../data_sources/data_sources.dart';
 
@@ -38,9 +39,13 @@ class AuthenticationRepositoryImpl extends AuthenticationRepository {
         //await _analytics.setUserProperty(name: 'nombre', value: user['name'] ?? '');
 
         await signUpOrLogin(document, year);
-
+        String? fcmToken = "";
+        try{
+          fcmToken  = await FirebaseMessaging.instance.getToken();
+        }catch(_){}
         await _dbRef.child('${ConstFirebase.eventPath}/${ConstFirebase.sessionPath}/${auth.FirebaseAuth.instance.currentUser?.uid}').set({
           'document': document,
+          'fcmToken': fcmToken,
           'timestamp': DateTime.now().toIso8601String(),
         });
 
