@@ -12,13 +12,14 @@ class NavigationState extends Equatable {
       Destination.qrScan,
       Destination.profile,
       Destination.logout,
-    ]
+    ],
+    this.notificationReceived = const Notification()
   });
 
   const NavigationState.unknown() : this._();
 
-  const NavigationState.authenticated(User user)
-      : this._(status: AuthStatus.authenticated, user: user, destination: Destination.tabHome, initial: true);
+  const NavigationState.authenticated(User user, bool wasOpenNotification)
+      : this._(status: AuthStatus.authenticated, user: user, destination: wasOpenNotification? Destination.bulletins: Destination.tabHome, initial: true);
 
   const NavigationState.unauthenticated()
       : this._(status: AuthStatus.unauthenticated);
@@ -29,12 +30,12 @@ class NavigationState extends Equatable {
   final Destination destination;
   final bool initial;
   final int forceUpdate;
-
+  final Notification notificationReceived;
 
 
 
   @override
-  List<Object> get props => [status, user, destinations, destination, initial, forceUpdate];
+  List<Object> get props => [status, user, destinations, destination, initial, forceUpdate, notificationReceived];
 
    NavigationState copyWith({
      AuthStatus? status,
@@ -43,6 +44,7 @@ class NavigationState extends Equatable {
      Destination? destination,
      bool? initial,
      int? forceUpdate,
+     Notification? notificationReceived
    }) {
      return NavigationState._(
        status: status ?? this.status,
@@ -51,6 +53,7 @@ class NavigationState extends Equatable {
        destination: destination ?? this.destination,
        initial: initial ?? this.initial,
        forceUpdate: forceUpdate ?? this.forceUpdate,
+         notificationReceived: notificationReceived??this.notificationReceived
      );
    }
 }

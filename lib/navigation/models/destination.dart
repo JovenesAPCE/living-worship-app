@@ -12,7 +12,7 @@ enum Destination {
   qrCheckOut(AppIcon.qrcode, 'Escanear'),
   guests(Icons.groups, 'Invitados'),
   bulletins(Icons.article, 'Boletines'),
-  trivia(Icons.tour, 'Trivia'),
+  event(Icons.tour, 'Trivia'),
   map(AppIcon.map, 'Mapa'),
   menu(Icons.menu, 'Menú'),
   logout(Icons.logout, 'Cerrar Sesion');

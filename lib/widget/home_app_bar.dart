@@ -30,7 +30,11 @@ class HomeAppBar extends StatelessWidget {
                   final didPop = await Navigator.maybePop(context);
                   if (!didPop) {
                     if(context.mounted){
-                      context.read<TabHomeBloc>().add(DestinationSelected(TabDestination.home));
+                      try{
+                        context.read<TabHomeBloc>().add(DestinationSelected(TabDestination.home));
+                      }catch(e){
+                        context.read<NavigationBloc>().add(NavigationPressed(Destination.tabHome));
+                      }
                     }
                   }
                   //SystemNavigator.pop();

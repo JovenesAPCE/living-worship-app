@@ -18,3 +18,5 @@ export 'notification/get_notification_usecase.dart';
 export 'notification/update_notification_usecase.dart';
 export 'semi-plenary/show_check_in_usecase.dart';
 export 'semi-plenary/show_check_out_usecase.dart';
+export 'notification/was_open_notification_usecase.dart';
+export 'notification/notification_received_usecase.dart';

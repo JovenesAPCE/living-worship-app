@@ -3,9 +3,7 @@ import 'dart:async';
 import 'package:data/data.dart';
 import 'package:domain/domain.dart';
 import 'package:entities/entities.dart';
-import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:uuid/uuid.dart';
 import '../data_sources/data_sources.dart';
@@ -14,14 +12,12 @@ import '../data_sources/data_sources.dart';
 class AuthenticationRepositoryImpl extends AuthenticationRepository {
   final _controller = StreamController<AuthStatus>();
   final DatabaseReference _dbRef = FirebaseDatabase.instance.ref();
-  final FirebaseAnalytics _analytics = FirebaseAnalytics.instance;
+  //final FirebaseAnalytics _analytics = FirebaseAnalytics.instance;
 
   AuthenticationRepositoryImpl();
 
   @override
   Future<Either<LoginFailure, void>> logIn(String document, String year) async {
-
-
     try {
 
       await FBUtils.trySetCrashlyticsUser(document);
@@ -38,8 +34,8 @@ class AuthenticationRepositoryImpl extends AuthenticationRepository {
       final user = Map<String, dynamic>.from(userSnapshot.value as Map);
       if (user['year'].toString() == year) {
 
-        await _analytics.setUserId(id: document);
-        await _analytics.setUserProperty(name: 'nombre', value: user['name'] ?? '');
+        //await _analytics.setUserId(id: document);
+        //await _analytics.setUserProperty(name: 'nombre', value: user['name'] ?? '');
 
         await signUpOrLogin(document, year);
 
@@ -79,9 +75,9 @@ class AuthenticationRepositoryImpl extends AuthenticationRepository {
 
   @override
   Future<void> logOut() async {
-    await _analytics.logEvent(name: 'logout');
+   // await _analytics.logEvent(name: 'logout');
     await FBUtils.trySetCrashlyticsUser('');
-    await _analytics.setUserId(id: null);
+   // await _analytics.setUserId(id: null);
     await HiveService.userBox.clear();
     await auth.FirebaseAuth.instance.signOut();
     _controller.add(AuthStatus.unauthenticated);

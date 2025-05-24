@@ -19,12 +19,8 @@ final class NavigationPressed extends NavigationEvent {
   const NavigationPressed(this.destination);
 }
 
-final class NavigateToFromNotification extends NavigationEvent {
+final class OnTapNotification extends NavigationEvent {
 
-  final Destination destination;
-  @override
-  List<Object?> get props => [destination];
-
-  const NavigateToFromNotification(this.destination);
+  const OnTapNotification();
 }
 

@@ -15,27 +15,37 @@ class NavigationBloc
     required GetAuthStatusUseCase getAuthStatus,
     required LogOutUseCase logOutUseCase,
     required GetUserUseCase getUserUseCase,
-    required GetQrStatusUseCase getQrStatusUseCase
+    required GetQrStatusUseCase getQrStatusUseCase,
+    required WasOpenNotificationUseCase wasOpenNotificationUseCase,
+    required NotificationReceivedUseCase notificationReceivedUseCase
   })  : _getAuthStatus = getAuthStatus,
         _logOutUseCase = logOutUseCase,
         _getUserUseCase = getUserUseCase,
         _getQrStatusUseCase = getQrStatusUseCase,
+        _wasOpenNotificationUseCase = wasOpenNotificationUseCase,
+        _notificationReceivedUseCase = notificationReceivedUseCase,
         super(const NavigationState.unknown()) {
     on<AuthenticationSubscriptionRequested>(_onSubscriptionRequested);
     on<AuthenticationLogoutPressed>(_onLogoutPressed);
     on<NavigationPressed>(_onNavigationPressed);
-    on<NavigateToFromNotification>(_onNavigateToFromNotification);
+    on<OnTapNotification>(_onNavigateToFromNotification);
   }
 
   final GetAuthStatusUseCase _getAuthStatus;
   final LogOutUseCase _logOutUseCase;
   final GetUserUseCase _getUserUseCase;
   final GetQrStatusUseCase _getQrStatusUseCase;
-
+  final WasOpenNotificationUseCase _wasOpenNotificationUseCase;
+  final  NotificationReceivedUseCase _notificationReceivedUseCase;
   Future<void> _onSubscriptionRequested(
       AuthenticationSubscriptionRequested event,
       Emitter<NavigationState> emit,
       ) {
+
+    emit.onEach(_notificationReceivedUseCase.call(),
+        onData: (notification){
+          emit(state.copyWith(notificationReceived: notification));
+        });
 
     emit.onEach(
         _getQrStatusUseCase.call(),
@@ -64,9 +74,10 @@ class NavigationBloc
             return emit(const NavigationState.unauthenticated());
           case AuthStatus.authenticated:
             final user = await _tryGetUser();
+            final wasOpenNotification = await _isWasOpenNotification();
             return emit(
               user != null
-                  ? NavigationState.authenticated(user)
+                  ? NavigationState.authenticated(user, wasOpenNotification)
                   : const NavigationState.unauthenticated(),
             );
           case AuthStatus.unknown:
@@ -77,18 +88,15 @@ class NavigationBloc
     );
   }
   void _onNavigateToFromNotification(
-      NavigateToFromNotification event,
+      OnTapNotification event,
       Emitter<NavigationState> emit,
       )async{
-
-    print("_onNavigateToFromNotification");
-
-    await Future.delayed(Duration(seconds: 1));
     emit(
         state.copyWith(
-            destination: event.destination,
+            destination: Destination.bulletins,
             initial: false,
-            forceUpdate: DateTime.timestamp().millisecond
+            forceUpdate: DateTime.timestamp().millisecond,
+            notificationReceived: Notification()
         )
     );
   }
@@ -119,6 +127,14 @@ class NavigationBloc
       return user;
     } catch (_) {
       return null;
+    }
+  }
+
+  Future<bool> _isWasOpenNotification() async {
+    try {
+      return await _wasOpenNotificationUseCase.call();
+    } catch (_) {
+      return false;
     }
   }
 }
