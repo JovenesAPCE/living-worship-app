@@ -18,7 +18,7 @@ import 'package:jamt/feature/splash/splash.dart';
 import 'package:jamt/feature/tab_home/tab_home.dart';
 import 'package:jamt/feature/login/login.dart';
 import 'package:jamt/feature/user/user.dart';
-import 'package:jamt/widget/local_notification.dart';
+import 'package:jamt/widget/widget.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -90,6 +90,16 @@ class _AppViewState extends State<AppView> {
 
   void init() async {
     debugPrint('initFirebase');
+    LocalWebNotification.setOnTapCallback((payload){
+      print("flutterLocalNotificationsPlugin $payload");
+      // 🔁 Aquí llamamos al Bloc para manejar la navegación
+      NavigationBloc navigationBloc = BlocProvider.of<NavigationBloc>(
+        _navigatorKey.currentContext!,
+      );
+      print("NavigateToFromNotificationd $payload");
+      // Envía evento de navegación
+      navigationBloc.add(OnTapNotification());
+    });
     LocalNotification.setOnTapCallback((payload) {
       print("flutterLocalNotificationsPlugin $payload");
       // 🔁 Aquí llamamos al Bloc para manejar la navegación
@@ -128,13 +138,18 @@ class _AppViewState extends State<AppView> {
         return BlocListener<NavigationBloc, NavigationState>(
           listener: (context, state) {
             if (state.notificationReceived.id.isNotEmpty) {
-              print("twat show");
+              print("twat ${state.notificationReceived.message}");
               if (!kIsWeb) {
                 LocalNotification.show(
                     title: state.notificationReceived.title,
                     body: state.notificationReceived.message,
                     payload: '/bulletin'
                 );
+              }else {
+                LocalWebNotification.show(
+                    title: state.notificationReceived.title,
+                    body: state.notificationReceived.message,
+                    payload: '/bulletin');
               }
             }
 
