@@ -146,10 +146,10 @@ class _AppViewState extends State<AppView> {
                     payload: '/bulletin'
                 );
               }else {
-                LocalWebNotification.show(
+                /*LocalWebNotification.show(
                     title: state.notificationReceived.title,
                     body: state.notificationReceived.message,
-                    payload: '/bulletin');
+                    payload: '/bulletin');*/
               }
             }
 
