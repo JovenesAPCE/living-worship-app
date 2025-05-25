@@ -64,8 +64,12 @@ class QrBloc extends Bloc<QrEvent, QrState> {
         },
         (qrState) async {
           readQr = 0;
+          if(state.qrMessage.show){
+            await Future.delayed(Duration(seconds: 5));
+          }else {
+            await Future.delayed(Duration(seconds: 1));
+          }
           emit(state.copyWith(progress: true));
-          await Future.delayed(Duration(seconds: 5));
           print("qrState.status: ${qrState.status}");
           if (qrState.status == QrStatus.checkIn) {
             await _registerCheckInSemiPlenary(qrState.data, emit);
