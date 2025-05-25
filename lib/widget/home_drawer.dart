@@ -11,6 +11,7 @@ class HomeDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final destinations = context.read<NavigationBloc>().state.destinations;
+    final user = context.read<NavigationBloc>().state.user;
     return SizedBox(
       width: MediaQuery.of(context).size.width * 0.70, // ancho personalizado del drawer
       child: ClipRRect(
@@ -26,7 +27,7 @@ class HomeDrawer extends StatelessWidget {
               padding: EdgeInsets.zero,
               children: [
                 Container(
-                  height: 160,
+                  height: 220,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage(AppImages.mainDrawerBackground),
@@ -44,14 +45,44 @@ class HomeDrawer extends StatelessWidget {
                         ),
                       ),
                       Positioned(
-                        bottom: 12,
-                        left: 16,
-                        child: Text(
-                          '¡Bienvenido!',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                        bottom: 0,
+                        left: 0,
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.70,
+                          color: Colors.black.withOpacity(0.5),
+                          padding: EdgeInsets.only(
+                            top: 8,
+                            bottom: 12,
+                            left: 16
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                '¡Bienvenido!',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Row(
+                                children: [
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.width * 0.60,
+                                    child: Text(
+                                      user.name??"",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              )
+                            ],
                           ),
                         ),
                       ),
