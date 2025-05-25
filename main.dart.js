@@ -8955,7 +8955,7 @@ _.d=d},
 Ai:function Ai(a,b){this.a=a
 this.b=b},
 CF:function CF(a){this.a=a
-this.b=$},
+this.b=!1},
 aEi:function aEi(){},
 aEg:function aEg(){},
 aEh:function aEh(){},
@@ -55957,15 +55957,13 @@ return A.x($async$Ha,r)},
 Ij(){var s=0,r=A.y(t.y),q,p=this,o,n,m
 var $async$Ij=A.u(function(a,b){if(a===1)return A.v(b,r)
 while(true)switch(s){case 0:A.bt("_wasOpenNotification: inti")
-n=p.b
-n===$&&A.b()
-if(!n){A.bt("_wasOpenNotification 0 : false")
+if(!p.b){A.bt("_wasOpenNotification 0 : false")
 try{A.bt("wasOpenedFromNotification")
 n=$.aE9
 A.bt("_initialPayload: "+A.p(n))
 $.aE9=null
 p.b=n!=null}catch(l){o=A.a0(l)
-A.bt("_wasOpenNotification 0 : "+J.cg(o))}A.bt("_wasOpenNotification 1 : "+A.p(p.b))}A.bt("_wasOpenNotification 2 : "+A.p(p.b))
+A.bt("_wasOpenNotification 0 : "+J.cg(o))}A.bt("_wasOpenNotification 1 : "+p.b)}A.bt("_wasOpenNotification 2 : "+p.b)
 q=p.b
 s=1
 break
