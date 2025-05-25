@@ -8,14 +8,20 @@ import 'package:jamt/feature/tab_home/models/models.dart';
 import 'package:jamt/navigation/bloc/navigation_bloc.dart';
 import 'package:jamt/navigation/models/destination.dart';
 import 'package:jamt/widget/widget.dart';
-
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  List<String> arrayList = [];
 
   @override
-  Widget build(BuildContext context) {
-    var arrayList = [
+  void initState() {
+    super.initState();
+    arrayList = [
       AppImages.homeActivityOne,
       AppImages.homeActivityTwo,
       AppImages.homeActivityThree,
@@ -27,9 +33,14 @@ class HomeScreen extends StatelessWidget {
       AppImages.homeActivityNine,
       AppImages.homeActivityTen,
       AppImages.homeActivityEleven,
-      AppImages.homeActivityTwelve
+      AppImages.homeActivityTwelve,
     ];
     arrayList.shuffle();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+
     return Stack(
       children: [
         // FONDO MEJORADO CON GRADIENTE Y BLUR
