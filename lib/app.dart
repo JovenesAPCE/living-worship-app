@@ -203,11 +203,18 @@ class _AppViewState extends State<AppView> {
                     );
                     break;
                   case Destination.bulletins:
-                    _navigator.pushAndRemoveUntil<void>(
-                      BulletinPage.route(),
-                          (route) =>
-                      route.settings.name == TabHomePage.routeName,
-                    );
+                    if(kIsWeb){
+                      if(Uri.base.fragment == BulletinWebNotify.routeName){
+                        return;
+                      }
+                    }else {
+                      _navigator.pushAndRemoveUntil<void>(
+                        BulletinPage.route(),
+                            (route) =>
+                        route.settings.name == TabHomePage.routeName,
+                      );
+                    }
+
                     break;
                   case Destination.map:
                   // Acción o retorno para mapa
