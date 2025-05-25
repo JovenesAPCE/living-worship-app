@@ -109984,7 +109984,7 @@ p=q.b
 o=n.c.zm(!0)
 if(!p.d)p.a.$1(o)
 s=2
-return A.q(A.kf(A.dp(0,0,3),null,t.z),$async$$1)
+return A.q(A.kf(A.dp(0,0,5),null,t.z),$async$$1)
 case 2:o=a.a
 A.bu("qrState.status: "+o.j(0))
 s=o===B.dB?3:5
