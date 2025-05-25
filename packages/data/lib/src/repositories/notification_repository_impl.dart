@@ -48,11 +48,13 @@ class NotificationRepositoryImpl extends NotificationRepository{
 
   @override
   Future<bool> wasOpenNotification() async {
+    print("_wasOpenNotification: inti");
     // Se almacena en memoria ya que la funcion wasOpenedFromNotification se limpia después de usarlo
     if(!_wasOpenNotification){
       _wasOpenNotification = NotificationHandler.wasOpenedFromNotification();
+      print("_wasOpenNotification 1 : $_wasOpenNotification");
     }
-    print("_wasOpenNotification: $_wasOpenNotification");
+    print("_wasOpenNotification 2 : $_wasOpenNotification");
     return _wasOpenNotification;
   }
 
