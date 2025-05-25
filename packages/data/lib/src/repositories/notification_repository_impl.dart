@@ -66,8 +66,8 @@ class NotificationRepositoryImpl extends NotificationRepository{
   @override
   Future<void> unsubscribeNotification() async{
     try {
-      await FirebaseMessaging.instance.deleteToken();
-      print('🔕 Token FCM eliminado, no se recibirán más notificaciones');
+      //await FirebaseMessaging.instance.deleteToken();
+     // print('🔕 Token FCM eliminado, no se recibirán más notificaciones');
     } catch (e) {
       print('❌ Error al eliminar token: $e');
     }
