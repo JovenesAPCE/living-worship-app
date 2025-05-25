@@ -1,8 +1,9 @@
-const examplePageURL = '/living-worship-app/#/web_notify';
-
 function openWindow(event) {
+ // Obtener dinámicamente el scope base sin el último slash
+ const baseScope = self.registration.scope.replace(/\/$/, '');
+ const targetURL = `${baseScope}/#/web_notify`;
   /**** START notificationOpenWindow ****/
-  const promiseChain = clients.openWindow(examplePageURL);
+  const promiseChain = clients.openWindow(targetURL);
   event.waitUntil(promiseChain);
   /**** END notificationOpenWindow ****/
 }
@@ -24,43 +25,38 @@ function refreshWindow(event) {
 }
 
 function focusWindow(event) {
-  /**** START notificationFocusWindow ****/
-  /**** START urlToOpen ****/
-  const urlToOpen = new URL(examplePageURL, self.location.origin).href;
-  /**** END urlToOpen ****/
+  // Obtener dinámicamente el scope base sin el último slash
+    const baseScope = self.registration.scope.replace(/\/$/, '');
+    const targetURL = `${baseScope}/#/web_notify`;
 
-  /**** START clientsMatchAll ****/
-  const promiseChain = clients.matchAll({
-    type: 'window',
-    includeUncontrolled: true
-  })
-  /**** END clientsMatchAll ****/
-  /**** START searchClients ****/
-  .then((windowClients) => {
-    let matchingClient = null;
+    const promiseChain = clients.matchAll({
+      type: 'window',
+      includeUncontrolled: true
+    }).then((windowClients) => {
+      let matchingClient = null;
 
-    for (let i = 0; i < windowClients.length; i++) {
-      const windowClient = windowClients[i];
-      if (windowClient.url === urlToOpen) {
-        matchingClient = windowClient;
-        break;
+      for (const client of windowClients) {
+        const clientBase = client.url.split('#')[0].replace(/\/$/, '');
+        if (clientBase === baseScope) {
+          matchingClient = client;
+          break;
+        }
       }
-    }
 
-    if (matchingClient) {
-      client.focus();
-      if ('navigate' in client) {
-         return client.navigate(urlToOpen); // 🔁 Recarga
+      if (matchingClient) {
+        matchingClient.focus();
+
+        if ('navigate' in matchingClient) {
+          return matchingClient.navigate(targetURL); // Refrescar con el hash
+        }
+
+        return;
+      } else {
+        return clients.openWindow(targetURL); // Abrir nueva pestaña
       }
-      return;
-    } else {
-      return clients.openWindow(urlToOpen);
-    }
-  });
-  /**** END searchClients ****/
+    });
 
-  event.waitUntil(promiseChain);
-  /**** END notificationFocusWindow ****/
+    event.waitUntil(promiseChain);
 }
 
 function dataNotification(event) {
