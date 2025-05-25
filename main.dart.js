@@ -30709,7 +30709,7 @@ ayU:function ayU(a){this.a=a},
 ayW(a,b,c){var s=0,r=A.y(t.H),q,p,o,n,m
 var $async$ayW=A.u(function(d,e){if(d===1)return A.v(e,r)
 while(true)switch(s){case 0:m=window.navigator.userAgent.toLowerCase()
-if(B.c.u(m,"iphone")||B.c.u(m,"ipad")||B.c.u(m,"android")||B.c.u(m,"mobile")){self.onShortTitleClick()
+if(B.c.u(m,"iphone")||B.c.u(m,"ipad")||B.c.u(m,"android")||B.c.u(m,"mobile")){self.onShortTitleClick(c,a)
 s=1
 break}s=3
 return A.q(A.bui(),$async$ayW)

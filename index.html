@@ -69,12 +69,12 @@
   }
 </script>
 <script>
-  async function onShortTitleClick() {
+  async function onShortTitleClick(title, body) {
         const reg = await getSW();
         /**** START titleAndBodySimple ****/
-        const title = "Simple Title";
+        //const title = "Simple Title";
         const options = {
-          body: "Simple piece of body text.\nSecond line of body text 👍",
+          body: body,//"Simple piece of body text.\nSecond line of body text 👍",
         };
         reg.showNotification(title, options);
         /**** END titleAndBodySimple ****/
