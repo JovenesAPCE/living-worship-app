@@ -60,15 +60,11 @@
         console.log('Error al registrar Service Worker:', err);
       });
   }
-</script>
-<script>
   function getSW() {
        return navigator.serviceWorker.getRegistration(
          "/notification/service-worker.js"
        );
   }
-</script>
-<script>
   async function onMessageIconClick(title, body, icon) {
         const reg = await getSW();
         /**** START titleAndBodySimple ****/
@@ -85,6 +81,13 @@
         /**** END titleAndBodySimple ****/
 
   }
+</script>
+<script>
+  navigator.serviceWorker?.addEventListener('message', (event) => {
+    if (event.data?.action === 'navigateTo' && event.data.url) {
+      location.href = event.data.url;
+    }
+  });
 </script>
   <script src="flutter_bootstrap.js" async></script>
 </body>
