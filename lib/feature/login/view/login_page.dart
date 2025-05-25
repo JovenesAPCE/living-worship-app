@@ -66,7 +66,10 @@ class LoginPage extends StatelessWidget {
                 logIn: LogInUseCase(
                     context.read<AuthenticationRepository>()
                 ),
-              ),
+                unsubscribeNotificationUseCase: UnsubscribeNotificationUseCase(
+                    context.read<NotificationRepository>()
+                )
+              )..add(IntLogin()),
               child: const LoginForm(),
             ),
           )

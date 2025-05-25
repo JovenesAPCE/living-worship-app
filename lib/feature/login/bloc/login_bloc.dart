@@ -10,14 +10,24 @@ part 'login_state.dart';
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc({
     required LogInUseCase logIn,
+    required UnsubscribeNotificationUseCase unsubscribeNotificationUseCase,
   })  : _logIn = logIn,
+        _unsubscribeNotificationUseCase = unsubscribeNotificationUseCase,
         super(const LoginState()) {
     on<LoginUsernameChanged>(_onUsernameChanged);
     on<LoginBirthYearChanged>(_onPasswordChanged);
     on<LoginSubmitted>(_onSubmitted);
+    on<IntLogin>(_onIntLogin);
   }
 
   final LogInUseCase _logIn;
+  final UnsubscribeNotificationUseCase _unsubscribeNotificationUseCase;
+  void _onIntLogin(
+      IntLogin event,
+      Emitter<LoginState> emit,
+      ){
+    _unsubscribeNotificationUseCase.call();
+  }
 
   void _onUsernameChanged(
       LoginUsernameChanged event,
@@ -69,7 +79,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
               (failure) => {
             if (failure is InvalidCredentials) {
               emit(state.copyWith(
-                progress: false,
+                  progress: false,
                   loginToast: LoginToast.show("Documento incorrecto o no registrado para este evento")))
             } else if (failure is NoInternet) {
               emit(state.copyWith(
@@ -83,8 +93,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           },
               (right) => {
             emit(state.copyWith(
-              progress: false,
-              loginToast: LoginToast.hide()
+                progress: false,
+                loginToast: LoginToast.hide()
             ))
           });
     }

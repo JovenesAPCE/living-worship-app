@@ -63,4 +63,25 @@ class NotificationRepositoryImpl extends NotificationRepository{
     yield* FirebaseMessaging.onMessage.map((message) => message.toEntity());
   }
 
+  @override
+  Future<void> unsubscribeNotification() async{
+    try {
+      await FirebaseMessaging.instance.deleteToken();
+      print('🔕 Token FCM eliminado, no se recibirán más notificaciones');
+    } catch (e) {
+      print('❌ Error al eliminar token: $e');
+    }
+  }
+
+  @override
+  Future<String> subscribeNotification() async{
+    String fcmToken = "";
+    try{
+      fcmToken = await FirebaseMessaging.instance.getToken()??"";
+    }catch(e, stack){
+      FBUtils.tryRecordError(e, stack: stack);
+    }
+    return fcmToken;
+  }
+
 }

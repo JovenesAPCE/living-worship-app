@@ -24,18 +24,6 @@ class NotificationHandler {
     return show;
   }
 
-  static Future<void> verifyNotificationPermission(bool kDebugMode) async {
-    try{
-      String? fcmToken = await FirebaseMessaging.instance.getToken();
-      if (kDebugMode) {
-        print('🔑 Token: $fcmToken');
-      }
-    }catch(e, stack){
-      FBUtils.tryRecordError(e, stack: stack);
-    }
-  }
-
-
 
 }
 

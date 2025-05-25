@@ -5,5 +5,8 @@ abstract class NotificationRepository {
   Future<void> updateNotification();
   Future<List<Notification>> notifications();
   Future<bool> wasOpenNotification();
+  Future<void> unsubscribeNotification();
+
+  Future<String> subscribeNotification();
 
 }

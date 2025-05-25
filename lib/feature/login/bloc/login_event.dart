@@ -28,3 +28,7 @@ final class LoginBirthYearChanged extends LoginEvent {
 final class LoginSubmitted extends LoginEvent {
   const LoginSubmitted();
 }
+
+final class IntLogin extends LoginEvent {
+  const IntLogin();
+}

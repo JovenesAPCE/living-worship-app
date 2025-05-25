@@ -1,5 +1,4 @@
-import 'dart:ui';
-
+import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jamt/feature/tab_home/tab_home.dart';
@@ -20,7 +19,11 @@ class TabHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) => TabHomeBloc(),
+        create: (context) => TabHomeBloc(
+          subscribeNotificationUseCase: SubscribeNotificationUseCase(
+              context.read<NotificationRepository>()
+          )
+        )..add(IntTabHome()),
         child:  TabHomeScreen()
     );
   }

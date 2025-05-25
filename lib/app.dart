@@ -110,8 +110,6 @@ class _AppViewState extends State<AppView> {
       // Envía evento de navegación
       navigationBloc.add(OnTapNotification());
     });
-    await NotificationHandler.verifyNotificationPermission(kDebugMode);
-    debugPrint('verifyNotificationPermission');
 
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
       // 🔁 Aquí navega según `message.data`

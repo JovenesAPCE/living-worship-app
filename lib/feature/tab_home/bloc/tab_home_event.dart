@@ -16,3 +16,7 @@ final class DestinationSelected extends TabHomeEvent {
   @override
   List<Object> get props => [destination];
 }
+
+final class IntTabHome  extends TabHomeEvent {
+  const IntTabHome();
+}
