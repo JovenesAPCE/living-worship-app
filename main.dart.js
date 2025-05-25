@@ -109898,7 +109898,7 @@ $0(){return A.io(this.a,!1).fo()},
 $S:0}
 A.Ci.prototype={
 H(a){var s=null,r=A.f4(0,A.nl("assets/images_v1/login_background2.webp",B.b3,s,s)),q=A.c8(a,s,t.l).w
-return A.nM(s,s,A.cw(B.Q,A.a([r,A.f3(s,A.e9(A.ce(A.nl("assets/images_v1/logo_worship.png",B.b3,s,s),s,q.a.b*0.23),s,s),s,s,0,0,40,s),A.f3(16,A.e9(A.ce(A.nl("assets/images_v1/logo_mrnt.webp",B.b3,s,s),80,s),s,s),s,s,0,0,s,s),A.uk(!0,A.iJ(B.a5n,new A.azc(),!0,t.wt),B.az,!0)],t.p),B.B,B.P,s),s,!1)}}
+return A.nM(s,B.l,A.cw(B.Q,A.a([r,A.f3(s,A.e9(A.ce(A.nl("assets/images_v1/logo_worship.png",B.b3,s,s),s,q.a.b*0.23),s,s),s,s,0,0,40,s),A.f3(16,A.e9(A.ce(A.nl("assets/images_v1/logo_mrnt.webp",B.b3,s,s),80,s),s,s),s,s,0,0,s,s),A.uk(!0,A.iJ(B.a5n,new A.azc(),!0,t.wt),B.az,!0)],t.p),B.B,B.P,s),s,!1)}}
 A.azd.prototype={
 $1(a){return B.a5o},
 $S:686}
