@@ -203,18 +203,11 @@ class _AppViewState extends State<AppView> {
                     );
                     break;
                   case Destination.bulletins:
-                    if(kIsWeb){
-                      if(Uri.base.fragment == BulletinWebNotify.routeName){
-                        return;
-                      }
-                    }else {
-                      _navigator.pushAndRemoveUntil<void>(
-                        BulletinPage.route(),
-                            (route) =>
-                        route.settings.name == TabHomePage.routeName,
-                      );
-                    }
-
+                    _navigator.pushAndRemoveUntil<void>(
+                      BulletinPage.route(),
+                          (route) =>
+                      route.settings.name == TabHomePage.routeName,
+                    );
                     break;
                   case Destination.map:
                   // Acción o retorno para mapa
@@ -244,13 +237,14 @@ class _AppViewState extends State<AppView> {
         );
       },
       onGenerateRoute: (settings){
-        switch (settings.name) {
-          case BulletinWebNotify.routeName:
-
-            return BulletinWebNotify.route();
-          default:
-            return SplashPage.route();
+        if(settings.name == BulletinWebNotify.routeName){
+          NavigationBloc navigationBloc = BlocProvider.of<NavigationBloc>(
+            _navigatorKey.currentContext!,
+          );
+          // Envía evento de navegación
+          navigationBloc.add(OnTapNotification());
         }
+        return SplashPage.route();
       },
     );
   }
