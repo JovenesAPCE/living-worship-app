@@ -21,6 +21,10 @@ messaging.onBackgroundMessage(function(payload) {
   const notificationOptions = {
     body: payload.notification?.body || '',
     icon: '/icons/Icon-192.png',
+    data: {
+          url: '/' // Ruta donde quieres abrir la app (ej. '/', '/notificaciones')
+        }
+      };
   };
 
   self.registration.showNotification(notificationTitle, notificationOptions);
