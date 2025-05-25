@@ -7,6 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jamt/feature/bulletin/view/bulletin_page.dart';
+import 'package:jamt/feature/bulletin/view/bulletin_web_notify.dart';
 import 'package:jamt/feature/check_in/check_in.dart';
 import 'package:jamt/feature/check_out/check_out.dart';
 import 'package:jamt/feature/guests/view/guests_page.dart';
@@ -235,7 +236,14 @@ class _AppViewState extends State<AppView> {
           child: child,
         );
       },
-      onGenerateRoute: (_) => SplashPage.route(),
+      onGenerateRoute: (settings){
+        switch (settings.name) {
+          case BulletinWebNotify.routeName:
+            return BulletinWebNotify.route();
+          default:
+            return SplashPage.route();
+        }
+      },
     );
   }
 
