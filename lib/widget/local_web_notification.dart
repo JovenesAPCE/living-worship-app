@@ -1,4 +1,5 @@
 import 'dart:html' as html;
+import 'package:js/js.dart';
 
 class LocalWebNotification {
   static final LocalWebNotification _instance = LocalWebNotification._internal();
@@ -20,7 +21,7 @@ class LocalWebNotification {
     final isMobile = _isWebMobile();
 
     if (isMobile) {
-      print('📵 Notificaciones no soportadas en móviles Web');
+      onShortTitleClick();
       return;
     }
     final permission = await html.Notification.requestPermission();
@@ -46,3 +47,6 @@ class LocalWebNotification {
         userAgent.contains('mobile');
   }
 }
+
+@JS('onShortTitleClick') // nombre exacto de la función JS
+external void onShortTitleClick();
