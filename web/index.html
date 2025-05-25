@@ -51,50 +51,44 @@
 </head>
 <body style="background-color: #000000;">
 <script src="https://cdn.jsdelivr.net/npm/jsqr@1.3.1/dist/jsQR.min.js"></script>
+  <script src="flutter_bootstrap.js" async></script>
 <script>
   if ('serviceWorker' in navigator) {
+    // Registrar el SW y esperar a que esté listo
     navigator.serviceWorker.register('/living-worship-app/firebase-messaging-sw.js')
-      .then(function(registration) {
-        console.log('Firebase Service Worker registrado con éxito:', registration);
-      }).catch(function(err) {
-        console.log('Error al registrar Firebase Service Worker:', err);
+      .then((registration) => {
+        console.log('✅ Firebase Service Worker registrado:', registration);
+
+        // Escuchar mensajes del SW
+        navigator.serviceWorker.addEventListener('message', (event) => {
+          if (event.data && event.data.action === 'reload') {
+            location.reload();
+          }
+        });
+
+        // Almacenar el registro listo para mostrar notificaciones después
+        window.swRegistration = registration;
+      }).catch((err) => {
+        console.error('❌ Error al registrar Firebase Service Worker:', err);
       });
   }
-</script>
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.addEventListener('message', function(event) {
-      if (event.data && event.data.action === 'reload') {
-        location.reload(); // 🔁 Recarga la página
-      }
-    });
-  }
-</script>
-<script>
-  function getSW() {
-       return navigator.serviceWorker.getRegistration(
-         "/living-worship-app/firebase-messaging-sw.js"
-       );
-  }
-</script>
-<script>
-  async function onMessageIconClick(title, body, icon) {
-        const reg = await getSW();
-        /**** START titleAndBodySimple ****/
-        //const title = "Simple Title";
-        const options = {
-          body: body,//"Simple piece of body text.\nSecond line of body text 👍",
-          icon: icon,//"/demos/notification-examples/images/icon-512x512.png",
-          tag: "refresh",
-          data: {
-            url: '/notify' // Ruta donde quieres abrir la app (ej. '/', '/notificaciones')
-          },
-        };
 
-        reg.showNotification(title, options);
-        /**** END titleAndBodySimple ****/
-      }
+  // Mostrar una notificación directamente usando el SW listo
+  async function onMessageIconClick(title, body, icon) {
+    if (window.swRegistration) {
+      const options = {
+        body: body,
+        icon: icon,
+        tag: "refresh",
+        data: {
+          url: '/notify'
+        }
+      };
+      window.swRegistration.showNotification(title, options);
+    } else {
+      console.warn("⚠️ Service Worker aún no está listo.");
+    }
+  }
 </script>
-  <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
