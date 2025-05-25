@@ -67,7 +67,7 @@
   // Mostrar una notificación directamente usando el SW listo
   async function onMessageIconClick(title, body, icon) {
     if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
-       window.registration.controller.postMessage({
+       window.swRegistration.controller.postMessage({
         action: 'showLocalNotification',
         payload: {
           title: title,
