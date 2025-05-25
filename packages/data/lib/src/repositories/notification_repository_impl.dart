@@ -8,7 +8,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 
 class NotificationRepositoryImpl extends NotificationRepository{
   final db = FirebaseDatabase.instance.ref();
-  late bool _wasOpenNotification;
+  bool _wasOpenNotification = false;
 
   @override
   Future<void> updateNotification() async{
