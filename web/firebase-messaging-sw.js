@@ -44,3 +44,21 @@ async function closeNotificationsWithoutIconAfterDelay() {
     }
   });
 }
+
+self.addEventListener('message', (event) => {
+  if (event.data?.action === 'showLocalNotification') {
+    const { title, body, icon, url } = event.data.payload;
+
+    const notificationTitle = title || 'Notificación';
+    const notificationOptions = {
+      body: body || '',
+      icon: icon || '/icons/Icon-192.png',
+      tag: "refresh",
+      data: {
+        url: url || '/'
+      }
+    };
+
+    self.registration.showNotification(notificationTitle, notificationOptions);
+  }
+});

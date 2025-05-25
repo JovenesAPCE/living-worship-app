@@ -49,9 +49,9 @@ class NotificationRepositoryImpl extends NotificationRepository{
   @override
   Future<bool> wasOpenNotification() async {
     // Se almacena en memoria ya que la funcion wasOpenedFromNotification se limpia después de usarlo
-    //if(!_wasOpenNotification){
+    if(!_wasOpenNotification){
       _wasOpenNotification = NotificationHandler.wasOpenedFromNotification();
-    //}
+    }
     return _wasOpenNotification;
   }
 
@@ -66,8 +66,8 @@ class NotificationRepositoryImpl extends NotificationRepository{
   @override
   Future<void> unsubscribeNotification() async{
     try {
-      //await FirebaseMessaging.instance.deleteToken();
-     // print('🔕 Token FCM eliminado, no se recibirán más notificaciones');
+      await FirebaseMessaging.instance.deleteToken();
+      print('🔕 Token FCM eliminado, no se recibirán más notificaciones');
     } catch (e) {
       print('❌ Error al eliminar token: $e');
     }
