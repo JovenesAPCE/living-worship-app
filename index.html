@@ -32,6 +32,7 @@
   <meta name="theme-color" content="#000000">
   <title>Living Worship</title>
   <link rel="manifest" href="manifest.json">
+  <base href="/living-worship-app/">
   <!-- Configuración general -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -50,36 +51,35 @@
 </head>
 <body style="background-color: #000000;">
 <script src="https://cdn.jsdelivr.net/npm/jsqr@1.3.1/dist/jsQR.min.js"></script>
-  <script src="flutter_bootstrap.js" async></script>
 <script>
   if ('serviceWorker' in navigator) {
-    // Registrar el SW y esperar a que esté listo
-    navigator.serviceWorker.register('/firebase-messaging-sw.js')
-      .then((registration) => {
-        console.log('✅ Firebase Service Worker registrado:', registration);
-        // Almacenar el registro listo para mostrar notificaciones después
-        window.swRegistration = registration;
-      }).catch((err) => {
-        console.error('❌ Error al registrar Firebase Service Worker:', err);
+    navigator.serviceWorker.register('firebase-messaging-sw.js')
+      .then(function(registration) {
+        console.log('Service Worker registrado con éxito:', registration);
+      }).catch(function(err) {
+        console.log('Error al registrar Service Worker:', err);
       });
-  }
-
-  // Mostrar una notificación directamente usando el SW listo
-  async function onMessageIconClick(title, body, icon) {
-    if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
-       window.swRegistration.controller.postMessage({
-        action: 'showLocalNotification',
-        payload: {
-          title: title,
-          body: body,
-          icon: icon,
-          url: '/notify'
-        }
-      });
-    } else {
-      console.warn("❗ Service Worker no está listo para recibir mensajes.");
-    }
   }
 </script>
+<script>
+  function getSW() {
+       return navigator.serviceWorker.getRegistration(
+         "/living-worship-app/notification/service-worker.js"
+       );
+  }
+</script>
+<script>
+  async function onShortTitleClick() {
+        const reg = await getSW();
+        /**** START titleAndBodySimple ****/
+        const title = "Simple Title";
+        const options = {
+          body: "Simple piece of body text.\nSecond line of body text 👍",
+        };
+        reg.showNotification(title, options);
+        /**** END titleAndBodySimple ****/
+      }
+</script>
+  <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
