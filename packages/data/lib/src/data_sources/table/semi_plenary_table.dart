@@ -14,7 +14,7 @@ class SemiPlenaryTable {
   @HiveField(2)
   String? group;
   @HiveField(3)
-  String? issue;
+  String? topic;
   @HiveField(4)
   String? time;
   @HiveField(5)
@@ -25,12 +25,15 @@ class SemiPlenaryTable {
   int? available;
   @HiveField(8)
   String? gender;
+  @HiveField(9)
+  String? speaker;
 
   SemiPlenary toEntity() => SemiPlenary(
     id: id,
     color: color,
     group: group,
-    issue: issue,
+      speaker: speaker,
+      topic: topic,
     title: title,
     time: time,
     capacity: capacity,
@@ -42,7 +45,8 @@ class SemiPlenaryTable {
     ..id = entity.id
     ..color = entity.color
     ..group = entity.group
-    ..issue = entity.issue
+    ..topic = entity.topic
+    ..speaker = entity.speaker
     ..title = entity.title
     ..time = entity.time
     ..capacity = entity.capacity

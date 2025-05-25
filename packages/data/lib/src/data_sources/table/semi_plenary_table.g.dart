@@ -20,18 +20,19 @@ class SemiPlenaryTableAdapter extends TypeAdapter<SemiPlenaryTable> {
       ..id = fields[0] as String
       ..color = fields[1] as String?
       ..group = fields[2] as String?
-      ..issue = fields[3] as String?
+      ..topic = fields[3] as String?
       ..time = fields[4] as String?
       ..title = fields[5] as String?
       ..capacity = fields[6] as int?
       ..available = fields[7] as int?
-      ..gender = fields[8] as String?;
+      ..gender = fields[8] as String?
+      ..speaker = fields[9] as String?;
   }
 
   @override
   void write(BinaryWriter writer, SemiPlenaryTable obj) {
     writer
-      ..writeByte(9)
+      ..writeByte(10)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -39,7 +40,7 @@ class SemiPlenaryTableAdapter extends TypeAdapter<SemiPlenaryTable> {
       ..writeByte(2)
       ..write(obj.group)
       ..writeByte(3)
-      ..write(obj.issue)
+      ..write(obj.topic)
       ..writeByte(4)
       ..write(obj.time)
       ..writeByte(5)
@@ -49,7 +50,9 @@ class SemiPlenaryTableAdapter extends TypeAdapter<SemiPlenaryTable> {
       ..writeByte(7)
       ..write(obj.available)
       ..writeByte(8)
-      ..write(obj.gender);
+      ..write(obj.gender)
+      ..writeByte(9)
+      ..write(obj.speaker);
   }
 
   @override

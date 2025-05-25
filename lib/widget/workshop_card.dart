@@ -4,7 +4,8 @@ class WorkshopCard extends StatelessWidget {
   final Color color;
   final String name;
   final String topic;
-  final String topic2;
+  final String schedule;
+  final String speaker;
   final int capacity;
   final int available;
   final String description;
@@ -14,7 +15,8 @@ class WorkshopCard extends StatelessWidget {
     required this.color,
     required this.name,
     required this.topic,
-    required this.topic2,
+    required this.schedule,
+    required this.speaker,
     required this.capacity,
     required this.description,
     required this.available
@@ -48,7 +50,7 @@ class WorkshopCard extends StatelessWidget {
               const SizedBox(height: 4),
               Row(
                 children: [
-                  const Icon(Icons.mic, size: 16, color: Colors.black),
+                  const Icon(Icons.book, size: 16, color: Colors.black),
                   const SizedBox(width: 4),
                   Expanded(
                     child: Text(
@@ -61,11 +63,24 @@ class WorkshopCard extends StatelessWidget {
               const SizedBox(height: 4),
               Row(
                 children: [
+                  const Icon(Icons.mic, size: 16, color: Colors.black),
+                  const SizedBox(width: 4),
+                  Expanded(
+                    child: Text(
+                      'Ponente: $speaker',
+                      style: const TextStyle(fontSize: 14),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 4),
+              Row(
+                children: [
                   const Icon(Icons.gesture_outlined, size: 16, color: Colors.black),
                   const SizedBox(width: 4),
                   Expanded(
                     child: Text(
-                      'Horario: $topic2',
+                      'Horario: $schedule',
                       style: const TextStyle(fontSize: 14),
                     ),
                   ),

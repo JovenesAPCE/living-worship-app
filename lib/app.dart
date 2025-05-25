@@ -91,16 +91,6 @@ class _AppViewState extends State<AppView> {
 
   void init() async {
     debugPrint('initFirebase');
-    LocalWebNotification.setOnTapCallback((payload){
-      print("flutterLocalNotificationsPlugin $payload");
-      // 🔁 Aquí llamamos al Bloc para manejar la navegación
-      NavigationBloc navigationBloc = BlocProvider.of<NavigationBloc>(
-        _navigatorKey.currentContext!,
-      );
-      print("NavigateToFromNotificationd $payload");
-      // Envía evento de navegación
-      navigationBloc.add(OnTapNotification());
-    });
     LocalNotification.setOnTapCallback((payload) {
       print("flutterLocalNotificationsPlugin $payload");
       // 🔁 Aquí llamamos al Bloc para manejar la navegación
@@ -147,7 +137,7 @@ class _AppViewState extends State<AppView> {
               }else {
                 print("twat ${state.notificationReceived.message}");
                 try{
-                  LocalWebNotification.show(
+                  LocalNotification.show(
                       title: state.notificationReceived.title,
                       body: state.notificationReceived.message,
                       payload: '/bulletin');

@@ -1,9 +1,9 @@
 import 'dart:html' as html;
 import 'package:js/js.dart';
 
-class LocalWebNotification {
-  static final LocalWebNotification _instance = LocalWebNotification._internal();
-  LocalWebNotification._internal();
+class LocalNotification {
+  static final LocalNotification _instance = LocalNotification._internal();
+  LocalNotification._internal();
 
   void Function(String? payload)? _onTapCallback;
 

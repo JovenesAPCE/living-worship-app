@@ -6,23 +6,25 @@ class SessionCard extends Equatable {
   final Color color;
   final String title;
   final String topic;
-  final String topic2;
+  final String schedule;
+  final String speaker;
   final int capacity;
   final String description;
   final int available;
   final List<SessionCard> guests;
 
-  const SessionCard({required this.id, this.color = Colors.white70, this.title = "", this.topic = "", this.topic2 = "", this.description = "", this.guests = const [], this.capacity = 0, this.available = 0});
+  const SessionCard({required this.id, this.color = Colors.white70, this.title = "", this.topic = "", this.speaker = "",this.schedule = "", this.description = "", this.guests = const [], this.capacity = 0, this.available = 0});
 
   @override
-  List<Object?> get props => [title, guests, description, guests, color, topic, topic2, capacity, available];
+  List<Object?> get props => [title, guests, description, guests, color, topic, speaker, topic, capacity, available];
 
   SessionCard copyWith({
     String? id,
     Color? color,
     String? title,
     String? topic,
-    String? topic2,
+    String? speaker,
+    String? schedule,
     int? capacity,
     int? available,
     String? description,
@@ -33,7 +35,8 @@ class SessionCard extends Equatable {
         color: color??this.color,
         title: title??this.title,
         topic: topic??this.topic,
-      topic2: topic2??this.topic2,
+      speaker: speaker??this.speaker,
+      schedule: schedule??this.schedule,
       capacity: capacity??this.capacity,
       description: description??this.description,
       guests: guests??this.guests,

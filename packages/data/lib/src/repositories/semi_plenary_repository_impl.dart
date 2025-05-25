@@ -97,7 +97,8 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
               ..id = id
               ..color = json['color']
               ..group = json['group']
-              ..issue = json['issue']
+              ..topic = json['topic']
+              ..speaker = json['speaker']
               ..title = json['title']
               ..time = json['time']
               ..capacity = json['capacity']
@@ -253,7 +254,8 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
           }
           final color =  plenary['color'] ?? "";
           final group =  plenary['group'] ?? "";
-          final issue =  plenary['issue'] ?? "";
+          final speaker =  plenary['speaker'] ?? "";
+          final topic =  plenary['topic'] ?? "";
           final title =  plenary['title'] ?? "";
           final time =  plenary['time'] ?? "";
           final gender = plenary['gender'] ?? "";
@@ -264,7 +266,8 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
                 ..id =  entry.key
                 ..group = group
                 ..color = color
-                ..issue = issue
+                ..speaker = speaker
+                ..topic = topic
                 ..title = title
                 ..time = time
                 ..capacity = capacity
@@ -364,7 +367,8 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
         semiPlenaryId:  qRData.semiPlenary??"",
         color: plenaryData['color'],
         group:  plenaryData['group'] ,
-        issue: plenaryData['issue'],
+        topic: plenaryData['topic'],
+        speaker: plenaryData['speaker'],
         title:  plenaryData['title'],
         time: plenaryData['time'],
         timestamp: checkTimestamp,
@@ -520,7 +524,7 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
         semiPlenaryId:  semiPlenary,
         color: plenaryData?.color,
         group:  plenaryData?.group ,
-        issue: plenaryData?.issue,
+        speaker: plenaryData?.speaker,
         title:  plenaryData?.title,
         time: plenaryData?.time,
         timestamp: register?.checkInTimestamp,
@@ -549,7 +553,8 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
         semiPlenaryId:  semiPlenary,
         color: plenaryData?.color,
         group:  plenaryData?.group ,
-        issue: plenaryData?.issue,
+        topic: plenaryData?.topic,
+        speaker: plenaryData?.speaker,
         title:  plenaryData?.title,
         time: plenaryData?.time,
         timestamp: register?.checkInTimestamp,
@@ -575,15 +580,15 @@ class QRCheckInRepositoryImpl {
   String semiPlenaryId;
   String? color;
   String? group;
-  String? issue;
+  String? speaker;
   String? time;
   String? title;
   DateTime? timestamp;
   bool hasRegister;
   QrState qrState;
-
+  String? topic;
   QRCheckInRepositoryImpl({required this.semiPlenaryId, this.color, this.group,
-    this.issue, this.time, this.title, required this.hasRegister, required this.qrState, this.timestamp});
+    this.speaker, this.time, this.topic, this.title, required this.hasRegister, required this.qrState, this.timestamp});
 
   QRCheckInRepositoryImpl copyWith({
     String? semiPlenaryId,
@@ -594,18 +599,20 @@ class QRCheckInRepositoryImpl {
     String? title,
     bool? hasRegister,
     QrState? qrState,
-    DateTime? timestamp
+    DateTime? timestamp,
+    String? topic
   }) {
     return QRCheckInRepositoryImpl(
         semiPlenaryId: semiPlenaryId ?? this.semiPlenaryId,
         color: color ?? this.color,
         group: group ?? this.group,
-        issue: issue ?? this.issue,
+        speaker: issue ?? this.speaker,
         time: time ?? this.time,
         title: title ?? this.title,
         qrState: qrState ?? this.qrState,
         hasRegister: hasRegister ?? this.hasRegister,
-        timestamp: timestamp?? this.timestamp
+        timestamp: timestamp?? this.timestamp,
+        topic : topic??this.topic
     );
   }
 

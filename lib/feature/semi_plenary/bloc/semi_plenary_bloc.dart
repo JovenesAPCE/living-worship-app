@@ -192,7 +192,9 @@ class SemiPlenaryBloc extends Bloc<SemiPlenaryEvent, SemiPlenaryState> {
         return SessionCard(
             id: semiPlenary.id,
             title: semiPlenary.title??"",
-            topic2: semiPlenary.time??"",
+            schedule: semiPlenary.time??"",
+            speaker: semiPlenary.speaker??"",
+            topic: semiPlenary.topic??"",
             color: hexToColor(semiPlenary.color??""),
             capacity: semiPlenary.capacity??0,
             available: semiPlenary.available??0

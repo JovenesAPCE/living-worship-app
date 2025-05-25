@@ -2,141 +2,121 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jamt/constants/constants.dart';
-import 'dart:math';
+import 'package:jamt/feature/home/home.dart';
 import 'package:jamt/feature/tab_home/bloc/tab_home_bloc.dart';
+import 'dart:math';
 import 'package:jamt/feature/tab_home/models/models.dart';
 import 'package:jamt/navigation/bloc/navigation_bloc.dart';
 import 'package:jamt/navigation/models/destination.dart';
 import 'package:jamt/widget/widget.dart';
-class HomeScreen extends StatefulWidget {
+
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  List<String> arrayList = [];
-
-  @override
-  void initState() {
-    super.initState();
-    arrayList = [
-      AppImages.homeActivityOne,
-      AppImages.homeActivityTwo,
-      AppImages.homeActivityThree,
-      AppImages.homeActivityFour,
-      AppImages.homeActivityFive,
-      AppImages.homeActivitySix,
-      AppImages.homeActivitySeven,
-      AppImages.homeActivityEight,
-      AppImages.homeActivityNine,
-      AppImages.homeActivityTen,
-      AppImages.homeActivityEleven,
-      AppImages.homeActivityTwelve,
-    ];
-    arrayList.shuffle();
-  }
 
   @override
   Widget build(BuildContext context) {
 
-    return Stack(
-      children: [
-        // FONDO MEJORADO CON GRADIENTE Y BLUR
-        Positioned.fill(
-          child: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  AppColor.orangeMain,
-                  AppColor.purpleDark,
-                  AppColor.blue2
+    return BlocConsumer<HomeBloc, HomeState>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          return Stack(
+            children: [
+              // FONDO MEJORADO CON GRADIENTE Y BLUR
+              Positioned.fill(
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        AppColor.orangeMain,
+                        AppColor.purpleDark,
+                        AppColor.blue2
+                      ],
+                      stops: [0.0, 0.4, 1.0],
+                    ),
+                  ),
+                ),
+              ),
+              state.shuffledList.isEmpty?Container():Column(
+                children: [
+                  _buildOneGrid(
+                      "Actividades",
+                      state.shuffledList,
+                      "Misión en Acción, Semiplenarias, Adoración, Maranata Class",
+                      onTap: () {
+                        context.read<TabHomeBloc>().add(DestinationSelected(TabDestination.activities));
+                      },
+                      sepia: true
+                  ),
+                  _buildHorizontalGrid(
+                    context,
+                    _buildGridCard(
+                        'Semiplenarias',
+                        state.imageByTitle["Semiplenarias"]??"",
+                        "Elige los tuyos",
+                        onTap: () {
+                          context.read<TabHomeBloc>().add(DestinationSelected(TabDestination.sessions));
+                        },
+                        sepia: true
+                    ),
+                    _buildGridCard(
+                      'Invitados',
+                      state.imageByTitle["Invitados"]??"",
+                      null,
+                      sepia: true,
+                      onTap: () {
+                        context.read<TabHomeBloc>().add(DestinationSelected(TabDestination.guests));
+                      },
+                    ),
+                    _buildGridCard(
+                        'Boletín',
+                        state.imageByTitle["Boletín"]??"",
+                        null,
+                        onTap: () {
+                          context.read<TabHomeBloc>().add(DestinationSelected(TabDestination.bulletin));
+                        },
+                        sepia: true
+                    ),
+                    false,
+                  ),
+                  _buildHorizontalGrid(
+                    context,
+                    _buildGridCard(
+                      '¡Escanea tu asistencia!',
+                      state.imageByTitle["¡Escanea tu asistencia!"]??"",
+                      'Usa tu cámara para registrar tu ingreso y salida en cada semiplenaria.',
+                      onTap: () {
+                        context.read<NavigationBloc>().add(NavigationPressed(Destination.qrScan));
+                        //CheckErrorDialog.show(context);
+                        //CheckIn.show(context);
+                      },
+                    ),
+                    _buildGridCard(
+                      'Objetivos Principales',
+                      state.imageByTitle["Objetivos Principales"]??"",
+                      null,
+                      onTap: () {
+                        context.read<TabHomeBloc>().add(DestinationSelected(TabDestination.event));
+                      },
+                    ),
+                    _buildGridCard(
+                      'Mapa',
+                      state.imageByTitle["Mapa"]??"",
+                      null,
+                      onTap: () {
+                        context.read<TabHomeBloc>().add(DestinationSelected(TabDestination.map));
+                      },
+                    ),
+                    true,
+                  ),
+                  Padding(padding: EdgeInsets.all(70)),
                 ],
-                stops: [0.0, 0.4, 1.0],
-              ),
-            ),
-          ),
-        ),
-        Column(
-          children: [
-            _buildOneGrid(
-              "Actividades",
-              arrayList,
-              "Misión en Acción, Semiplenarias, Adoración, Maranata Class",
-              onTap: () {
-                context.read<TabHomeBloc>().add(DestinationSelected(TabDestination.activities));
-              },
-              sepia: true
-            ),
-            _buildHorizontalGrid(
-              context,
-              _buildGridCard(
-                'Semiplenarias',
-                [AppImages.homeWorkshops, AppImages.homeWorkshops2],
-                "Elige los tuyos",
-                onTap: () {
-                  context.read<TabHomeBloc>().add(DestinationSelected(TabDestination.sessions));
-                },
-                  sepia: true
-              ),
-              _buildGridCard(
-                'Invitados',
-                [ AppImages.homeGuests],
-                null,
-                sepia: true,
-                onTap: () {
-                  context.read<TabHomeBloc>().add(DestinationSelected(TabDestination.guests));
-                },
-              ),
-              _buildGridCard(
-                'Boletín',
-                [AppImages.homeBulletin],
-                null,
-                onTap: () {
-                  context.read<TabHomeBloc>().add(DestinationSelected(TabDestination.bulletin));
-                },
-                sepia: true
-              ),
-              false,
-            ),
-            _buildHorizontalGrid(
-              context,
-              _buildGridCard(
-                '¡Escanea tu asistencia!',
-                [AppImages.homeQR],
-                'Usa tu cámara para registrar tu ingreso y salida en cada semiplenaria.',
-                onTap: () {
-                  context.read<NavigationBloc>().add(NavigationPressed(Destination.qrScan));
-                  //CheckErrorDialog.show(context);
-                  //CheckIn.show(context);
-                },
-              ),
-              _buildGridCard(
-                'Objetivos Principales',
-                [AppImages.homeMainObjectives],
-                null,
-                onTap: () {
-                  context.read<TabHomeBloc>().add(DestinationSelected(TabDestination.event));
-                },
-              ),
-              _buildGridCard(
-                'Mapa',
-                [AppImages.homeStands],
-                null,
-                onTap: () {
-                  context.read<TabHomeBloc>().add(DestinationSelected(TabDestination.map));
-                },
-              ),
-              true,
-            ),
-            Padding(padding: EdgeInsets.all(70)),
-          ],
-        )
-      ],
-    );
+              )
+            ],
+          );
+    });
   }
 
   Widget _buildOneGrid(
@@ -282,17 +262,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildGridCard(
       String title,
-      List<String> imagePaths,
+     String imagePaths,
       String? subtitle, {
         VoidCallback? onTap,
         bool sepia = false,
       }) {
-    final random = Random();
-
-    // Probabilidad del 70% de usar la primera imagen
-    final String selectedImage = (imagePaths.length == 1 || random.nextDouble() < 0.7)
-        ? imagePaths.first
-        : imagePaths[random.nextInt(imagePaths.length)];
 
     return GestureDetector(
       onTap: onTap,
@@ -301,7 +275,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(selectedImage),
+              image: AssetImage(imagePaths),
               fit: BoxFit.cover,
             ),
           ),

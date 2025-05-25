@@ -16,6 +16,7 @@ class ZoomImageCarousel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if(images.isEmpty)return Container();
     return CarouselSlider.builder(
       itemCount: images.length,
       itemBuilder: (context, index, realIdx) {
