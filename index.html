@@ -58,7 +58,7 @@
       .then((registration) => {
         console.log('✅ Firebase Service Worker registrado:', registration);
         // Almacenar el registro listo para mostrar notificaciones después
-        //window.swRegistration = registration;
+        window.swRegistration = registration;
       }).catch((err) => {
         console.error('❌ Error al registrar Firebase Service Worker:', err);
       });
@@ -67,7 +67,7 @@
   // Mostrar una notificación directamente usando el SW listo
   async function onMessageIconClick(title, body, icon) {
     if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
-      navigator.serviceWorker.controller.postMessage({
+       window.registration.controller.postMessage({
         action: 'showLocalNotification',
         payload: {
           title: title,
