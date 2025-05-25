@@ -8,13 +8,16 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 class NotificationHandler {
 
   static String? _initialPayload;
-  static Future<void> initNotification(bool kDebugMode) async {
+  static Future<void> initNotification({required bool kDebugMode, required bool isWebNotify}) async {
 
     final RemoteMessage? initialMessage = await FirebaseMessaging.instance.getInitialMessage();
     print('App abierta desde notificación (cerrada totalmente): ${initialMessage?.senderId}');
     if (initialMessage != null) {
       _initialPayload = "initialPayload";
       if (kDebugMode)print('App abierta desde notificación (cerrada totalmente): ${initialMessage.data}');
+    }
+    if(isWebNotify){
+      _initialPayload = "initialPayload";
     }
   }
 

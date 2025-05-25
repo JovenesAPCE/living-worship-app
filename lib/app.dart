@@ -239,6 +239,7 @@ class _AppViewState extends State<AppView> {
       onGenerateRoute: (settings){
         switch (settings.name) {
           case BulletinWebNotify.routeName:
+
             return BulletinWebNotify.route();
           default:
             return SplashPage.route();

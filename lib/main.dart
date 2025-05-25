@@ -5,6 +5,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:jamt/app.dart';
+import 'package:jamt/feature/bulletin/view/bulletin_web_notify.dart';
 
 void main() async {
 
@@ -18,7 +19,10 @@ void main() async {
   }
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
-  await NotificationHandler.initNotification(kDebugMode);
+  await NotificationHandler.initNotification(
+    kDebugMode: kDebugMode,
+    isWebNotify: Uri.base.fragment == BulletinWebNotify.routeName
+  );
 
   runApp(App());
 }
