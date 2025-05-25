@@ -21,7 +21,7 @@ class LocalWebNotification {
     final isMobile = _isWebMobile();
 
     if (isMobile) {
-      onShortTitleClick();
+      onShortTitleClick(title, body);
       return;
     }
     final permission = await html.Notification.requestPermission();
@@ -49,4 +49,4 @@ class LocalWebNotification {
 }
 
 @JS('onShortTitleClick') // nombre exacto de la función JS
-external void onShortTitleClick();
+external void onShortTitleClick(String title, String body);
