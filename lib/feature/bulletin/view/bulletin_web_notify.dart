@@ -12,61 +12,6 @@ import 'package:jamt/navigation/navigation.dart';
 import 'package:jamt/widget/home_app_bar.dart';
 import 'package:jamt/widget/home_drawer.dart';
 
-class BulletinWebNotify extends StatelessWidget {
-  const BulletinWebNotify({super.key});
-
+class BulletinWebNotify {
   static const String routeName = '/web_notify';
-
-  static Route<void> route() {
-    return MaterialPageRoute<void>(
-        builder: (_) => const BulletinWebNotify(),
-        settings: const RouteSettings(name: routeName),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-        create: (context) => BulletinBloc(
-            updateNotificationUseCase: UpdateNotificationUseCase(
-                context.read<NotificationRepository>()
-            ),
-            getNotificationUseCase: GetNotificationUseCase(
-                context.read<NotificationRepository>()
-            ))..add(LoadBulletin()),
-        child:  Scaffold(
-          drawer: const HomeDrawer(),
-          body: Stack(
-            children: [
-              CustomScrollView(
-                slivers: [
-                  HomeAppBar(
-                    color: AppColor.blue2,
-                    isPop: true,
-                  ),
-                  SliverToBoxAdapter(
-                    child: BulletinScreen(),
-                  )
-                ],
-              )
-            ],
-          ),
-        )
-    );
-  }
 }
-
-class _LogoutButton extends StatelessWidget {
-  const _LogoutButton();
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      child: const Text('Logout'),
-      onPressed: () {
-        context.read<NavigationBloc>().add(AuthenticationLogoutPressed());
-      },
-    );
-  }
-}
-

@@ -36,7 +36,14 @@ class BulletinPage extends StatelessWidget {
             ))..add(LoadBulletin()),
         child:  Scaffold(
           drawer: const HomeDrawer(),
-          body: Stack(
+          body:  PopScope(
+          canPop: false,
+          onPopInvokedWithResult: (didPop, result) {
+            if(context.mounted){
+              context.read<NavigationBloc>().add(NavigationPressed(Destination.tabHome));
+            }
+          },
+          child: Stack(
             children: [
               CustomScrollView(
                 slivers: [
@@ -50,6 +57,7 @@ class BulletinPage extends StatelessWidget {
                 ],
               )
             ],
+          )
           ),
         )
     );
