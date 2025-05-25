@@ -1,6 +1,6 @@
 importScripts('https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js');
 importScripts('https://www.gstatic.com/firebasejs/10.0.0/firebase-messaging-compat.js');
-importScripts('service-worker.js');
+importScripts('notification/service-worker.js');
 
 firebase.initializeApp({
   apiKey: "AIzaSyA0O-2hYjIBpgD_ud7qvOgiJ_dcRdC1XjU",
@@ -25,7 +25,7 @@ messaging.onBackgroundMessage(function(payload) {
   const notificationOptions = {
     body: payload.notification?.body || '',
     icon: '/icons/Icon-192.png',
-    tag: "refresh",
+    tag: "focus-window",
     data: {
           url: '/notify' // Ruta donde quieres abrir la app (ej. '/', '/notificaciones')
         }
