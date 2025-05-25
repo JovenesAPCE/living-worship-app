@@ -33,7 +33,7 @@ class LocalNotification {
       importance: Importance.high,
       priority: Priority.high,
       playSound: true,
-      color: Color(0xFFFF5722),
+      color: Color(0xFF0064f9),
     );
 
     final details = NotificationDetails(android: androidDetails);
