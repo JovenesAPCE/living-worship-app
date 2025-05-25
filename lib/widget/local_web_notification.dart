@@ -17,6 +17,12 @@ class LocalWebNotification {
     required String body,
     String? payload,
   }) async {
+    final isMobile = _isWebMobile();
+
+    if (isMobile) {
+      print('📵 Notificaciones no soportadas en móviles Web');
+      return;
+    }
     final permission = await html.Notification.requestPermission();
     if (permission == 'granted') {
       final notification = html.Notification(title, body: body, icon: 'icons/Icon-192.png', // ruta relativa a tu sitio
@@ -30,5 +36,13 @@ class LocalWebNotification {
     } else {
       print('🚫 Permiso denegado para mostrar notificaciones web');
     }
+  }
+
+  static bool _isWebMobile() {
+    final userAgent = html.window.navigator.userAgent.toLowerCase();
+    return userAgent.contains('iphone') ||
+        userAgent.contains('ipad') ||
+        userAgent.contains('android') ||
+        userAgent.contains('mobile');
   }
 }
