@@ -52,6 +52,7 @@ class NotificationRepositoryImpl extends NotificationRepository{
     if(!_wasOpenNotification){
       _wasOpenNotification = NotificationHandler.wasOpenedFromNotification();
     }
+    print("_wasOpenNotification: $_wasOpenNotification");
     return _wasOpenNotification;
   }
 

@@ -75,6 +75,7 @@ class NavigationBloc
           case AuthStatus.authenticated:
             final user = await _tryGetUser();
             final wasOpenNotification = await _isWasOpenNotification();
+            print("wasOpenNotification: $wasOpenNotification");
             return emit(
               user != null
                   ? NavigationState.authenticated(user, wasOpenNotification)

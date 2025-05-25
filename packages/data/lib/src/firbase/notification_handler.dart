@@ -9,7 +9,7 @@ class NotificationHandler {
 
   static String? _initialPayload;
   static Future<void> initNotification({required bool kDebugMode, required bool isWebNotify}) async {
-
+    print("isWebNotify: $isWebNotify");
     final RemoteMessage? initialMessage = await FirebaseMessaging.instance.getInitialMessage();
     print('App abierta desde notificación (cerrada totalmente): ${initialMessage?.senderId}');
     if (initialMessage != null) {
@@ -24,6 +24,7 @@ class NotificationHandler {
   static bool wasOpenedFromNotification(){
     bool show = _initialPayload != null;
     _initialPayload = null; // limpia después de usarlo
+    print("_initialPayload: $_initialPayload");
     return show;
   }
 
