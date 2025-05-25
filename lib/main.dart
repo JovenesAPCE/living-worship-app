@@ -18,7 +18,8 @@ void main() async {
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
   }
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-
+  print("base: ${Uri.base.fragment}");
+  print("routeName: ${BulletinWebNotify.routeName}");
   await NotificationHandler.initNotification(
     kDebugMode: kDebugMode,
     isWebNotify: Uri.base.fragment == BulletinWebNotify.routeName

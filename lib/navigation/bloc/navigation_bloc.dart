@@ -91,6 +91,7 @@ class NavigationBloc
       OnTapNotification event,
       Emitter<NavigationState> emit,
       )async{
+    print("_onNavigateToFromNotification");
     emit(
         state.copyWith(
             destination: Destination.bulletins,

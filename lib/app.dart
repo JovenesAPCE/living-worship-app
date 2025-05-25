@@ -237,6 +237,7 @@ class _AppViewState extends State<AppView> {
         );
       },
       onGenerateRoute: (settings){
+        print("settings.name: ${settings.name}");
         if(settings.name == BulletinWebNotify.routeName){
           NavigationBloc navigationBloc = BlocProvider.of<NavigationBloc>(
             _navigatorKey.currentContext!,
