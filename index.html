@@ -62,6 +62,15 @@
   }
 </script>
 <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.addEventListener('message', function(event) {
+      if (event.data && event.data.action === 'reload') {
+        location.reload(); // 🔁 Recarga la página
+      }
+    });
+  }
+</script>
+<script>
   function getSW() {
        return navigator.serviceWorker.getRegistration(
          "/living-worship-app/firebase-messaging-sw.js"
@@ -76,7 +85,7 @@
         const options = {
           body: body,//"Simple piece of body text.\nSecond line of body text 👍",
           icon: icon,//"/demos/notification-examples/images/icon-512x512.png",
-          tag: "focus-window",
+          tag: "refresh",
           data: {
             url: '/notify' // Ruta donde quieres abrir la app (ej. '/', '/notificaciones')
           },

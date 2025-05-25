@@ -7,6 +7,22 @@ function openWindow(event) {
   /**** END notificationOpenWindow ****/
 }
 
+function refreshWindow(event) {
+  const promiseChain = clients.matchAll({
+    type: 'window',
+    includeUncontrolled: true
+  }).then((windowClients) => {
+    for (let i = 0; i < windowClients.length; i++) {
+      const client = windowClients[i];
+
+      // En lugar de abrir nueva ventana o enfocar, envía un mensaje al cliente
+      client.postMessage({ action: 'reload' });
+    }
+  });
+
+  event.waitUntil(promiseChain);
+}
+
 function focusWindow(event) {
   /**** START notificationFocusWindow ****/
   /**** START urlToOpen ****/
@@ -172,6 +188,9 @@ self.addEventListener('notificationclick', function(event) {
     case 'data-notification':
       dataNotification(event);
       break;
+     case 'refresh':
+      refreshWindow(event);
+     break;
     default:
       // NOOP
       break;
