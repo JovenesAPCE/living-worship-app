@@ -32,7 +32,6 @@
   <meta name="theme-color" content="#000000">
   <title>Living Worship</title>
   <link rel="manifest" href="manifest.json">
-  <base href="/living-worship-app/">
   <!-- Configuración general -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -55,19 +54,11 @@
 <script>
   if ('serviceWorker' in navigator) {
     // Registrar el SW y esperar a que esté listo
-    navigator.serviceWorker.register('/living-worship-app/firebase-messaging-sw.js')
+    navigator.serviceWorker.register('/firebase-messaging-sw.js')
       .then((registration) => {
         console.log('✅ Firebase Service Worker registrado:', registration);
-
-        // Escuchar mensajes del SW
-        navigator.serviceWorker.addEventListener('message', (event) => {
-          if (event.data && event.data.action === 'reload') {
-            location.reload();
-          }
-        });
-
         // Almacenar el registro listo para mostrar notificaciones después
-        window.swRegistration = registration;
+        //window.swRegistration = registration;
       }).catch((err) => {
         console.error('❌ Error al registrar Firebase Service Worker:', err);
       });
@@ -75,18 +66,18 @@
 
   // Mostrar una notificación directamente usando el SW listo
   async function onMessageIconClick(title, body, icon) {
-    if (window.swRegistration) {
-      const options = {
-        body: body,
-        icon: icon,
-        tag: "refresh",
-        data: {
-          url: '/notify'
+    if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+      navigator.serviceWorker.controller.postMessage({
+        action: 'showLocalNotification',
+        payload: {
+          title: title,
+          body: body,
+          icon: icon,
+          url: url
         }
-      };
-      window.swRegistration.showNotification(title, options);
+      });
     } else {
-      console.warn("⚠️ Service Worker aún no está listo.");
+      console.warn("❗ Service Worker no está listo para recibir mensajes.");
     }
   }
 </script>
