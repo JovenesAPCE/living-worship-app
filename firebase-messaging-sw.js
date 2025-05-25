@@ -55,7 +55,7 @@ self.addEventListener('message', (event) => {
       icon: icon || '/icons/Icon-192.png',
       tag: "refresh",
       data: {
-        url: url || '/'
+        url:  url
       }
     };
 
