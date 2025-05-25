@@ -22,6 +22,7 @@ class NotificationHandler {
   }
 
   static bool wasOpenedFromNotification(){
+    print("wasOpenedFromNotification");
     bool show = _initialPayload != null;
     print("_initialPayload: $_initialPayload");
     _initialPayload = null; // limpia después de usarlo
