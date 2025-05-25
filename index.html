@@ -61,6 +61,25 @@
       });
   }
 </script>
+<script>
+  function getSW() {
+       return navigator.serviceWorker.getRegistration(
+         "/living-worship-app/service-worker.js"
+       );
+  }
+</script>
+<script>
+  async function onShortTitleClick() {
+        const reg = await getSW();
+        /**** START titleAndBodySimple ****/
+        const title = "Simple Title";
+        const options = {
+          body: "Simple piece of body text.\nSecond line of body text 👍",
+        };
+        reg.showNotification(title, options);
+        /**** END titleAndBodySimple ****/
+      }
+</script>
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
