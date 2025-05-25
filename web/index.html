@@ -69,16 +69,22 @@
   }
 </script>
 <script>
-  async function onShortTitleClick() {
+  async function onMessageIconClick(title, body, icon) {
         const reg = await getSW();
         /**** START titleAndBodySimple ****/
         const title = "Simple Title";
         const options = {
-          body: "Simple piece of body text.\nSecond line of body text 👍",
+            body: body,
+            icon: icon,
+            tag: "refresh",
+            data: {
+              url: '/notify'
+            }
         };
         reg.showNotification(title, options);
         /**** END titleAndBodySimple ****/
-      }
+
+  }
 </script>
   <script src="flutter_bootstrap.js" async></script>
 </body>
