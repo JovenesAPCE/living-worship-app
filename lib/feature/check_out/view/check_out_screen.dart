@@ -48,7 +48,7 @@ class CheckOutScreen extends StatelessWidget {
                               ),
                             ),
                             const Text(
-                              "Salida registrada correctamente",
+                              "Asistencia registrada correctamente",
                               style: TextStyle(
                                 fontSize: 18,
                                 color: Colors.white70,
