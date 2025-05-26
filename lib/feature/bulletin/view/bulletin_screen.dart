@@ -302,7 +302,7 @@ class NotificationItem extends StatelessWidget {
                   fontFamily: AppFont.font,
                 ),
               ),
-              const SizedBox(height: 6),
+              const SizedBox(height: 2),
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton.icon(
