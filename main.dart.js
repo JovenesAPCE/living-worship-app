@@ -110164,7 +110164,7 @@ o.push(B.bg)
 B.b.a_(o,J.hM(b.a,new A.anO(),t.l7))
 o.push(B.ajr)
 o.push(B.bg)
-o.push(A.d7(A.a([A.c7(A.m4(A.cY(16),A.nr("assets/images_v1/bulletin_1.webp",B.b5,r,r),B.bd),160,120),B.hZ,A.e3(A.br(A.a([A.f_(r,B.ajL,B.R,!1,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,new A.anP(),r,r,r,r,r,r,!1,B.aC),B.ajj,B.eq,B.ajC,B.cz,A.t3(!1,B.ajl,r,r,r,r,r,r,new A.anQ(),r,A.kd(r,r,B.be,r,r,r,r,r,r,r,r,B.kP,r,r,new A.cR(A.cY(8),B.B),r,r,r,r))],m),B.a_,B.t,B.u),1,r)],m),B.a_,B.t,B.u))
+o.push(A.d7(A.a([A.c7(A.m4(A.cY(16),A.nr("assets/images_v1/bulletin_1.webp",B.b5,r,r),B.bd),160,120),B.hZ,A.e3(A.br(A.a([A.f_(r,B.ajL,B.R,!1,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,new A.anP(),r,r,r,r,r,r,!1,B.aC),B.ajj,B.eq,B.ajC,B.cz,A.t3(!1,B.ajk,r,r,r,r,r,r,new A.anQ(),r,A.kd(r,r,B.be,r,r,r,r,r,r,r,r,B.kP,r,r,new A.cR(A.cY(8),B.B),r,r,r,r))],m),B.a_,B.t,B.u),1,r)],m),B.a_,B.t,B.u))
 return A.av(r,A.br(A.a([A.cx(B.Q,A.a([q,A.av(r,A.br(A.a([n,A.av(r,A.br(A.a([A.av(r,A.br(o,B.a_,B.t,B.u),B.k,r,B.MJ,r,r,r,r,1/0)],m),B.a_,B.t,B.u),B.k,r,r,r,r,new A.a2(16,16,16,16),r,r)],m),B.a_,B.t,B.u),B.k,r,new A.b6(B.j,r,r,p,r,r,B.z),r,r,new A.a2(16,20,16,20),r,1/0)],m),B.A,B.P,r),new A.aZ(new A.a2(0,0,0,200),r,r)],m),B.y,B.t,B.u),B.k,B.dZ,r,r,r,r,r,r)},
 $S:649}
 A.anN.prototype={
@@ -110484,14 +110484,14 @@ m=A.aV(m,q,q,q,A.bV(q,q,B.j,q,q,q,q,q,p,q,q,26,q,q,B.a8,q,q,!0,q,q,q,q,q,q,q,q),
 s=A.aV(this.a.PB(n.d),q,q,q,B.Kn,q,q,q)
 r=A.aV("Gracias por participar",q,q,q,A.bV(q,q,B.j,q,q,q,q,q,p,q,q,28,q,q,B.a8,q,q,!0,q,q,q,q,q,q,q,q),B.ap,q,q)
 n=n.f
-return A.beq(new A.hw(new A.aF(0,1/0,b.d,1/0),new A.Kr(A.br(A.a([B.oy,o,B.ajk,B.fq,m,B.fq,s,B.bg,r,A.aV(n==null?"":n,q,q,q,B.agF,B.ap,q,q),B.bg,B.ajm,B.oB,B.cz,A.t3(!1,B.ajn,q,q,q,q,q,q,new A.apo(a),q,A.kd(q,q,B.me,q,q,q,q,q,q,q,q,B.kP,q,q,new A.cR(A.cY(12),B.B),q,q,q,q)),new A.aZ(new A.a2(20,20,20,20),q,q)],t.p),B.y,B.t,B.u),q),q),B.mF)},
+return A.beq(new A.hw(new A.aF(0,1/0,b.d,1/0),new A.Kr(A.br(A.a([B.oy,o,B.ajq,B.fq,m,B.fq,s,B.bg,r,A.aV(n==null?"":n,q,q,q,B.agF,B.ap,q,q),B.bg,B.ajl,B.oB,B.cz,A.t3(!1,B.ajm,q,q,q,q,q,q,new A.apo(a),q,A.kd(q,q,B.me,q,q,q,q,q,q,q,q,B.kP,q,q,new A.cR(A.cY(12),B.B),q,q,q,q)),new A.aZ(new A.a2(20,20,20,20),q,q)],t.p),B.y,B.t,B.u),q),q),B.mF)},
 $S:240}
 A.apo.prototype={
 $0(){A.is(this.a,!1).fs()},
 $S:0}
 A.Jq.prototype={
 H(a){var s=null,r=A.f7(0,A.av(s,s,B.k,s,new A.b6(s,s,s,s,s,new A.fx(B.bl,B.bk,B.ar,A.a([B.qS,B.b6,B.m3],t.c),A.a([0,0.3,1],t.n),s),B.z),s,s,s,s,s)),q=A.eB(new A.ap(12,12)),p=t.p
-return A.av(s,A.br(A.a([A.cx(B.Q,A.a([r,A.av(s,A.br(A.a([A.cx(B.Q,A.a([A.av(s,s,B.k,s,new A.b6(s,A.nh(s,B.b5,new A.fK("assets/images_v1/guide_card_1.webp",s,s)),s,new A.c9(new A.ap(12,12),new A.ap(12,12),B.w,B.w),s,s,B.z),300,s,s,s,s),A.av(s,s,B.k,s,new A.b6(A.ay(51,B.l.t()>>>16&255,B.l.t()>>>8&255,B.l.t()&255),s,s,new A.c9(new A.ap(12,12),new A.ap(12,12),B.w,B.w),s,s,B.z),300,s,s,s,s)],p),B.A,B.P,s),A.av(s,A.br(A.a([A.aV("El Evento",s,s,s,A.bV(s,s,B.be,s,s,s,s,s,"MuseoSans",s,s,16,s,s,B.a8,s,s,!0,s,s,s,s,s,s,s,s),s,s,s),A.aV("Objetivos Principales",s,s,s,A.bV(s,s,s,s,s,s,s,s,"FjallaOne",s,s,24,s,s,s,s,s,!0,s,s,s,s,s,s,s,s),s,s,s),new A.aZ(new A.a2(8,8,8,8),s,s),new A.pT("<b>Objetivo General:</b> Fomentar una experiencia de adoraci\xf3n aut\xe9ntica y fortalecer el liderazgo y la misi\xf3n de los j\xf3venes adventistas a trav\xe9s de capacitaciones, din\xe1micas y el compromiso con el evangelismo.<p></p><p></p><b>Objetivos Espec\xedficos:</b> <ul><li>Inspirar a los j\xf3venes a vivir una adoraci\xf3n que trascienda y se refleje en su estilo de vida.</li><li>Capacitar a los j\xf3venes en liderazgo y discipulado a trav\xe9s del  Maranata Class.</li><li>Lanzar oficialmente Misi\xf3n Caleb, impulsando la participaci\xf3n joven en el evangelismo y servicio a los dem\xe1s.</li><li>Fortalecer el sentido de comunidad y pertenencia entre los j\xf3venes adventistas.</li><li>Promover el estudio de la Biblia y la formaci\xf3n de l\xedderes de impacto misionero.</li></ul>",s,s,s),B.ajo,B.bg,new A.QZ(B.TH,"Lugar de las programaciones:","Carpa Movil . UPeU - Sede Lima",s),B.bg,new A.QZ(B.TB,"Lugar de campamento:","\xc1reas verdes de la UPeU, Sede Lima - cercano a la carpa m\xf3vil.",s),B.bg,new A.adt(B.TF,"P\xfablico destinatario:",A.a(["J\xf3venes de las iglesias locales, directores de Maranata Class.","Distritales, regionales y coordinadores de j\xf3venes.","Ancianos y pastores distritales, relacionados al trabajo de j\xf3venes."],t.s),s),new A.aZ(new A.a2(16,16,16,16),s,s),B.ajx,new A.aZ(new A.a2(8,8,8,8),s,s),new A.pT("<p><p>El congreso se llevar\xe1 a cabo en la Universidad Peruana Uni\xf3n (UPEU), ubicada en el kil\xf3metro 19.5 de la Carretera Central. Esta sede ha sido elegida por varias razones clave:</p></p><p><p><b>\u2022 Amplias \xe1reas verdes:</b> Espacios abiertos que favorecen un ambiente de comuni\xf3n y actividades al aire libre.</p></p><p><p><b>\u2022 Infraestructura adecuada:</b> La UPEU cuenta con una carpa m\xf3vil que puede albergar a una gran cantidad de personas, garantizando comodidad para los asistentes.</p></p><p><p><b>\u2022 Seguridad:</b> La universidad es un espacio cerrado y controlado, lo que brinda tranquilidad a los participantes y organizadores.</p></p><p><p>\u2022 El clima a fines de mayo e inicios de junio  son favorables y sin temperaturas extremas. Poca probabilidad de llluvia.</p></p>",s,s,s)],p),B.a_,B.t,B.u),B.k,s,s,s,s,new A.a2(16,16,16,16),s,s)],p),B.a_,B.t,B.u),B.k,s,new A.b6(B.j,s,s,q,s,s,B.z),s,s,new A.a2(16,20,16,20),s,1/0)],p),B.A,B.P,s),new A.aZ(new A.a2(0,0,0,200),s,s)],p),B.y,B.t,B.u),B.k,B.m3,s,s,s,s,s,s)}}
+return A.av(s,A.br(A.a([A.cx(B.Q,A.a([r,A.av(s,A.br(A.a([A.cx(B.Q,A.a([A.av(s,s,B.k,s,new A.b6(s,A.nh(s,B.b5,new A.fK("assets/images_v1/guide_card_1.webp",s,s)),s,new A.c9(new A.ap(12,12),new A.ap(12,12),B.w,B.w),s,s,B.z),300,s,s,s,s),A.av(s,s,B.k,s,new A.b6(A.ay(51,B.l.t()>>>16&255,B.l.t()>>>8&255,B.l.t()&255),s,s,new A.c9(new A.ap(12,12),new A.ap(12,12),B.w,B.w),s,s,B.z),300,s,s,s,s)],p),B.A,B.P,s),A.av(s,A.br(A.a([A.aV("El Evento",s,s,s,A.bV(s,s,B.be,s,s,s,s,s,"MuseoSans",s,s,16,s,s,B.a8,s,s,!0,s,s,s,s,s,s,s,s),s,s,s),A.aV("Objetivos Principales",s,s,s,A.bV(s,s,s,s,s,s,s,s,"FjallaOne",s,s,24,s,s,s,s,s,!0,s,s,s,s,s,s,s,s),s,s,s),new A.aZ(new A.a2(8,8,8,8),s,s),new A.pT("<b>Objetivo General:</b> Fomentar una experiencia de adoraci\xf3n aut\xe9ntica y fortalecer el liderazgo y la misi\xf3n de los j\xf3venes adventistas a trav\xe9s de capacitaciones, din\xe1micas y el compromiso con el evangelismo.<p></p><p></p><b>Objetivos Espec\xedficos:</b> <ul><li>Inspirar a los j\xf3venes a vivir una adoraci\xf3n que trascienda y se refleje en su estilo de vida.</li><li>Capacitar a los j\xf3venes en liderazgo y discipulado a trav\xe9s del  Maranata Class.</li><li>Lanzar oficialmente Misi\xf3n Caleb, impulsando la participaci\xf3n joven en el evangelismo y servicio a los dem\xe1s.</li><li>Fortalecer el sentido de comunidad y pertenencia entre los j\xf3venes adventistas.</li><li>Promover el estudio de la Biblia y la formaci\xf3n de l\xedderes de impacto misionero.</li></ul>",s,s,s),B.ajn,B.bg,new A.QZ(B.TH,"Lugar de las programaciones:","Carpa Movil . UPeU - Sede Lima",s),B.bg,new A.QZ(B.TB,"Lugar de campamento:","\xc1reas verdes de la UPeU, Sede Lima - cercano a la carpa m\xf3vil.",s),B.bg,new A.adt(B.TF,"P\xfablico destinatario:",A.a(["J\xf3venes de las iglesias locales, directores de Maranata Class.","Distritales, regionales y coordinadores de j\xf3venes.","Ancianos y pastores distritales, relacionados al trabajo de j\xf3venes."],t.s),s),new A.aZ(new A.a2(16,16,16,16),s,s),B.ajx,new A.aZ(new A.a2(8,8,8,8),s,s),new A.pT("<p><p>El congreso se llevar\xe1 a cabo en la Universidad Peruana Uni\xf3n (UPEU), ubicada en el kil\xf3metro 19.5 de la Carretera Central. Esta sede ha sido elegida por varias razones clave:</p></p><p><p><b>\u2022 Amplias \xe1reas verdes:</b> Espacios abiertos que favorecen un ambiente de comuni\xf3n y actividades al aire libre.</p></p><p><p><b>\u2022 Infraestructura adecuada:</b> La UPEU cuenta con una carpa m\xf3vil que puede albergar a una gran cantidad de personas, garantizando comodidad para los asistentes.</p></p><p><p><b>\u2022 Seguridad:</b> La universidad es un espacio cerrado y controlado, lo que brinda tranquilidad a los participantes y organizadores.</p></p><p><p>\u2022 El clima a fines de mayo e inicios de junio  son favorables y sin temperaturas extremas. Poca probabilidad de llluvia.</p></p>",s,s,s)],p),B.a_,B.t,B.u),B.k,s,s,s,s,new A.a2(16,16,16,16),s,s)],p),B.a_,B.t,B.u),B.k,s,new A.b6(B.j,s,s,q,s,s,B.z),s,s,new A.a2(16,20,16,20),s,1/0)],p),B.A,B.P,s),new A.aZ(new A.a2(0,0,0,200),s,s)],p),B.y,B.t,B.u),B.k,B.m3,s,s,s,s,s,s)}}
 A.QZ.prototype={
 H(a){var s=null,r=t.p
 return A.d7(A.a([A.im(this.c,B.l,s,32),B.hZ,A.e3(A.br(A.a([A.aV(this.d,s,s,s,B.Kl,s,s,s),B.eq,A.aV(this.e,s,s,s,B.Kk,s,s,s)],r),B.a_,B.t,B.u),1,s)],r),B.a_,B.t,B.u)},
@@ -110503,7 +110503,7 @@ return A.d7(A.a([r,B.hZ,A.e3(A.br(p,B.a_,B.t,B.u),1,s)],q),B.a_,B.t,B.u)},
 gfF(a){return this.c}}
 A.aVn.prototype={
 $1(a){var s=null
-return new A.aZ(B.S0,A.d7(A.a([B.ajq,A.e3(A.aV(a,s,s,s,B.Kk,s,s,s),1,s)],t.p),B.a_,B.t,B.u),s)},
+return new A.aZ(B.S0,A.d7(A.a([B.ajp,A.e3(A.aV(a,s,s,s,B.Kk,s,s,s),1,s)],t.p),B.a_,B.t,B.u),s)},
 $S:668}
 A.tk.prototype={
 asZ(a,b){var s=this.c
@@ -112131,7 +112131,7 @@ a.push(A.br(A.a([B.i0,B.ajG,B.oy,B.ajv,B.aa_,r,B.bg,s,B.JM,A.d7(A.a([A.t3(!1,A.d
 r=A.cY(12)
 r=A.c7(A.Jf(B.TX,B.ajI,new A.b03(a1),A.kd(g,g,B.dm,g,g,g,4,g,g,g,g,g,B.mD,A.ay(153,B.dm.t()>>>16&255,B.dm.t()>>>8&255,B.dm.t()&255),new A.cR(r,B.B),g,g,g,g)),g,1/0)
 q=A.cY(12)
-a.push(new A.aZ(B.iS,A.br(A.a([s,B.bg,B.ajW,B.cz,B.ajA,B.JL,r,B.cz,A.c7(A.Jf(B.TY,B.ajY,new A.b04(a1),A.kd(g,g,B.iz,g,g,g,4,g,g,g,g,g,B.mD,A.ay(153,B.iz.t()>>>16&255,B.iz.t()>>>8&255,B.iz.t()&255),new A.cR(q,B.B),g,g,g,g)),g,1/0)],b),B.y,B.d2,B.u),g))}if(a0===B.l5)a.push(new A.aZ(B.iS,A.br(A.a([A.c7(A.a10("assets/lottie/loading.json",g,g,g,g,400),180,g),B.adv,B.ajs,B.cz,B.aji,B.JL,A.c7(A.Jf(B.U0,B.ajp,g,A.kd(g,g,B.d4,g,g,g,0,g,g,g,g,g,B.mD,g,new A.cR(A.cY(12),B.B),g,g,g,g)),g,1/0)],b),B.y,B.d2,B.u),g))
+a.push(new A.aZ(B.iS,A.br(A.a([s,B.bg,B.ajW,B.cz,B.ajA,B.JL,r,B.cz,A.c7(A.Jf(B.TY,B.ajY,new A.b04(a1),A.kd(g,g,B.iz,g,g,g,4,g,g,g,g,g,B.mD,A.ay(153,B.iz.t()>>>16&255,B.iz.t()>>>8&255,B.iz.t()&255),new A.cR(q,B.B),g,g,g,g)),g,1/0)],b),B.y,B.d2,B.u),g))}if(a0===B.l5)a.push(new A.aZ(B.iS,A.br(A.a([A.c7(A.a10("assets/lottie/loading.json",g,g,g,g,400),180,g),B.adv,B.ajs,B.cz,B.aji,B.JL,A.c7(A.Jf(B.U0,B.ajo,g,A.kd(g,g,B.d4,g,g,g,0,g,g,g,g,g,B.mD,g,new A.cR(A.cY(12),B.B),g,g,g,g)),g,1/0)],b),B.y,B.d2,B.u),g))
 d=A.a([d,A.av(g,A.br(a,B.y,B.t,B.u),B.k,g,new A.b6(B.j,g,g,B.Mo,g,g,B.z),g,g,new A.a2(0,c.a.b*0.04,0,0),B.iS,1/0)],b)
 if(a0===B.l6){c=A.cY(12)
 d.push(A.eb(new A.aZ(B.iS,A.br(A.a([B.TS,B.bg,B.ajz,B.fq,B.ajZ,B.adz,A.Jf(B.TN,B.ajK,new A.b05(),A.kd(g,g,B.dm,g,g,g,4,g,g,g,g,g,B.Sj,A.ay(153,B.dm.t()>>>16&255,B.dm.t()>>>8&255,B.dm.t()&255),new A.cR(c,B.B),g,g,g,g))],b),B.y,B.d2,B.u),g),g,g))}c=a2.x
@@ -132739,18 +132739,18 @@ B.ail=new A.z(!0,B.aq,null,null,null,null,14,null,B.j9,null,null,null,1.5,null,n
 B.aji=new A.ci("Est\xe1s a punto de unirte a algo grande.\nSolo un poco m\xe1s...\n\n",null,B.ail,B.ap,null,null,null,null,null,null)
 B.aft=new A.z(!0,null,null,"FjallaOne",null,null,20,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.ajj=new A.ci("Versi\xf3n actualizada",null,B.aft,null,null,null,null,null,null,null)
-B.Kh=new A.z(!0,B.Z,null,null,null,null,18,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.ajk=new A.ci("Salida registrada correctamente",null,B.Kh,null,null,null,null,null,null,null)
 B.Ko=new A.z(!0,B.j,null,"FjallaOne",null,null,18,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.ajl=new A.ci("DESCARGAR PDF",null,B.Ko,null,null,null,null,null,null,null)
-B.ajm=new A.ci("Te esperamos en la pr\xf3xima actividad.",null,B.Kf,B.ap,null,null,null,null,null,null)
-B.ajn=new A.ci("Cerrar",null,B.dN,null,null,null,null,null,null,null)
+B.ajk=new A.ci("DESCARGAR PDF",null,B.Ko,null,null,null,null,null,null,null)
+B.ajl=new A.ci("Te esperamos en la pr\xf3xima actividad.",null,B.Kf,B.ap,null,null,null,null,null,null)
+B.ajm=new A.ci("Cerrar",null,B.dN,null,null,null,null,null,null,null)
 B.i6=new A.z(!0,null,null,"FjallaOne",null,null,24,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.ajo=new A.ci("Informaciones",null,B.i6,null,null,null,null,null,null,null)
+B.ajn=new A.ci("Informaciones",null,B.i6,null,null,null,null,null,null,null)
 B.kY=new A.z(!0,B.j,null,null,null,null,14,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.ajp=new A.ci("Registro no disponible a\xfan",null,B.kY,null,null,null,null,null,null,null)
+B.ajo=new A.ci("Registro no disponible a\xfan",null,B.kY,null,null,null,null,null,null,null)
 B.aio=new A.z(!0,B.l,null,null,null,null,20,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.ajq=new A.ci("\u2022 ",null,B.aio,null,null,null,null,null,null,null)
+B.ajp=new A.ci("\u2022 ",null,B.aio,null,null,null,null,null,null,null)
+B.Kh=new A.z(!0,B.Z,null,null,null,null,18,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.ajq=new A.ci("Asistencia registrada correctamente",null,B.Kh,null,null,null,null,null,null,null)
 B.ajr=new A.ci("Gu\xeda Orientaciones 01",null,B.kX,null,null,null,null,null,null,null)
 B.oM=new A.z(!0,null,null,"FjallaOne",null,null,26,B.a8,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.ajs=new A.ci("\xa1Prep\xe1rate!",null,B.oM,B.ap,null,null,null,null,null,null)
