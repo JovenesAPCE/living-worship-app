@@ -208,14 +208,14 @@ class CheckInScreen extends StatelessWidget {
                     ),),
                   ),
                   const SizedBox(height: 12),
-                  TextButton(
+                  /*TextButton(
                     onPressed: () {},
                     child: const Text(
                       "No cerrar hasta que se registre.",
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white70),
                     ),
-                  ),
+                  ),*/
                 ],
               ),
             )

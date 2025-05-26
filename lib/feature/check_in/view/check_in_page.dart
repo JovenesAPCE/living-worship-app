@@ -26,7 +26,12 @@ class CheckInPage extends StatelessWidget {
           )
         )
           ..add(CheckInPageSubscriptionRequested()),
-        child:  CheckInScreen()
+        child:  CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+                child: CheckInScreen()),
+          ],
+        )
     );
   }
 }
