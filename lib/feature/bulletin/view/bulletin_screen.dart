@@ -311,22 +311,12 @@ class NotificationItem extends StatelessWidget {
                     final contentToShare = _buildShareText(dateTime, message);
 
                     if ((imageUrl ?? "").isNotEmpty) {
-                      if (kIsWeb) {
-                        // 🌐 En Web, solo enviar la URL como texto (WhatsApp la previsualiza)
-                        final shareParams = ShareParams(
-                          text: "$contentToShare\n$imageUrl",
-                          subject: "Notificación de Living Worship",
-                        );
-                        SharePlus.instance.share(shareParams);
-                      } else {
-                        // 📱 En móvil, sí se puede descargar y compartir como archivo
-                        final file = await _downloadAndSaveImage(imageUrl!);
-                        final shareParams = ShareParams(
-                          text: contentToShare,
-                          files: [XFile(file.path)],
-                        );
-                        SharePlus.instance.share(shareParams);
-                                            }
+                      // 🌐 En Web, solo enviar la URL como texto (WhatsApp la previsualiza)
+                      final shareParams = ShareParams(
+                        text: "$contentToShare\n$imageUrl",
+                        subject: "Notificación de Living Worship",
+                      );
+                      SharePlus.instance.share(shareParams);
                     } else {
                       final shareParams = ShareParams(
                         text: contentToShare,
