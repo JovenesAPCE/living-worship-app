@@ -10,9 +10,7 @@ part 'login_state.dart';
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc({
     required LogInUseCase logIn,
-    required UnsubscribeNotificationUseCase unsubscribeNotificationUseCase,
   })  : _logIn = logIn,
-        _unsubscribeNotificationUseCase = unsubscribeNotificationUseCase,
         super(const LoginState()) {
     on<LoginUsernameChanged>(_onUsernameChanged);
     on<LoginBirthYearChanged>(_onPasswordChanged);
@@ -21,12 +19,12 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
   final LogInUseCase _logIn;
-  final UnsubscribeNotificationUseCase _unsubscribeNotificationUseCase;
+
   void _onIntLogin(
       IntLogin event,
       Emitter<LoginState> emit,
       ){
-    _unsubscribeNotificationUseCase.call();
+
   }
 
   void _onUsernameChanged(
@@ -85,6 +83,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
               emit(state.copyWith(
                   progress: false,
                   loginToast: LoginToast.show( "No hay conexión a internet.")))
+            } else if (failure is Timeout) {
+              emit(state.copyWith(
+                  progress: false,
+                  loginToast: LoginToast.show( "Tiempo de espera agotado. Inténtalo nuevamente.")))
             } else {
               emit(state.copyWith(
                   progress: false,

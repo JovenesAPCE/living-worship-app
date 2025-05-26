@@ -48,7 +48,7 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
   }
 
   @override
-  Future<void> updateSemiPlenaries() async {
+  Future<Either<RegisterSemiPlenaryFailure,void>> updateSemiPlenaries() async {
     final user = HiveService.userBox.values.cast<UserTable?>().firstOrNull;
     if(user!=null){
       final registerEventRef = db.child('${ConstFirebase.eventPath}/${ConstFirebase.registerPlenaryPath}/${user.document}');
@@ -81,65 +81,85 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
         }
       }
     }
+    try{
+      String? msgDisable = "";
+      final parameterWhatsappPathRef = db.child('${ConstFirebase.eventPath}/${ConstFirebase.parameterDisableRegisterSemiPlenary}');
 
-    final DatabaseReference ref = FirebaseDatabase.instance.ref("${ConstFirebase.eventPath}/${ConstFirebase.plenaryPath}");
-    final DataSnapshot snapshot = await ref.get();
-    if (snapshot.exists && snapshot.value is Map) {
-      await HiveService.semiPlenaryBox.clear();
-      final data = snapshot.value as Map;
+      var  result = await parameterWhatsappPathRef.get();
+      if(result.exists){
+        msgDisable = result.value as String?;
+      }
 
-      data.entries.map((entry) async{
-        final id = entry.key;
-        final json = Map<String, dynamic>.from(entry.value);
-        await HiveService.semiPlenaryBox.put(
-            id,
-            SemiPlenaryTable()
-              ..id = id
-              ..color = json['color']
-              ..group = json['group']
-              ..topic = json['topic']
-              ..speaker = json['speaker']
-              ..title = json['title']
-              ..time = json['time']
-              ..capacity = json['capacity']
-              ..available = json["available"]
-              ..gender = json["gender"]
-        );
-      }).toList();
-    } else {
-      // Firebase está accesible pero el nodo no existe
-      await HiveService.semiPlenaryBox.clear();
-    }
+      if((msgDisable??"").isNotEmpty){
+        return Left(DisableRegisterSemiPlenary(message: msgDisable??""));
+      }
 
-    final registerEventRef = db.child('${ConstFirebase.eventPath}/${ConstFirebase.registerPlenaryPath}/${user!.document}');
-    final DataSnapshot registerEventSnapshot = await registerEventRef.get();
-    if (registerEventSnapshot.exists && registerEventSnapshot.value is Map) {
-      await HiveService.registerSemiPlenaryTableBox.clear();
-      final data = registerEventSnapshot.value as Map;
-      data.entries.map((entry) async{
-        final id = entry.key;
-        final json = Map<String, dynamic>.from(entry.value);
-        await HiveService.registerSemiPlenaryTableBox.put(
-            "${id}_${json['document']}",
-            RegisterSemiPlenaryTable()
-              ..semiPlenary = id
-              ..group = json['group']
-              ..document = json['document']
-              ..title = json['title']
-              ..checkOut = json['checkOut'] as bool?
-              ..checkOutTimestamp = (json['checkOutTimestamp'] is int) ? DateTime.fromMillisecondsSinceEpoch(json['checkOutTimestamp']) : null
-              ..checkIn = json['checkIn'] as bool?
-              ..checkInTimestamp = (json['checkInTimestamp'] is int) ? DateTime.fromMillisecondsSinceEpoch(json['checkInTimestamp']) : null
-              ..timestamp = DateTime.parse(json['timestamp'])
-        );
-      }).toList();
-    } else {
-      await HiveService.registerSemiPlenaryTableBox.clear();
+      final DatabaseReference ref = FirebaseDatabase.instance.ref("${ConstFirebase.eventPath}/${ConstFirebase.plenaryPath}");
+      final DataSnapshot snapshot = await ref.get();
+      if (snapshot.exists && snapshot.value is Map) {
+        await HiveService.semiPlenaryBox.clear();
+        final data = snapshot.value as Map;
+
+        data.entries.map((entry) async{
+          final id = entry.key;
+          final json = Map<String, dynamic>.from(entry.value);
+          await HiveService.semiPlenaryBox.put(
+              id,
+              SemiPlenaryTable()
+                ..id = id
+                ..color = json['color']
+                ..group = json['group']
+                ..topic = json['topic']
+                ..speaker = json['speaker']
+                ..title = json['title']
+                ..time = json['time']
+                ..capacity = json['capacity']
+                ..available = json["available"]
+                ..gender = json["gender"]
+          );
+        }).toList();
+      } else {
+        // Firebase está accesible pero el nodo no existe
+        await HiveService.semiPlenaryBox.clear();
+      }
+
+      final registerEventRef = db.child('${ConstFirebase.eventPath}/${ConstFirebase.registerPlenaryPath}/${user!.document}');
+      final DataSnapshot registerEventSnapshot = await registerEventRef.get();
+      if (registerEventSnapshot.exists && registerEventSnapshot.value is Map) {
+        await HiveService.registerSemiPlenaryTableBox.clear();
+        final data = registerEventSnapshot.value as Map;
+        data.entries.map((entry) async{
+          final id = entry.key;
+          final json = Map<String, dynamic>.from(entry.value);
+          await HiveService.registerSemiPlenaryTableBox.put(
+              "${id}_${json['document']}",
+              RegisterSemiPlenaryTable()
+                ..semiPlenary = id
+                ..group = json['group']
+                ..document = json['document']
+                ..title = json['title']
+                ..checkOut = json['checkOut'] as bool?
+                ..checkOutTimestamp = (json['checkOutTimestamp'] is int) ? DateTime.fromMillisecondsSinceEpoch(json['checkOutTimestamp']) : null
+                ..checkIn = json['checkIn'] as bool?
+                ..checkInTimestamp = (json['checkInTimestamp'] is int) ? DateTime.fromMillisecondsSinceEpoch(json['checkInTimestamp']) : null
+                ..timestamp = DateTime.parse(json['timestamp'])
+          );
+        }).toList();
+      } else {
+        await HiveService.registerSemiPlenaryTableBox.clear();
+      }
+      return Right(null);
+    }catch(e){
+      if (e is FirebaseException && e.code == 'unavailable') {
+        return Left(NoInternetRegisterSemiPlenary());
+      }
+      return Left(UnknownRegisterSemiPlenary());
     }
   }
 
   @override
   Future<Either<RegisterSemiPlenaryFailure, void>> registerSemiPlenary(List<SemiPlenary> semiPlenaries) async {
+
 
     final user = HiveService.userBox.values.cast<UserTable?>().firstOrNull;
     if (user?.document == null) return Left(UserNotExist());
@@ -151,6 +171,18 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
     final existing = await registerEventRef.get();
     if (existing.exists) {
       return Left(UserHasRegisteredInSemiPlenary(user: user.name ?? ""));
+    }
+
+    String? msgDisable = "";
+    final parameterWhatsappPathRef = db.child('${ConstFirebase.eventPath}/${ConstFirebase.parameterDisableRegisterSemiPlenary}');
+
+    var  result = await parameterWhatsappPathRef.get();
+    if(result.exists){
+      msgDisable = result.value as String?;
+    }
+
+    if((msgDisable??"").isNotEmpty){
+      return Left(DisableRegisterSemiPlenary(message: msgDisable??""));
     }
 
     final plenaryRef = db.child('${ConstFirebase.eventPath}/${ConstFirebase.plenaryPath}');

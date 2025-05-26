@@ -10,7 +10,7 @@ class SemiPlenaryState extends Equatable {
   final SessionProgress sessionProgress;
   final bool tabProgress;
   final bool groupProgress;
-
+  final String disableRegister;
   const SemiPlenaryState({
     this.register = false,
     this.groupedSessions = const [],
@@ -19,35 +19,38 @@ class SemiPlenaryState extends Equatable {
     this.sessionMessage = const SessionMessage.empty(),
     this.sessionProgress = const SessionProgress.empty(),
     this.tabProgress = false,
-    this.groupProgress = false
+    this.groupProgress = false,
+    this.disableRegister = ""
   });
 
-  SemiPlenaryState copyWith({
-    List<SemiPlenaryTab>? tabs,
-    int? selectedIndex,
-    SessionSelected? saveOneSession,
-    SessionSelected? saveTwoSession,
-    bool? register,
-    List<SessionGroup>? groupedSessions,
-    bool? tabProgress,
-    SessionMessage? sessionMessage,
-    SessionProgress? sessionProgress,
-    bool? groupProgress
-  }){
-    return SemiPlenaryState(
-        tabs: tabs??this.tabs,
-        register: register??this.register,
-        groupedSessions: groupedSessions ?? this.groupedSessions,
-        selectedIndex: selectedIndex??this.selectedIndex,
-        sessionMessage: sessionMessage??this.sessionMessage,
-        sessionProgress:  sessionProgress??this.sessionProgress,
-        tabProgress: tabProgress??this.tabProgress,
-        groupProgress: groupProgress??this.groupProgress
-    );
-  }
+
 
 
   @override
-  List<Object?> get props => [groupedSessions, tabs, register, selectedIndex, sessionMessage, sessionProgress, groupProgress, tabProgress];
+  List<Object?> get props => [groupedSessions, tabs, register, selectedIndex, sessionMessage, sessionProgress, groupProgress, tabProgress, disableRegister];
+
+  SemiPlenaryState copyWith({
+    List<SemiPlenaryTab>? tabs,
+    List<SessionGroup>? groupedSessions,
+    bool? register,
+    int? selectedIndex,
+    SessionMessage? sessionMessage,
+    SessionProgress? sessionProgress,
+    bool? tabProgress,
+    bool? groupProgress,
+    String? disableRegister,
+  }) {
+    return SemiPlenaryState(
+      tabs: tabs ?? this.tabs,
+      groupedSessions: groupedSessions ?? this.groupedSessions,
+      register: register ?? this.register,
+      selectedIndex: selectedIndex ?? this.selectedIndex,
+      sessionMessage: sessionMessage ?? this.sessionMessage,
+      sessionProgress: sessionProgress ?? this.sessionProgress,
+      tabProgress: tabProgress ?? this.tabProgress,
+      groupProgress: groupProgress ?? this.groupProgress,
+      disableRegister: disableRegister ?? this.disableRegister,
+    );
+  }
 
 }

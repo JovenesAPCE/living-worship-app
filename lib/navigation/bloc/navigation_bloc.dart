@@ -17,13 +17,15 @@ class NavigationBloc
     required GetUserUseCase getUserUseCase,
     required GetQrStatusUseCase getQrStatusUseCase,
     required WasOpenNotificationUseCase wasOpenNotificationUseCase,
-    required NotificationReceivedUseCase notificationReceivedUseCase
+    required NotificationReceivedUseCase notificationReceivedUseCase,
+    required UnsubscribeNotificationUseCase unsubscribeNotificationUseCase,
   })  : _getAuthStatus = getAuthStatus,
         _logOutUseCase = logOutUseCase,
         _getUserUseCase = getUserUseCase,
         _getQrStatusUseCase = getQrStatusUseCase,
         _wasOpenNotificationUseCase = wasOpenNotificationUseCase,
         _notificationReceivedUseCase = notificationReceivedUseCase,
+        _unsubscribeNotificationUseCase = unsubscribeNotificationUseCase,
         super(const NavigationState.unknown()) {
     on<AuthenticationSubscriptionRequested>(_onSubscriptionRequested);
     on<AuthenticationLogoutPressed>(_onLogoutPressed);
@@ -37,6 +39,7 @@ class NavigationBloc
   final GetQrStatusUseCase _getQrStatusUseCase;
   final WasOpenNotificationUseCase _wasOpenNotificationUseCase;
   final  NotificationReceivedUseCase _notificationReceivedUseCase;
+  final UnsubscribeNotificationUseCase _unsubscribeNotificationUseCase;
   Future<void> _onSubscriptionRequested(
       AuthenticationSubscriptionRequested event,
       Emitter<NavigationState> emit,
@@ -120,6 +123,7 @@ class NavigationBloc
       AuthenticationLogoutPressed event,
       Emitter<NavigationState> emit,
       ) async {
+    await _unsubscribeNotificationUseCase.call();
     await _logOutUseCase.call();
   }
 

@@ -13,3 +13,6 @@ export 'lottie_player.dart';
 export 'blur_loading_overlay.dart';
 export 'local_notification.dart'
 if (dart.library.html) 'local_web_notification.dart';
+export 'url_launcher_helper_stub.dart'
+if (dart.library.html) 'url_launcher_helper_web.dart'
+if (dart.library.io) 'url_launcher_helper_mobile.dart';

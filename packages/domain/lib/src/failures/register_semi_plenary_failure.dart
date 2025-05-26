@@ -22,6 +22,14 @@ class NoCapacityInSemiPlenaries extends RegisterSemiPlenaryFailure {
     return 'No hay cupos disponibles en las siguientes sesiones: ${plenaryIdsWithoutCapacity.join(', ')}';
   }
 }
+class DisableRegisterSemiPlenary extends RegisterSemiPlenaryFailure {
+  final String message;
+
+  DisableRegisterSemiPlenary({
+    this.message = '',
+  });
+
+}
 
 class NoInternetRegisterSemiPlenary extends RegisterSemiPlenaryFailure {}
 

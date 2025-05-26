@@ -61,7 +61,10 @@ class App extends StatelessWidget {
           ),
           notificationReceivedUseCase: NotificationReceivedUseCase(
             context.read<NotificationRepository>(),
-          )
+          ),
+            unsubscribeNotificationUseCase: UnsubscribeNotificationUseCase(
+                context.read<NotificationRepository>()
+            )
         )..add(AuthenticationSubscriptionRequested()),
         child: const AppView(),
       ),

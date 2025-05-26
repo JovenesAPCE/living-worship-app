@@ -4,6 +4,7 @@ sealed class LoginFailure {
   factory LoginFailure.invalidCredentials() = InvalidCredentials;
   factory LoginFailure.noInternet() = NoInternet;
   factory LoginFailure.unknown() = Unknown;
+  factory LoginFailure.timeout() = Timeout;
 }
 
 class InvalidCredentials extends LoginFailure {
@@ -16,4 +17,8 @@ class NoInternet extends LoginFailure {
 
 class Unknown extends LoginFailure {
   const Unknown();
+}
+
+class Timeout extends LoginFailure {
+  const Timeout();
 }

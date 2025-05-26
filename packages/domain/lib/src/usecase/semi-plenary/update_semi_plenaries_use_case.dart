@@ -6,7 +6,7 @@ class UpdateSemiPlenariesUseCase {
 
   UpdateSemiPlenariesUseCase(this._repository);
 
-  Future<void> call() {
+  Future<Either<RegisterSemiPlenaryFailure,void>> call() {
     return _repository.updateSemiPlenaries();
   }
 }

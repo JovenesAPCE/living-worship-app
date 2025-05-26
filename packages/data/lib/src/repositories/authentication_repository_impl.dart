@@ -18,7 +18,20 @@ class AuthenticationRepositoryImpl extends AuthenticationRepository {
   AuthenticationRepositoryImpl();
 
   @override
+  @override
   Future<Either<LoginFailure, void>> logIn(String document, String year) async {
+    try {
+      return await _logInCore(document, year)
+          .timeout(const Duration(seconds: 30), onTimeout: () {
+        return Left(LoginFailure.timeout());
+      });
+    } catch (e, stack) {
+      await FBUtils.tryRecordError(FirebaseAuthException.from(e), stack: stack);
+      return Left(LoginFailure.unknown());
+    }
+  }
+
+  Future<Either<LoginFailure, void>> _logInCore(String document, String year) async {
     try {
 
       await FBUtils.trySetCrashlyticsUser(document);
@@ -45,6 +58,7 @@ class AuthenticationRepositoryImpl extends AuthenticationRepository {
         }catch(e){
           fcmToken = e.toString();
         }
+
         await _dbRef.child('${ConstFirebase.eventPath}/${ConstFirebase.sessionPath}/${auth.FirebaseAuth.instance.currentUser?.uid}').set({
           'document': document,
           'fcmToken': fcmToken,

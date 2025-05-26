@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jamt/feature/user/user.dart';
 import 'package:jamt/constants/constants.dart';
+import 'package:jamt/navigation/bloc/navigation_bloc.dart';
+import 'package:jamt/navigation/models/destination.dart';
 import 'package:jamt/widget/widget.dart';
 import 'package:lottie/lottie.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class UserScreen extends StatefulWidget {
   const UserScreen({super.key});
@@ -26,11 +27,7 @@ class _UserScreenState extends State<UserScreen> {
     return BlocConsumer<UserBloc, UserState>(
       listener: (context, state) {
         if(state.openLaunchUrlNative.isNotEmpty){
-          if (Platform.isAndroid || Platform.isIOS) {
-            launchUrlNative(state.openLaunchUrlNative);
-          } else {
-            print("Plataforma no soportada directamente.");
-          }
+          openSmartUrl(state.openLaunchUrlNative);
         }
         if (state.close) {
           print("Close");
@@ -438,7 +435,7 @@ class _UserScreenState extends State<UserScreen> {
                                             width: double.infinity,
                                             child: ElevatedButton.icon(
                                               onPressed: () {
-                                                Navigator.pop(context); // Redirige al inicio
+                                                context.read<NavigationBloc>().add(NavigationPressed(Destination.tabHome));
                                               },
                                               icon: const Icon(Icons.home, color: Colors.white,),
                                               label: const Text("Volver al inicio", style: TextStyle(fontSize: 14, color: Colors.white)),
@@ -734,30 +731,7 @@ class _UserScreenState extends State<UserScreen> {
   double _maxDynamic(double percent, int maxSize) {
     double size = MediaQuery.of(context).size.height * percent;
     return size > maxSize.toDouble() ? maxSize.toDouble() : size;
+
+
   }
-
-
-  void launchUrlNative(String url) async {
-    if (await canLaunchUrl(Uri.parse(url))) {
-      await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
-    } else {
-      print('Ocurrió un error. Intenta nuevamente.');
-      if(context.mounted){
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: const Text('No se pudo abrir el enlace de WhatsApp'),
-            backgroundColor: Colors.red,
-            behavior: SnackBarBehavior.floating,
-            duration: const Duration(seconds: 3),
-          ),
-        );
-      }
-
-    }
-  }
-
-
-
-
-
 }

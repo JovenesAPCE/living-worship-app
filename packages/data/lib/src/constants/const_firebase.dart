@@ -8,6 +8,7 @@ class ConstFirebase {
   static const String registerUserDecisionPath = 'register-user_decision';
 
   static const String parameterWhatsappPath = 'parameter/ws_group_caleb';
+  static const String parameterDisableRegisterSemiPlenary = 'parameter/ws_disable_register_semi_plenary';
 
   static const String notification = 'notification';
 

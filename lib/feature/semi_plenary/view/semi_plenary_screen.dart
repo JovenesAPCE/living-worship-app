@@ -76,7 +76,6 @@ class SessionScreen extends StatelessWidget {
                                       color: AppColor.textGrey
                                   )
                                 ),
-
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.stretch,
                                   children: [
@@ -87,94 +86,137 @@ class SessionScreen extends StatelessWidget {
                                       )
                                   ],
                                 ),
-
-                                if(state.sessionProgress.show)
-                                  Center(
-                                    child: ProgressStatus(
-                                      message: state.sessionProgress.message,
-                                      type: state.sessionProgress.type,
-                                      onRefreshPressed: (){
-                                        context.read<SemiPlenaryBloc>().add(LoadSemiPlenary());
-                                      },
+                                if(state.disableRegister.isNotEmpty)
+                                  Container(
+                                    margin: const EdgeInsets.symmetric(horizontal: 24),
+                                    padding: const EdgeInsets.all(24),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(18),
+                                    ),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        const Icon(Icons.lock_clock, color: Colors.blue, size: 64),
+                                        const SizedBox(height: 16),
+                                        const Text(
+                                          'Registro temporalmente deshabilitado',
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black87,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                        const SizedBox(height: 12),
+                                        Text(
+                                          state.disableRegister,
+                                          style: TextStyle(
+                                            fontSize: 16,
+                                            color: Colors.black54,
+                                            height: 1.5,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                        const SizedBox(height: 24),
+                                      ],
                                     ),
                                   ),
-                                if(!state.tabProgress)
+                                if(state.disableRegister.isEmpty)
                                 Column(
                                   children: [
-                                    const SizedBox(height: 32),
-                                    ...state.groupedSessions.map((group){
-                                      return Column(
-                                        children: [
-                                          if(!group.register)
-                                            WorkshopSelector(
-                                              title: 'ELIGE TU ${group.group.toUpperCase()}',
-                                              errorText: group.error==""?null:group.error,
-                                              selects: group.sessions.map((session){return session.title;}).toList(),
-                                              onPressed: (){
-                                                context.read<SemiPlenaryBloc>().add(SessionSave(
-                                                    groupSelected: group
-                                                ));
-                                              },
-                                              select: group.selected!=null?group.sessions.indexOf(group.selected!):0,
-                                              onChanged: (index){
-                                                context.read<SemiPlenaryBloc>().add(SessionSelected(
-                                                    selected: group.sessions[index],
-                                                    groupSelected: group
-                                                ));
-                                              },
-                                            ),
-                                          if(group.register)
-                                            WorkshopSelectCard(
-                                              title: group.group,
-                                              value: group.selected?.title??"",
-                                              checkIn: group.selected?.checkIn??false,
-                                              checkOut: group.selected?.checkOut??false,
-                                              register: state.register,
-                                              onClosePressed: (){
-                                                context.read<SemiPlenaryBloc>().add(SessionClose(
-                                                    groupSelected: group
-                                                ));
-                                              },
-                                              onCheckInPressed: (){
-                                                context.read<SemiPlenaryBloc>().add(OnCheckInPressed(
-                                                    group
-                                                ));
-                                              },
-                                              onCheckOutPressed: (){
-                                                context.read<SemiPlenaryBloc>().add(OnCheckOutPressed(
-                                                    group
-                                                ));
-                                              },
-                                            ),
-                                          const SizedBox(height: 32),
-                                        ],
-                                      );
-                                    }),
-                                    if(!state.register && state.groupedSessions.isNotEmpty)
-                                      ElevatedButton.icon(
-                                        onPressed: () {
-                                          context.read<SemiPlenaryBloc>().add(SessionRegister(DateTime.now().millisecondsSinceEpoch));
-                                        },
-                                        icon: const Icon(Icons.send, color: Colors.white,),
-                                        label: const Text('REGISTRAR',
-                                            style: TextStyle(
-                                                fontSize: 18,
-                                                fontFamily: AppFont.fontTwo,
-                                                color: Colors.white
-                                            )
-                                        ),
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor: AppColor.blueLight, // Color sólido (puedes cambiarlo)
-                                          minimumSize: const Size(double.infinity, 50),
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(8), // SIN bordes redondeados
-                                          ),
+                                    if(state.sessionProgress.show)
+                                      Center(
+                                        child: ProgressStatus(
+                                          message: state.sessionProgress.message,
+                                          type: state.sessionProgress.type,
+                                          onRefreshPressed: (){
+                                            context.read<SemiPlenaryBloc>().add(LoadSemiPlenary());
+                                          },
                                         ),
                                       ),
-                                    if(!state.register)
-                                      const SizedBox(height: 24),
+                                    if(!state.tabProgress)
+                                      Column(
+                                        children: [
+                                          const SizedBox(height: 32),
+                                          ...state.groupedSessions.map((group){
+                                            return Column(
+                                              children: [
+                                                if(!group.register)
+                                                  WorkshopSelector(
+                                                    title: 'ELIGE TU ${group.group.toUpperCase()}',
+                                                    errorText: group.error==""?null:group.error,
+                                                    selects: group.sessions.map((session){return session.title;}).toList(),
+                                                    onPressed: (){
+                                                      context.read<SemiPlenaryBloc>().add(SessionSave(
+                                                          groupSelected: group
+                                                      ));
+                                                    },
+                                                    select: group.selected!=null?group.sessions.indexOf(group.selected!):0,
+                                                    onChanged: (index){
+                                                      context.read<SemiPlenaryBloc>().add(SessionSelected(
+                                                          selected: group.sessions[index],
+                                                          groupSelected: group
+                                                      ));
+                                                    },
+                                                  ),
+                                                if(group.register)
+                                                  WorkshopSelectCard(
+                                                    title: group.group,
+                                                    value: group.selected?.title??"",
+                                                    checkIn: group.selected?.checkIn??false,
+                                                    checkOut: group.selected?.checkOut??false,
+                                                    register: state.register,
+                                                    onClosePressed: (){
+                                                      context.read<SemiPlenaryBloc>().add(SessionClose(
+                                                          groupSelected: group
+                                                      ));
+                                                    },
+                                                    onCheckInPressed: (){
+                                                      context.read<SemiPlenaryBloc>().add(OnCheckInPressed(
+                                                          group
+                                                      ));
+                                                    },
+                                                    onCheckOutPressed: (){
+                                                      context.read<SemiPlenaryBloc>().add(OnCheckOutPressed(
+                                                          group
+                                                      ));
+                                                    },
+                                                  ),
+                                                const SizedBox(height: 32),
+                                              ],
+                                            );
+                                          }),
+                                          if(!state.register && state.groupedSessions.isNotEmpty)
+                                            ElevatedButton.icon(
+                                              onPressed: () {
+                                                context.read<SemiPlenaryBloc>().add(SessionRegister(DateTime.now().millisecondsSinceEpoch));
+                                              },
+                                              icon: const Icon(Icons.send, color: Colors.white,),
+                                              label: const Text('REGISTRAR',
+                                                  style: TextStyle(
+                                                      fontSize: 18,
+                                                      fontFamily: AppFont.fontTwo,
+                                                      color: Colors.white
+                                                  )
+                                              ),
+                                              style: ElevatedButton.styleFrom(
+                                                backgroundColor: AppColor.blueLight, // Color sólido (puedes cambiarlo)
+                                                minimumSize: const Size(double.infinity, 50),
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius: BorderRadius.circular(8), // SIN bordes redondeados
+                                                ),
+                                              ),
+                                            ),
+                                          if(!state.register)
+                                            const SizedBox(height: 24),
+                                        ],
+                                      )
                                   ],
-                                )
+                                ),
+
+
+
 
                               ],
                             )
