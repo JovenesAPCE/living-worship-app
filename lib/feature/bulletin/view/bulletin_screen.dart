@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jamt/constants/constants.dart';
@@ -307,15 +308,26 @@ class NotificationItem extends StatelessWidget {
                 alignment: Alignment.centerRight,
                 child: TextButton.icon(
                   onPressed: () async {
-                    final contentToShare = _buildShareText(dateTime, message );
-                    if((imageUrl ?? "").isNotEmpty){
-                      final file = await _downloadAndSaveImage(imageUrl!);
-                      final shareParams = ShareParams(
-                        text: contentToShare,
-                        files: [XFile(file.path)],
-                      );
-                      SharePlus.instance.share(shareParams);
-                    }else {
+                    final contentToShare = _buildShareText(dateTime, message);
+
+                    if ((imageUrl ?? "").isNotEmpty) {
+                      if (kIsWeb) {
+                        // 🌐 En Web, solo enviar la URL como texto (WhatsApp la previsualiza)
+                        final shareParams = ShareParams(
+                          text: "$contentToShare\n$imageUrl",
+                          subject: "Notificación de Living Worship",
+                        );
+                        SharePlus.instance.share(shareParams);
+                      } else {
+                        // 📱 En móvil, sí se puede descargar y compartir como archivo
+                        final file = await _downloadAndSaveImage(imageUrl!);
+                        final shareParams = ShareParams(
+                          text: contentToShare,
+                          files: [XFile(file.path)],
+                        );
+                        SharePlus.instance.share(shareParams);
+                                            }
+                    } else {
                       final shareParams = ShareParams(
                         text: contentToShare,
                         subject: "Notificación de Living Worship",
