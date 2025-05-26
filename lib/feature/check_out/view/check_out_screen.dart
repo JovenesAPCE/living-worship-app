@@ -17,98 +17,104 @@ class CheckOutScreen extends StatelessWidget {
 
     },
     builder: (context, state) {
-      return  Scaffold(
-        body:CustomScrollView(
-          slivers: [
-            SliverToBoxAdapter(
-                child:  Stack(
-                  children: [
-                    Positioned.fill(child: Container(color: state.color)),
-                    Positioned.fill(child: Container(color: Colors.black.withOpacity(0.1))),
-                    Padding(
-                      padding: const EdgeInsets.all(24.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          const SizedBox(height: 20),
-                          SizedBox(
-                            height: 220,
-                            child: LottiePlayer(
-                              assetPath: AppLottie.checkOut,
-                              speed: 1, // 50% más lento
-                              repeat: true,
-                              playToHalf: false,
-                            ),
-                          ),
-                          const Text(
-                            "Salida registrada correctamente",
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white70,
-                            ),
-                          ),
-                          const SizedBox(height: 12),
-                          Text(
-                            state.fullName ?? "",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 26,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              fontFamily: AppFont.fontTwo,
-                            ),
-                          ),
-                          const SizedBox(height: 12),
-                          Text(
-                            formatDateTimeManual(state.checkTime), // nueva hora de salida
-                            style: const TextStyle(fontSize: 16, color: Colors.white),
-                          ),
-                          const SizedBox(height: 24),
-                          Text(
-                            "Gracias por participar",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 28,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              fontFamily: AppFont.fontTwo,
-                            ),
-                          ),
-                          Text(
-                            state.semiPlenaryTitle ?? "",
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              fontSize: 36,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
-                          const SizedBox(height: 24),
-                          const Text(
-                            "Te esperamos en la próxima actividad.",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 16, color: Colors.white70),
-                          ),
-                          const Spacer(),
-                          ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: AppColor.blue,
-                              minimumSize: const Size(double.infinity, 48),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
+      return Scaffold(
+        body: Stack(
+          children: [
+            Positioned.fill(child: Container(color: state.color)),
+            Positioned.fill(child: Container(color: Colors.black.withOpacity(0.1))),
+            Padding(
+              padding: const EdgeInsets.all(24.0),
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  return SingleChildScrollView(
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                      child: IntrinsicHeight(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            const SizedBox(height: 20),
+                            SizedBox(
+                              height: 220,
+                              child: LottiePlayer(
+                                assetPath: AppLottie.checkOut,
+                                speed: 1,
+                                repeat: true,
+                                playToHalf: false,
                               ),
                             ),
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: const Text("Cerrar", style: TextStyle(color: Colors.white)),
-                          ),
-                          const SizedBox(height: 38),
-                        ],
+                            const Text(
+                              "Salida registrada correctamente",
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.white70,
+                              ),
+                            ),
+                            const SizedBox(height: 12),
+                            Text(
+                              state.fullName ?? "",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 26,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontFamily: AppFont.fontTwo,
+                              ),
+                            ),
+                            const SizedBox(height: 12),
+                            Text(
+                              formatDateTimeManual(state.checkTime),
+                              style: const TextStyle(fontSize: 16, color: Colors.white),
+                            ),
+                            const SizedBox(height: 24),
+                            Text(
+                              "Gracias por participar",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 28,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontFamily: AppFont.fontTwo,
+                              ),
+                            ),
+                            Text(
+                              state.semiPlenaryTitle ?? "",
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                fontSize: 36,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                            const SizedBox(height: 24),
+                            const Text(
+                              "Te esperamos en la próxima actividad.",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 16, color: Colors.white70),
+                            ),
+                            const Spacer(),
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: AppColor.blue,
+                                minimumSize: const Size(double.infinity, 48),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                              ),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: const Text("Cerrar", style: TextStyle(color: Colors.white)),
+                            ),
+                            const SizedBox(height: 38),
+                          ],
+                        ),
                       ),
-                    )
-                  ],
-                )),
+                    ),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       );

@@ -117,113 +117,114 @@ class CheckInScreen extends StatelessWidget {
           ],
         ),
       ) : Scaffold(
-        body: CustomScrollView(
-          slivers: [
-            SliverToBoxAdapter(
-                child: Stack(
-                  children: [
-                    Positioned.fill(child: Container(
-                      color: state.color,
-                    )),
-                    Positioned.fill(child: Container(
-                      color: Colors.black.withOpacity(0.1),
-                    )),
-                    Padding(
-                      padding: const EdgeInsets.all(24.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          const SizedBox(height: 20),
-                          SizedBox(
-                            height: 130,
-                            child: LottiePlayer(
-                              assetPath: AppLottie.checkInCheck2,
-                              speed: 0.5, // 50% más lento
-                              repeat: true,
+        body: Stack(
+          children: [
+            Positioned.fill(child: Container(
+              color: state.color,
+            )),
+            Positioned.fill(child: Container(
+              color: Colors.black.withOpacity(0.1),
+            )),
+            Padding(
+              padding: const EdgeInsets.all(24.0),
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  return SingleChildScrollView(
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                      child: IntrinsicHeight(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            const SizedBox(height: 20),
+                            SizedBox(
+                              height: 130,
+                              child: LottiePlayer(
+                                assetPath: AppLottie.checkInCheck2,
+                                speed: 0.5,
+                                repeat: true,
+                              ),
                             ),
-                          ),
-                          const Text(
-                            "Registro exitoso",
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white70,
+                            const Text(
+                              "Registro exitoso",
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.white70,
+                              ),
                             ),
-                          ),
-                          const SizedBox(height: 12),
-                          Text(
-                            state.fullName??"",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
+                            const SizedBox(height: 12),
+                            Text(
+                              state.fullName ?? "",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
                                 fontSize: 26,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
-                                fontFamily: AppFont.fontTwo
+                                fontFamily: AppFont.fontTwo,
+                              ),
                             ),
-                          ),
-                          const SizedBox(height: 12),
-                          Text(
-                            formatDateTimeManual(state.checkInTime),
-                            style: TextStyle(fontSize: 16, color: Colors.white),
-                          ),
-                          const SizedBox(height: 24),
-                          Text(
-                            state.action??"",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
+                            const SizedBox(height: 12),
+                            Text(
+                              formatDateTimeManual(state.checkInTime),
+                              style: const TextStyle(fontSize: 16, color: Colors.white),
+                            ),
+                            const SizedBox(height: 24),
+                            Text(
+                              state.action ?? "",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
                                 fontSize: 32,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
-                                fontFamily: AppFont.fontTwo
+                                fontFamily: AppFont.fontTwo,
+                              ),
                             ),
-                          ),
-                          Text(
-                            state.semiPlenaryTitle??"",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
+                            Text(
+                              state.semiPlenaryTitle ?? "",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
                                 fontSize: 48,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
-                                fontFamily: AppFont.fontTwo
+                                fontFamily: AppFont.fontTwo,
+                              ),
                             ),
-                          ),
-                          Text(
-                            state.semiPlenaryTime??"",
-                            style: TextStyle(fontSize: 24, color: Colors.white),
-                          ),
-                          const SizedBox(height: 24),
-                          Text(
-                            state.message??"",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 16, color: Colors.white70),
-                          ),
-                          const Spacer(),
-                          ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: AppColor.blue,
-                              minimumSize: const Size(double.infinity, 48),
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                            Text(
+                              state.semiPlenaryTime ?? "",
+                              style: const TextStyle(fontSize: 24, color: Colors.white),
                             ),
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: const Text("Salir, si ya se registro mi asistencia", style: TextStyle(
-                                color: Colors.white
-                            ),),
-                          ),
-                          const SizedBox(height: 12),
-                          /*TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      "No cerrar hasta que se registre.",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.white70),
-                    ),
-                  ),*/
-                        ],
+                            const SizedBox(height: 24),
+                            Text(
+                              state.message ?? "",
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(fontSize: 16, color: Colors.white70),
+                            ),
+                            const Spacer(),
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: AppColor.blue,
+                                minimumSize: const Size(double.infinity, 48),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                              ),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: const Text(
+                                "Salir, si ya se registró mi asistencia",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                            const SizedBox(height: 24),
+                          ],
+                        ),
                       ),
-                    )
-                  ],
-                )),
+                    ),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       );

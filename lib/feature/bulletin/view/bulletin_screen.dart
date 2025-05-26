@@ -8,7 +8,12 @@ import 'package:jamt/extensions/extensions.dart';
 import 'package:jamt/feature/bulletin/bloc/bulletin_bloc.dart';
 import 'package:jamt/widget/progress_status.dart';
 import 'package:jamt/widget/rich_text_from_html_lite.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'dart:io';
+import 'package:http/http.dart' as http;
+import 'package:path_provider/path_provider.dart';
+import 'package:path/path.dart' as path;
 
 class BulletinScreen extends StatelessWidget {
   const BulletinScreen({super.key});
@@ -297,6 +302,37 @@ class NotificationItem extends StatelessWidget {
                   fontFamily: AppFont.font,
                 ),
               ),
+              const SizedBox(height: 12),
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton.icon(
+                  onPressed: () async {
+                    final contentToShare = _buildShareText(dateTime, message );
+                    if((imageUrl ?? "").isNotEmpty){
+                      final file = await _downloadAndSaveImage(imageUrl!);
+                      final shareParams = ShareParams(
+                        text: contentToShare,
+                        files: [XFile(file.path)],
+                      );
+                      SharePlus.instance.share(shareParams);
+                    }else {
+                      final shareParams = ShareParams(
+                        text: contentToShare,
+                        subject: "Notificación de Living Worship",
+                      );
+                      SharePlus.instance.share(shareParams);
+                    }
+
+                  },
+                  icon: const Icon(Icons.share, size: 18),
+                  label: const Text("Compartir"),
+                  style: TextButton.styleFrom(
+                    foregroundColor: AppColor.blueLight,
+                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    textStyle: const TextStyle(fontSize: 14),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -332,4 +368,56 @@ class NotificationItem extends StatelessWidget {
     final time = "${dt.hour.toString().padLeft(2, '0')}:${dt.minute.toString().padLeft(2, '0')}";
     return "$date • $time";
   }
+
+  String _buildShareText(DateTime? dateTime, String message) {
+    final dateText = dateTime != null ? "🗓 ${_formatDateTime(dateTime)}\n\n" : "";
+    return "$dateText📣 $message";
+  }
+
+  Future<File> _downloadAndSaveImage(String imageUrl) async {
+    final response = await http.get(Uri.parse(imageUrl));
+    if (response.statusCode != 200) {
+      throw Exception('No se pudo descargar la imagen');
+    }
+
+    final tempDir = await getTemporaryDirectory();
+    final fileName = path.basename(imageUrl); // nombre del archivo extraído de la URL
+    final filePath = path.join(tempDir.path, fileName);
+    final file = File(filePath);
+
+    await file.writeAsBytes(response.bodyBytes);
+    return file;
+  }
+
+  String htmlLiteToShareText(String html) {
+    // Reemplazos básicos
+    String text = html;
+
+    // Negrita <b> → *texto*
+    text = text.replaceAllMapped(RegExp(r"<b>(.*?)<\/b>", dotAll: true), (match) {
+      return "*${match.group(1)}*";
+    });
+
+    // Enlaces <a href='...'> → texto (url)
+    text = text.replaceAllMapped(
+        RegExp(r"<a\s+href='([^']+)'>(.*?)<\/a>", dotAll: true),
+            (match) => "${match.group(2)}\n${match.group(1)}"
+    );
+
+    // Listas <li> → • texto
+    text = text.replaceAllMapped(RegExp(r"<li>(.*?)<\/li>", dotAll: true),  (match) => "• ${match.group(1)}");
+
+    // Párrafos <p> → salto de línea
+    text = text.replaceAll(RegExp(r"<\/?p>", dotAll: true), "\n");
+
+    // Quitar <ul> si existe
+    text = text.replaceAll(RegExp(r"<\/?ul>", dotAll: true), "");
+
+    // Limpieza final
+    text = text.replaceAll(RegExp(r"<[^>]+>"), ""); // Quitar etiquetas restantes
+    text = text.replaceAll(RegExp(r"\n{3,}"), "\n\n"); // Evitar múltiples saltos
+
+    return text.trim();
+  }
+
 }
