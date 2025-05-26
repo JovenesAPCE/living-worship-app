@@ -23,10 +23,14 @@ class CheckOutScreen extends StatelessWidget {
             Positioned.fill(child: Container(color: state.color)),
             Positioned.fill(child: Container(color: Colors.black.withOpacity(0.1))),
             Padding(
-              padding: const EdgeInsets.all(24.0),
+              padding: const EdgeInsets.all(0.0),
               child: LayoutBuilder(
                 builder: (context, constraints) {
                   return SingleChildScrollView(
+                    padding: const EdgeInsets.only(
+                      left: 24,
+                      right: 24
+                    ),
                     child: ConstrainedBox(
                       constraints: BoxConstraints(minHeight: constraints.maxHeight),
                       child: IntrinsicHeight(
@@ -93,6 +97,7 @@ class CheckOutScreen extends StatelessWidget {
                               style: TextStyle(fontSize: 16, color: Colors.white70),
                             ),
                             const Spacer(),
+                            const SizedBox(height: 16),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: AppColor.blue,
@@ -106,7 +111,7 @@ class CheckOutScreen extends StatelessWidget {
                               },
                               child: const Text("Cerrar", style: TextStyle(color: Colors.white)),
                             ),
-                            const SizedBox(height: 38),
+                            Padding(padding: EdgeInsets.all(20)),
                           ],
                         ),
                       ),

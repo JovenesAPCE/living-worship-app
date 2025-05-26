@@ -212,7 +212,7 @@ class CheckInScreen extends StatelessWidget {
                                 Navigator.of(context).pop();
                               },
                               child: const Text(
-                                "Salir, si ya se registró mi asistencia",
+                                "Salir, ingreso registrado",
                                 style: TextStyle(color: Colors.white),
                               ),
                             ),

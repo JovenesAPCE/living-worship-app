@@ -302,7 +302,7 @@ class NotificationItem extends StatelessWidget {
                   fontFamily: AppFont.font,
                 ),
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 6),
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton.icon(
@@ -324,8 +324,12 @@ class NotificationItem extends StatelessWidget {
                     }
 
                   },
-                  icon: const Icon(Icons.share, size: 18),
-                  label: const Text("Compartir"),
+                  icon: const Icon(Icons.share, size: 10),
+                  label: Text("Compartir", style: TextStyle(
+                    fontSize: 10,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: AppFont.fontTwo
+                  ),),
                   style: TextButton.styleFrom(
                     foregroundColor: AppColor.blueLight,
                     padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -370,8 +374,7 @@ class NotificationItem extends StatelessWidget {
   }
 
   String _buildShareText(DateTime? dateTime, String message) {
-    final dateText = dateTime != null ? "🗓 ${_formatDateTime(dateTime)}\n\n" : "";
-    return "$dateText📣 $message";
+    return htmlLiteToShareText(message);
   }
 
   Future<File> _downloadAndSaveImage(String imageUrl) async {
