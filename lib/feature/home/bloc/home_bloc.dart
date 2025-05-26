@@ -45,7 +45,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
     final imageByTitle = {
       for (final entry in allCards.entries)
-        entry.key: (entry.value.length == 1 || random.nextDouble() < 0.7)
+        entry.key: (entry.value.length == 1 || random.nextDouble() < 0.5)
             ? entry.value.first
             : entry.value[random.nextInt(entry.value.length)]
     };
