@@ -11,6 +11,8 @@ class NavigationState extends Equatable {
       Destination.tabHome,
       Destination.qrScan,
       Destination.profile,
+      Destination.mana,
+      Destination.updateUserDate,
       Destination.logout,
     ],
     this.notificationReceived = const Notification()

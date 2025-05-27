@@ -216,6 +216,10 @@ class _AppViewState extends State<AppView> {
                     break;
                   case Destination.event:
                     break;
+                  case Destination.mana:
+                    break;
+                  case Destination.updateUserDate:
+                    break;
                 }
               case AuthStatus.unauthenticated:
                 _navigator.pushAndRemoveUntil<void>(

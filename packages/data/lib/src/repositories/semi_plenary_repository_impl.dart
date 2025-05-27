@@ -90,10 +90,6 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
         msgDisable = result.value as String?;
       }
 
-      if((msgDisable??"").isNotEmpty){
-        return Left(DisableRegisterSemiPlenary(message: msgDisable??""));
-      }
-
       final DatabaseReference ref = FirebaseDatabase.instance.ref("${ConstFirebase.eventPath}/${ConstFirebase.plenaryPath}");
       final DataSnapshot snapshot = await ref.get();
       if (snapshot.exists && snapshot.value is Map) {
@@ -148,7 +144,12 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
       } else {
         await HiveService.registerSemiPlenaryTableBox.clear();
       }
-      return Right(null);
+      if((msgDisable??"").isNotEmpty){
+        return Left(DisableRegisterSemiPlenary(message: msgDisable??""));
+      }else{
+        return Right(null);
+      }
+
     }catch(e){
       if (e is FirebaseException && e.code == 'unavailable') {
         return Left(NoInternetRegisterSemiPlenary());
