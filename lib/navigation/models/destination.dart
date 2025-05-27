@@ -15,7 +15,7 @@ enum Destination {
   event(Icons.tour, 'Trivia'),
   map(AppIcon.map, 'Mapa'),
   menu(Icons.menu, 'Menú'),
-  mana(AppIcon.mana, 'Suscripción Maná 2026'),
+  mana(AppIcon.library_icon, 'Suscripción Maná 2026'),
   updateUserDate(AppIcon.user_edit, 'Actualizar datos de feligresía'),
   logout(Icons.logout, 'Cerrar Sesion');
 

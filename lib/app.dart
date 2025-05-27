@@ -217,8 +217,10 @@ class _AppViewState extends State<AppView> {
                   case Destination.event:
                     break;
                   case Destination.mana:
+                    openSmartUrl(AppUrl.manaPath);
                     break;
                   case Destination.updateUserDate:
+                    openSmartUrl(AppUrl.updateUserAsd7);
                     break;
                 }
               case AuthStatus.unauthenticated:

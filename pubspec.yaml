@@ -175,7 +175,7 @@ flutter:
         - asset: assets/fonts/icon_home/Home.ttf
     - family: Home23
       fonts:
-        - asset: assets/fonts/icon_home/Home23.ttf
+        - asset: assets/fonts/icon_home/App.ttf
     - family: FjallaOne
       fonts:
         - asset: assets/fonts/FjallaOne-Regular.ttf

@@ -21,6 +21,7 @@ class AppIcon {
   static const IconData right_open_big = IconData(0xe802, fontFamily: _kFontFam2, fontPackage: _kFontPkg2);
   static const IconData left_open_big = IconData(0xe803, fontFamily: _kFontFam2, fontPackage: _kFontPkg2);
   static const IconData mana = IconData(0xe804, fontFamily: _kFontFam2, fontPackage: _kFontPkg2);
+  static const IconData library_icon = IconData(0xe823, fontFamily: _kFontFam2, fontPackage: _kFontPkg2);
   static const IconData hand = IconData(0xe9f1, fontFamily: _kFontFam2, fontPackage: _kFontPkg2);
   static const IconData child = IconData(0xf1ae, fontFamily: _kFontFam2, fontPackage: _kFontPkg2);
   static const IconData whatsapp = IconData(0xf232, fontFamily: _kFontFam2, fontPackage: _kFontPkg2);
