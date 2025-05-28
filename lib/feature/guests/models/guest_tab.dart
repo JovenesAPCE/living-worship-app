@@ -11,4 +11,13 @@ final class GuestTab extends Equatable {
   @override
   List<Object?> get props => [title, guests];
 
+  GuestTab copyWith({
+    String? title,
+    List<GuestCard>? guests,
+  }) {
+    return GuestTab(
+      title: title ?? this.title,
+      guests: guests ?? this.guests,
+    );
+  }
 }

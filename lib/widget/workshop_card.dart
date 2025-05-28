@@ -49,8 +49,15 @@ class WorkshopCard extends StatelessWidget {
               ),
               const SizedBox(height: 4),
               Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Icon(Icons.book, size: 16, color: Colors.black),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: 3
+                    ),
+                    child: Icon(Icons.book, size: 16, color: Colors.black),
+                  ),
                   const SizedBox(width: 4),
                   Expanded(
                     child: Text(

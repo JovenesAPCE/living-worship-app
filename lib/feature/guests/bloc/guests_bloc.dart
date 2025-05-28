@@ -9,6 +9,26 @@ part 'guests_state.dart';
 class GuestsBloc extends Bloc<GuestsEvent, GuestsState> {
   GuestsBloc() : super(GuestsState()) {
     on<TabSelected>(_onTabSelected);
+    on<GuestsSelected>(_onGuestsSelected);
+  }
+
+  void _onGuestsSelected(GuestsSelected event,  Emitter<GuestsState> emit) {
+    final updatedTabs = state.tabs.map((tab) {
+      final updatedGuests = tab.guests.map((guest) {
+        if (guest == event.guestCard) {
+          // Cambia el valor de selectCard (toggle)
+          return guest.copyWith(selectCard: !guest.selectCard);
+        }
+        return guest;
+      }).toList();
+
+      return tab.copyWith(guests: updatedGuests);
+    }).toList();
+    emit(
+      state.copyWith(
+        tabs: updatedTabs
+      )
+    );
   }
 
   void _onTabSelected(TabSelected event,  Emitter<GuestsState> emit) {

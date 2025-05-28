@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jamt/constants/constants.dart';
 import 'package:jamt/feature/guests/guests.dart';
 import 'package:jamt/constants/constants.dart';
+import 'package:jamt/widget/rich_text_from_html_lite.dart';
 
 class GuestsScreen extends StatelessWidget {
   const GuestsScreen({super.key});
@@ -128,23 +129,99 @@ class GuestsScreen extends StatelessWidget {
                                 ),
                                 ...List.generate(state.tabs[state.selectedIndex].guests.length, (index) {
                                   var guest = state.tabs[state.selectedIndex].guests[index];
-                                  return ListTile(
-                                    leading: Container(
-                                      width: 60,
-                                      height: 60,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white60,
-                                        borderRadius: BorderRadius.all(Radius.circular(8))
+                                  return Column(
+                                    children: [
+                                      GestureDetector(
+                                        onTap: (){
+                                          context.read<GuestsBloc>().add(GuestsSelected(guest));
+                                        },
+                                        child: ListTile(
+                                          leading: Container(
+                                            width: 60,
+                                            height: 60,
+                                            decoration: BoxDecoration(
+                                                color: Colors.white60,
+                                                borderRadius: BorderRadius.all(Radius.circular(8))
+                                            ),
+                                            child: ClipRRect(
+                                              borderRadius: BorderRadius.circular(8),
+                                              child: Image.asset(guest.image, fit: BoxFit.cover),
+                                            ),
+                                          ),
+                                          title: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Expanded(child: Text(guest.name, style: const TextStyle(fontWeight: FontWeight.bold, fontFamily: AppFont.fontTwo)),),
+                                                  if(guest.review.isNotEmpty)
+                                                  Padding(
+                                                    padding: EdgeInsets.only(
+                                                        top: 4
+                                                    ),
+                                                    child: Icon(Icons.add, size: 16, color: Colors.black),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                          subtitle: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              guest.schedule.isNotEmpty? Text(guest.schedule):Container(),
+                                              if(guest.issue.isNotEmpty)
+                                              const SizedBox(height: 8),
+                                              if(guest.issue.isNotEmpty)
+                                              Row(
+                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  Padding(
+                                                    padding: EdgeInsets.only(
+                                                        top: 3
+                                                    ),
+                                                    child: Icon(Icons.book, size: 12, color: Colors.black),
+                                                  ),
+                                                  const SizedBox(width: 2),
+                                                  Expanded(
+                                                    child: Text(
+                                                      'Tema: ${guest.issue}',
+                                                      style: const TextStyle(fontSize: 13, color: Colors.black),
+                                                    ),
+                                                  ),
+                                                  const SizedBox(width: 2),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                          contentPadding: const EdgeInsets.only(left: 16, right: 16, top: 8),
+                                        )
                                       ),
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(8),
-                                        child: Image.asset(guest.image, fit: BoxFit.cover),
+                                      if(guest.review.isNotEmpty)
+                                      AnimatedSize(
+                                        duration: const Duration(milliseconds: 200),
+                                        curve: Curves.easeInOut,
+                                        child: guest.selectCard
+                                            ? Container(
+                                          padding: const EdgeInsets.only(top: 0, left: 4, bottom: 16),
+                                          child: RichTextFromHtmlLite(guest.review,
+                                            currentStyle: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 13,
+                                                height: 1.9,
+                                                fontFamily: AppFont.font,
+                                                fontWeight: FontWeight.w500
+                                            ),
+                                            onTapLink: (href){
+
+                                            },
+                                          ),
+                                        )
+                                            : const SizedBox.shrink(),
                                       ),
-                                    ),
-                                    title: Text(guest.name, style: const TextStyle(fontWeight: FontWeight.bold)),
-                                    subtitle: guest.schedule.isNotEmpty? Text(guest.schedule):null,
-                                    contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                                    ],
                                   );
+
                                 })
                               ],
                             ),

@@ -15,3 +15,13 @@ final class TabSelected extends GuestsEvent {
   List<Object> get props => [selectedIndex];
 
 }
+
+final class GuestsSelected extends GuestsEvent {
+  const GuestsSelected(this.guestCard);
+
+  final GuestCard guestCard;
+
+  @override
+  List<Object> get props => [guestCard];
+
+}
