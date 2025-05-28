@@ -32,11 +32,14 @@ class TabHomeBloc extends Bloc<TabHomeEvent, TabHomeState> {
   void _onDestinationSelected(
       DestinationSelected event,
       Emitter<TabHomeState> emit
-      ){
-    emit(
-      state.copyWith(
-        destination: event.destination
-      )
-    );
+      ) async {
+      emit(
+        state.copyWith(
+          destination: event.destination
+        ));
+      if(event.destination == TabDestination.bulletin){
+        String toke = await _subscribeNotificationUseCase.call();
+        emit(state.copyWith(notification: toke.isNotEmpty));
+      }
   }
 }
