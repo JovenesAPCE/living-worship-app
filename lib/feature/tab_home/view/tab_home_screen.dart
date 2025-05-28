@@ -14,6 +14,7 @@ import 'package:jamt/feature/home/home.dart';
 import 'package:jamt/feature/guide/guide.dart';
 import 'package:jamt/feature/schedule/schedule.dart';
 import 'package:jamt/feature/map/map.dart';
+import 'package:jamt/navigation/bloc/navigation_bloc.dart';
 import 'package:jamt/widget/widget.dart';
 import 'package:jamt/feature/event/event.dart';
 import 'package:jamt/feature/guests/guests.dart';
@@ -57,7 +58,9 @@ class _HomeState extends State<TabHomeScreen> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return BlocListener<TabHomeBloc, TabHomeState>(
       listener: (context, state) {
-
+        if(state.notification){
+          context.read<NavigationBloc>().add(OnInitNotification());
+        }
       },
       child:  Scaffold(
         drawer: const HomeDrawer(),

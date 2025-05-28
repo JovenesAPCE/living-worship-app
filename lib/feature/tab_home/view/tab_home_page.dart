@@ -22,6 +22,9 @@ class TabHomePage extends StatelessWidget {
         create: (context) => TabHomeBloc(
           subscribeNotificationUseCase: SubscribeNotificationUseCase(
               context.read<NotificationRepository>()
+          ),
+          logScreeUseCase: LogScreenUseCase(
+            context.read<AnalyticsRepository>()
           )
         )..add(OnInitTabHome()),
         child:  TabHomeScreen()

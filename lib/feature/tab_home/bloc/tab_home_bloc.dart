@@ -11,8 +11,10 @@ part 'tab_home_state.dart';
 
 class TabHomeBloc extends Bloc<TabHomeEvent, TabHomeState> {
   TabHomeBloc({
-    required SubscribeNotificationUseCase subscribeNotificationUseCase
+    required SubscribeNotificationUseCase subscribeNotificationUseCase,
+    required LogScreenUseCase logScreeUseCase
 }) : _subscribeNotificationUseCase = subscribeNotificationUseCase,
+        _logScreeUseCase = logScreeUseCase,
         super(TabHomeState()) {
     on<DestinationSelected>(_onDestinationSelected);
     on<OnInitTabHome>(_onIntTabHome);
@@ -20,6 +22,7 @@ class TabHomeBloc extends Bloc<TabHomeEvent, TabHomeState> {
   }
 
   final  SubscribeNotificationUseCase _subscribeNotificationUseCase;
+  final LogScreenUseCase _logScreeUseCase;
   bool _onInit = false;
   void _onIntTabHome(
       OnInitTabHome event,
@@ -48,6 +51,7 @@ class TabHomeBloc extends Bloc<TabHomeEvent, TabHomeState> {
         state.copyWith(
           destination: event.destination
         ));
+      _logScreeUseCase.call(event.destination.name, "TabHomeBloc");
       if(event.destination == TabDestination.bulletin){
         String toke = await _subscribeNotificationUseCase.call();
         emit(state.copyWith(notification: toke.isNotEmpty));

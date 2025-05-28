@@ -67,6 +67,9 @@ class LoginPage extends StatelessWidget {
                 logIn: LogInUseCase(
                     context.read<AuthenticationRepository>()
                 ),
+                configUserUseCase: ConfigUserUseCase(
+                    context.read<AnalyticsRepository>()
+                )
               )..add(IntLogin()),
               child: const LoginForm(),
             ),

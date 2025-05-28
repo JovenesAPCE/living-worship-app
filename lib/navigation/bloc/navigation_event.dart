@@ -24,3 +24,7 @@ final class OnTapNotification extends NavigationEvent {
   const OnTapNotification();
 }
 
+final class OnInitNotification extends NavigationEvent {
+
+  const OnInitNotification();
+}

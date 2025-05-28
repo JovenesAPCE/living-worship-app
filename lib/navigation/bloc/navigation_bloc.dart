@@ -31,6 +31,7 @@ class NavigationBloc
     on<AuthenticationLogoutPressed>(_onLogoutPressed);
     on<NavigationPressed>(_onNavigationPressed);
     on<OnTapNotification>(_onNavigateToFromNotification);
+    on<OnInitNotification>(_onInitNotification);
   }
 
   final GetAuthStatusUseCase _getAuthStatus;
@@ -38,17 +39,30 @@ class NavigationBloc
   final GetUserUseCase _getUserUseCase;
   final GetQrStatusUseCase _getQrStatusUseCase;
   final WasOpenNotificationUseCase _wasOpenNotificationUseCase;
-  final  NotificationReceivedUseCase _notificationReceivedUseCase;
+  final NotificationReceivedUseCase _notificationReceivedUseCase;
   final UnsubscribeNotificationUseCase _unsubscribeNotificationUseCase;
+
+  bool _initNotification = false;
+
+  Future<void> _onInitNotification(
+      OnInitNotification event,
+      Emitter<NavigationState> emit,
+      ) async {
+    if (!_initNotification) {
+      await emit.onEach(
+        _notificationReceivedUseCase.call(),
+        onData: (notification) {
+          emit(state.copyWith(notificationReceived: notification));
+        },
+      );
+      _initNotification = true;
+    }
+  }
+
   Future<void> _onSubscriptionRequested(
       AuthenticationSubscriptionRequested event,
       Emitter<NavigationState> emit,
       ) {
-
-   /* emit.onEach(_notificationReceivedUseCase.call(),
-        onData: (notification){
-          emit(state.copyWith(notificationReceived: notification));
-        });*/
 
     emit.onEach(
         _getQrStatusUseCase.call(),

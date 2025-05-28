@@ -22,3 +22,5 @@ export 'notification/was_open_notification_usecase.dart';
 export 'notification/notification_received_usecase.dart';
 export 'notification/unsubscribe_notification_usecase.dart';
 export 'notification/subscribe_notification_usecase.dart';
+export 'analytics/config_user_usecase.dart';
+export 'analytics/log_screen_usecase.dart';

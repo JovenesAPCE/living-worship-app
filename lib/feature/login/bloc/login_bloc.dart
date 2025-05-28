@@ -10,7 +10,9 @@ part 'login_state.dart';
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc({
     required LogInUseCase logIn,
+    required ConfigUserUseCase configUserUseCase,
   })  : _logIn = logIn,
+        _configUserUseCase = configUserUseCase,
         super(const LoginState()) {
     on<LoginUsernameChanged>(_onUsernameChanged);
     on<LoginBirthYearChanged>(_onPasswordChanged);
@@ -19,6 +21,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
   final LogInUseCase _logIn;
+  final ConfigUserUseCase  _configUserUseCase;
 
   void _onIntLogin(
       IntLogin event,
@@ -71,7 +74,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       emit(state.copyWith(
           progress: true,
           loginToast: LoginToast.hide()));
-
       var result = await _logIn.call(state.username.value, state.birthYear.value,);
       result.fold(
               (failure) => {
@@ -93,12 +95,13 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
                   loginToast: LoginToast.show( "Error inesperado")))
             }
           },
-              (right) => {
-            emit(state.copyWith(
-                progress: false,
-                loginToast: LoginToast.hide()
-            ))
-          });
+              (right) {
+                emit(state.copyWith(
+                    progress: false,
+                    loginToast: LoginToast.hide()
+                ));
+                _configUserUseCase.call(state.username.value,  state.birthYear.value);
+              });
     }
   }
 }

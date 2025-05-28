@@ -5,7 +5,6 @@ import 'package:domain/domain.dart';
 import 'package:entities/entities.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:firebase_database/firebase_database.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:uuid/uuid.dart';
 import '../data_sources/data_sources.dart';
 
@@ -13,7 +12,6 @@ import '../data_sources/data_sources.dart';
 class AuthenticationRepositoryImpl extends AuthenticationRepository {
   final _controller = StreamController<AuthStatus>();
   final DatabaseReference _dbRef = FirebaseDatabase.instance.ref();
-  //final FirebaseAnalytics _analytics = FirebaseAnalytics.instance;
 
   AuthenticationRepositoryImpl();
 
@@ -48,8 +46,7 @@ class AuthenticationRepositoryImpl extends AuthenticationRepository {
       final user = Map<String, dynamic>.from(userSnapshot.value as Map);
       if (user['year'].toString() == year) {
 
-        //await _analytics.setUserId(id: document);
-        //await _analytics.setUserProperty(name: 'nombre', value: user['name'] ?? '');
+
 
         await signUpOrLogin(document, year);
 
