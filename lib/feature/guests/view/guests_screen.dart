@@ -219,10 +219,13 @@ class GuestsScreen extends StatelessWidget {
                                         )
                                             : const SizedBox.shrink(),
                                       ),
+                                      Padding(padding: EdgeInsets.only(bottom: 6)),
                                     ],
                                   );
 
-                                })
+                                }),
+
+                                Padding(padding: EdgeInsets.only(bottom: 20)),
                               ],
                             ),
                           ),
