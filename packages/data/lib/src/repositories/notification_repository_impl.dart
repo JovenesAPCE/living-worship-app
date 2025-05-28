@@ -95,7 +95,10 @@ class NotificationRepositoryImpl extends NotificationRepository{
         settings = await FirebaseMessaging.instance.requestPermission();
         disabled = true;
       }
-      fcmToken = await FirebaseMessaging.instance.getToken()??"";
+      if(settings.authorizationStatus == AuthorizationStatus.provisional||settings.authorizationStatus == AuthorizationStatus.authorized){
+        fcmToken = await FirebaseMessaging.instance.getToken()??"";
+      }
+
       if(disabled && fcmToken.isNotEmpty){
         await _dbRef.child('${ConstFirebase.eventPath}/${ConstFirebase.sessionPath}/${auth.FirebaseAuth.instance.currentUser?.uid}')
             .update({
