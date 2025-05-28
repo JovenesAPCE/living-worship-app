@@ -226,13 +226,13 @@ class GuestsScreen extends StatelessWidget {
                               ],
                             ),
                           ),
-                          Padding(padding: EdgeInsets.only(bottom: 250)),
+
                         ],
                       )
-                  )
+                  ),
                 ],
               ),
-              Padding(padding: EdgeInsets.only(bottom: 50))
+              Padding(padding: EdgeInsets.only(bottom: 250)),
             ],
           );
         });
