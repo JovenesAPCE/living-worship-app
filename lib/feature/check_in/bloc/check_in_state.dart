@@ -12,19 +12,7 @@ class CheckInState extends Equatable{
   final String? message;
   final bool hasRegister;
   final Color color;
-
-  const CheckInState({
-    this.progress = false,
-    this.isSuccess = false,
-    this.fullName,
-    this.checkInTime,
-    this.action,
-    this.semiPlenaryTitle,
-    this.semiPlenaryTime,
-    this.message,
-    this.hasRegister = false,
-    this.color = Colors.black
-  });
+  final bool copy;
 
 
 
@@ -42,6 +30,20 @@ class CheckInState extends Equatable{
     color
   ];
 
+  const CheckInState({
+    this.progress = false,
+    this.isSuccess = false,
+    this.fullName,
+    this.checkInTime,
+    this.action,
+    this.semiPlenaryTitle,
+    this.semiPlenaryTime,
+    this.message,
+    this.hasRegister = false,
+    this.color = Colors.black,
+    this.copy = false,
+  });
+
   CheckInState copyWith({
     bool? progress,
     bool? isSuccess,
@@ -53,6 +55,7 @@ class CheckInState extends Equatable{
     String? message,
     bool? hasRegister,
     Color? color,
+    bool? copy,
   }) {
     return CheckInState(
       progress: progress ?? this.progress,
@@ -65,6 +68,8 @@ class CheckInState extends Equatable{
       message: message ?? this.message,
       hasRegister: hasRegister ?? this.hasRegister,
       color: color ?? this.color,
+      copy: copy ?? this.copy,
     );
   }
+
 }

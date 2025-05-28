@@ -27,6 +27,7 @@ class CheckInBloc extends Bloc<CheckInEvent, CheckInState> {
     },(success){
      print("checkInTime: ${success.checkInTime}");
       emit(state.copyWith(
+        copy: success.copy,
         hasRegister: success.hasRegister,
         progress: false,
         isSuccess: true,
@@ -36,7 +37,7 @@ class CheckInBloc extends Bloc<CheckInEvent, CheckInState> {
         semiPlenaryTitle: success.semiPlenaryTitle,
         semiPlenaryTime: success.semiPlenaryTime,
         message: "Gracias por escanear\nTe registraste con éxito",
-        color: hexToColor(success.color)
+        color: hexToColor(success.color,)
       ));
     });
   }

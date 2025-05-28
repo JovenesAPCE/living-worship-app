@@ -7,11 +7,12 @@ class QrStateSemiPlenary {
   String? semiPlenaryTime;
   String semiPlenaryId;
   String? color;
+  bool? copy;
 
   QrStateSemiPlenary({
     this.hasRegister, this.userName, required this.userNumber,
     this.checkInTime, this.semiPlenaryTitle, this.semiPlenaryTime,
-    required this.semiPlenaryId, this.color});
+    required this.semiPlenaryId, this.color, this.copy});
 
   QrStateSemiPlenary copyWith({
     bool? hasRegister,
@@ -22,6 +23,7 @@ class QrStateSemiPlenary {
     String? semiPlenaryTime,
     String? semiPlenaryId,
     String? color,
+    bool? copy
   }) {
     return QrStateSemiPlenary(
       hasRegister: hasRegister ?? this.hasRegister,
@@ -32,6 +34,7 @@ class QrStateSemiPlenary {
       semiPlenaryTime: semiPlenaryTime ?? this.semiPlenaryTime,
       semiPlenaryId: semiPlenaryId ?? this.semiPlenaryId,
       color: color ?? this.color,
+      copy: copy ?? this.copy
     );
   }
 

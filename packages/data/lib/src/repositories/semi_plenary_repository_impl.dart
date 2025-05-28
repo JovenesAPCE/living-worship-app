@@ -405,6 +405,7 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
         title:  plenaryData['title'],
         time: plenaryData['time'],
         timestamp: checkTimestamp,
+        copy: false,
         qrState: QrState(
             status: QrStatus.checkIn,
             data: qRData),
@@ -513,7 +514,10 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
         userName: user?.name,
         checkInTime: _qrCheckInShared?.timestamp,
         color: _qrCheckInShared?.color,
-        hasRegister: _qrCheckInShared?.hasRegister));
+        hasRegister: _qrCheckInShared?.hasRegister,
+        copy: _qrCheckInShared?.copy
+
+    ));
   }
 
   Future<DateTime> getDateUTCGlobal() async {
@@ -548,7 +552,7 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
   Future<Either<RegisterSemiPlenaryFailure, void>> registerSemiPlenaryCheckOut(QRData qRData)  => registerSemiPlenaryCheck(qRData, false);
 
   @override
-  Future<void> showCheckIn(String semiPlenary) async{
+  Future<void> showCheckIn(String semiPlenary, bool copy) async{
     final user = HiveService.userBox.values.cast<UserTable?>().firstOrNull;
     var plenaryData = HiveService.semiPlenaryBox.get(semiPlenary);
     var register = HiveService.registerSemiPlenaryTableBox.get("${semiPlenary}_${user?.document}");
@@ -561,6 +565,7 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
         title:  plenaryData?.title,
         time: plenaryData?.time,
         timestamp: register?.checkInTimestamp,
+        copy: copy,
         qrState: QrState(
             status: QrStatus.checkIn,
             data: QRData(
@@ -576,7 +581,7 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
   }
 
   @override
-  Future<void> showCheckOut(String semiPlenary) async {
+  Future<void> showCheckOut(String semiPlenary, bool copy) async {
     final user = HiveService.userBox.values.cast<UserTable?>().firstOrNull;
     var plenaryData = HiveService.semiPlenaryBox.get(semiPlenary);
 
@@ -591,6 +596,7 @@ class SemiPlenaryRepositoryImpl extends SemiPlenaryRepository {
         title:  plenaryData?.title,
         time: plenaryData?.time,
         timestamp: register?.checkInTimestamp,
+        copy: copy,
         qrState: QrState(
             status: QrStatus.checkIn,
             data: QRData(
@@ -620,8 +626,9 @@ class QRCheckInRepositoryImpl {
   bool hasRegister;
   QrState qrState;
   String? topic;
+  bool copy;
   QRCheckInRepositoryImpl({required this.semiPlenaryId, this.color, this.group,
-    this.speaker, this.time, this.topic, this.title, required this.hasRegister, required this.qrState, this.timestamp});
+    this.speaker, this.time, this.topic, this.title, required this.hasRegister, required this.qrState, this.timestamp, required this.copy});
 
   QRCheckInRepositoryImpl copyWith({
     String? semiPlenaryId,
@@ -633,7 +640,8 @@ class QRCheckInRepositoryImpl {
     bool? hasRegister,
     QrState? qrState,
     DateTime? timestamp,
-    String? topic
+    String? topic,
+    bool? copy
   }) {
     return QRCheckInRepositoryImpl(
         semiPlenaryId: semiPlenaryId ?? this.semiPlenaryId,
@@ -645,7 +653,8 @@ class QRCheckInRepositoryImpl {
         qrState: qrState ?? this.qrState,
         hasRegister: hasRegister ?? this.hasRegister,
         timestamp: timestamp?? this.timestamp,
-        topic : topic??this.topic
+        topic : topic??this.topic,
+        copy: copy??this.copy
     );
   }
 

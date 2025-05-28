@@ -120,6 +120,30 @@ class CheckOutScreen extends StatelessWidget {
                 },
               ),
             ),
+            if(state.copy)
+              Positioned(
+                top: 40,
+                left: -100,
+                child: Transform.rotate(
+                  angle: -0.7,
+                  child: Container(
+                    width: 300,
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    color: Colors.red.shade700,
+                    child: const Center(
+                      child: Text(
+                        "   VALIDADO",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 2,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
           ],
         ),
       );

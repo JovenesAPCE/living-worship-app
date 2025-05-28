@@ -35,7 +35,8 @@ class CheckOutBloc extends Bloc<CheckOutEvent, CheckOutState> {
           semiPlenaryTitle: success.semiPlenaryTitle,
           semiPlenaryTime: success.semiPlenaryTime,
           message: "Gracias por escanear\nTe registraste con éxito",
-          color: hexToColor(success.color)
+          color: hexToColor(success.color),
+          copy: success.copy
       ));
     });
   }

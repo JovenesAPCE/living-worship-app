@@ -50,7 +50,7 @@ class SemiPlenaryBloc extends Bloc<SemiPlenaryEvent, SemiPlenaryState> {
 
       await _showCheckOutUseCase.call(SemiPlenary(
         id: event.groupSelected.selected?.id??""
-      ));
+      ), true);
     }
 
   }
@@ -59,7 +59,7 @@ class SemiPlenaryBloc extends Bloc<SemiPlenaryEvent, SemiPlenaryState> {
     if(event.groupSelected.selected != null){
       await _showCheckInUseCase.call(SemiPlenary(
           id: event.groupSelected.selected?.id??""
-      ));
+      ), true);
     }
   }
 

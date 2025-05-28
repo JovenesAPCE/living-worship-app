@@ -6,8 +6,8 @@ class ShowCheckInUseCase {
 
   ShowCheckInUseCase(this._repository);
 
-  Future<void> call(SemiPlenary semiPlenary) {
-    return _repository.showCheckIn(semiPlenary.id);
+  Future<void> call(SemiPlenary semiPlenary, bool copy) {
+    return _repository.showCheckIn(semiPlenary.id, copy);
   }
 
 }

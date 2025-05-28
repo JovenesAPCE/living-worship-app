@@ -12,6 +12,7 @@ class CheckOutState extends Equatable {
   final String? message;
   final bool hasRegister;
   final Color color;
+  final bool copy;
 
   const CheckOutState({
     this.progress = false,
@@ -23,7 +24,8 @@ class CheckOutState extends Equatable {
     this.semiPlenaryTime,
     this.message,
     this.hasRegister = false,
-    this.color = Colors.black
+    this.color = Colors.black,
+    this.copy = false
   });
 
   @override
@@ -51,6 +53,7 @@ class CheckOutState extends Equatable {
     String? message,
     bool? hasRegister,
     Color? color,
+    bool? copy,
   }) {
     return CheckOutState(
       progress: progress ?? this.progress,
@@ -63,6 +66,7 @@ class CheckOutState extends Equatable {
       message: message ?? this.message,
       hasRegister: hasRegister ?? this.hasRegister,
       color: color ?? this.color,
+      copy: copy ?? this.copy
     );
   }
 
