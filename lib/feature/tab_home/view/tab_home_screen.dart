@@ -38,6 +38,7 @@ class _HomeState extends State<TabHomeScreen> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     final destinations = context.read<TabHomeBloc>().state.destinations;
     _navigatorKeys = List.generate(
       destinations.length,
@@ -47,6 +48,7 @@ class _HomeState extends State<TabHomeScreen> with WidgetsBindingObserver {
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _navigatorKeys.clear();
     super.dispose();
   }
