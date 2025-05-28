@@ -81,8 +81,6 @@ class AppView extends StatefulWidget {
 
 class _AppViewState extends State<AppView> {
   final _navigatorKey = GlobalKey<NavigatorState>();
-  String? _fcmToken;
-
 
   NavigatorState get _navigator => _navigatorKey.currentState!;
 
@@ -91,6 +89,7 @@ class _AppViewState extends State<AppView> {
     super.initState();
     init();
   }
+
 
   void init() async {
     debugPrint('initFirebase');
@@ -150,7 +149,6 @@ class _AppViewState extends State<AppView> {
 
               }
             }
-
             var removeStack = !state.initial;
             switch (state.status) {
               case AuthStatus.authenticated:
