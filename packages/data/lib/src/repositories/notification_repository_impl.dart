@@ -89,16 +89,20 @@ class NotificationRepositoryImpl extends NotificationRepository{
     String fcmToken = "";
     try{
       NotificationSettings settings = await FirebaseMessaging.instance.getNotificationSettings();
-
+      bool disabled = false;
       if (settings.authorizationStatus == AuthorizationStatus.notDetermined ||
           settings.authorizationStatus == AuthorizationStatus.denied) {
         settings = await FirebaseMessaging.instance.requestPermission();
+        disabled = true;
       }
       fcmToken = await FirebaseMessaging.instance.getToken()??"";
-      await _dbRef.child('${ConstFirebase.eventPath}/${ConstFirebase.sessionPath}/${auth.FirebaseAuth.instance.currentUser?.uid}')
-          .update({
-        'fcmToken': fcmToken
-      });
+      if(disabled && fcmToken.isNotEmpty){
+        await _dbRef.child('${ConstFirebase.eventPath}/${ConstFirebase.sessionPath}/${auth.FirebaseAuth.instance.currentUser?.uid}')
+            .update({
+          'fcmToken': fcmToken
+        });
+      }
+
     }catch(e, stack){
       FBUtils.tryRecordError(e, stack: stack);
     }
