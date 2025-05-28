@@ -57,7 +57,7 @@ class GuestsState extends Equatable {
 <p>Cuenta con más de cinco años de experiencia clínica y hospitalaria, atendiendo principalmente a niños con trastornos del neurodesarrollo en instituciones públicas y privadas. Ha desarrollado investigaciones sobre neurodivergencia y el desarrollo humano desde una perspectiva integradora entre fe y ciencia.</p>'''
           ),
           GuestCard(
-              name: "Carolyn Azo & Christian Ødegård",
+              name: "Mg. Carolyn Azo & Christian Ødegård",
               schedule: "",
               image: AppImages.guests18,
               issue: 'La inteligencia emocional: el corazón del voluntariado efectivo',
@@ -84,7 +84,7 @@ class GuestsState extends Equatable {
 
 
           GuestCard(
-              name: "Jaime Vilcapoma",
+              name: "Lic. Jaime Vilcapoma",
               schedule: "",
               image: AppImages.guests6, // Reemplaza con asset correcto
               issue: "",
