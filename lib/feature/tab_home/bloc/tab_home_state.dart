@@ -4,6 +4,7 @@ final class TabHomeState extends Equatable {
   const TabHomeState({
     this.progress = false,
     this.destination = TabDestination.home,
+    this.notification = true,
     this.destinations = const [
       TabDestination.guide,
       TabDestination.schedule,
@@ -27,19 +28,22 @@ final class TabHomeState extends Equatable {
   final bool progress;
   final List<TabDestination> destinations;
   final TabDestination destination;
+  final bool notification;
   TabHomeState copyWith({
     bool? progress,
     List<TabDestination>? destinations,
     TabDestination? destination,
     List<TabDestination>? destinationsNavBar,
+    bool? notification
   }) {
     return TabHomeState(
         progress: progress ?? this.progress,
         destinations: destinations ?? this.destinations,
         destination: destination ?? this.destination,
+        notification: notification ?? this.notification
     );
   }
 
   @override
-  List<Object?> get props => [progress, destinations, destination];
+  List<Object?> get props => [progress, destinations, destination, notification];
 }

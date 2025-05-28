@@ -45,10 +45,10 @@ class NavigationBloc
       Emitter<NavigationState> emit,
       ) {
 
-    emit.onEach(_notificationReceivedUseCase.call(),
+   /* emit.onEach(_notificationReceivedUseCase.call(),
         onData: (notification){
           emit(state.copyWith(notificationReceived: notification));
-        });
+        });*/
 
     emit.onEach(
         _getQrStatusUseCase.call(),

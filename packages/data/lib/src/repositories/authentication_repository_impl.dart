@@ -52,16 +52,10 @@ class AuthenticationRepositoryImpl extends AuthenticationRepository {
         //await _analytics.setUserProperty(name: 'nombre', value: user['name'] ?? '');
 
         await signUpOrLogin(document, year);
-        String? fcmToken = "";
-        try{
-          fcmToken  = await FirebaseMessaging.instance.getToken();
-        }catch(e){
-          fcmToken = e.toString();
-        }
 
         await _dbRef.child('${ConstFirebase.eventPath}/${ConstFirebase.sessionPath}/${auth.FirebaseAuth.instance.currentUser?.uid}').set({
           'document': document,
-          'fcmToken': fcmToken,
+          'fcmToken': '',
           'timestamp': DateTime.now().toIso8601String(),
         });
 

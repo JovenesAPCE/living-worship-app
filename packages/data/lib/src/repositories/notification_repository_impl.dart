@@ -5,10 +5,12 @@ import 'package:domain/domain.dart';
 import 'package:entities/entities.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:firebase_auth/firebase_auth.dart' as auth;
 
 class NotificationRepositoryImpl extends NotificationRepository{
   final db = FirebaseDatabase.instance.ref();
   bool _wasOpenNotification = false;
+  final DatabaseReference _dbRef = FirebaseDatabase.instance.ref();
 
   @override
   Future<void> updateNotification() async{
@@ -86,7 +88,17 @@ class NotificationRepositoryImpl extends NotificationRepository{
   Future<String> subscribeNotification() async{
     String fcmToken = "";
     try{
+      NotificationSettings settings = await FirebaseMessaging.instance.getNotificationSettings();
+
+      if (settings.authorizationStatus == AuthorizationStatus.notDetermined ||
+          settings.authorizationStatus == AuthorizationStatus.denied) {
+        settings = await FirebaseMessaging.instance.requestPermission();
+      }
       fcmToken = await FirebaseMessaging.instance.getToken()??"";
+      await _dbRef.child('${ConstFirebase.eventPath}/${ConstFirebase.sessionPath}/${auth.FirebaseAuth.instance.currentUser?.uid}')
+          .update({
+        'fcmToken': fcmToken
+      });
     }catch(e, stack){
       FBUtils.tryRecordError(e, stack: stack);
     }

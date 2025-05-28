@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jamt/constants/app_color.dart';
+import 'package:jamt/constants/app_font.dart';
 import 'package:jamt/feature/activities/view/activities_tab.dart';
 import 'package:jamt/feature/bulletin/bulletin.dart';
 import 'package:jamt/feature/home/view/home_tab.dart';
@@ -82,6 +83,25 @@ class _HomeState extends State<TabHomeScreen> {
             ),
           ],
         ),
+        bottomNavigationBar: _ButtonNav(),
+      ),
+    );
+  }
+}
+
+class _ButtonNav extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final notification = context.select(
+          (TabHomeBloc bloc) => bloc.state.notification,
+    );
+    return notification? SizedBox.shrink(): Container(
+      color: Colors.black,
+      padding: EdgeInsets.all(12),
+      child: Text(
+        '🔔 Las notificaciones están desactivadas. Actívalas desde el candado 🔒 del navegador.',
+        textAlign: TextAlign.center,
+        style: TextStyle(color: Colors.white, fontFamily: AppFont.fontTwo),
       ),
     );
   }

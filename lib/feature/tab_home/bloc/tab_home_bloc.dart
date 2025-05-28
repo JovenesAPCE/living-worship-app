@@ -25,8 +25,8 @@ class TabHomeBloc extends Bloc<TabHomeEvent, TabHomeState> {
       Emitter<TabHomeState> emit
       ) async{
 
-    await _subscribeNotificationUseCase.call();
-
+   String toke = await _subscribeNotificationUseCase.call();
+      emit(state.copyWith(notification: toke.isNotEmpty));
   }
 
   void _onDestinationSelected(
