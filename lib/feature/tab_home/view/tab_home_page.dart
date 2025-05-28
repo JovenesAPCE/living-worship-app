@@ -23,7 +23,7 @@ class TabHomePage extends StatelessWidget {
           subscribeNotificationUseCase: SubscribeNotificationUseCase(
               context.read<NotificationRepository>()
           )
-        )..add(IntTabHome()),
+        )..add(OnInitTabHome()),
         child:  TabHomeScreen()
     );
   }

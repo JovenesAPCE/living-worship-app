@@ -17,6 +17,10 @@ final class DestinationSelected extends TabHomeEvent {
   List<Object> get props => [destination];
 }
 
-final class IntTabHome  extends TabHomeEvent {
-  const IntTabHome();
+final class OnInitTabHome  extends TabHomeEvent {
+  const OnInitTabHome();
+}
+
+final class OnResumeTabHome  extends TabHomeEvent {
+  const OnResumeTabHome();
 }

@@ -25,9 +25,15 @@ class TabHomeScreen extends StatefulWidget {
   State<TabHomeScreen> createState() => _HomeState();
 }
 
-class _HomeState extends State<TabHomeScreen> {
+class _HomeState extends State<TabHomeScreen> with WidgetsBindingObserver {
   late final List<GlobalKey<NavigatorState>> _navigatorKeys;
 
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      context.read<TabHomeBloc>().add(OnResumeTabHome());
+    }
+  }
 
   @override
   void initState() {

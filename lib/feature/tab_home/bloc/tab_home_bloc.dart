@@ -15,18 +15,29 @@ class TabHomeBloc extends Bloc<TabHomeEvent, TabHomeState> {
 }) : _subscribeNotificationUseCase = subscribeNotificationUseCase,
         super(TabHomeState()) {
     on<DestinationSelected>(_onDestinationSelected);
-    on<IntTabHome>(_onIntTabHome);
+    on<OnInitTabHome>(_onIntTabHome);
+    on<OnResumeTabHome>(_onResumeTabHome);
   }
 
   final  SubscribeNotificationUseCase _subscribeNotificationUseCase;
-
+  bool _onInit = false;
   void _onIntTabHome(
-      IntTabHome event,
+      OnInitTabHome event,
       Emitter<TabHomeState> emit
       ) async{
-
-   String toke = await _subscribeNotificationUseCase.call();
+     String toke = await _subscribeNotificationUseCase.call();
       emit(state.copyWith(notification: toke.isNotEmpty));
+     _onInit = true;
+  }
+
+  void _onResumeTabHome(
+      OnResumeTabHome event,
+      Emitter<TabHomeState> emit
+      ) async{
+    if(_onInit){
+      String toke = await _subscribeNotificationUseCase.call();
+      emit(state.copyWith(notification: toke.isNotEmpty));
+    }
   }
 
   void _onDestinationSelected(
@@ -41,5 +52,6 @@ class TabHomeBloc extends Bloc<TabHomeEvent, TabHomeState> {
         String toke = await _subscribeNotificationUseCase.call();
         emit(state.copyWith(notification: toke.isNotEmpty));
       }
+
   }
 }
