@@ -42,27 +42,23 @@ class NavigationBloc
   final NotificationReceivedUseCase _notificationReceivedUseCase;
   final UnsubscribeNotificationUseCase _unsubscribeNotificationUseCase;
 
-  bool _initNotification = false;
+
 
   Future<void> _onInitNotification(
       OnInitNotification event,
       Emitter<NavigationState> emit,
       ) async {
-    if (!_initNotification) {
-      await emit.onEach(
-        _notificationReceivedUseCase.call(),
-        onData: (notification) {
-          emit(state.copyWith(notificationReceived: notification));
-        },
-      );
-      _initNotification = true;
-    }
   }
 
   Future<void> _onSubscriptionRequested(
       AuthenticationSubscriptionRequested event,
       Emitter<NavigationState> emit,
       ) {
+
+    emit.onEach(_notificationReceivedUseCase.call(),
+        onData: (notification){
+          emit(state.copyWith(notificationReceived: notification));
+        });
 
     emit.onEach(
         _getQrStatusUseCase.call(),

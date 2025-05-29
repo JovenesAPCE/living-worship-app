@@ -22,13 +22,14 @@ class UserTableAdapter extends TypeAdapter<UserTable> {
       ..session = fields[3] as String?
       ..pendingUpdate = fields[4] as bool?
       ..yesIPreacher = fields[5] as bool?
-      ..gender = fields[6] as String?;
+      ..gender = fields[6] as String?
+      ..notifyToken = fields[7] as String?;
   }
 
   @override
   void write(BinaryWriter writer, UserTable obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.document)
       ..writeByte(2)
@@ -40,7 +41,9 @@ class UserTableAdapter extends TypeAdapter<UserTable> {
       ..writeByte(5)
       ..write(obj.yesIPreacher)
       ..writeByte(6)
-      ..write(obj.gender);
+      ..write(obj.gender)
+      ..writeByte(7)
+      ..write(obj.notifyToken);
   }
 
   @override

@@ -25,6 +25,9 @@ class UserTable {
   @HiveField(6)
   String? gender;
 
+  @HiveField(7)
+  String? notifyToken;
+
   // Convertir modelo -> entidad
   User toEntity() => User(document: document, name: name, session: session, gender: gender);
 

@@ -68,9 +68,9 @@ class NotificationRepositoryImpl extends NotificationRepository{
 
   @override
   Stream<Notification> get notificationReceived async* {
-    final messaging = FirebaseMessaging.instance;
-    final settings = await messaging.requestPermission();
-    print('🔐 Permiso de notificación: ${settings.authorizationStatus}');
+    //final messaging = FirebaseMessaging.instance;
+    //final settings = await messaging.requestPermission();
+    //print('🔐 Permiso de notificación: ${settings.authorizationStatus}');
     yield* FirebaseMessaging.onMessage.map((message) => message.toEntity());
   }
 
@@ -78,6 +78,11 @@ class NotificationRepositoryImpl extends NotificationRepository{
   Future<void> unsubscribeNotification() async{
     try {
       await FirebaseMessaging.instance.deleteToken();
+      final user = HiveService.userBox.values.cast<UserTable?>().firstOrNull;
+      if(user != null){
+        user.notifyToken = "";
+        await HiveService.userBox.put(user.document, user);
+      }
       print('🔕 Token FCM eliminado, no se recibirán más notificaciones');
     } catch (e) {
       print('❌ Error al eliminar token: $e');
@@ -86,30 +91,35 @@ class NotificationRepositoryImpl extends NotificationRepository{
 
   @override
   Future<String> subscribeNotification() async{
-    String fcmToken = "";
-    try{
-      NotificationSettings settings = await FirebaseMessaging.instance.getNotificationSettings();
-      bool disabled = false;
-      if (settings.authorizationStatus == AuthorizationStatus.notDetermined ||
-          settings.authorizationStatus == AuthorizationStatus.denied) {
-        settings = await FirebaseMessaging.instance.requestPermission();
-        disabled = true;
-      }
-      if(settings.authorizationStatus == AuthorizationStatus.provisional||settings.authorizationStatus == AuthorizationStatus.authorized){
+    try {
+      // Obtener el primer usuario almacenado
+      final user = HiveService.userBox.values.cast<UserTable?>().firstOrNull;
+      if (user == null) return ""; // Evitar continuar si no hay usuario
+
+      // Intentar obtener el token de FCM
+      String fcmToken = "";
+      String userToken;
+      try {
         fcmToken = await FirebaseMessaging.instance.getToken()??"";
+        userToken = fcmToken;
+      } catch (e) {
+        userToken = e.toString();
       }
 
-      if(disabled && fcmToken.isNotEmpty){
+      // Si el token actual es diferente al guardado, actualizar
+      if (user.notifyToken != userToken) {
+        user.notifyToken = userToken;
+        await HiveService.userBox.put(user.document, user);
         await _dbRef.child('${ConstFirebase.eventPath}/${ConstFirebase.sessionPath}/${auth.FirebaseAuth.instance.currentUser?.uid}')
             .update({
-          'fcmToken': fcmToken
+          'fcmToken': userToken
         });
       }
-
-    }catch(e, stack){
+      return fcmToken;
+    } catch (e, stack) {
       FBUtils.tryRecordError(e, stack: stack);
+      return "";
     }
-    return fcmToken;
   }
 
 }
