@@ -19,6 +19,7 @@ class NavigationBloc
     required WasOpenNotificationUseCase wasOpenNotificationUseCase,
     required NotificationReceivedUseCase notificationReceivedUseCase,
     required UnsubscribeNotificationUseCase unsubscribeNotificationUseCase,
+    required LogScreenUseCase logScreeUseCase
   })  : _getAuthStatus = getAuthStatus,
         _logOutUseCase = logOutUseCase,
         _getUserUseCase = getUserUseCase,
@@ -26,6 +27,7 @@ class NavigationBloc
         _wasOpenNotificationUseCase = wasOpenNotificationUseCase,
         _notificationReceivedUseCase = notificationReceivedUseCase,
         _unsubscribeNotificationUseCase = unsubscribeNotificationUseCase,
+        _logScreeUseCase = logScreeUseCase,
         super(const NavigationState.unknown()) {
     on<AuthenticationSubscriptionRequested>(_onSubscriptionRequested);
     on<AuthenticationLogoutPressed>(_onLogoutPressed);
@@ -41,7 +43,7 @@ class NavigationBloc
   final WasOpenNotificationUseCase _wasOpenNotificationUseCase;
   final NotificationReceivedUseCase _notificationReceivedUseCase;
   final UnsubscribeNotificationUseCase _unsubscribeNotificationUseCase;
-
+  final LogScreenUseCase _logScreeUseCase;
 
 
   Future<void> _onInitNotification(
@@ -67,8 +69,10 @@ class NavigationBloc
             case QrStatus.scanning:
               return emit(state.copyWith(destination: Destination.qrScan));
             case QrStatus.checkIn:
+              _logScreeUseCase.call("NavigationBloc",  "QrStatus.${status.name}");
               return emit(state.copyWith(destination: Destination.qrCheckIn));
             case QrStatus.checkOut:
+              _logScreeUseCase.call("NavigationBloc",  "QrStatus.${status.name}");
               return emit(state.copyWith(destination: Destination.qrCheckOut));
             case QrStatus.hidden:
               return emit(state.copyWith(destination: Destination.tabHome));
@@ -95,6 +99,7 @@ class NavigationBloc
                   : const NavigationState.unauthenticated(),
             );
           case AuthStatus.unknown:
+            _logScreeUseCase.call("NavigationBloc",  AuthStatus.unknown.name);
             return emit(const NavigationState.unknown());
         }
       },
@@ -114,6 +119,7 @@ class NavigationBloc
             notificationReceived: Notification()
         )
     );
+    _logScreeUseCase.call("NavigateToFromNotification",  Destination.bulletins.name);
   }
 
   void _onNavigationPressed(
@@ -127,6 +133,7 @@ class NavigationBloc
             forceUpdate: DateTime.timestamp().millisecond
         )
     );
+    _logScreeUseCase.call("NavigationBloc",  event.destination.name);
   }
 
   void _onLogoutPressed(

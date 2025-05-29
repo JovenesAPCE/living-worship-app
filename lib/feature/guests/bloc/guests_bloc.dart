@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:domain/domain.dart';
 import 'package:equatable/equatable.dart';
 import 'package:jamt/feature/guests/guests.dart';
 import 'package:jamt/constants/constants.dart';
@@ -7,10 +8,15 @@ part 'guests_event.dart';
 part 'guests_state.dart';
 
 class GuestsBloc extends Bloc<GuestsEvent, GuestsState> {
-  GuestsBloc() : super(GuestsState()) {
+  GuestsBloc({
+    required  LogEventUseCase logEventUseCase
+}) : _logEventUseCase = logEventUseCase,
+        super(GuestsState()) {
     on<TabSelected>(_onTabSelected);
     on<GuestsSelected>(_onGuestsSelected);
   }
+
+  final LogEventUseCase _logEventUseCase;
 
   void _onGuestsSelected(GuestsSelected event,  Emitter<GuestsState> emit) {
     final updatedTabs = state.tabs.map((tab) {
@@ -29,12 +35,17 @@ class GuestsBloc extends Bloc<GuestsEvent, GuestsState> {
         tabs: updatedTabs
       )
     );
+    _logEventUseCase.call(name: "GuestsSelected", parameters: {
+      "name": event.guestCard.name
+    });
   }
 
   void _onTabSelected(TabSelected event,  Emitter<GuestsState> emit) {
     emit(state.copyWith(
         selectedIndex:  event.selectedIndex
     ));
-
+    _logEventUseCase.call(name: "GuestsTabSelected", parameters: {
+      "selectedIndex": event.selectedIndex
+    });
   }
 }

@@ -24,3 +24,4 @@ export 'notification/unsubscribe_notification_usecase.dart';
 export 'notification/subscribe_notification_usecase.dart';
 export 'analytics/config_user_usecase.dart';
 export 'analytics/log_screen_usecase.dart';
+export 'analytics/log_event_usecase.dart';

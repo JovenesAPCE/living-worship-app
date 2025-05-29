@@ -31,7 +31,10 @@ class SemiPlenaryTabs extends StatelessWidget {
           ),
           showCheckOutUseCase: ShowCheckOutUseCase(
               context.read<SemiPlenaryRepository>()
-          )
+          ),
+            logEventUseCase: LogEventUseCase(
+                context.read<AnalyticsRepository>()
+            )
         ),
         child: BlocListener<TabHomeBloc, TabHomeState>(
           listenWhen: (previous, current) => previous.destination != current.destination &&

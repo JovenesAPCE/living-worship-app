@@ -26,6 +26,9 @@ class QRPage extends StatelessWidget {
           ),
           registerSemiPlenaryCheckOutUseCase: RegisterSemiPlenaryCheckOutUseCase(
               context.read<SemiPlenaryRepository>()
+          ),
+          logEventUseCas: LogEventUseCase(
+              context.read<AnalyticsRepository>()
           )
         )
           ..add(QRPageSubscriptionRequested()),

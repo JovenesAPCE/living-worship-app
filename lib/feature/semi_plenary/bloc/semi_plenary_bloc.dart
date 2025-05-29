@@ -16,7 +16,8 @@ class SemiPlenaryBloc extends Bloc<SemiPlenaryEvent, SemiPlenaryState> {
     required GetRegisterSemiPlenariesUseCase getRegisterSemiPlenariesUseCase,
     required GetUserUseCase getUserUseCase,
     required ShowCheckInUseCase showCheckInUseCase,
-    required ShowCheckOutUseCase showCheckOutUseCase
+    required ShowCheckOutUseCase showCheckOutUseCase,
+    required LogEventUseCase logEventUseCase
   }) :
         _getSemiPlenariesUseCase = getSemiPlenariesUseCase,
         _updateSemiPlenariesUseCase = updateSemiPlenariesUseCase,
@@ -25,6 +26,7 @@ class SemiPlenaryBloc extends Bloc<SemiPlenaryEvent, SemiPlenaryState> {
         _getUserUseCase = getUserUseCase,
         _showCheckInUseCase = showCheckInUseCase,
         _showCheckOutUseCase = showCheckOutUseCase,
+        _logEventUseCase = logEventUseCase,
         super(SemiPlenaryState()) {
     on<LoadSemiPlenary>(_onSemiPlenarySubscriptionRequested);
     on<TabSelected>(_onTabSelected);
@@ -44,6 +46,7 @@ class SemiPlenaryBloc extends Bloc<SemiPlenaryEvent, SemiPlenaryState> {
   final GetUserUseCase _getUserUseCase;
   final ShowCheckInUseCase _showCheckInUseCase;
   final ShowCheckOutUseCase _showCheckOutUseCase;
+  final LogEventUseCase _logEventUseCase;
   void _onCheckOutPressed(OnCheckOutPressed event, Emitter<SemiPlenaryState> emit) async {
 
     if(event.groupSelected.selected != null){
@@ -52,6 +55,10 @@ class SemiPlenaryBloc extends Bloc<SemiPlenaryEvent, SemiPlenaryState> {
         id: event.groupSelected.selected?.id??""
       ), true);
     }
+    _logEventUseCase.call(name: "CheckOutPressed", parameters: {
+      "session_id": event.groupSelected.selected?.id??"",
+      "session_name":event.groupSelected.selected?.title??""
+    });
 
   }
 
@@ -61,6 +68,10 @@ class SemiPlenaryBloc extends Bloc<SemiPlenaryEvent, SemiPlenaryState> {
           id: event.groupSelected.selected?.id??""
       ), true);
     }
+    _logEventUseCase.call(name: "CheckInPressed", parameters: {
+      "session_id": event.groupSelected.selected?.id??"",
+      "session_name":event.groupSelected.selected?.title??""
+    });
   }
 
   void _onSemiPlenarySubscriptionRequested(LoadSemiPlenary event,  Emitter<SemiPlenaryState> emit) async{
@@ -217,6 +228,9 @@ class SemiPlenaryBloc extends Bloc<SemiPlenaryEvent, SemiPlenaryState> {
     emit(state.copyWith(
         selectedIndex: event.selectedIndex
     ));
+    _logEventUseCase.call(name: "TabSelected", parameters: {
+      "selectedIndex": event.selectedIndex
+    });
   }
 
   void _onOneSessionSelected(SessionSelected event,  Emitter<SemiPlenaryState> emit) {
@@ -232,6 +246,10 @@ class SemiPlenaryBloc extends Bloc<SemiPlenaryEvent, SemiPlenaryState> {
     emit(state.copyWith(
       groupedSessions: updatedGroups
     ));
+    _logEventUseCase.call(name: "TabSelected", parameters: {
+      "session_id": event.selected.id,
+      "session_name": event.selected.title
+    });
   }
 
   Future<List<SemiPlenaryTab>> _getGroupedSessionTabs() async {
@@ -279,6 +297,11 @@ class SemiPlenaryBloc extends Bloc<SemiPlenaryEvent, SemiPlenaryState> {
       sessionMessage: SessionMessage.empty(),
         groupedSessions: updatedGroups,
     ));
+    _logEventUseCase.call(name: "SessionSave", parameters: {
+      "session_id": event.groupSelected.selected?.id??"",
+      "session_name": event.groupSelected.selected?.title??"",
+      "group": event.groupSelected.group,
+    });
   }
 
   void _onOneSessionClose(SessionClose event,  Emitter<SemiPlenaryState> emit) {
@@ -295,6 +318,11 @@ class SemiPlenaryBloc extends Bloc<SemiPlenaryEvent, SemiPlenaryState> {
     emit(state.copyWith(
         groupedSessions: updatedGroups
     ));
+    _logEventUseCase.call(name: "SessionClose", parameters: {
+      "session_id": event.groupSelected.selected?.id??"",
+      "session_name": event.groupSelected.selected?.title??"",
+      "group": event.groupSelected.group,
+    });
   }
 
   void _onSessionRegister(SessionRegister event,  Emitter<SemiPlenaryState> emit) async {
@@ -443,7 +471,7 @@ class SemiPlenaryBloc extends Bloc<SemiPlenaryEvent, SemiPlenaryState> {
         sessionProgress: SessionProgress.empty(),
       ));
     });
-
+    _logEventUseCase.call(name: "SessionRegister");
   }
 
   Color hexToColor(String hex) {

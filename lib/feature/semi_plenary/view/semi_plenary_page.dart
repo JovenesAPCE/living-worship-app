@@ -46,6 +46,9 @@ class SemiPlenaryPage extends StatelessWidget {
             ),
             showCheckOutUseCase: ShowCheckOutUseCase(
                 context.read<SemiPlenaryRepository>()
+            ),
+            logEventUseCase: LogEventUseCase(
+                context.read<AnalyticsRepository>()
             )
         )..add(LoadSemiPlenary()),
         child:  Scaffold(

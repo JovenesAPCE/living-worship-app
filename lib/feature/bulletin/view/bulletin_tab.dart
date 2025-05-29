@@ -18,7 +18,11 @@ class BulletinTab extends StatelessWidget {
             ),
             getNotificationUseCase: GetNotificationUseCase(
                 context.read<NotificationRepository>()
-            )),
+            ),
+            logScreenUseCase: LogScreenUseCase(
+                context.read<AnalyticsRepository>()
+            )
+        ),
     child: BlocListener<TabHomeBloc, TabHomeState>(
       listenWhen: (previous, current) => previous.destination != current.destination &&
           current.destination == TabDestination.bulletin,

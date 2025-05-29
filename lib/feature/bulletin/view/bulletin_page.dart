@@ -33,7 +33,11 @@ class BulletinPage extends StatelessWidget {
             ),
             getNotificationUseCase: GetNotificationUseCase(
                 context.read<NotificationRepository>()
-            ))..add(LoadBulletin()),
+            ),
+          logScreenUseCase: LogScreenUseCase(
+              context.read<AnalyticsRepository>()
+          )
+        )..add(LoadBulletin()),
         child:  Scaffold(
           drawer: const HomeDrawer(),
           body:  PopScope(

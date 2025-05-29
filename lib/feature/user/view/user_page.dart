@@ -26,6 +26,9 @@ class UserPage extends StatelessWidget {
           ),
           getUserDecisionUseCase: GetUserDecisionUseCase(
               context.read<UserRepository>()
+          ),
+          logEventUseCase: LogEventUseCase(
+              context.read<AnalyticsRepository>()
           )
         )..add(RequestAddUser()),
         child: UserScreen()

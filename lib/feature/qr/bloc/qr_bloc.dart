@@ -11,13 +11,13 @@ part 'qr_state.dart';
 class QrBloc extends Bloc<QrEvent, QrState> {
   QrBloc({
     required DecryptSemiPlenaryQr decryptSemiPlenaryQr,
-    required RegisterSemiPlenaryCheckInUseCase
-    registerSemiPlenaryCheckInUseCase,
-    required RegisterSemiPlenaryCheckOutUseCase
-    registerSemiPlenaryCheckOutUseCase,
+    required RegisterSemiPlenaryCheckInUseCase registerSemiPlenaryCheckInUseCase,
+    required RegisterSemiPlenaryCheckOutUseCase registerSemiPlenaryCheckOutUseCase,
+    required  LogEventUseCase logEventUseCas,
   }) : _decryptSemiPlenaryQr = decryptSemiPlenaryQr,
        _registerSemiPlenaryCheckInUseCase = registerSemiPlenaryCheckInUseCase,
        _registerSemiPlenaryCheckOutUseCase = registerSemiPlenaryCheckOutUseCase,
+        _logEventUseCas = logEventUseCas,
        super(QrState()) {
     on<QRPageSubscriptionRequested>(_onQRPageSubscriptionRequested);
     on<CodeScanData>(_onCodeScanData);
@@ -27,12 +27,14 @@ class QrBloc extends Bloc<QrEvent, QrState> {
   final DecryptSemiPlenaryQr _decryptSemiPlenaryQr;
   final RegisterSemiPlenaryCheckInUseCase _registerSemiPlenaryCheckInUseCase;
   final RegisterSemiPlenaryCheckOutUseCase _registerSemiPlenaryCheckOutUseCase;
+  final LogEventUseCase _logEventUseCas;
   int readQr = 0;
-
+  Set<String> logs = <String>{};
   void _onQRPageSubscriptionRequested(
     QRPageSubscriptionRequested event,
     Emitter<QrState> emit,
   ) {
+    logs.clear();
     readQr = 1;
     emit(state.copyWith(qrMessage: QRMessage.empty(), progress: false));
   }
@@ -43,22 +45,18 @@ class QrBloc extends Bloc<QrEvent, QrState> {
       await result.fold(
         (failure) async {
           if (failure is InvalidSemiPlenaryQr) {
-            emit(
-              state.copyWith(
-                progress: false,
-                qrMessage: QRMessage.error(
+            _emitMessageOnce(
+                emit,
+                QRMessage.error(
                   "El código QR no es válido o está dañado.",
-                ),
-              ),
+                )
             );
           } else if (failure is UnknownSemiPlenaryQr) {
-            emit(
-              state.copyWith(
-                progress: false,
-                qrMessage: QRMessage.warning(
+            _emitMessageOnce(
+                emit,
+                QRMessage.warning(
                   "El QR pertenece a otro tipo de evento o acción no reconocida.",
-                ),
-              ),
+                )
             );
           }
         },
@@ -101,76 +99,60 @@ class QrBloc extends Bloc<QrEvent, QrState> {
         readQr = 1;
         print("failure $failure");
         if (failure is UserNotExist) {
-          emit(
-            state.copyWith(
-              progress: false,
-              qrMessage: QRMessage.error(
+          _emitMessageOnce(
+            emit,
+              QRMessage.error(
                 'No pudimos reconocer tu usuario. Asegúrate de estar registrado en el evento.',
-              ),
-            ),
+              )
           );
         } else if (failure is SessionNotExist) {
-          emit(
-            state.copyWith(
-              progress: false,
-              qrMessage: QRMessage.error(
-                'Tu sesión ha expirado. Vuelve a iniciar sesión para escanear el QR.',
-              ),
+          _emitMessageOnce(
+            emit,
+            QRMessage.error(
+              'Tu sesión ha expirado. Vuelve a iniciar sesión para escanear el QR.',
             ),
           );
         } else if (failure is NoInternetRegisterSemiPlenary) {
-          emit(
-            state.copyWith(
-              progress: false,
-              qrMessage: QRMessage.warning(
-                'Parece que no tienes conexión a internet. Conéctate y vuelve a intentarlo.',
-              ),
+          _emitMessageOnce(
+            emit,
+            QRMessage.warning(
+              'Parece que no tienes conexión a internet. Conéctate y vuelve a intentarlo.',
             ),
           );
         } else if (failure is UnknownRegisterSemiPlenary ||
             failure is UnknownRegisterSemiPlenaryQr) {
-          emit(
-            state.copyWith(
-              progress: false,
-              qrMessage: QRMessage.warning(
-                'Ocurrió un error inesperado al intentar registrar tu ingreso. Intenta nuevamente en unos segundos.',
-              ),
+          _emitMessageOnce(
+            emit,
+            QRMessage.warning(
+              'Ocurrió un error inesperado al intentar registrar tu ingreso. Intenta nuevamente en unos segundos.',
             ),
           );
         } else if (failure is UserHasRegisteredInSemiPlenary) {
-          emit(
-            state.copyWith(
-              progress: false,
-              qrMessage: QRMessage.info(
-                'Ya has registrado tu ingreso a esta semiplenaria.',
-              ),
+          _emitMessageOnce(
+            emit,
+            QRMessage.info(
+              'Ya has registrado tu ingreso a esta semiplenaria.',
             ),
           );
         } else if (failure is UserHasNotRegisteredInSemiPlenary) {
-          emit(
-            state.copyWith(
-              progress: false,
-              qrMessage: QRMessage.warning(
-                'Aún no has registrado tu ingreso a esta semiplenaria. Escanea el QR correcto para registrar tu asistencia.',
-              ),
+          _emitMessageOnce(
+            emit,
+            QRMessage.warning(
+              'Aún no has registrado tu ingreso a esta semiplenaria. Escanea el QR correcto para registrar tu asistencia.',
             ),
           );
         } else if (failure is InvalidServerTimestampRegisterSemiPlenaryQr) {
-          emit(
-            state.copyWith(
-              progress: false,
-              qrMessage: QRMessage.warning(
-                'Este QR no está habilitado. El ingreso a esta semiplenaria solo se permite en el horario programado.',
-              ),
+          _emitMessageOnce(
+            emit,
+            QRMessage.warning(
+              'Este QR no está habilitado. El ingreso a esta semiplenaria solo se permite en el horario programado.',
             ),
           );
         } else {
-          emit(
-            state.copyWith(
-              progress: false,
-              qrMessage: QRMessage.error(
-                'Algo salió mal. Por favor intenta escanear nuevamente o consulta con un voluntario.',
-              ),
+          _emitMessageOnce(
+            emit,
+            QRMessage.error(
+              'Algo salió mal. Por favor intenta escanear nuevamente o consulta con un voluntario.',
             ),
           );
         }
@@ -179,6 +161,7 @@ class QrBloc extends Bloc<QrEvent, QrState> {
         readQr = 0;
         emit(state.copyWith(qrMessage: QRMessage.empty()));
         print("right");
+        _messageOnce("Success");
       },
     );
   }
@@ -193,84 +176,93 @@ class QrBloc extends Bloc<QrEvent, QrState> {
         readQr = 1;
         print("failure $failure");
         if (failure is UserNotExist) {
-          emit(
-            state.copyWith(
-              progress: false,
-              qrMessage: QRMessage.error(
-                'No pudimos reconocer tu usuario. Asegúrate de estar registrado en el evento.',
-              ),
+          _emitMessageOnce(
+            emit,
+            QRMessage.error(
+              'No pudimos reconocer tu usuario. Asegúrate de estar registrado en el evento.',
             ),
           );
         } else if (failure is SessionNotExist) {
-          emit(
-            state.copyWith(
-              progress: false,
-              qrMessage: QRMessage.error(
-                'Tu sesión ha expirado. Vuelve a iniciar sesión para escanear el QR.',
-              ),
+          _emitMessageOnce(
+            emit,
+            QRMessage.error(
+              'Tu sesión ha expirado. Vuelve a iniciar sesión para escanear el QR.',
             ),
           );
         } else if (failure is NoInternetRegisterSemiPlenary) {
-          emit(
-            state.copyWith(
-              progress: false,
-              qrMessage: QRMessage.warning(
-                'Parece que no tienes conexión a internet. Conéctate y vuelve a intentarlo.',
-              ),
+          _emitMessageOnce(
+            emit,
+            QRMessage.warning(
+              'Parece que no tienes conexión a internet. Conéctate y vuelve a intentarlo.',
             ),
           );
         } else if (failure is UnknownRegisterSemiPlenary ||
             failure is UnknownRegisterSemiPlenaryQr) {
-          emit(
-            state.copyWith(
-              progress: false,
-              qrMessage: QRMessage.warning(
-                'Ocurrió un error inesperado al intentar registrar tu ingreso. Intenta nuevamente en unos segundos.',
-              ),
+          _emitMessageOnce(
+            emit,
+            QRMessage.warning(
+              'Ocurrió un error inesperado al intentar registrar tu ingreso. Intenta nuevamente en unos segundos.',
             ),
           );
         } else if (failure is UserHasRegisteredInSemiPlenary) {
-          emit(
-            state.copyWith(
-              progress: false,
-              qrMessage: QRMessage.info(
-                'Ya has registrado tu ingreso a esta semiplenaria.',
-              ),
+          _emitMessageOnce(
+            emit,
+            QRMessage.info(
+              'Ya has registrado tu ingreso a esta semiplenaria.',
             ),
           );
         } else if (failure is UserHasNotRegisteredInSemiPlenary) {
-          emit(
-            state.copyWith(
-              progress: false,
-              qrMessage: QRMessage.warning(
-                'Aún no has registrado tu ingreso a esta semiplenaria. Escanea el QR correcto para registrar tu asistencia.',
-              ),
+          _emitMessageOnce(
+            emit,
+            QRMessage.warning(
+              'Aún no has registrado tu ingreso a esta semiplenaria. Escanea el QR correcto para registrar tu asistencia.',
             ),
           );
         } else if (failure is InvalidServerTimestampRegisterSemiPlenaryQr) {
-          emit(
-            state.copyWith(
-              progress: false,
-              qrMessage: QRMessage.warning(
-                'Este QR no está habilitado. El ingreso a esta semiplenaria solo se permite en el horario programado.',
-              ),
+          _emitMessageOnce(
+            emit,
+            QRMessage.warning(
+              'Este QR no está habilitado. El ingreso a esta semiplenaria solo se permite en el horario programado.',
             ),
           );
         } else {
-          emit(
-            state.copyWith(
-              progress: false,
-              qrMessage: QRMessage.error(
-                'Algo salió mal. Por favor intenta escanear nuevamente o consulta con un voluntario.',
-              ),
+          _emitMessageOnce(
+            emit,
+            QRMessage.error(
+              'Algo salió mal. Por favor intenta escanear nuevamente o consulta con un voluntario.',
             ),
           );
         }
       },
       (right) {
         readQr = 0;
+        _messageOnce("Success");
         print("right");
       },
     );
+  }
+
+  void _messageOnce(String message,) {
+    if (!logs.contains(message)) {
+      logs.add(message);
+    }
+  }
+  void _emitMessageOnce(
+      Emitter<QrState> emit,
+      QRMessage message,
+      ) {
+    if (!logs.contains(message.message)) {
+      logs.add(message.message);
+    }
+    emit(state.copyWith(progress: false, qrMessage: message));
+  }
+
+  @override
+  Future<void> close() async {
+    for (var log in logs) {
+      await _logEventUseCas.call(name: log);
+    }
+    logs.clear();
+    return super.close();
   }
 }

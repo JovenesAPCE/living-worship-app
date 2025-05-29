@@ -87,7 +87,7 @@ class GuestsState extends Equatable {
               name: "Lic. Jaime Vilcapoma",
               schedule: "",
               image: AppImages.guests6, // Reemplaza con asset correcto
-              issue: "",
+              issue: "Creación de Contenido para Redes Sociales: IA + IR",
               review: '''<p>Es graduado en Ciencias de la Comunicación y cuenta con una trayectoria profesional en el ámbito institucional y mediático. Con más de 16 años de experiencia trabajando para la Iglesia Adventista del Séptimo Día, ha liderado estrategias de comunicación, producción de contenidos y posicionamiento digital.</p>
 <p>Desde hace 14 años forma parte de la Unión Peruana del Norte, donde actualmente se desempeña como Gerente General de Comunicación, liderando proyectos innovadores orientados a la misión a través de los medios y plataformas digitales.</p>
 <p>En el ámbito eclesiástico, está investido como líder J.A. y actualmente sirve como Director del Ministerio Joven de la Iglesia Adventista de Villa Unión, en Ñaña - Lima.</p>

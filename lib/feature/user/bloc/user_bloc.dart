@@ -12,10 +12,12 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     required SaveUserDecisionUseCase saveUserDecisionUseCase,
     required GetPathWhatsAppGroupUseCase getPathWhatsAppGroupUseCase,
     required GetUserDecisionUseCase getUserDecisionUseCase,
+    required LogEventUseCase logEventUseCase
   }) :
         _saveUserDecisionUseCase = saveUserDecisionUseCase,
         _getPathWhatsAppGroupUseCase = getPathWhatsAppGroupUseCase,
         _getUserDecisionUseCase = getUserDecisionUseCase,
+        _logEventUseCase  = logEventUseCase,
         super(UserState()) {
     on<OnSelectedDecision>(_onSelectedDecision);
     on<OnCompleteDecision>(_onCompleteDecision);
@@ -31,11 +33,13 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   final GetPathWhatsAppGroupUseCase _getPathWhatsAppGroupUseCase;
   final SaveUserDecisionUseCase _saveUserDecisionUseCase;
   final GetUserDecisionUseCase _getUserDecisionUseCase;
+  final LogEventUseCase _logEventUseCase;
 
   _requestAddUser(RequestAddUser event, Emitter<UserState> emit) async{
     emit(state.copyWith(
        progress: true,
     ));
+
    var result = await _getPathWhatsAppGroupUseCase.call();
 
    await result.fold((error) async {
@@ -116,6 +120,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   }
 
   _openWhatsAppGroup(OpenWhatsAppGroup event, Emitter<UserState> emit){
+    _logEventUseCase.call(name: "openWhatsAppGroup");
     emit(state.copyWith(
       openLaunchUrlNative: state.whatsAppGroup
     ));
@@ -130,6 +135,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   }
 
   _onReConfirmDecision(OnReConfirmDecision event, Emitter<UserState> emit) async{
+    _logEventUseCase.call(name: "ReConfirmDecision");
     if(!state.phoneError){
       if(state.phone.isEmpty){
         emit(state.copyWith(
@@ -198,6 +204,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   }
 
   _onMaybeLaterDecision(OnMaybeLaterDecision event, Emitter<UserState> emit) async{
+    _logEventUseCase.call(name: "MaybeLaterDecision");
     if(!state.phoneError && !state.emailError){
       if(state.phone.isEmpty){
         emit(state.copyWith(
@@ -337,14 +344,17 @@ class UserBloc extends Bloc<UserEvent, UserState> {
         orElse: () => UserDecision(id: 0, name: "", selected: false)
     );
     if(select.id == 1){
+      _logEventUseCase.call(name: "User.pageTwo");
       emit(state.copyWith(
         pageState: UserPageState.pageTwo
       ));
     }else if(select.id == 2){
+      _logEventUseCase.call(name: "User.pageTwoVariant");
       emit(state.copyWith(
           pageState: UserPageState.pageTwoVariant
       ));
     }else if(select.id == 3){
+      _logEventUseCase.call(name: "User.pageSuccess");
       emit(state.copyWith(
           close: true
       ));
