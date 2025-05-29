@@ -92,18 +92,31 @@ class NotificationRepositoryImpl extends NotificationRepository{
   @override
   Future<String> subscribeNotification() async{
     try {
+
       // Obtener el primer usuario almacenado
       final user = HiveService.userBox.values.cast<UserTable?>().firstOrNull;
       if (user == null) return ""; // Evitar continuar si no hay usuario
 
+      NotificationSettings settings = await FirebaseMessaging.instance.getNotificationSettings();
+
+      if (settings.authorizationStatus == AuthorizationStatus.notDetermined ||
+          settings.authorizationStatus == AuthorizationStatus.denied) {
+        settings = await FirebaseMessaging.instance.requestPermission();
+      }
       // Intentar obtener el token de FCM
       String fcmToken = "";
       String userToken;
-      try {
-        fcmToken = await FirebaseMessaging.instance.getToken()??"";
-        userToken = fcmToken;
-      } catch (e) {
-        userToken = e.toString();
+
+      if(settings.authorizationStatus == AuthorizationStatus.provisional ||
+          settings.authorizationStatus == AuthorizationStatus.authorized){
+        try {
+          fcmToken = await FirebaseMessaging.instance.getToken()??"";
+          userToken = fcmToken;
+        } catch (e) {
+          userToken = e.toString();
+        }
+      }else {
+        userToken = "Sin autorizacion";
       }
 
       // Si el token actual es diferente al guardado, actualizar
