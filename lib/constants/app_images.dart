@@ -37,6 +37,7 @@ class AppImages {
   static const String activityImage2= '${_base}activity_image_2.webp';
   static const String activityImage3= '${_base}activity_image_3.webp';
   static const String activityImage4= '${_base}activity_image_4.webp';
+  static const String activityImage5= '${_base}activity_image_5.webp';
 
   static const String guestCard1 = '${_base}guest_card_1.webp';
   static const String guestCard2 = '${_base}guest_card_2.webp';

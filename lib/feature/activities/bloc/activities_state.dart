@@ -13,7 +13,7 @@ final class ActivitiesState extends Equatable{
         details: [
           CardDetailActivity(
             body: "Conoce al presidente de la APCE y su labor en la misión.",
-            image: AppImages.activityImage3,
+            image: AppImages.activityImage5,
           ),
           CardDetailActivity(
             body: "Descubre quién es el departamental de jóvenes de la APCE y su rol en el liderazgo juvenil.",
