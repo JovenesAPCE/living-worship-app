@@ -130,7 +130,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   }
 
   _onReConfirmDecision(OnReConfirmDecision event, Emitter<UserState> emit) async{
-    if(!state.phoneError && !state.emailError){
+    if(!state.phoneError){
       if(state.phone.isEmpty){
         emit(state.copyWith(
             phoneError: true,
