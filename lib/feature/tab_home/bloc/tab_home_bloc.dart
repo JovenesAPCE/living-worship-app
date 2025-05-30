@@ -51,7 +51,7 @@ class TabHomeBloc extends Bloc<TabHomeEvent, TabHomeState> {
         state.copyWith(
           destination: event.destination
         ));
-      _logScreeUseCase.call("TabHomeBloc", event.destination.name);
+      _logScreeUseCase.call(event.destination.name, "TabHomeBloc");
       if(event.destination == TabDestination.bulletin){
         String toke = await _subscribeNotificationUseCase.call();
         emit(state.copyWith(notification: toke.isNotEmpty));

@@ -93,12 +93,14 @@ class GuestsState extends Equatable {
 <p>En el ámbito eclesiástico, está investido como líder J.A. y actualmente sirve como Director del Ministerio Joven de la Iglesia Adventista de Villa Unión, en Ñaña - Lima.</p>
 <p>Desde este espacio, lidera iniciativas de discipulado, capacitación y movilización juvenil, bajo el enfoque del Plan Maranata (MRNT), fortaleciendo la identidad adventista y motivando a cientos de jóvenes a vivir la misión con pasión, convicción y propósito.</p>'''
           ),
-          GuestCard(name: "Pedro Valença", schedule: "", image: AppImages.guests15, issue: 'Autoconocimiento vocal y rutinas para mejorar el rendimiento (solo varones)'),
+          GuestCard(name: "Pedro Valença",
+              schedule: "🔄 ¡Nuevo horario y asistencia general!", image: AppImages.guests15,
+              issue: 'Autoconocimiento vocal y rutinas para mejorar el rendimiento'),
           GuestCard(
               name: "Joyce Carnassale",
-              schedule: "",
+              schedule: "🔄 ¡Nuevo horario y asistencia general!",
               image: AppImages.guests17,
-              issue: 'Autoconocimiento vocal y rutinas para mejorar el rendimiento (solo mujeres)',
+              issue: 'Autoconocimiento vocal y rutinas para mejorar el rendimiento',
               review: '''<p>Joyce Carnassale es natural de São Paulo, Brasil. Se graduó en Educación Artística en el Centro Universitario Adventista de São Paulo (Unasp).</p>
 <p>Durante su tiempo en el campus, trabajó como directora asistente del coro infantil (conformado por aproximadamente 400 niños), y al año siguiente asumió la dirección general del mismo.</p>
 <p>Paralelamente, dirigía el coro del nivel de secundaria como parte del currículo escolar, y también lideraba el coro Canção Jovem, el coro oficial del campus, integrado por niños y adolescentes.</p>
@@ -111,7 +113,9 @@ class GuestsState extends Equatable {
 <p>Paralelamente, trabaja como estratega de redes sociales para una firma de abogados en Europa.</p>
 <p>Combina su pasión por la comunicación y la gestión digital con un compromiso profundo por la comunidad sorda y el voluntariado.</p>'''
           ),
-          GuestCard(name: "Pr. Apolinar Milian", schedule: "", image: AppImages.guests20, issue: 'Plan de Vuelo: ¿Cómo diseñar tu vida con visión, fe y acción?'),
+          GuestCard(name: "Pr. Apolinar Milian", schedule: "", image: AppImages.guests21, issue: 'Plan de Vuelo: ¿Cómo diseñar tu vida con visión, fe y acción?',
+              review: '''<p>El Pr. Apolinar Milián Chávez es Licenciado en Teología y Salud Pública, Magíster en Misionología y actualmente cursa un doctorado en Teología Pastoral en la Universidad Peruana Unión. Ha servido como pastor y departamental en varias regiones del norte del Perú, incluyendo MINOP, la Misión Peruana del Norte y la Asociación Nor Pacífico.</p>
+<p>Desde junio de 2024 es director de Publicaciones en la Asociación Peruana Central Este. Su pasión es predicar el Evangelio, formar líderes juveniles y motivar al servicio misionero a través del colportaje.</p>'''),
         ]
       ),
       GuestTab(

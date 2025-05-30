@@ -34,7 +34,7 @@ class App extends StatelessWidget {
         ),
         RepositoryProvider<UserRepository>(create: (_) => UserRepositoryImpl()),
         RepositoryProvider<NotificationRepository>(create: (_) => NotificationRepositoryImpl()),
-        RepositoryProvider<AnalyticsRepository>(create: (_) => AnalyticsRepositoryImpl()),
+        RepositoryProvider<AnalyticsRepository>(create: (_) => AnalyticsRepositoryImpl(isDebug: kDebugMode)),
         RepositoryProvider<SemiPlenaryRepository>(
             create: (_) => SemiPlenaryRepositoryImpl(),
             dispose: (repository) {

@@ -61,6 +61,7 @@ class AppImages {
   static const String guests18 = '${_base}guests_18.webp';
   static const String guests19 = '${_base}guests_19.webp';
   static const String guests20 = '${_base}guests_20.webp';
+  static const String guests21 = '${_base}guests_21.webp';
   static const String guideCard1 = '${_base}guide_card_1.webp';
   static const String bulletin1 = '${_base}bulletin_1.webp';
 

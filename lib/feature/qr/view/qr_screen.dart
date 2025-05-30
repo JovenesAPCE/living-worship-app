@@ -14,11 +14,37 @@ class ScanQrScreen extends StatefulWidget {
   State<ScanQrScreen> createState() => _ScanQrScreenState();
 }
 
-class _ScanQrScreenState extends State<ScanQrScreen> {
+class _ScanQrScreenState extends State<ScanQrScreen> with WidgetsBindingObserver{
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
   QRViewController? controller;
   String scanResult = '';
   bool qrViewInitialized = false;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this); // 👈 observador
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (kIsWeb && controller != null) {
+      if (state == AppLifecycleState.inactive || state == AppLifecycleState.paused) {
+        controller?.pauseCamera();
+        debugPrint("📷 Cámara pausada (Web - sin foco)");
+      } else if (state == AppLifecycleState.resumed) {
+        controller?.resumeCamera();
+        debugPrint("📷 Cámara reanudada (Web)");
+      }
+    }
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this); // 👈 elimina observador
+    controller?.dispose();
+    super.dispose();
+  }
 
   @override
   void reassemble() {
@@ -27,11 +53,6 @@ class _ScanQrScreenState extends State<ScanQrScreen> {
     controller?.resumeCamera();
   }
 
-  @override
-  void dispose() {
-    controller?.dispose();
-    super.dispose();
-  }
 
   @override
   void didPushNext() {
