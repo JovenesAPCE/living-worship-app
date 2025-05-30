@@ -111,6 +111,7 @@ class GuestsState extends Equatable {
 <p>Paralelamente, trabaja como estratega de redes sociales para una firma de abogados en Europa.</p>
 <p>Combina su pasión por la comunicación y la gestión digital con un compromiso profundo por la comunidad sorda y el voluntariado.</p>'''
           ),
+          GuestCard(name: "Pr. Apolinar Milian", schedule: "", image: AppImages.guests20, issue: 'Plan de Vuelo: ¿Cómo diseñar tu vida con visión, fe y acción?'),
         ]
       ),
       GuestTab(
