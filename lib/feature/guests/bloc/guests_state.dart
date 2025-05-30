@@ -113,7 +113,7 @@ class GuestsState extends Equatable {
 <p>Paralelamente, trabaja como estratega de redes sociales para una firma de abogados en Europa.</p>
 <p>Combina su pasión por la comunicación y la gestión digital con un compromiso profundo por la comunidad sorda y el voluntariado.</p>'''
           ),
-          GuestCard(name: "Pr. Apolinar Milian", schedule: "", image: AppImages.guests21, issue: 'Plan de Vuelo: ¿Cómo diseñar tu vida con visión, fe y acción?',
+          GuestCard(name: "Pr. Jefferson Rivera", schedule: "", image: AppImages.guests21, issue: 'Plan de vuelo:¿Cómo diseñar tu vida con visión, fe y acción?',
               review: '''<p>El Pr. Apolinar Milián Chávez es Licenciado en Teología y Salud Pública, Magíster en Misionología y actualmente cursa un doctorado en Teología Pastoral en la Universidad Peruana Unión. Ha servido como pastor y departamental en varias regiones del norte del Perú, incluyendo MINOP, la Misión Peruana del Norte y la Asociación Nor Pacífico.</p>
 <p>Desde junio de 2024 es director de Publicaciones en la Asociación Peruana Central Este. Su pasión es predicar el Evangelio, formar líderes juveniles y motivar al servicio misionero a través del colportaje.</p>'''),
         ]

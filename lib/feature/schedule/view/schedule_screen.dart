@@ -89,7 +89,7 @@ class ScheduleScreen extends StatelessWidget {
                           "<p><b>✦ 7:20</b> - Concentración en la Carpa principal</p>"
                           "<p><b>✦ 8:00</b> - Maranata Class</p>"
                           "<p><b>✦ 8:26</b> - Semiplenarias y Expo Joven</p>"
-                          "<p><b>✦ 9:30</b> - 🔊 Nueva Semiplenaria General “Autoconocimiento vocal y rutinas para mejorar el rendimiento” con Pedro & Joyce</p>"
+                          "<p><b>✦ 9:30</b> - 🔊 Nueva Semiplenaria General en la Carpa Móvil “Autoconocimiento vocal y rutinas para mejorar el rendimiento” con Pedro & Joyce</p>"
                           "<p><b>✦ 9:56</b> - Concentración en la Carpa principal</p>"
                           "<p><b>✦ 10:30</b> - Desfile Maranata Class</p>"
                           "<p><b>✦ 11:20</b> - Mensaje</p>"
