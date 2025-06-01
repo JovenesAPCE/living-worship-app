@@ -107,7 +107,7 @@ class ScheduleScreen extends StatelessWidget {
                           "<p><b>✦ 18:50</b> - Tiempo de Cena</p>"
                           "<p></p>"
                           "<p><b>NOCHE</b></p>"
-                          "<p><b>✦ 19:50</b> - Concentración en la Carpa principal</p>"
+                          "<p><b>✦ 20:30</b> - Concentración en la Carpa principal</p>"
                           "<p><b>✦ 20:10</b> - Énfasis por regiones</p>"
                           "<p><b>✦ 20:50</b> - Mensaje</p>"
                           "<p><b>✦ 21:30</b> - Regreso al área de campamento</p>"
