@@ -61,19 +61,19 @@
       "size" : "20x20"
     },
     {
-      "filename" : "AppIcon-20@2x~ipad.png",
+      "filename" : "AppIcon-40~ipad 1.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
-      "filename" : "AppIcon-29~ipad.png",
+      "filename" : "AppIcon-29 1.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "29x29"
     },
     {
-      "filename" : "AppIcon-29@2x~ipad.png",
+      "filename" : "AppIcon-29@2x~ipad 1.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "29x29"
@@ -85,13 +85,13 @@
       "size" : "40x40"
     },
     {
-      "filename" : "AppIcon-40@2x~ipad.png",
+      "filename" : "AppIcon-40@2x 2.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
-      "filename" : "AppIcon~ipad.png",
+      "filename" : "Proyecto nuevo (7).png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "76x76"
